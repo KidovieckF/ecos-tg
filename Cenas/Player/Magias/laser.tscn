@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://d0ass716ubadl"]
+
+[ext_resource type="Script" uid="uid://cugvbbbx27edq" path="res://Scripts/Magias/laser.gd" id="1_uc226"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uc226"]
+bg_color = Color(0.33142424, 0.67001677, 0.6141732, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fcbh"]
+size = Vector2(1150, 39.5)
+
+[node name="Laser" type="Area2D" unique_id=2063849409]
+z_index = 2
+collision_layer = 6
+collision_mask = 6
+script = ExtResource("1_uc226")
+
+[node name="Panel" type="Panel" parent="." unique_id=1726639923]
+offset_top = -20.0
+offset_bottom = 20.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uc226")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=594231190]
+position = Vector2(575, 0)
+shape = SubResource("RectangleShape2D_4fcbh")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=942666609]
+target_position = Vector2(1156, 0)
+collision_mask = 7
+
+[node name="Line2D" type="Line2D" parent="." unique_id=2125605310]
+visible = false
+position = Vector2(10, -20)
+scale = Vector2(1.0161017, 1)
+points = PackedVector2Array(-10, 20, 1150, 20)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

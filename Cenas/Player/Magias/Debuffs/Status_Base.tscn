@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://40rw2m5pv6gl"]
+
+[ext_resource type="Script" uid="uid://bb1biigx5jplc" path="res://Scripts/Magias/Debuffs/status_base.gd" id="1_s0wnf"]
+
+[node name="Node2D" type="Node2D" unique_id=1720598116]
+script = ExtResource("1_s0wnf")
+
+[node name="Timer" type="Timer" parent="." unique_id=1264403292]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

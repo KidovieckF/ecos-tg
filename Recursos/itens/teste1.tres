@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://c8y4dlwklghlx"]
+
+[ext_resource type="Script" uid="uid://8c037puqgbug" path="res://Recursos/itens_data.gd" id="1_nlwxe"]
+[ext_resource type="Texture2D" uid="uid://ldrlxssllyg5" path="res://teste.png" id="2_wq6t2"]
+
+[resource]
+script = ExtResource("1_nlwxe")
+Nome = "Teste1"
+preco = 1
+textura = ExtResource("2_wq6t2")
+efeito = "Dano +1"
+valor_efeito = 1
+metadata/_custom_type_script = "uid://8c037puqgbug"

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://8yl0wbd7vevn"]
+
+[ext_resource type="Script" uid="uid://bpdqto5yjtim6" path="res://Scripts/Player/proj_masc.gd" id="1_inblm"]
+[ext_resource type="Texture2D" uid="uid://bh6fc76w8pbv7" path="res://icon.svg" id="2_0y2wh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pub8"]
+size = Vector2(69, 13)
+
+[node name="ProjMasc" type="Area2D" unique_id=816314578]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("1_inblm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=336198128]
+position = Vector2(-2.3841858e-07, -5.684342e-14)
+scale = Vector2(0.54296875, 0.106144264)
+texture = ExtResource("2_0y2wh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=399093469]
+shape = SubResource("RectangleShape2D_1pub8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

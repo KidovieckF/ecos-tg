@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c7kw4p5aoermv"]
+
+[ext_resource type="PackedScene" uid="uid://tg2ghdhmth" path="res://Cenas/Player/player.tscn" id="1_sutly"]
+[ext_resource type="PackedScene" uid="uid://cn8y5s0pru1up" path="res://Cenas/Mundo/HUD.tscn" id="2_72v6r"]
+[ext_resource type="Script" uid="uid://qqihy0npalqk" path="res://Scripts/MapaGen/mapa_gen.gd" id="3_bfxb6"]
+
+[node name="Node2D" type="Node2D" unique_id=809557447]
+y_sort_enabled = true
+
+[node name="Player" parent="." unique_id=2096888764 instance=ExtResource("1_sutly")]
+
+[node name="HUD" parent="." unique_id=856288748 instance=ExtResource("2_72v6r")]
+
+[node name="MapGenerator" type="Node" parent="." unique_id=1303301862 node_paths=PackedStringArray("player")]
+script = ExtResource("3_bfxb6")
+player = NodePath("../Player")

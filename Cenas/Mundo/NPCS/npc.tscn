@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dxd5x5mpfk775"]
+
+[ext_resource type="Texture2D" uid="uid://bh6fc76w8pbv7" path="res://icon.svg" id="1_7d1ki"]
+[ext_resource type="Script" uid="uid://y42mjlpgpaur" path="res://Scripts/Mundo/NPCS/npc.gd" id="1_jfeb3"]
+[ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/FalaRecurso.gd" id="2_pga6u"]
+[ext_resource type="Resource" uid="uid://xerumnbc3lwc" path="res://Recursos/Npcs/Dialogos/Dialogo1.tres" id="3_6s67h"]
+[ext_resource type="Resource" uid="uid://dcmd1h5obd6fo" path="res://Recursos/Npcs/Dialogos/Dialogo1.2.tres" id="4_6s67h"]
+[ext_resource type="Resource" uid="uid://bgbermybki7fo" path="res://Recursos/Npcs/Dialogos/Dialogo1.3.tres" id="5_tcd3m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jfeb3"]
+radius = 78.160095
+
+[node name="Npc" type="Area2D" unique_id=270457254]
+script = ExtResource("1_jfeb3")
+dialogo = Array[ExtResource("2_pga6u")]([ExtResource("3_6s67h"), ExtResource("4_6s67h"), ExtResource("5_tcd3m")])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=758417978]
+position = Vector2(-3.8146973e-06, -3.8146973e-06)
+scale = Vector2(0.4375, 0.4375)
+texture = ExtResource("1_7d1ki")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1264090415]
+shape = SubResource("CircleShape2D_jfeb3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

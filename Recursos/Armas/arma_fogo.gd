@@ -1,0 +1,22 @@
+extends ArmaRecurso
+class_name ArmaFogo
+
+@export var debuff_fogo : DebuffsData
+
+func usar_arma(player,delta):
+	var o_circulo = player.get_node_or_null("Circulo")
+	if o_circulo:
+		o_circulo.global_position = o_circulo.global_position.move_toward(player.get_global_mouse_position(), 3)
+	else:
+		var novo_circulo = projetil.instantiate()
+		novo_circulo.name = "Circulo"
+		novo_circulo.start(dano)
+		player.add_child(novo_circulo)
+		player.speed_atual = 100
+
+
+func parar_uso(player):
+	var o_circulo = player.get_node_or_null("Circulo")
+	if o_circulo:
+		o_circulo.queue_free()
+	player.speed_atual = 300

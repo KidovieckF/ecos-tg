@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ArmaRecurso" format=3 uid="uid://nqd3f7pgsn57"]
+
+[ext_resource type="Script" uid="uid://bmxf0u4dayjym" path="res://Recursos/arma_recurso.gd" id="1_ldopy"]
+[ext_resource type="PackedScene" uid="uid://b4pgpn82u17im" path="res://Cenas/Player/Magias/Magia1.tscn" id="1_x3rwy"]
+
+[resource]
+script = ExtResource("1_ldopy")
+dano = 4.0
+speed = 500.0
+projetil = ExtResource("1_x3rwy")
+metadata/_custom_type_script = "uid://bmxf0u4dayjym"

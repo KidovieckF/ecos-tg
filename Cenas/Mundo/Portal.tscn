@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://djolm8c8saxp8"]
+
+[ext_resource type="Script" uid="uid://enplfbjyno78" path="res://Scripts/Mundo/portal.gd" id="1_jxnrq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4sur"]
+size = Vector2(147, 186.25)
+
+[node name="Node2D" type="Area2D" unique_id=1367637144]
+script = ExtResource("1_jxnrq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1557476725]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_s4sur")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

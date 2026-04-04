@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c7lsw1h1uljyn"]
+
+[ext_resource type="Texture2D" uid="uid://caxfw1d7sj3hp" path="res://sprites/inimigos/arqueiro.jpg" id="1_2v54s"]
+[ext_resource type="Script" uid="uid://dcs3bqnmqcrfh" path="res://Scripts/Inimigos/projetil_ini.gd" id="1_7opwe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7opwe"]
+size = Vector2(60.5, 16)
+
+[node name="ProjetilIni" type="Area2D" unique_id=1053165397]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_7opwe")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1857063303]
+position = Vector2(1, -9.536743e-07)
+scale = Vector2(0.3025, 0.08000001)
+texture = ExtResource("1_2v54s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1301051678]
+position = Vector2(0.75, 0)
+shape = SubResource("RectangleShape2D_7opwe")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

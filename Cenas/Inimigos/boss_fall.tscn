@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b7o2vopjdgq2p"]
+
+[ext_resource type="Script" uid="uid://c37kpcvnf7xc3" path="res://Scripts/Inimigos/boss_fall.gd" id="1_ts8l5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ph5su"]
+bg_color = Color(0.64705884, 0.2784314, 0.25882354, 0.52156866)
+corner_radius_top_left = 500
+corner_radius_top_right = 500
+corner_radius_bottom_right = 500
+corner_radius_bottom_left = 500
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_elo5y"]
+radius = 249.09837
+
+[node name="Node2D" type="Area2D" unique_id=1852428287]
+script = ExtResource("1_ts8l5")
+
+[node name="Panel" type="Panel" parent="." unique_id=1888874878]
+offset_left = -246.0
+offset_top = -245.0
+offset_right = 249.92554
+offset_bottom = 247.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ph5su")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1373616796]
+shape = SubResource("CircleShape2D_elo5y")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

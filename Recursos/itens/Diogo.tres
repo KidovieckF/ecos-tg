@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://dwvkwvb0v6di6"]
+
+[ext_resource type="Script" uid="uid://8c037puqgbug" path="res://Recursos/itens_data.gd" id="1_j2i46"]
+[ext_resource type="Texture2D" uid="uid://caxfw1d7sj3hp" path="res://sprites/inimigos/arqueiro.jpg" id="2_7kiga"]
+
+[resource]
+script = ExtResource("1_j2i46")
+Nome = "Cara Bonito"
+preco = 2
+textura = ExtResource("2_7kiga")
+efeito = "Vida Maxima +2"
+valor_efeito = 2
+metadata/_custom_type_script = "uid://8c037puqgbug"

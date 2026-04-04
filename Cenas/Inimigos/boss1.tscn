@@ -1,0 +1,230 @@
+[gd_scene format=3 uid="uid://cfaot1rpn4syk"]
+
+[ext_resource type="Script" uid="uid://dgdnqo1fdqfp5" path="res://Scripts/Inimigos/boss_1.gd" id="1_5nqbj"]
+[ext_resource type="Texture2D" uid="uid://bh6fc76w8pbv7" path="res://icon.svg" id="1_m17s2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nqbj"]
+size = Vector2(182, 184)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imr55"]
+size = Vector2(170, 184.5)
+
+[sub_resource type="Animation" id="Animation_5nqbj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AreaAtaque/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AreaAtaque/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AreaAtaque/ColorRect:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AreaAtaque/CollisionShape2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AreaAtaque/CollisionShape2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_imr55"]
+resource_name = "ataque_normal"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AreaAtaque/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AreaAtaque/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AreaAtaque/CollisionShape2D:position")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1), Vector2(0, -3)]
+}
+
+[sub_resource type="Animation" id="Animation_0ndx4"]
+resource_name = "ataque_pesado"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AreaAtaque/ColorRect:visible")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AreaAtaque/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AreaAtaque/ColorRect:scale")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AreaAtaque/CollisionShape2D:scale")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AreaAtaque/CollisionShape2D:position")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(87, 94), Vector2(0, -2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_icwaf"]
+_data = {
+&"RESET": SubResource("Animation_5nqbj"),
+&"ataque_normal": SubResource("Animation_imr55"),
+&"ataque_pesado": SubResource("Animation_0ndx4")
+}
+
+[node name="Boss" type="CharacterBody2D" unique_id=419242515]
+collision_layer = 3
+collision_mask = 5
+script = ExtResource("1_5nqbj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1203400337]
+position = Vector2(1.0000014, -0.99999905)
+scale = Vector2(1.4609376, 1.4609376)
+texture = ExtResource("1_m17s2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1060920130]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_5nqbj")
+
+[node name="AtaqueTimer" type="Timer" parent="." unique_id=2083654260]
+wait_time = 3.0
+one_shot = true
+
+[node name="AreaAtaque" type="Area2D" parent="." unique_id=910595521]
+
+[node name="ColorRect" type="ColorRect" parent="AreaAtaque" unique_id=1789358076]
+offset_left = -84.0
+offset_top = -91.0
+offset_right = 88.0
+offset_bottom = 91.36145
+scale = Vector2(2, 2)
+size_flags_horizontal = 0
+size_flags_vertical = 4
+color = Color(1, 0.047058824, 0.02745098, 0.43529412)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAtaque" unique_id=1796987995]
+position = Vector2(0, 1)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_imr55")
+disabled = true
+
+[node name="SpawnCS" type="Timer" parent="." unique_id=970095361]
+wait_time = 3.0
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1229288352]
+libraries/ = SubResource("AnimationLibrary_icwaf")
+
+[connection signal="body_entered" from="AreaAtaque" to="." method="_on_area_ataque_body_entered"]
+[connection signal="timeout" from="SpawnCS" to="." method="_on_spawn_cs_timeout"]

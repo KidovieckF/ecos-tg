@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://q5t6vn72yav6"]
+
+[ext_resource type="Script" uid="uid://6djbigeeu1rh" path="res://Scripts/Magias/Debuffs/queimadura.gd" id="1_4hm5n"]
+
+[node name="queimadura" type="Node2D" unique_id=355477957]
+script = ExtResource("1_4hm5n")
+
+[node name="Timer" type="Timer" parent="." unique_id=1080084545]
+one_shot = true
+
+[node name="TimerDano" type="Timer" parent="." unique_id=1458517886]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

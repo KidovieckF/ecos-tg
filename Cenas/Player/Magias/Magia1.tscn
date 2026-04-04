@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b4pgpn82u17im"]
+
+[ext_resource type="Script" uid="uid://dqw1kwyd5eeuj" path="res://Scripts/Magias/magia_1.gd" id="1_juy50"]
+[ext_resource type="Texture2D" uid="uid://bh6fc76w8pbv7" path="res://icon.svg" id="2_vdw8u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sf6lr"]
+size = Vector2(59, 20)
+
+[node name="Node2D" type="Area2D" unique_id=1758471355]
+light_mask = 2
+position = Vector2(-1, 1)
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("1_juy50")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1970420669]
+position = Vector2(19.5, 0.5000019)
+scale = Vector2(0.4609375, 0.16406249)
+texture = ExtResource("2_vdw8u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=150672619]
+position = Vector2(19.5, 0)
+shape = SubResource("RectangleShape2D_sf6lr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

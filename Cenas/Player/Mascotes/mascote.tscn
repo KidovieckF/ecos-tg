@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dc55a68xesber"]
+
+[ext_resource type="Script" uid="uid://cn2h4rja5pnm2" path="res://mascote.gd" id="1_mf707"]
+[ext_resource type="Texture2D" uid="uid://dvflhsc8pa4lx" path="res://sprites/bolo.jpg" id="2_cpj4v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mf707"]
+radius = 431.00116
+
+[node name="Mascote" type="CharacterBody2D" unique_id=778746216]
+script = ExtResource("1_mf707")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=537458622]
+scale = Vector2(0.028157542, 0.028157542)
+texture = ExtResource("2_cpj4v")
+
+[node name="Range" type="Area2D" parent="." unique_id=1146631443]
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range" unique_id=1079776595]
+shape = SubResource("CircleShape2D_mf707")
+
+[node name="AtkTimer" type="Timer" parent="." unique_id=880641780]
+
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]
+[connection signal="timeout" from="AtkTimer" to="." method="_on_atk_timer_timeout"]

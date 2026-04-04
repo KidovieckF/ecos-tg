@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://1jobifvj8wu8"]
+
+[ext_resource type="Texture2D" uid="uid://caxfw1d7sj3hp" path="res://sprites/inimigos/arqueiro.jpg" id="1_2g15i"]
+[ext_resource type="Script" uid="uid://dc8nfblx6423b" path="res://Scripts/Inimigos/inimigo_atirador.gd" id="1_hb24w"]
+[ext_resource type="PackedScene" uid="uid://d0rb3lqsvg35a" path="res://Cenas/Player/Itens/Cura.tscn" id="2_4ef7g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hb24w"]
+size = Vector2(36, 37)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1356892781]
+z_index = 1
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_hb24w")
+cena_item = ExtResource("2_4ef7g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=178333050]
+position = Vector2(1.9073486e-06, 1.0000019)
+scale = Vector2(0.18375002, 0.18375002)
+texture = ExtResource("1_2g15i")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1847406716]
+z_index = 1
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1654159865]
+shape = SubResource("RectangleShape2D_hb24w")
+
+[node name="AttackCD" type="Timer" parent="." unique_id=1972536000]
+one_shot = true
+
+[connection signal="timeout" from="AttackCD" to="." method="_on_attack_cd_timeout"]

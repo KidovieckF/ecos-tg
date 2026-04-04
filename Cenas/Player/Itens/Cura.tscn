@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://d0rb3lqsvg35a"]
+
+[ext_resource type="Script" uid="uid://bu7bshbf6dldw" path="res://Scripts/Player/Itens/Cura.gd" id="1_ylamy"]
+[ext_resource type="Texture2D" uid="uid://v8mdey443wd1" path="res://sprites/99fc0106-34d4-4d6e-9630-c9314463e87a-removebg-preview.png" id="2_afmvg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5r3wt"]
+size = Vector2(49, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt3ol"]
+atlas = ExtResource("2_afmvg")
+region = Rect2(221, 123, 170, 156)
+
+[node name="Node2D" type="Area2D" unique_id=227530778]
+z_index = 1
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_ylamy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1899313928]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_5r3wt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1141847091]
+position = Vector2(0.9999962, -1)
+scale = Vector2(0.30128205, 0.30128205)
+texture = SubResource("AtlasTexture_dt3ol")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

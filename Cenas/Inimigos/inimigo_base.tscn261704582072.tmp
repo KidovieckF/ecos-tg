@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cblhmuvwm5g5m"]
+
+[ext_resource type="Script" uid="uid://bemyn11y4nu6n" path="res://Scripts/Inimigos/inimigo_base.gd" id="1_eu30s"]
+[ext_resource type="PackedScene" uid="uid://d0rb3lqsvg35a" path="res://Cenas/Player/Itens/Cura.tscn" id="2_olgby"]
+[ext_resource type="Texture2D" uid="uid://bh6fc76w8pbv7" path="res://icon.svg" id="2_pffss"]
+[ext_resource type="PackedScene" uid="uid://o0et4kojdnxk" path="res://Cenas/Player/Itens/Moeda.tscn" id="3_j57b0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olgby"]
+size = Vector2(72, 73)
+
+[node name="InimigoBase" type="CharacterBody2D" unique_id=1673984598 groups=["Inimigos"]]
+z_index = 1
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_eu30s")
+cena_item = ExtResource("2_olgby")
+cena_moeda = ExtResource("3_j57b0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=341106461]
+position = Vector2(-1.0000076, -3.8146973e-06)
+scale = Vector2(0.578125, 0.5736434)
+texture = ExtResource("2_pffss")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1795343097]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_olgby")

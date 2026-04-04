@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ArmaFogo" format=3 uid="uid://bk7atnl1twgbk"]
+
+[ext_resource type="Resource" uid="uid://cn1yre7vhal61" path="res://Recursos/Debuffs/Queimadura.tres" id="1_bdgx3"]
+[ext_resource type="Script" uid="uid://cw5iiwhsfuxji" path="res://Recursos/Armas/arma_fogo.gd" id="1_btsob"]
+[ext_resource type="PackedScene" uid="uid://c3d68ydxd6jsq" path="res://Cenas/Player/Magias/circulo_fogo.tscn" id="1_y0gf3"]
+
+[resource]
+script = ExtResource("1_btsob")
+debuff_fogo = ExtResource("1_bdgx3")
+dano = 1.0
+speed = 100.0
+projetil = ExtResource("1_y0gf3")
+metadata/_custom_type_script = "uid://cw5iiwhsfuxji"

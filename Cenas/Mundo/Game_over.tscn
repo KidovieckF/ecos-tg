@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://uhbeu44d14kc"]
+
+[ext_resource type="Script" uid="uid://ck8v28w4jv3pw" path="res://Scripts/Huds/game_over.gd" id="1_o6btj"]
+
+[node name="Control" type="CanvasLayer" unique_id=1426261700]
+script = ExtResource("1_o6btj")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=465428100]
+custom_minimum_size = Vector2(300, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.78323275, 0.454395, 0.23177597, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=785285405]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer" unique_id=920514874]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.05109611, 0.05109611, 0.051096104, 1)
+text = "GAME OVER"
+
+[node name="Nascer" type="Button" parent="ColorRect/VBoxContainer" unique_id=553176334]
+process_mode = 3
+layout_mode = 2
+text = "Renascer
+"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/Nascer" to="." method="_on_nascer_pressed"]

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c3d68ydxd6jsq"]
+
+[ext_resource type="Script" uid="uid://dy3y6lok7i2a2" path="res://Scripts/Magias/circulo_fogo.gd" id="1_bo4tu"]
+[ext_resource type="PackedScene" uid="uid://q5t6vn72yav6" path="res://Cenas/Player/Magias/Debuffs/Queimadura.tscn" id="2_omwdj"]
+[ext_resource type="Resource" uid="uid://cn1yre7vhal61" path="res://Recursos/Debuffs/Queimadura.tres" id="3_budvu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yg7ov"]
+bg_color = Color(0.5067094, 0.06780018, 0.09681185, 0.6313726)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n6u44"]
+radius = 88.02273
+
+[node name="Circulo" type="Area2D" unique_id=1801574145]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("1_bo4tu")
+cena_da_queimadura = ExtResource("2_omwdj")
+debuff = ExtResource("3_budvu")
+
+[node name="Panel" type="Panel" parent="." unique_id=1060036699]
+offset_left = -86.0
+offset_top = -85.0
+offset_right = 87.0
+offset_bottom = 88.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yg7ov")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2103240278]
+shape = SubResource("CircleShape2D_n6u44")
+
+[node name="Timer" type="Timer" parent="." unique_id=1813471522]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

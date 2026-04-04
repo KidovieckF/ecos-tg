@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://tg2ghdhmth"]
+
+[ext_resource type="Script" uid="uid://fa8l8hcskskm" path="res://Scripts/Player/player.gd" id="1_pmvhq"]
+[ext_resource type="Texture2D" uid="uid://ldrlxssllyg5" path="res://teste.png" id="2_iersn"]
+[ext_resource type="Resource" uid="uid://b36ypyd4u11v7" path="res://Recursos/Armas/Laser.tres" id="2_wh621"]
+[ext_resource type="Script" uid="uid://b131lop4byi08" path="res://Scripts/Mundo/camera_2d.gd" id="3_yjlpd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wh621"]
+radius = 24.020824
+
+[node name="Player" type="CharacterBody2D" unique_id=2096888764 groups=["Players"]]
+z_index = 5
+y_sort_enabled = true
+motion_mode = 1
+script = ExtResource("1_pmvhq")
+arma = ExtResource("2_wh621")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=384860885]
+position = Vector2(-4.7683716e-07, -4.7683716e-07)
+scale = Vector2(0.043648228, 0.03494475)
+texture = ExtResource("2_iersn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=266041573]
+shape = SubResource("CircleShape2D_wh621")
+
+[node name="CameraJogo" type="Camera2D" parent="." unique_id=536699703 node_paths=PackedStringArray("player")]
+enabled = false
+zoom = Vector2(0.75, 0.75)
+position_smoothing_enabled = true
+script = ExtResource("3_yjlpd")
+player = NodePath("..")
+
+[node name="Timer" type="Timer" parent="." unique_id=1238016200]
+wait_time = 2.0
+one_shot = true
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=593634341]
+one_shot = true
+
+[node name="CameraLobby" type="Camera2D" parent="." unique_id=1049809061]
+limit_left = 0
+limit_top = 0
+limit_right = 2256
+limit_bottom = 1728
+position_smoothing_enabled = true
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=523048921]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

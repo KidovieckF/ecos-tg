@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://xerumnbc3lwc"]
+
+[ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/FalaRecurso.gd" id="1_aikou"]
+[ext_resource type="Resource" uid="uid://dcmd1h5obd6fo" path="res://Recursos/Npcs/Dialogos/Dialogo1.2.tres" id="2_va6yy"]
+[ext_resource type="Resource" uid="uid://bgbermybki7fo" path="res://Recursos/Npcs/Dialogos/Dialogo1.3.tres" id="3_5fq4k"]
+
+[resource]
+script = ExtResource("1_aikou")
+falas = "Olá
+Balatro?"
+respostas = Array[String](["Sim", "Não"])
+proximo_1 = Array[ExtResource("1_aikou")]([ExtResource("2_va6yy")])
+proximo_2 = Array[ExtResource("1_aikou")]([ExtResource("3_5fq4k")])
+metadata/_custom_type_script = "uid://b1j7iupjo2avo"
