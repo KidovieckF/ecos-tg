@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var ray = $RayCast2D
 @export var cena_item : PackedScene
 var flecha = preload("res://Cenas/Inimigos/projetil_ini.tscn")
-var vida = 2
+var vida = 15
 
 var SPEED = 200
 
@@ -39,11 +39,12 @@ func atirar():
 	nova_flecha.start(global_position, direcao_calculada)
 	$AttackCD.start()
 	
-func take_damage(quantidade):
+func take_damage(quantidade, cor):
 	vida -= quantidade
 	print("Inimigo tomou dano! Vida restante: ", vida)
 	if vida <= 0:
 		morrer()
+		
 func morrer():
 	spawn_item()
 	queue_free()

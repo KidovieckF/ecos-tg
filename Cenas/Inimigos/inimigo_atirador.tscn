@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d0rb3lqsvg35a" path="res://Cenas/Player/Itens/Cura.tscn" id="2_4ef7g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hb24w"]
-size = Vector2(36, 37)
+size = Vector2(65.5, 62.25)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1356892781]
 z_index = 1
@@ -15,8 +15,7 @@ script = ExtResource("1_hb24w")
 cena_item = ExtResource("2_4ef7g")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=178333050]
-position = Vector2(1.9073486e-06, 1.0000019)
-scale = Vector2(0.18375002, 0.18375002)
+scale = Vector2(0.301875, 0.301875)
 texture = ExtResource("1_2g15i")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1847406716]
@@ -24,6 +23,7 @@ z_index = 1
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1654159865]
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_hb24w")
 
 [node name="AttackCD" type="Timer" parent="." unique_id=1972536000]

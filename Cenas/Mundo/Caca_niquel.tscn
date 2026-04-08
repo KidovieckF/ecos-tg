@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://cnn1smldv0v1d"]
+
+[ext_resource type="Script" uid="uid://by1t610c63g2k" path="res://Scripts/Mundo/caca_niquel.gd" id="1_xbvlk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lcp66"]
+bg_color = Color(1.2807246, 1.0015447, 0.18664144, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbvlk"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=196205228]
+script = ExtResource("1_xbvlk")
+
+[node name="Giro" type="Timer" parent="." unique_id=706212577]
+wait_time = 0.1
+
+[node name="Parar" type="Timer" parent="." unique_id=826657019]
+wait_time = 1.5
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=924919555]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1013322237]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=1841894460]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_lcp66")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel" unique_id=1853833800]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer" unique_id=1701683418]
+layout_mode = 2
+theme_override_constants/separation = 22
+alignment = 1
+
+[node name="Slot" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer" unique_id=1672526654]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_xbvlk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot2" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer" unique_id=1055009154]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_xbvlk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot3" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer" unique_id=1966995214]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_xbvlk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EfeitoLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2032128361]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+horizontal_alignment = 1
+
+[connection signal="timeout" from="Giro" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Parar" to="." method="_on_parar_timeout"]

@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(quantidade, cor = Color.WHITE):
 	vida -= quantidade
-	print("Inimigo tomou dano! Vida restante: ", vida)
+	#print("Inimigo tomou dano! Vida restante: ", vida)
 	var novo_dano = ind_dano.instantiate() 
 	get_parent().add_child(novo_dano)
 	novo_dano.global_position = global_position
@@ -29,7 +29,7 @@ func take_damage(quantidade, cor = Color.WHITE):
 		morrer()
 
 func morrer():
-	print("1. INIMIGO: Morri e emiti o sinal!")
+	#print("1. INIMIGO: Morri e emiti o sinal!")
 	spawn_item()
 	queue_free()
 	morreu.emit()

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bjeekix7tv3t5" path="res://sprites/tilesets/grass.png" id="1_m31wa"]
 [ext_resource type="Texture2D" uid="uid://bti5gwt2t5wr5" path="res://sprites/objects/objects.png" id="1_m172n"]
 [ext_resource type="Texture2D" uid="uid://xjhnbcblp4dr" path="res://sprites/tilesets/plains.png" id="2_m172n"]
+[ext_resource type="PackedScene" uid="uid://cnn1smldv0v1d" path="res://Cenas/Mundo/Caca_niquel.tscn" id="5_6ykx6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6kcal"]
 texture = ExtResource("1_m172n")
@@ -180,4 +181,8 @@ z_index = 1
 tile_map_data = PackedByteArray("AABHACYAAAABAAUAAABHACUAAAABAAUAAABHACQAAAABAAUAAABHACMAAAABAAUAAABHACIAAAABAAUAAABHACEAAAABAAUAAABHACAAAAABAAUAAABHAB8AAAABAAUAAABHAB4AAAABAAUAAABHAB0AAAABAAUAAABHABwAAAABAAUAAABHABsAAAABAAUAAABHABoAAAABAAUAAABHABkAAAABAAUAAABHABgAAAABAAUAAABHABcAAAABAAUAAABHABYAAAABAAUAAABHABUAAAABAAUAAABHABQAAAABAAUAAABHABMAAAABAAUAAABHABIAAAABAAUAAABHABEAAAABAAUAAABHABAAAAABAAUAAABHAA8AAAABAAUAAABHAA4AAAABAAUAAABHAA0AAAABAAUAAABHAAwAAAABAAUAAABHAAsAAAABAAUAAABHAAoAAAABAAUAAABHAAkAAAABAAUAAABHAAgAAAABAAUAAABHAAcAAAABAAUAAABHAAYAAAABAAUAAABHAAUAAAABAAUAAABHAAQAAAABAAUAAABHAAMAAAABAAUAAABHAAIAAAABAAUAAABHAAEAAAABAAUAAABHAAAAAAAFAAQAAABHACcAAAAFAAUAAAA=")
 tile_set = SubResource("TileSet_6dhdm")
 
+[node name="CanvasLayer" parent="." unique_id=196205228 instance=ExtResource("5_6ykx6")]
+visible = false
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="resultado_roleta" from="CanvasLayer" to="." method="_on_canvas_layer_resultado_roleta"]

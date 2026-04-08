@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://fa8l8hcskskm" path="res://Scripts/Player/player.gd" id="1_pmvhq"]
 [ext_resource type="Texture2D" uid="uid://ldrlxssllyg5" path="res://teste.png" id="2_iersn"]
-[ext_resource type="Resource" uid="uid://b36ypyd4u11v7" path="res://Recursos/Armas/Laser.tres" id="2_wh621"]
+[ext_resource type="Resource" uid="uid://bk7atnl1twgbk" path="res://Recursos/Armas/Circulo_Fogo.tres" id="2_wh621"]
 [ext_resource type="Script" uid="uid://b131lop4byi08" path="res://Scripts/Mundo/camera_2d.gd" id="3_yjlpd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wh621"]

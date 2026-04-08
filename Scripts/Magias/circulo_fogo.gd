@@ -18,7 +18,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if $Timer.is_stopped():
 		for inimigos in inimigos_lista:
-			inimigos.take_damage(dano_bala)
+			inimigos.take_damage(dano_bala, Color.WHITE)
 			$Timer.start()
 			var queimando = inimigos.get_node_or_null("Queimadura")
 			if queimando and not queimando.is_queued_for_deletion():
