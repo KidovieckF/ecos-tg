@@ -102,12 +102,14 @@ func registrar_inimigo():
 	var rand_y = randf_range(40, 590)
 	novo_inimigo.position = Vector2(rand_x, rand_y)
 	novo_inimigo.player = player
+	add_child(novo_inimigo)
 	if deu_grandao:
 		novo_inimigo.scale = Vector2(2,2)
 	if deu_suculento:
-		novo_inimigo.vida += 10
+		novo_inimigo.vida_max += 10
+		novo_inimigo.vida_atual += 10
 	lista_inimigos.append(novo_inimigo)
-	add_child(novo_inimigo)
+	
 	novo_inimigo.morreu.connect(verifica_inimigos)
 	
 

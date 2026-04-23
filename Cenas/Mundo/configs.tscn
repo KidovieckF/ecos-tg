@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://bj2xwmswvu4hi"]
+
+[ext_resource type="Script" uid="uid://dm6tuh7mo8jb0" path="res://Scripts/Mundo/configs.gd" id="1_ghvyg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6ouc"]
+bg_color = Color(0.8117647, 0.5176471, 0.34901962, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghvyg"]
+bg_color = Color(0.5568628, 0.3254902, 0.19215687, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gkp0h"]
+bg_color = Color(0.5568628, 0.3254902, 0.19215687, 1)
+
+[node name="Control" type="Control" unique_id=1709195395]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ghvyg")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=377902922]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="GridContainer" unique_id=262942069]
+custom_minimum_size = Vector2(500, 600)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="GridContainer/Panel" unique_id=325186077]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 50
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="GridContainer/Panel/MarginContainer" unique_id=2044106840]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="GridContainer/Panel/MarginContainer/VBoxContainer2" unique_id=833002758]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Configurações"
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Panel/MarginContainer/VBoxContainer2" unique_id=1747451101]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="viewBtn" type="CheckButton" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VBoxContainer" unique_id=246167171]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_h6ouc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ghvyg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gkp0h")
+
+[node name="soundBtn" type="Button" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VBoxContainer" unique_id=1698803123]
+custom_minimum_size = Vector2(30, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_h6ouc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ghvyg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gkp0h")
+
+[node name="Button3" type="Button" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VBoxContainer" unique_id=422434108]
+custom_minimum_size = Vector2(30, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_h6ouc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ghvyg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gkp0h")
+
+[node name="Button4" type="Button" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VBoxContainer" unique_id=681556278]
+custom_minimum_size = Vector2(30, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_h6ouc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ghvyg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gkp0h")
+
+[connection signal="toggled" from="GridContainer/Panel/MarginContainer/VBoxContainer2/VBoxContainer/viewBtn" to="." method="_on_view_btn_toggled"]

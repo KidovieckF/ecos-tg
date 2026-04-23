@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Ecos_TG"
-run/main_scene="uid://cctwdw2h0fint"
+run/main_scene="uid://bj2xwmswvu4hi"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -21,6 +21,7 @@ RecursosGlobais="*uid://bgxwsadti2jr6"
 
 [display]
 
+window/subwindows/embed_subwindows=false
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 

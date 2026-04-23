@@ -1,31 +1,34 @@
 extends CharacterBody2D
 
 signal morreu
-var speed = 100
 @export var player :CharacterBody2D
 @export var cena_item : PackedScene
 @export var cena_moeda : PackedScene
-var vida = 3
+@export var data : inimigo_data
 var ativo = false
+var vida_max
+var vida_atual
 var ind_dano = preload("res://Cenas/Mundo/Ind_dano.tscn")
 
 func _ready() -> void:
-	pass
+	vida_max = data.vida
+	vida_atual = data.vida
+	$AreaDano.pegarDano(data.dano)
 
 func _physics_process(delta: float) -> void:
 	if player != null:
 		var direction = (player.global_position - global_position).normalized()
-		velocity = direction * speed
+		velocity = direction * data.speed
 		move_and_slide()
 
 func take_damage(quantidade, cor = Color.WHITE):
-	vida -= quantidade
+	vida_atual -= quantidade
 	#print("Inimigo tomou dano! Vida restante: ", vida)
 	var novo_dano = ind_dano.instantiate() 
 	get_parent().add_child(novo_dano)
 	novo_dano.global_position = global_position
 	novo_dano._mostrar_dano(quantidade, cor)
-	if vida <= 0:
+	if vida_atual <= 0:
 		morrer()
 
 func morrer():

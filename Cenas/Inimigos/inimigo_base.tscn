@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bh6fc76w8pbv7" path="res://icon.svg" id="2_pffss"]
 [ext_resource type="PackedScene" uid="uid://o0et4kojdnxk" path="res://Cenas/Player/Itens/Moeda.tscn" id="3_j57b0"]
 [ext_resource type="PackedScene" uid="uid://c0u2p8svn3sdu" path="res://Cenas/Inimigos/Area_dano.tscn" id="4_f5d5q"]
+[ext_resource type="Resource" uid="uid://c1u02i4u65j4s" path="res://Recursos/Inimigos/inimigo_base.tres" id="4_piq07"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f5d5q"]
 radius = 18.0
@@ -17,10 +18,10 @@ motion_mode = 1
 script = ExtResource("1_eu30s")
 cena_item = ExtResource("2_olgby")
 cena_moeda = ExtResource("3_j57b0")
+data = ExtResource("4_piq07")
 
 [node name="AreaDano" parent="." unique_id=636268532 instance=ExtResource("4_f5d5q")]
 position = Vector2(1, -1)
-dano = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=341106461]
 z_index = 1
