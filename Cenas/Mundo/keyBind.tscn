@@ -1,0 +1,165 @@
+[gd_scene format=3 uid="uid://yfar67i3vjmy"]
+
+[ext_resource type="Script" uid="uid://c0huugx5fhip7" path="res://Scripts/Mundo/keyBind.gd" id="1_dn3do"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3aijj"]
+bg_color = Color(0.8117647, 0.5176471, 0.34901962, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2oox"]
+bg_color = Color(0.5568628, 0.3254902, 0.19215687, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0qwb"]
+bg_color = Color(0.5568628, 0.3254902, 0.19215687, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dn3do"]
+
+[node name="Control" type="Control" unique_id=1113207031]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dn3do")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=417877076]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="GridContainer" unique_id=603442786]
+custom_minimum_size = Vector2(500, 600)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="GridContainer/Panel" unique_id=1642721529]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 50
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="GridContainer/Panel/MarginContainer" unique_id=824883022]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="GridContainer/Panel/MarginContainer/VBoxContainer2" unique_id=509254955]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Controles"
+vertical_alignment = 1
+
+[node name="VScrollBar" type="ScrollContainer" parent="GridContainer/Panel/MarginContainer/VBoxContainer2" unique_id=278088723]
+custom_minimum_size = Vector2(300, 420)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar" unique_id=1976207566]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer" unique_id=1402282985]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="keyBindBtn" type="Button" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer" unique_id=1594713028]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_3aijj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w2oox")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o0qwb")
+
+[node name="Label" type="Label" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer" unique_id=307547581]
+layout_mode = 2
+text = "Movimento"
+
+[node name="keyBindBtn2" type="Button" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer" unique_id=889978183]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_3aijj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w2oox")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o0qwb")
+
+[node name="keyBindBtn3" type="Button" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer" unique_id=1773480103]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_3aijj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w2oox")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o0qwb")
+
+[node name="keyBindBtn4" type="Button" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer" unique_id=105213373]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_3aijj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w2oox")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o0qwb")
+
+[node name="keyBindBtn5" type="Button" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer" unique_id=1942307066]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_3aijj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w2oox")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o0qwb")
+
+[node name="voltarBtn" type="Button" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer" unique_id=42936752]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_3aijj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w2oox")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o0qwb")
+text = "Voltar"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer" unique_id=1262401384]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer2" unique_id=1854501412]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_dn3do")
+
+[node name="Label2" type="Label" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer2" unique_id=1059931797]
+custom_minimum_size = Vector2(0, 23)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_dn3do")
+
+[node name="Label3" type="Label" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer2" unique_id=947512694]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_dn3do")
+
+[node name="Label4" type="Label" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer2" unique_id=456328905]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_dn3do")
+
+[node name="Label5" type="Label" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer2" unique_id=561624603]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_dn3do")
+
+[node name="Label6" type="Label" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer2" unique_id=546764120]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_dn3do")
+
+[node name="Label7" type="Label" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer2" unique_id=1436160354]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_dn3do")
+
+[connection signal="pressed" from="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer/voltarBtn" to="." method="_on_voltar_btn_pressed"]

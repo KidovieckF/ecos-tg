@@ -16,7 +16,7 @@ func _on_iniciar_btn_pressed() -> void:
 
 
 func _on_configs_btn_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Cenas/Mundo/configs.tscn")
 
 
 func _on_sair_btn_pressed() -> void:
