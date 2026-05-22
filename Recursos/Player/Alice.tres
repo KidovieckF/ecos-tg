@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="player_data" format=3 uid="uid://cdc5maehwv413"]
+
+[ext_resource type="Script" uid="uid://bu1g8tbdi60p8" path="res://Recursos/player_recurso.gd" id="1_868og"]
+
+[resource]
+script = ExtResource("1_868og")
+nome = "Alice"
+vida = 20.0
+dano_mult = 1.0
+speed = 300.0
+energia = 100.0
+exp_bar = 100.0
+passiva = "Não tem"
+metadata/_custom_type_script = "uid://bu1g8tbdi60p8"

@@ -7,3 +7,4 @@ class_name inimigo_data
 @export var dano : float
 @export var habilidade_especial : String
 @export var speed : float
+@export var exp : float

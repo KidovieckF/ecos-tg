@@ -10,4 +10,5 @@ vida = 10
 textura = ExtResource("2_birlo")
 dano = 1.0
 speed = 100.0
+exp = 10.0
 metadata/_custom_type_script = "uid://dr2e86a2n5br8"

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ywipkdmnc0ja"]
+
+[node name="Upgrade" type="TextureButton" unique_id=973647185]
+custom_minimum_size = Vector2(130, 100)
+offset_right = 130.0
+offset_bottom = 100.0
+size_flags_vertical = 4
+stretch_mode = 5
+ignore_texture_size = true

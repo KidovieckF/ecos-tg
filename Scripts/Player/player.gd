@@ -5,25 +5,34 @@ var speed_atual = 300.0
 const JUMP_VELOCITY = -400.0
 var pode_tomar_dano = true
 var tween_dano
+var nivel = 1
 
+@export var personagem : player_data
 @export var arma : ArmaRecurso
 var morto = false
-
+var barra_exp
+var dano_adicional = 0
+var xp_atual = 0
+var vida_atual 
+var vida_maxima 
 
 @onready var sprite = $Sprite2D
 @onready var hud = get_parent().get_node("HUD/ContainerCoracoes")
 @onready var hud_moedas = get_parent().get_node("HUD/ColorRect/Dinheiro")
 var game_over_scene = preload("res://Cenas/Mundo/Game_over.tscn")
+
 var magia1 = preload("res://Cenas/Player/Magias/Magia1.tscn")
 
 func _ready() -> void:
-	pass
+	barra_exp = personagem.exp_bar
+	vida_atual = personagem.vida
+	vida_maxima = personagem.vida 
 
 
 func _physics_process(delta: float) -> void:
 	if $AttackTimer.is_stopped:
 		if Input.is_action_pressed("Atirar"):
-			arma.usar_arma(self, delta)
+			arma.usar_arma(self, delta, personagem.dano_mult, dano_adicional)
 	if Input.is_action_just_released("Atirar"):
 		arma.parar_uso(self)
 	
@@ -51,28 +60,37 @@ func atirar():
 	nova_magia.start(global_position, direcao_calculada, arma.dano, arma.speed)
 	$AttackTimer.start()
 
+func ganhar_xp(exp):
+	xp_atual += exp 
+	print("EXP: ", xp_atual)
+	if xp_atual >= barra_exp:
+		xp_atual = 0
+		barra_exp = barra_exp * 1.25
+		print("upei de nivel")
+		nivel +=1
+		print("nivel: ",nivel)
 
 func take_damage(quantidade, cor = Color.WHITE):
 	if pode_tomar_dano == true:
 		$Timer.start()
-		RecursosGlobais.vidaAtual -= quantidade
-		if RecursosGlobais.vidaAtual >= 0 and RecursosGlobais.vidaAtual < hud.get_child_count():
-			hud.get_child(RecursosGlobais.vidaAtual).visible = false
+		vida_atual -= quantidade
+		if vida_atual >= 0 and vida_atual < hud.get_child_count():
+			hud.get_child(vida_atual).visible = false
 		tween_dano = create_tween().set_loops()
 		tween_dano.tween_property(sprite, "modulate:a", 0.0, 0.1)
 		tween_dano.tween_property(sprite, "modulate:a", 1.0, 0.1)
 
-		print("Tomou dano ", RecursosGlobais.vidaAtual )
+		print("Tomou dano ", vida_atual )
 		pode_tomar_dano = false
-	if RecursosGlobais.vidaAtual <= 0 and morto == false:
+	if vida_atual <= 0 and morto == false:
 		morto = true
 		var game_over = game_over_scene.instantiate()
 		get_tree().root.add_child(game_over)
 		
 func curar(quantidade):
-	if RecursosGlobais.vidaAtual < RecursosGlobais.vidaMax:
-		hud.get_child(RecursosGlobais.vidaAtual).visible = true
-		RecursosGlobais.vidaAtual = min(RecursosGlobais.vidaAtual + quantidade, RecursosGlobais.vidaMax)
+	if vida_atual < vida_maxima:
+		hud.get_child(vida_atual).visible = true
+		vida_atual = min(vida_atual + quantidade, vida_maxima)
 		
 func coletar_moeda():
 	hud_moedas.text = "Dinheiro: " + str(RecursosGlobais.moeda)

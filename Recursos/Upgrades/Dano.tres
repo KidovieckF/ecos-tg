@@ -1,0 +1,7 @@
+[gd_resource type="Resource" format=3 uid="uid://bbk331fykv6fn"]
+
+[ext_resource type="Script" uid="uid://bdsuolygyk071" path="res://Recursos/Upgrades/dano.gd" id="1_3mbse"]
+
+[resource]
+script = ExtResource("1_3mbse")
+metadata/_custom_type_script = "uid://8c037puqgbug"

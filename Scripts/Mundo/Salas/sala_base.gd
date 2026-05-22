@@ -110,10 +110,16 @@ func registrar_inimigo():
 		novo_inimigo.vida_atual += 10
 	lista_inimigos.append(novo_inimigo)
 	
+	var hud  = get_tree().get_first_node_in_group("HUD")
 	novo_inimigo.morreu.connect(verifica_inimigos)
+	novo_inimigo.morreu.connect(func():
+		player.ganhar_xp(novo_inimigo.data.exp)
+		hud.atualizar_xp(player.xp_atual, player.barra_exp)
+		)
 	
-
-
+	
+	
+	
 func _on_canvas_layer_resultado_roleta(recompensa: String) -> void:
 	match recompensa: 
 			"multirao":

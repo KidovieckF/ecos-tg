@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dmut5qpd441ny" path="res://Scripts/Huds/hud.gd" id="1_p1lse"]
 [ext_resource type="Texture2D" uid="uid://v8mdey443wd1" path="res://sprites/99fc0106-34d4-4d6e-9630-c9314463e87a-removebg-preview.png" id="1_xcexb"]
+[ext_resource type="Texture2D" uid="uid://byhm5miicehjt" path="res://sprites/Hud/Soquete1.png" id="3_6cqf8"]
+[ext_resource type="Texture2D" uid="uid://cphgndc03yaom" path="res://sprites/Hud/Exp_Mana.png" id="4_uh8m8"]
+[ext_resource type="Texture2D" uid="uid://barf4f36owjth" path="res://sprites/Hud/Detalhes.png" id="5_ef6xn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p1lse"]
 atlas = ExtResource("1_xcexb")
@@ -84,3 +87,33 @@ grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_p1lse")
 theme_override_styles/fill = SubResource("StyleBoxFlat_p5ktn")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2068941370]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+offset_right = 80.0
+grow_vertical = 0
+texture = ExtResource("3_6cqf8")
+
+[node name="Exp" type="TextureProgressBar" parent="TextureRect" unique_id=1635740023]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 3
+texture_progress = ExtResource("4_uh8m8")
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect" unique_id=1147147071]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ef6xn")

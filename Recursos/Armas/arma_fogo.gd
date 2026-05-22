@@ -2,8 +2,11 @@ extends ArmaRecurso
 class_name ArmaFogo
 
 @export var debuff_fogo : DebuffsData
+var dano_atual = dano
 
-func usar_arma(player,delta):
+func usar_arma(player,delta,dano_mult, dano_add):
+	dano_atual += dano_add
+	dano_atual *= dano_mult
 	var o_circulo = player.get_node_or_null("Circulo")
 	if o_circulo:
 		o_circulo.global_position = o_circulo.global_position.move_toward(player.get_global_mouse_position(), 3)

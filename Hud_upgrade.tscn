@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://n5ekjsfkdjce"]
+
+[ext_resource type="Script" uid="uid://dqgu7wmkeuk66" path="res://Scripts/Huds/hud_upgrade.gd" id="1_jkgpm"]
+[ext_resource type="Script" uid="uid://8c037puqgbug" path="res://Recursos/itens_data.gd" id="2_x6fcg"]
+[ext_resource type="Resource" uid="uid://bbk331fykv6fn" path="res://Recursos/Upgrades/Dano.tres" id="3_x6fcg"]
+[ext_resource type="Resource" uid="uid://p1bxp45lxdj4" path="res://Recursos/Upgrades/Velocidade.tres" id="4_lwiws"]
+[ext_resource type="Resource" uid="uid://kp2g3nno1r2t" path="res://Recursos/Upgrades/Vida.tres" id="5_ojnsx"]
+[ext_resource type="PackedScene" uid="uid://ywipkdmnc0ja" path="res://Cenas/Mundo/upgrade.tscn" id="6_lwiws"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1338939119]
+script = ExtResource("1_jkgpm")
+upgrades = Array[ExtResource("2_x6fcg")]([ExtResource("3_x6fcg"), ExtResource("4_lwiws"), ExtResource("5_ojnsx")])
+
+[node name="Panel" type="Panel" parent="." unique_id=1929398772]
+custom_minimum_size = Vector2(600, 180)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -150.0
+offset_right = 300.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1970757319]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=2111759144]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1520545242]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Upgrade1" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=973647185 instance=ExtResource("6_lwiws")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Upgrade2" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=395707873 instance=ExtResource("6_lwiws")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Upgrade3" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=146625547 instance=ExtResource("6_lwiws")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Nomes" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=414304104]
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Nome1" type="Label" parent="Panel/MarginContainer/VBoxContainer/Nomes" unique_id=1392778902]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Nome2" type="Label" parent="Panel/MarginContainer/VBoxContainer/Nomes" unique_id=1714468516]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Nome3" type="Label" parent="Panel/MarginContainer/VBoxContainer/Nomes" unique_id=174404989]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Descricoes" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1181235290]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Descricao1" type="Label" parent="Panel/MarginContainer/VBoxContainer/Descricoes" unique_id=476606463]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 80)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Descricao2" type="Label" parent="Panel/MarginContainer/VBoxContainer/Descricoes" unique_id=1865272836]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 80)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Descricao3" type="Label" parent="Panel/MarginContainer/VBoxContainer/Descricoes" unique_id=339988975]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 80)
+layout_mode = 2
+size_flags_vertical = 0
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/Upgrade1" to="." method="_on_upgrade_1_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/Upgrade2" to="." method="_on_upgrade_2_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/Upgrade3" to="." method="_on_upgrade_3_pressed"]

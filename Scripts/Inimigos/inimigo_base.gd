@@ -11,8 +11,8 @@ var vida_atual
 var ind_dano = preload("res://Cenas/Mundo/Ind_dano.tscn")
 
 func _ready() -> void:
-	vida_max = data.vida
-	vida_atual = data.vida
+	vida_max = data.vida * player.nivel
+	vida_atual = vida_max
 	$AreaDano.pegarDano(data.dano)
 
 func _physics_process(delta: float) -> void:
