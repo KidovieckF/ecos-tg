@@ -114,7 +114,6 @@ func registrar_inimigo():
 	novo_inimigo.morreu.connect(verifica_inimigos)
 	novo_inimigo.morreu.connect(func():
 		player.ganhar_xp(novo_inimigo.data.exp)
-		hud.atualizar_xp(player.xp_atual, player.barra_exp)
 		)
 	
 	

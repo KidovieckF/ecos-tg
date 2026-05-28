@@ -1,22 +1,10 @@
 [gd_scene format=3 uid="uid://cn8y5s0pru1up"]
 
 [ext_resource type="Script" uid="uid://dmut5qpd441ny" path="res://Scripts/Huds/hud.gd" id="1_p1lse"]
-[ext_resource type="Texture2D" uid="uid://v8mdey443wd1" path="res://sprites/99fc0106-34d4-4d6e-9630-c9314463e87a-removebg-preview.png" id="1_xcexb"]
-[ext_resource type="Texture2D" uid="uid://byhm5miicehjt" path="res://sprites/Hud/Soquete1.png" id="3_6cqf8"]
-[ext_resource type="Texture2D" uid="uid://cphgndc03yaom" path="res://sprites/Hud/Exp_Mana.png" id="4_uh8m8"]
-[ext_resource type="Texture2D" uid="uid://barf4f36owjth" path="res://sprites/Hud/Detalhes.png" id="5_ef6xn"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p1lse"]
-atlas = ExtResource("1_xcexb")
-region = Rect2(218.61, 121, 175, 167)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p5ktn"]
-atlas = ExtResource("1_xcexb")
-region = Rect2(218.61, 121, 175, 167)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q2653"]
-atlas = ExtResource("1_xcexb")
-region = Rect2(218.61, 121, 175, 167)
+[ext_resource type="Texture2D" uid="uid://b0uuoey5nxaj8" path="res://sprites/Hud/Hud.png" id="2_6cqf8"]
+[ext_resource type="Texture2D" uid="uid://cmx6usmb2rtpo" path="res://sprites/Hud/xp_bar.png" id="3_uh8m8"]
+[ext_resource type="Texture2D" uid="uid://b17yqr67wnwps" path="res://sprites/Hud/barra_vida.png" id="4_6cqf8"]
+[ext_resource type="Texture2D" uid="uid://djy5ftr0nouvq" path="res://sprites/Hud/mana_bar.png" id="5_e3vru"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1lse"]
 bg_color = Color(0.14044744, 0.14044747, 0.14044738, 1)
@@ -53,23 +41,6 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.083911665, 0.083911665, 0.083911665, 1)
 text = "Dinheiro: "
 
-[node name="ContainerCoracoes" type="HBoxContainer" parent="." unique_id=1019843189]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.2, 0.2)
-
-[node name="Coracaro1" type="TextureRect" parent="ContainerCoracoes" unique_id=895646982]
-layout_mode = 2
-texture = SubResource("AtlasTexture_p1lse")
-
-[node name="Coracaro2" type="TextureRect" parent="ContainerCoracoes" unique_id=1263658481]
-layout_mode = 2
-texture = SubResource("AtlasTexture_p5ktn")
-
-[node name="Coracaro3" type="TextureRect" parent="ContainerCoracoes" unique_id=510305617]
-layout_mode = 2
-texture = SubResource("AtlasTexture_q2653")
-
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1845871983]
 offset_right = 40.0
 offset_bottom = 40.0
@@ -88,32 +59,57 @@ size_flags_horizontal = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_p1lse")
 theme_override_styles/fill = SubResource("StyleBoxFlat_p5ktn")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=2068941370]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -80.0
-offset_right = 80.0
-grow_vertical = 0
-texture = ExtResource("3_6cqf8")
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=612708112]
+offset_right = 600.0
+offset_bottom = 200.0
+pivot_offset = Vector2(40, 40)
+texture = ExtResource("2_6cqf8")
 
-[node name="Exp" type="TextureProgressBar" parent="TextureRect" unique_id=1635740023]
+[node name="Exp" type="TextureProgressBar" parent="TextureRect2" unique_id=1635740023]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 54.0
+offset_top = 164.0
+offset_right = 183.0
+offset_bottom = 177.0
+texture_progress = ExtResource("3_uh8m8")
+
+[node name="Vida" type="TextureProgressBar" parent="TextureRect2" unique_id=1296967243]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1.0
+offset_left = 240.0
+offset_top = 31.0
+offset_right = 549.0
+offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
-fill_mode = 3
-texture_progress = ExtResource("4_uh8m8")
+value = 100.0
+texture_progress = ExtResource("4_6cqf8")
 
-[node name="TextureRect2" type="TextureRect" parent="TextureRect" unique_id=1147147071]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_ef6xn")
+[node name="Mana" type="TextureProgressBar" parent="TextureRect2" unique_id=2014194910]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+value = 100.0
+texture_progress = ExtResource("5_e3vru")
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect2" unique_id=76129444]
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 200.0
+pivot_offset = Vector2(40, 40)
+texture = ExtResource("2_6cqf8")
+
+[node name="Label" type="Label" parent="TextureRect2" unique_id=1306442717]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 33.0
+offset_top = 163.0
+offset_right = 52.0
+offset_bottom = 179.0
+theme_override_font_sizes/font_size = 11
+text = "1"
+horizontal_alignment = 1

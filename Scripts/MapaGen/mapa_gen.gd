@@ -3,7 +3,6 @@ extends Node
 @export var player: CharacterBody2D
 var inimigo = preload("res://Cenas/Inimigos/inimigo_base.tscn")
 var salas_possiveis = [ preload("res://Cenas/Mundo/Salas/sala_base.tscn")] #preload("res://Cenas/Mundo/Salas/sala_2.tscn", preload("res://Cenas/Mundo/Salas/sala_1.tscn")  ]
-var sala_loja = preload("res://Cenas/Mundo/Salas/sala_loja.tscn")
 var sala_boss =  preload("res://Cenas/Mundo/Salas/sala_boss.tscn")
 var porta = preload("res://Cenas/Mundo/Salas/Porta.tscn")
 var room_altura = 641
@@ -30,9 +29,6 @@ func generate_level():
 		var walk_dir = directions.pick_random()
 		var sala_sorteada = salas_possiveis.pick_random()
 		var nova_sala = sala_sorteada.instantiate()
-		
-		if salas_criadas.size() == 10:
-			nova_sala = sala_loja.instantiate()
 		if salas_criadas.size() == 14:
 			nova_sala = sala_boss.instantiate()
 		if not salas_criadas.has(current_pos):

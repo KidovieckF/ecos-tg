@@ -17,7 +17,7 @@ var vida_atual
 var vida_maxima 
 
 @onready var sprite = $Sprite2D
-@onready var hud = get_parent().get_node("HUD/ContainerCoracoes")
+@onready var hud = get_parent().get_node("HUD")
 @onready var hud_moedas = get_parent().get_node("HUD/ColorRect/Dinheiro")
 var game_over_scene = preload("res://Cenas/Mundo/Game_over.tscn")
 
@@ -69,18 +69,18 @@ func ganhar_xp(exp):
 		print("upei de nivel")
 		nivel +=1
 		print("nivel: ",nivel)
+	hud.atualizar_xp(xp_atual, barra_exp, nivel)
 
 func take_damage(quantidade, cor = Color.WHITE):
 	if pode_tomar_dano == true:
 		$Timer.start()
 		vida_atual -= quantidade
-		if vida_atual >= 0 and vida_atual < hud.get_child_count():
-			hud.get_child(vida_atual).visible = false
 		tween_dano = create_tween().set_loops()
 		tween_dano.tween_property(sprite, "modulate:a", 0.0, 0.1)
 		tween_dano.tween_property(sprite, "modulate:a", 1.0, 0.1)
 
 		print("Tomou dano ", vida_atual )
+		hud.atualizar_vida(vida_atual, vida_maxima)
 		pode_tomar_dano = false
 	if vida_atual <= 0 and morto == false:
 		morto = true
@@ -88,9 +88,8 @@ func take_damage(quantidade, cor = Color.WHITE):
 		get_tree().root.add_child(game_over)
 		
 func curar(quantidade):
-	if vida_atual < vida_maxima:
-		hud.get_child(vida_atual).visible = true
-		vida_atual = min(vida_atual + quantidade, vida_maxima)
+	vida_atual =  min((vida_atual + quantidade), vida_maxima)
+	hud.atualizar_vida(vida_atual, vida_maxima)
 		
 func coletar_moeda():
 	hud_moedas.text = "Dinheiro: " + str(RecursosGlobais.moeda)

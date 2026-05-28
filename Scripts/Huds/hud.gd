@@ -6,9 +6,15 @@ func _physics_process(delta: float) -> void:
 	pass
 	 
 	
-func atualizar_xp(xp_atual, xp_barra):
+func atualizar_xp(xp_atual, xp_barra, nivel):
 	%Exp.max_value = xp_barra
 	%Exp.value = xp_atual
+	%Label.text = str(nivel)
+	
+func atualizar_vida(vida_atual, vida_barra):
+	%Vida.max_value = vida_barra
+	%Vida.value = vida_atual
+	
 	
 func atualizar_vida_boss(valor):
 	$ProgressBar.value = valor
