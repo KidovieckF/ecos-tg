@@ -6,7 +6,7 @@ const JUMP_VELOCITY = -400.0
 var pode_tomar_dano = true
 var tween_dano
 var nivel = 1
-
+var last_direction = Vector2(1,0)
 @export var personagem : player_data
 @export var arma : ArmaRecurso
 var morto = false
@@ -15,6 +15,7 @@ var dano_adicional = 0
 var xp_atual = 0
 var vida_atual 
 var vida_maxima 
+var atacando = false
 
 @onready var sprite = $Sprite2D
 @onready var hud = get_parent().get_node("HUD")
@@ -32,24 +33,71 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if $AttackTimer.is_stopped:
 		if Input.is_action_pressed("Atirar"):
+			atacando = true
 			arma.usar_arma(self, delta, personagem.dano_mult, dano_adicional)
+			var direcao_calculada = (get_global_mouse_position() - global_position).normalized()
+			if abs(direcao_calculada.x) > abs(direcao_calculada.y) and direcao_calculada.x > 0:
+				$Sprite2D.flip_h = false
+				$Sprite2D.play("AtirandoLado")
+			elif abs(direcao_calculada.x) > abs(direcao_calculada.y) and direcao_calculada.x < 0:
+				$Sprite2D.flip_h = true
+				$Sprite2D.play("AtirandoLado")
+			elif abs(direcao_calculada.y) > abs(direcao_calculada.x) and direcao_calculada.y < 0:
+				$Sprite2D.flip_h = false
+				$Sprite2D.play("AtirandoCostas")
+			elif abs(direcao_calculada.y) > abs(direcao_calculada.x) and direcao_calculada.y > 0:
+				$Sprite2D.flip_h = false
+				$Sprite2D.play("AtirandoFrente")
+				
 	if Input.is_action_just_released("Atirar"):
+		atacando = false
 		arma.parar_uso(self)
 	
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	
 	if direction:
-		if direction.x > 0: 
-			sprite.flip_h = false
-		elif direction.x < 0:
-			sprite.flip_h = true
-		
 		velocity = direction * speed_atual
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed_atual)
 		velocity.y = move_toward(velocity.y, 0, speed_atual)
+		
+	if not atacando:
+		if direction:
+			if direction.x > 0: 
+				last_direction = direction
+				$Sprite2D.flip_h = false
+				$Sprite2D.play("AndandoLado")
+			elif direction.x < 0:
+				last_direction = direction
+				$Sprite2D.flip_h = true
+				$Sprite2D.play("AndandoLado")
+			elif direction.y > 0:
+				last_direction = direction
+				$Sprite2D.flip_h = false
+				$Sprite2D.play("AndandoFrente")
+			elif direction.y < 0:
+				last_direction = direction
+				$Sprite2D.flip_h = false
+				$Sprite2D.play("AndandoCosta")
+	
+		if direction == Vector2.ZERO:
+			if last_direction.x > 0:
+				$Sprite2D.flip_h = false
+				$Sprite2D.play("IdleLado") 
+			elif last_direction.x < 0:
+				$Sprite2D.flip_h = true
+				$Sprite2D.play("IdleLado")
+			elif last_direction.y > 0:
+				$Sprite2D.flip_h = false
+				$Sprite2D.play("IdleFrente")
+			elif last_direction.y < 0:
+				$Sprite2D.flip_h = false
+				$Sprite2D.play("IdleCostas")
+		
+	
 
 	move_and_slide()
 
