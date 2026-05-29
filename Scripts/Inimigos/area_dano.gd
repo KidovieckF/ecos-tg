@@ -13,6 +13,7 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	
 	if body.has_method("take_damage") and body.is_in_group("Players"):
+		$"../Sprite2D".play("Atacando")
 		player_na_area = true
 		player = body
 		player.take_damage(dano_atual)

@@ -21,6 +21,7 @@ var atacando = false
 @onready var hud = get_parent().get_node("HUD")
 @onready var hud_moedas = get_parent().get_node("HUD/ColorRect/Dinheiro")
 var game_over_scene = preload("res://Cenas/Mundo/Game_over.tscn")
+var upgrade = preload("res://Hud_upgrade.tscn")
 
 var magia1 = preload("res://Cenas/Player/Magias/Magia1.tscn")
 
@@ -117,7 +118,11 @@ func ganhar_xp(exp):
 		print("upei de nivel")
 		nivel +=1
 		print("nivel: ",nivel)
+		var upg_scene = upgrade.instantiate()
+		add_child(upg_scene)
+		get_tree().paused = true
 	hud.atualizar_xp(xp_atual, barra_exp, nivel)
+	
 
 func take_damage(quantidade, cor = Color.WHITE):
 	if pode_tomar_dano == true:

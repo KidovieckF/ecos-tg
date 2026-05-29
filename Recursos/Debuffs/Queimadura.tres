@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_df1ca")
-dano = 1.0
+dano = 2.0
 tempo = 2.0
 stacka = true
 metadata/_custom_type_script = "uid://fixm4mj6rxk2"

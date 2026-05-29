@@ -5,21 +5,35 @@ signal morreu
 @export var cena_item : PackedScene
 @export var cena_moeda : PackedScene
 @export var data : inimigo_data
+var last_direction
 var ativo = false
 var vida_max
 var vida_atual
 var ind_dano = preload("res://Cenas/Mundo/Ind_dano.tscn")
 
 func _ready() -> void:
+	set_physics_process(true) 
+	$CollisionShape2D.set_deferred("disabled",false)
 	vida_max = data.vida * player.nivel
 	vida_atual = vida_max
 	$AreaDano.pegarDano(data.dano)
 
 func _physics_process(delta: float) -> void:
 	if player != null:
+		
 		var direction = (player.global_position - global_position).normalized()
+		if direction:
+			if direction.x > 0: 
+				last_direction = direction
+				$Sprite2D.flip_h = false
+				$Sprite2D.play("Andando")
+			elif direction.x < 0:
+				last_direction = direction
+				$Sprite2D.flip_h = true
+				$Sprite2D.play("Andando")
 		velocity = direction * data.speed
 		move_and_slide()
+		
 
 func take_damage(quantidade, cor = Color.WHITE):
 	vida_atual -= quantidade
@@ -33,6 +47,10 @@ func take_damage(quantidade, cor = Color.WHITE):
 
 func morrer():
 	#print("1. INIMIGO: Morri e emiti o sinal!")
+	set_physics_process(false) 
+	$CollisionShape2D.set_deferred("disabled",true)
+	$Sprite2D.play("Morrendo")
+	await $Sprite2D.animation_finished
 	spawn_item()
 	queue_free()
 	morreu.emit()

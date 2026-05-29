@@ -15,6 +15,7 @@ var deu_grandao = false
 var deu_suculento = false
 var deu_ultimato = false
 var primeira_fase = true
+var processando_onda = false
 
 
 func _ready() -> void:
@@ -35,14 +36,18 @@ func _physics_process(delta: float) -> void:
 				
 
 func verifica_inimigos():
+	if processando_onda:
+		return
 	round_maximo = randi_range(2,5)
 	lista_inimigos = lista_inimigos.filter(func(i): return is_instance_valid(i) and not i.is_queued_for_deletion())
 	contador_inimigos = lista_inimigos.size()
 	if contador_inimigos == 0:
 		if round_atual < round_maximo:
+			processando_onda = true
 			await get_tree().create_timer(3.0).timeout
 			chamar_onda()
 			round_atual += 1
+			processando_onda = false
 		else:
 			for p in portas_da_sala:
 				p.abrir_porta()

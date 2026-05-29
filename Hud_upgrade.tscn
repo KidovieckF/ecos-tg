@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ywipkdmnc0ja" path="res://Cenas/Mundo/upgrade.tscn" id="6_lwiws"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1338939119]
+process_mode = 3
 script = ExtResource("1_jkgpm")
 upgrades = Array[ExtResource("2_x6fcg")]([ExtResource("3_x6fcg"), ExtResource("4_lwiws"), ExtResource("5_ojnsx")])
 

@@ -5,6 +5,7 @@ var dano_bala
 var speed
 var inimigos_lista = []
 var direction 
+var dano_add
 @export var cena_da_queimadura : PackedScene
 @export var debuff : DebuffsData
 
@@ -27,7 +28,10 @@ func _process(delta: float) -> void:
 				var nova_queima = cena_da_queimadura.instantiate()
 				nova_queima.name = ("Queimadura")
 				nova_queima.debuff = debuff
+				var dano_original = debuff.dano
+				debuff.dano += dano_add
 				inimigos.add_child(nova_queima)
+				debuff.dano = dano_original
 
 func start(dano):
 	dano_bala = dano

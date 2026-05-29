@@ -39,9 +39,15 @@ func _process(delta: float) -> void:
 
 func _on_upgrade_1_pressed() -> void:
 	sorte1.aplicar_upgrade(player)
+	get_tree().paused = false
+	queue_free()
 
 func _on_upgrade_2_pressed() -> void:
 	sorte2.aplicar_upgrade(player)
-
+	get_tree().paused = false
+	queue_free()
+	
 func _on_upgrade_3_pressed() -> void:
 	sorte3.aplicar_upgrade(player)
+	get_tree().paused = false
+	queue_free()

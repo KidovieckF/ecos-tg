@@ -13,7 +13,8 @@ func usar_arma(player,delta,dano_mult, dano_add):
 	else:
 		var novo_circulo = projetil.instantiate()
 		novo_circulo.name = "Circulo"
-		novo_circulo.start(dano)
+		novo_circulo.start(dano_atual)
+		novo_circulo.dano_add = dano_add
 		player.add_child(novo_circulo)
 		player.speed_atual = 100
 
@@ -23,3 +24,4 @@ func parar_uso(player):
 	if o_circulo:
 		o_circulo.queue_free()
 	player.speed_atual = 300
+	dano_atual = dano
