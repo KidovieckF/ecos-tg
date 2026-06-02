@@ -2,32 +2,76 @@
 
 [ext_resource type="Script" uid="uid://c058681e4rws3" path="res://Scripts/Mundo/menu_inicial.gd" id="1_gqker"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqker"]
+bg_color = Color(0.38976315, 0.63101834, 0.7908379, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1d0q"]
-bg_color = Color(0.8130388, 0.5185558, 0.34721345, 1)
+bg_color = Color(0.22352941, 0.39215687, 0.63529414, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnyq4"]
+bg_color = Color(0.22352941, 0.39215687, 0.63529414, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gqe1"]
-bg_color = Color(0.5570256, 0.32690054, 0.19136325, 1)
-draw_center = false
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bfyd"]
+bg_color = Color(0.22352941, 0.39215687, 0.63529414, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d50gw"]
-bg_color = Color(0.8117647, 0.5176471, 0.34901962, 1)
+bg_color = Color(0.22352941, 0.39215687, 0.63529414, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdsfh"]
-bg_color = Color(0.5568628, 0.3254902, 0.19215687, 1)
+bg_color = Color(0.2231988, 0.39308956, 0.63687485, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xl0mq"]
-bg_color = Color(0.5568628, 0.3254902, 0.19215687, 1)
+bg_color = Color(0.22352941, 0.39215687, 0.63529414, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dfdx"]
-bg_color = Color(0.8117647, 0.5176471, 0.34901962, 1)
+bg_color = Color(0.22352941, 0.39215687, 0.63529414, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6422"]
-bg_color = Color(0.5568628, 0.3254902, 0.19215687, 1)
+bg_color = Color(0.22352941, 0.39215687, 0.63529414, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pi82x"]
-bg_color = Color(0.5568628, 0.3254902, 0.19215687, 1)
+bg_color = Color(0.22352941, 0.39215687, 0.63529414, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="Control" type="Control" unique_id=837846862]
 layout_mode = 3
@@ -52,6 +96,7 @@ custom_minimum_size = Vector2(800, 600)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_gqker")
 
 [node name="GridContainer" type="GridContainer" parent="GridContainer/Panel" unique_id=169097734]
 layout_mode = 1
@@ -85,7 +130,7 @@ custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_e1d0q")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tnyq4")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3gqe1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0bfyd")
 text = "Começar"
 
 [node name="ConfigsBtn" type="Button" parent="GridContainer/Panel/GridContainer/MarginContainer/VBoxContainer" unique_id=1438923239]

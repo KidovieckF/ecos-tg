@@ -4,18 +4,18 @@
 [ext_resource type="Script" uid="uid://cbu0yk8s80ubi" path="res://Scripts/Player/Itens/Moeda.gd" id="1_wpuqa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wpuqa"]
-size = Vector2(68, 77)
+size = Vector2(23, 25.5)
 
 [node name="Node2D" type="Area2D" unique_id=850399042]
 script = ExtResource("1_wpuqa")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=206196188]
-position = Vector2(-7.6293945e-06, 0)
-scale = Vector2(0.30172414, 0.28448275)
+position = Vector2(-1.9073486e-06, -1.9073486e-06)
+scale = Vector2(0.106, 0.1)
 texture = ExtResource("1_grnak")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=334404122]
-position = Vector2(2, 0.5)
+position = Vector2(0.5, 0.25)
 shape = SubResource("RectangleShape2D_wpuqa")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

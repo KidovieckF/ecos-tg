@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ProjExtraData" format=3 uid="uid://cax4h5p8wd1cs"]
+
+[ext_resource type="Script" uid="uid://wk1vfsstfnxa" path="res://Recursos/Upgrades/projetil.gd" id="1_08gse"]
+[ext_resource type="Texture2D" uid="uid://cgaa5hewjqxhr" path="res://sprites/GUI_fantasy/attack5.png" id="2_87i16"]
+
+[resource]
+script = ExtResource("1_08gse")
+Nome = "Projetil Extra"
+textura = ExtResource("2_87i16")
+efeito = "+1  projetil"
+valor_efeito = 1.0
+metadata/_custom_type_script = "uid://wk1vfsstfnxa"

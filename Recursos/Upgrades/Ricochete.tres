@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RicochoteData" format=3 uid="uid://pk2omm0vbbt3"]
+
+[ext_resource type="Script" uid="uid://c7qtijow0rlo3" path="res://Recursos/Upgrades/Ricochete.gd" id="1_4ohsk"]
+[ext_resource type="Texture2D" uid="uid://dafshxley4tcd" path="res://sprites/GUI_fantasy/attack4.png" id="2_8xo73"]
+
+[resource]
+script = ExtResource("1_4ohsk")
+Nome = "Richocete"
+textura = ExtResource("2_8xo73")
+efeito = "Ricochete +1"
+valor_efeito = 1.0
+metadata/_custom_type_script = "uid://c7qtijow0rlo3"

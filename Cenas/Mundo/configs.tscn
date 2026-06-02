@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dm6tuh7mo8jb0" path="res://Scripts/Mundo/configs.gd" id="1_ghvyg"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pf6ok"]
+bg_color = Color(0.3197765, 0.6439783, 0.7934122, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6ouc"]
 bg_color = Color(0.8117647, 0.5176471, 0.34901962, 1)
 
@@ -33,6 +40,7 @@ custom_minimum_size = Vector2(500, 600)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_pf6ok")
 
 [node name="MarginContainer" type="MarginContainer" parent="GridContainer/Panel" unique_id=325186077]
 layout_mode = 1
@@ -43,7 +51,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 50
+theme_override_constants/margin_right = 80
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="GridContainer/Panel/MarginContainer" unique_id=2044106840]
 layout_mode = 2
@@ -51,6 +59,7 @@ theme_override_constants/separation = 30
 
 [node name="Label" type="Label" parent="GridContainer/Panel/MarginContainer/VBoxContainer2" unique_id=833002758]
 layout_mode = 2
+theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 32
 text = "Configurações"
 vertical_alignment = 1
@@ -64,29 +73,39 @@ alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 60)
 layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_constants/h_separation = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_h6ouc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ghvyg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gkp0h")
+text = "Tela Cheia"
+alignment = 1
 
 [node name="soundBtn" type="Button" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VBoxContainer" unique_id=1698803123]
 custom_minimum_size = Vector2(30, 60)
 layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_constants/h_separation = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_h6ouc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ghvyg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gkp0h")
+text = "Som"
 
 [node name="keyBindBtn" type="Button" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VBoxContainer" unique_id=422434108]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 60)
 layout_mode = 2
+theme_override_constants/outline_size = 4
 theme_override_styles/normal = SubResource("StyleBoxFlat_h6ouc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ghvyg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gkp0h")
+text = "Controles"
 
 [node name="voltarBtn" type="Button" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VBoxContainer" unique_id=681556278]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 60)
 layout_mode = 2
+theme_override_constants/outline_size = 4
 theme_override_styles/normal = SubResource("StyleBoxFlat_h6ouc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ghvyg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gkp0h")

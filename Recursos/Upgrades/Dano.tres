@@ -1,12 +1,12 @@
 [gd_resource type="Resource" format=3 uid="uid://bbk331fykv6fn"]
 
 [ext_resource type="Script" uid="uid://bdsuolygyk071" path="res://Recursos/Upgrades/dano.gd" id="1_3mbse"]
-[ext_resource type="Texture2D" uid="uid://ldrlxssllyg5" path="res://teste.png" id="2_ykvwv"]
+[ext_resource type="Texture2D" uid="uid://bmegisltfsmuq" path="res://sprites/GUI_fantasy/weapon4.png" id="2_ykvwv"]
 
 [resource]
 script = ExtResource("1_3mbse")
 Nome = "Dano"
 textura = ExtResource("2_ykvwv")
-efeito = "Aumenta o dano"
-valor_efeito = 1
+efeito = "Dano +1"
+valor_efeito = 1.0
 metadata/_custom_type_script = "uid://8c037puqgbug"

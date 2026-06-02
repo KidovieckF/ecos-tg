@@ -50,7 +50,7 @@ func _on_parar_timeout() -> void:
 		$Giro.stop()
 		$Parar.stop()
 		verifica_resultado()
-		await get_tree().create_timer(2.0).timeout
+		await get_tree().create_timer(1.0).timeout
 		tween = create_tween()
 		tween.tween_callback(queue_free)
 	 

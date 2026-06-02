@@ -9,6 +9,7 @@ var nivel = 1
 var last_direction = Vector2(1,0)
 @export var personagem : player_data
 @export var arma : ArmaRecurso
+@export var proj_mods : ProjMods
 var morto = false
 var barra_exp
 var dano_adicional = 0
@@ -19,7 +20,7 @@ var atacando = false
 
 @onready var sprite = $Sprite2D
 @onready var hud = get_parent().get_node("HUD")
-@onready var hud_moedas = get_parent().get_node("HUD/ColorRect/Dinheiro")
+@onready var hud_moedas = get_parent().get_node("HUD/TextureRect2/ColorRect/Dinheiro")
 var game_over_scene = preload("res://Cenas/Mundo/Game_over.tscn")
 var upgrade = preload("res://Hud_upgrade.tscn")
 
@@ -32,7 +33,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if $AttackTimer.is_stopped:
+	if $AttackTimer.is_stopped():
 		if Input.is_action_pressed("Atirar"):
 			atacando = true
 			arma.usar_arma(self, delta, personagem.dano_mult, dano_adicional)
@@ -145,7 +146,7 @@ func curar(quantidade):
 	hud.atualizar_vida(vida_atual, vida_maxima)
 		
 func coletar_moeda():
-	hud_moedas.text = "Dinheiro: " + str(RecursosGlobais.moeda)
+	hud_moedas.text = "$: " + str(RecursosGlobais.moeda)
 	
 
 func trocar_camera():

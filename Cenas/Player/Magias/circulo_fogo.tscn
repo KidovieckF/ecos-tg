@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://dy3y6lok7i2a2" path="res://Scripts/Magias/circulo_fogo.gd" id="1_bo4tu"]
 [ext_resource type="PackedScene" uid="uid://q5t6vn72yav6" path="res://Cenas/Player/Magias/Debuffs/Queimadura.tscn" id="2_omwdj"]
 [ext_resource type="Resource" uid="uid://cn1yre7vhal61" path="res://Recursos/Debuffs/Queimadura.tres" id="3_budvu"]
+[ext_resource type="Texture2D" uid="uid://b8tuhorwa7qqo" path="res://sprites/particulas/Fire.png" id="4_203b1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yg7ov"]
-bg_color = Color(0.5067094, 0.06780018, 0.09681185, 0.6313726)
+bg_color = Color(0.83534527, 0.1381338, 0.1879346, 0.16862746)
 corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
@@ -13,6 +14,16 @@ corner_radius_bottom_left = 100
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n6u44"]
 radius = 88.02273
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xmlj2"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 88.33
+gravity = Vector3(0, 10, 0)
+linear_accel_min = -69.89
+linear_accel_max = -69.89
+scale_min = 0.099999994
+scale_max = 0.19999999
 
 [node name="Circulo" type="Area2D" unique_id=1801574145]
 collision_layer = 0
@@ -32,9 +43,18 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_yg7ov")
 shape = SubResource("CircleShape2D_n6u44")
 
 [node name="Timer" type="Timer" parent="." unique_id=1813471522]
-wait_time = 0.5
+one_shot = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=492655712]
+amount = 20
+texture = ExtResource("4_203b1")
+process_material = SubResource("ParticleProcessMaterial_xmlj2")
+
+[node name="TempoVida" type="Timer" parent="." unique_id=1096452655]
+wait_time = 3.0
 one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TempoVida" to="." method="_on_tempo_vida_timeout"]

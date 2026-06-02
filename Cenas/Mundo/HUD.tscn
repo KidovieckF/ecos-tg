@@ -12,34 +12,16 @@ bg_color = Color(0.14044744, 0.14044747, 0.14044738, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5ktn"]
 bg_color = Color(1, 0.07450981, 0.047058824, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6cqf8"]
+content_margin_left = 10.0
+bg_color = Color(0.4313734, 0.21494433, 0.039424043, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="HUD" type="CanvasLayer" unique_id=856288748 groups=["HUD"]]
 script = ExtResource("1_p1lse")
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=926039432]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -148.0
-offset_bottom = 33.0
-grow_horizontal = 0
-size_flags_horizontal = 8
-color = Color(0.8017344, 0.44781315, 0.2569259, 1)
-
-[node name="Dinheiro" type="Label" parent="ColorRect" unique_id=317849082]
-unique_name_in_owner = true
-z_index = 1
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -142.0
-offset_top = 4.0
-offset_bottom = 27.0
-grow_horizontal = 0
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0.083911665, 0.083911665, 0.083911665, 1)
-text = "Dinheiro: "
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1845871983]
 offset_right = 40.0
@@ -113,3 +95,33 @@ offset_bottom = 179.0
 theme_override_font_sizes/font_size = 11
 text = "1"
 horizontal_alignment = 1
+
+[node name="ColorRect" type="Panel" parent="TextureRect2" unique_id=1094617179]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 380.0
+offset_top = 24.0
+offset_right = 528.0
+offset_bottom = 57.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_6cqf8")
+
+[node name="Dinheiro" type="Label" parent="TextureRect2/ColorRect" unique_id=317849082]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -137.0
+offset_top = 5.0
+offset_right = -4.0
+offset_bottom = 28.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.083911665, 0.083911665, 0.083911665, 1)
+text = "$: "

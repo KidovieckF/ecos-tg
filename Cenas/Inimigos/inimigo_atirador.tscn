@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://1jobifvj8wu8"]
 
-[ext_resource type="Texture2D" uid="uid://caxfw1d7sj3hp" path="res://sprites/inimigos/arqueiro.jpg" id="1_2g15i"]
 [ext_resource type="Script" uid="uid://dc8nfblx6423b" path="res://Scripts/Inimigos/inimigo_atirador.gd" id="1_hb24w"]
 [ext_resource type="PackedScene" uid="uid://d0rb3lqsvg35a" path="res://Cenas/Player/Itens/Cura.tscn" id="2_4ef7g"]
+[ext_resource type="Texture2D" uid="uid://bh6fc76w8pbv7" path="res://icon.svg" id="3_4ef7g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hb24w"]
 size = Vector2(65.5, 62.25)
@@ -15,8 +15,9 @@ script = ExtResource("1_hb24w")
 cena_item = ExtResource("2_4ef7g")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=178333050]
-scale = Vector2(0.301875, 0.301875)
-texture = ExtResource("1_2g15i")
+position = Vector2(0.5, 0.50000286)
+scale = Vector2(0.4921875, 0.4921875)
+texture = ExtResource("3_4ef7g")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1847406716]
 z_index = 1

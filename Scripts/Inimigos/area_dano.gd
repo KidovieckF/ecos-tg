@@ -26,4 +26,6 @@ func _on_timer_timeout() -> void:
 
 
 func _on_body_exited(body: Node2D) -> void:
-	player_na_area = false
+	if body.has_method("take_damage") and body.is_in_group("Players"):
+		player_na_area = false
+		$"../Sprite2D".play("Andando")

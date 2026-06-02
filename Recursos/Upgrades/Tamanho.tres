@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TamanhoData" format=3 uid="uid://di7pdywk7r0nr"]
+
+[ext_resource type="Script" uid="uid://cbsd3eux5kexf" path="res://Recursos/Upgrades/tamanho.gd" id="1_v15xr"]
+[ext_resource type="Texture2D" uid="uid://caah2sw7uet6j" path="res://sprites/GUI_fantasy/light2.png" id="2_b67fc"]
+
+[resource]
+script = ExtResource("1_v15xr")
+Nome = "Tamanho"
+textura = ExtResource("2_b67fc")
+efeito = "+10% tamanho"
+valor_efeito = 1.1
+metadata/_custom_type_script = "uid://cbsd3eux5kexf"

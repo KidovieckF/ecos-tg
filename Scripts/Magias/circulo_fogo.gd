@@ -6,21 +6,23 @@ var speed
 var inimigos_lista = []
 var direction 
 var dano_add
+var indice_atual = 0
+var caminho : Array
+
 @export var cena_da_queimadura : PackedScene
 @export var debuff : DebuffsData
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	global_position = get_global_mouse_position()
+	var raio = 20
+	var posicao_mouse = get_global_mouse_position()
+	$TempoVida.start()
+	global_position = posicao_mouse + Vector2(randf_range(-raio, raio), randf_range(-raio, raio))
 
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if $Timer.is_stopped():
+		$Timer.start()
 		for inimigos in inimigos_lista:
-			inimigos.take_damage(dano_bala, Color.WHITE)
-			$Timer.start()
 			var queimando = inimigos.get_node_or_null("Queimadura")
 			if queimando and not queimando.is_queued_for_deletion():
 				queimando.adicionar_stacks()
@@ -28,10 +30,9 @@ func _process(delta: float) -> void:
 				var nova_queima = cena_da_queimadura.instantiate()
 				nova_queima.name = ("Queimadura")
 				nova_queima.debuff = debuff
-				var dano_original = debuff.dano
-				debuff.dano += dano_add
+				nova_queima.dano_add = dano_add
 				inimigos.add_child(nova_queima)
-				debuff.dano = dano_original
+
 
 func start(dano):
 	dano_bala = dano
@@ -46,3 +47,10 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_body_exited(body: Node2D) -> void:
 	inimigos_lista.erase(body)
+
+
+	
+
+
+func _on_tempo_vida_timeout() -> void:
+	queue_free()

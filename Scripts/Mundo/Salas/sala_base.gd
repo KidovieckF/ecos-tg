@@ -73,14 +73,14 @@ func inicar_sala(body):
 	if sensor_ja_ativado == false and tempo_de_vida > 0.5:
 		if body.is_in_group("Players"):
 			sensor_ja_ativado = true
+			for p in portas_da_sala:
+				print("fechei a porta")
+				p.fechar_porta()
 			print("Detector de sala ativado por: ", body.name)
 			player = body
 			$CanvasLayer.iniciar_roleta()
 			await get_tree().create_timer(5.0).timeout
 			chamar_onda()
-			for p in portas_da_sala:
-				print("fechei a porta")
-				p.fechar_porta()
 				
 		
 		

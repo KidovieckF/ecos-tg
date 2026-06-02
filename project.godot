@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Ecos_TG"
-run/main_scene="uid://bj2xwmswvu4hi"
+run/main_scene="uid://iqmolkeyby7q"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

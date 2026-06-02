@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ProjMods" format=3 uid="uid://dx613t2wpryvs"]
+
+[ext_resource type="Script" uid="uid://c6ix12064rqvy" path="res://Recursos/Armas/arma_modificadores.gd" id="1_q8yks"]
+
+[resource]
+script = ExtResource("1_q8yks")
+proj_extras = 2
+bounces = 2

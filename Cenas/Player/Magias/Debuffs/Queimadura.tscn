@@ -9,7 +9,7 @@ script = ExtResource("1_4hm5n")
 one_shot = true
 
 [node name="TimerDano" type="Timer" parent="." unique_id=1458517886]
-wait_time = 0.5
+wait_time = 1.5
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

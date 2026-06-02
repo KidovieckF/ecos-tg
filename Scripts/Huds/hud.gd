@@ -29,4 +29,4 @@ func abrir_vida_boss(vidaMax):
 	tween_vida.tween_property($ProgressBar, "value", vidaMax, 2.0)
 	
 func atualizar_dinheiro():
-	%Label.text = "Dinheiro: " + str(RecursosGlobais.dinheiro)
+	%Dinheiro.text = "$: " + str(RecursosGlobais.dinheiro)

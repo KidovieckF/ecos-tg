@@ -319,5 +319,8 @@ position_smoothing_enabled = true
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=523048921]
 
+[node name="VolleyCooldown" type="Timer" parent="." unique_id=279288267]
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://c0f05vw2vnj4s"]
+
+[ext_resource type="Script" uid="uid://0l23wo4u78oo" path="res://Scripts/Player/missil_magico.gd" id="1_1di7g"]
+[ext_resource type="Texture2D" uid="uid://brb87korx7nce" path="res://sprites/magias/Fireball_Sprite_Sheet.png" id="2_ducg2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g850u"]
+atlas = ExtResource("2_ducg2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6ann"]
+atlas = ExtResource("2_ducg2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1mp8"]
+atlas = ExtResource("2_ducg2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cpwy"]
+atlas = ExtResource("2_ducg2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_di74x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g850u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6ann")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1mp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cpwy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xm5xu"]
+radius = 8.0
+
+[node name="MissilMagico" type="CharacterBody2D" unique_id=1548705329]
+z_index = 2
+position = Vector2(-1, 0)
+collision_layer = 8
+collision_mask = 6
+script = ExtResource("1_1di7g")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1647020027]
+sprite_frames = SubResource("SpriteFrames_di74x")
+frame = 1
+frame_progress = 0.42376792
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1236655120]
+position = Vector2(-2, -1)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_xm5xu")
+
+[node name="Destruir" type="Timer" parent="." unique_id=1772075027]
+wait_time = 30.0
+
+[connection signal="timeout" from="Destruir" to="." method="_on_destruir_timeout"]

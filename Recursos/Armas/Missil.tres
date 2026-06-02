@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MissilMagico" format=3 uid="uid://ddmiyd4uofc2b"]
+
+[ext_resource type="Script" uid="uid://cbbclb2ewf041" path="res://Recursos/Armas/missil_mag.gd" id="1_q1obn"]
+[ext_resource type="PackedScene" uid="uid://c0f05vw2vnj4s" path="res://Cenas/Player/Magias/missil_magico.tscn" id="1_r1ddo"]
+
+[resource]
+script = ExtResource("1_q1obn")
+dano = 3.0
+speed = 200.0
+projetil = ExtResource("1_r1ddo")
+metadata/_custom_type_script = "uid://cbbclb2ewf041"
