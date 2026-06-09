@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b0th5tt33bnwn"]
+
+[ext_resource type="Script" uid="uid://d0pf76xh1v6qj" path="res://Scripts/Magias/gravity.gd" id="1_b0bka"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ukus"]
+bg_color = Color(0.7372549, 0.047058824, 0.8392157, 0.44705883)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sbkf5"]
+radius = 88.02273
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b0bka"]
+radius = 17.0
+
+[node name="Area" type="Area2D" unique_id=984427645 groups=["gravity"]]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("1_b0bka")
+
+[node name="Panel" type="Panel" parent="." unique_id=1070642615]
+offset_left = -86.0
+offset_top = -85.0
+offset_right = 87.0
+offset_bottom = 88.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2ukus")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=965160909]
+shape = SubResource("CircleShape2D_sbkf5")
+
+[node name="TicDano" type="Timer" parent="." unique_id=1188414915]
+wait_time = 0.5
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1164074606]
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1388779327]
+shape = SubResource("CircleShape2D_b0bka")
+
+[node name="Duracao" type="Timer" parent="." unique_id=1511085016]
+wait_time = 5.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="TicDano" to="." method="_on_tic_dano_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Duracao" to="." method="_on_duracao_timeout"]

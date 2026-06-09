@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://tg2ghdhmth" path="res://Cenas/Player/player.tscn" id="1_sutly"]
 [ext_resource type="PackedScene" uid="uid://cn8y5s0pru1up" path="res://Cenas/Mundo/HUD.tscn" id="2_72v6r"]
 [ext_resource type="Resource" uid="uid://cdc5maehwv413" path="res://Recursos/Player/Alice.tres" id="2_bfxb6"]
-[ext_resource type="Resource" uid="uid://ddmiyd4uofc2b" path="res://Recursos/Armas/Missil.tres" id="3_2wavu"]
+[ext_resource type="Resource" uid="uid://dlstaa81tgc3d" path="res://Recursos/Armas/Gravity.tres" id="3_2wavu"]
 [ext_resource type="Script" uid="uid://qqihy0npalqk" path="res://Scripts/MapaGen/mapa_gen.gd" id="3_bfxb6"]
 [ext_resource type="Resource" uid="uid://dx613t2wpryvs" path="res://Recursos/Armas/Arma_mods.tres" id="3_tc3pp"]
 

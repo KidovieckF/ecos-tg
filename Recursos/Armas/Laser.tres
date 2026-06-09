@@ -3,10 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://d0ass716ubadl" path="res://Cenas/Player/Magias/laser.tscn" id="1_5wopn"]
 [ext_resource type="Script" uid="uid://cgjta1tov0xnx" path="res://Recursos/Armas/laser.gd" id="1_bxf8g"]
 [ext_resource type="PackedScene" uid="uid://b68cn53lhoovb" path="res://Cenas/Player/Magias/laser_charge.tscn" id="1_u7gy8"]
+[ext_resource type="Texture2D" uid="uid://cphgndc03yaom" path="res://sprites/Hud/Exp_Mana.png" id="4_86wco"]
 
 [resource]
 script = ExtResource("1_bxf8g")
 dano = 1.0
 projetil = ExtResource("1_5wopn")
 efeito = ExtResource("1_u7gy8")
+textura = ExtResource("4_86wco")
 metadata/_custom_type_script = "uid://cgjta1tov0xnx"

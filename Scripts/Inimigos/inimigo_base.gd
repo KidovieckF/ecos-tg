@@ -10,6 +10,9 @@ var ativo = false
 var vida_max
 var vida_atual
 var ind_dano = preload("res://Cenas/Mundo/Ind_dano.tscn")
+var morto = false
+var dano_pendente = 0
+
 
 func _ready() -> void:
 	set_physics_process(true) 
@@ -19,7 +22,20 @@ func _ready() -> void:
 	$AreaDano.pegarDano(data.dano)
 
 func _physics_process(delta: float) -> void:
-	if player != null:
+	if dano_pendente > 0 and not morto:
+		print("Processando dano_pendente: ", dano_pendente, " | vida_atual ANTES: ", vida_atual)
+		vida_atual -= dano_pendente
+		dano_pendente = 0
+		if vida_atual <= 0:
+			print(">>> VIDA ZEROU! morto = true, chamando morrer()")
+			morto = true
+			$AreaDano.set_deferred("monitoring", false)
+			morrer()
+			print(">>> VOLTOU DO morrer()")
+			return
+	
+	
+	if player != null and not morto:
 		
 		var direction = (player.global_position - global_position).normalized()
 		if direction:
@@ -36,21 +52,27 @@ func _physics_process(delta: float) -> void:
 		
 
 func take_damage(quantidade, cor = Color.WHITE):
-	vida_atual -= quantidade
-	#print("Inimigo tomou dano! Vida restante: ", vida)
+	if morto:
+		return
+	dano_pendente += quantidade
 	var novo_dano = ind_dano.instantiate() 
 	get_parent().add_child(novo_dano)
 	novo_dano.global_position = global_position
 	novo_dano._mostrar_dano(quantidade, cor)
-	if vida_atual <= 0:
-		morrer()
 
 func morrer():
-	#print("1. INIMIGO: Morri e emiti o sinal!")
-	set_physics_process(false) 
-	$CollisionShape2D.set_deferred("disabled",true)
-	$Sprite2D.play("Morrendo")
-	await $Sprite2D.animation_finished
+	set_physics_process(false)
+	collision_layer = 0
+	collision_mask = 0
+	$AreaDano.collision_layer = 0
+	$AreaDano.collision_mask = 0
+	var death = AnimatedSprite2D.new()
+	death.sprite_frames = $Sprite2D.sprite_frames
+	death.scale = $Sprite2D.scale
+	death.play("Morrendo")
+	death.animation_finished.connect(queue_free)
+	get_parent().add_child(death)
+	death.global_position = global_position
 	spawn_item()
 	queue_free()
 	morreu.emit()

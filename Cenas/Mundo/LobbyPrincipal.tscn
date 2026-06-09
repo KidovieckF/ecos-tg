@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dc55a68xesber" path="res://Cenas/Player/Mascotes/mascote.tscn" id="8_wbc7f"]
 [ext_resource type="Texture2D" uid="uid://bti5gwt2t5wr5" path="res://sprites/objects/objects.png" id="9_bgptu"]
 [ext_resource type="Resource" uid="uid://cdc5maehwv413" path="res://Recursos/Player/Alice.tres" id="11_534fv"]
-[ext_resource type="Resource" uid="uid://ddmiyd4uofc2b" path="res://Recursos/Armas/Missil.tres" id="12_bgptu"]
+[ext_resource type="Resource" uid="uid://dlstaa81tgc3d" path="res://Recursos/Armas/Gravity.tres" id="12_bgptu"]
 [ext_resource type="Resource" uid="uid://dx613t2wpryvs" path="res://Recursos/Armas/Arma_mods.tres" id="12_jfgyu"]
 [ext_resource type="Texture2D" uid="uid://dvflhsc8pa4lx" path="res://sprites/bolo.jpg" id="14_p80qs"]
 [ext_resource type="PackedScene" uid="uid://dxd5x5mpfk775" path="res://Cenas/Mundo/NPCS/npc.tscn" id="15_bfg8p"]

@@ -10,5 +10,6 @@ dano_mult = 1.0
 speed = 300.0
 energia = 100.0
 exp_bar = 100.0
+atk_cd = 1
 passiva = "Não tem"
 metadata/_custom_type_script = "uid://bu1g8tbdi60p8"

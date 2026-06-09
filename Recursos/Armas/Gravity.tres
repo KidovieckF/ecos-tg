@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GravityArma" format=3 uid="uid://dlstaa81tgc3d"]
+
+[ext_resource type="PackedScene" uid="uid://b0th5tt33bnwn" path="res://Cenas/Player/Magias/gravity.tscn" id="1_d8i62"]
+[ext_resource type="Script" uid="uid://3frisqnighny" path="res://Recursos/Armas/gravity.gd" id="1_o701e"]
+[ext_resource type="Texture2D" uid="uid://ej0bmv5awjl3" path="res://sprites/GUI_fantasy/thunder4.png" id="3_dfpno"]
+
+[resource]
+script = ExtResource("1_o701e")
+dano = 2.0
+speed = 100.0
+projetil = ExtResource("1_d8i62")
+textura = ExtResource("3_dfpno")
+metadata/_custom_type_script = "uid://3frisqnighny"

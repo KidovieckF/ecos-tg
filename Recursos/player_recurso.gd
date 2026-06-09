@@ -7,6 +7,7 @@ class_name player_data
 @export var speed : float
 @export var energia : float
 @export var exp_bar : float
+@export var atk_cd : int
 
 @export var passiva : String
 @export var valor_passiva : float

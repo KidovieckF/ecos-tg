@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VelocidadeBalaData" format=3 uid="uid://do16bgtf3rqjd"]
+
+[ext_resource type="Script" uid="uid://sdnld07uog5p" path="res://Recursos/Upgrades/velocidade_bala.gd" id="1_qxx3b"]
+[ext_resource type="Texture2D" uid="uid://b5t07y4n1vi38" path="res://sprites/GUI_fantasy/thunder1.png" id="2_2nmnh"]
+
+[resource]
+script = ExtResource("1_qxx3b")
+Nome = "Velocidade da Bala"
+textura = ExtResource("2_2nmnh")
+efeito = "+30"
+valor_efeito = 30.0
+metadata/_custom_type_script = "uid://sdnld07uog5p"

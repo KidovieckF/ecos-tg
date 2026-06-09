@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PerfuranteData" format=3 uid="uid://c8s2rq5gtwye5"]
+
+[ext_resource type="Script" uid="uid://cjkpw6gcvn52b" path="res://Recursos/Upgrades/perfurante.gd" id="1_1vpqf"]
+[ext_resource type="Texture2D" uid="uid://d2d84uf7kkpvj" path="res://sprites/GUI_fantasy/dark4.png" id="2_s1kf6"]
+
+[resource]
+script = ExtResource("1_1vpqf")
+Nome = "Bala perfurante"
+textura = ExtResource("2_s1kf6")
+efeito = "Balas atravessam inimigos"
+metadata/_custom_type_script = "uid://cjkpw6gcvn52b"

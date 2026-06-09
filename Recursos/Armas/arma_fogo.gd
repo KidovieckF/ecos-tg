@@ -19,7 +19,7 @@ func usar_arma(player,delta,dano_mult, dano_add):
 			i += 1
 		player.get_node("VolleyCooldown").start(player.proj_mods.cooldown_lote)
 	player.speed_atual = 100
-		
+	
 
 
 func parar_uso(player):

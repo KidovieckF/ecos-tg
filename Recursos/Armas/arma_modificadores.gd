@@ -6,3 +6,5 @@ class_name ProjMods
 @export var proj_extras : int
 @export var cooldown_lote : float = 0.3
 @export var bounces : int
+@export var rajada : int
+@export var perfurante : bool

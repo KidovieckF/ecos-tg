@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://c4v0irdmavpp2"]
+
+[ext_resource type="Script" uid="uid://bgkbpgqknvjps" path="res://Scripts/Mundo/Lobby/selecao_arma.gd" id="1_v3ayk"]
+[ext_resource type="Script" uid="uid://bmxf0u4dayjym" path="res://Recursos/arma_recurso.gd" id="2_ism1s"]
+[ext_resource type="Resource" uid="uid://ddmiyd4uofc2b" path="res://Recursos/Armas/Missil.tres" id="3_6irj2"]
+[ext_resource type="Resource" uid="uid://bk7atnl1twgbk" path="res://Recursos/Armas/Circulo_Fogo.tres" id="4_0sn3p"]
+[ext_resource type="Resource" uid="uid://b36ypyd4u11v7" path="res://Recursos/Armas/Laser.tres" id="5_snjkb"]
+[ext_resource type="Resource" uid="uid://dlstaa81tgc3d" path="res://Recursos/Armas/Gravity.tres" id="6_6irj2"]
+
+[node name="Control" type="Control" unique_id=1796593688]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v3ayk")
+armas = Array[ExtResource("2_ism1s")]([ExtResource("3_6irj2"), ExtResource("4_0sn3p"), ExtResource("5_snjkb"), ExtResource("6_6irj2")])
+
+[node name="Panel" type="Panel" parent="." unique_id=630554438]
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Panel" unique_id=787028472]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FecharBtn" type="Button" parent="Panel/GridContainer" unique_id=1811616734]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "X"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/GridContainer" unique_id=229386053]
+custom_minimum_size = Vector2(800, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="EsquerdaBtn" type="Button" parent="Panel/GridContainer/HBoxContainer" unique_id=596749506]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_vertical = 4
+text = "<"
+
+[node name="ArmaBtn" type="TextureButton" parent="Panel/GridContainer/HBoxContainer" unique_id=2054704416]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+stretch_mode = 6
+
+[node name="DireitaBtn" type="Button" parent="Panel/GridContainer/HBoxContainer" unique_id=873492298]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_vertical = 4
+text = ">"
+
+[connection signal="pressed" from="Panel/GridContainer/FecharBtn" to="." method="_on_fechar_btn_pressed"]
+[connection signal="pressed" from="Panel/GridContainer/HBoxContainer/EsquerdaBtn" to="." method="_on_esquerda_btn_pressed"]
+[connection signal="pressed" from="Panel/GridContainer/HBoxContainer/ArmaBtn" to="." method="_on_arma_btn_pressed"]
+[connection signal="pressed" from="Panel/GridContainer/HBoxContainer/DireitaBtn" to="." method="_on_direita_btn_pressed"]

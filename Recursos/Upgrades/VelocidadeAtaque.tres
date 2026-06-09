@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VelocidadeAtaqueData" format=3 uid="uid://pec5eegrfn0o"]
+
+[ext_resource type="Script" uid="uid://c0bh3p3vd1tk" path="res://Recursos/Upgrades/velocidade_ataque.gd" id="1_mwmm5"]
+[ext_resource type="Texture2D" uid="uid://bpwqcnblo8i3x" path="res://sprites/GUI_fantasy/attack1.png" id="2_4u6ki"]
+
+[resource]
+script = ExtResource("1_mwmm5")
+Nome = "Velocidade de Ataque"
+textura = ExtResource("2_4u6ki")
+efeito = "+10 VdA"
+valor_efeito = 0.1
+metadata/_custom_type_script = "uid://c0bh3p3vd1tk"

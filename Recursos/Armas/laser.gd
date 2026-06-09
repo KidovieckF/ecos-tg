@@ -21,7 +21,6 @@ func usar_arma(player,delta,dano_mult, dano_add):
 			charge_ativo.global_position = player.get_node("Muzzle").global_position - Vector2(0, 20)
 			charge_ativo.look_at(player.get_global_mouse_position())
 	
-	
 
 
 func parar_uso(player):

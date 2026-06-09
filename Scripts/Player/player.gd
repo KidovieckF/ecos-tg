@@ -30,7 +30,9 @@ func _ready() -> void:
 	barra_exp = personagem.exp_bar
 	vida_atual = personagem.vida
 	vida_maxima = personagem.vida 
-
+	$AttackTimer.wait_time = personagem.atk_cd
+	if RecursosGlobais.arma_escolhida:
+		arma = RecursosGlobais.arma_escolhida
 
 func _physics_process(delta: float) -> void:
 	if $AttackTimer.is_stopped():

@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://cbbclb2ewf041" path="res://Recursos/Armas/missil_mag.gd" id="1_q1obn"]
 [ext_resource type="PackedScene" uid="uid://c0f05vw2vnj4s" path="res://Cenas/Player/Magias/missil_magico.tscn" id="1_r1ddo"]
+[ext_resource type="Texture2D" uid="uid://bvmut8b2ofrfm" path="res://sprites/GUI_fantasy/water1.png" id="3_s0p7e"]
 
 [resource]
 script = ExtResource("1_q1obn")
 dano = 3.0
 speed = 200.0
 projetil = ExtResource("1_r1ddo")
+textura = ExtResource("3_s0p7e")
 metadata/_custom_type_script = "uid://cbbclb2ewf041"

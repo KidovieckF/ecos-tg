@@ -7,7 +7,8 @@ var sorte2 :item_data
 var sorte3 :item_data
 
 @export var upgrades : Array[item_data]
-# Called when the node enters the scene tree for the first time.
+@export var upgrades_armas : Array[item_data]
+
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Players")
 	sortear_upgrade()

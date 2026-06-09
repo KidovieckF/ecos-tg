@@ -9,6 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://ywipkdmnc0ja" path="res://Cenas/Mundo/upgrade.tscn" id="6_lwiws"]
 [ext_resource type="Resource" uid="uid://cax4h5p8wd1cs" path="res://Recursos/Upgrades/ProjExtra.tres" id="7_dquic"]
 [ext_resource type="Resource" uid="uid://pk2omm0vbbt3" path="res://Recursos/Upgrades/Ricochete.tres" id="8_tsftb"]
+[ext_resource type="Resource" uid="uid://dyic6vn531y2d" path="res://Recursos/Upgrades/Rajada.tres" id="9_tsftb"]
+[ext_resource type="Resource" uid="uid://pec5eegrfn0o" path="res://Recursos/Upgrades/VelocidadeAtaque.tres" id="10_ourud"]
+[ext_resource type="Resource" uid="uid://do16bgtf3rqjd" path="res://Recursos/Upgrades/VelocidadeBala.tres" id="11_ourud"]
+[ext_resource type="Resource" uid="uid://c8s2rq5gtwye5" path="res://Recursos/Upgrades/Perfurante.tres" id="12_fee74"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwiws"]
 bg_color = Color(0.30685335, 0.6371675, 0.8390747, 1)
@@ -20,7 +24,7 @@ corner_radius_bottom_left = 60
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1338939119]
 process_mode = 3
 script = ExtResource("1_jkgpm")
-upgrades = Array[ExtResource("2_x6fcg")]([ExtResource("3_x6fcg"), ExtResource("4_lwiws"), ExtResource("5_ojnsx"), ExtResource("6_16bmg"), ExtResource("7_dquic"), ExtResource("8_tsftb")])
+upgrades = Array[ExtResource("2_x6fcg")]([ExtResource("3_x6fcg"), ExtResource("4_lwiws"), ExtResource("5_ojnsx"), ExtResource("6_16bmg"), ExtResource("7_dquic"), ExtResource("8_tsftb"), ExtResource("9_tsftb"), ExtResource("10_ourud"), ExtResource("11_ourud"), ExtResource("12_fee74")])
 
 [node name="Panel" type="Panel" parent="." unique_id=1929398772]
 custom_minimum_size = Vector2(600, 180)

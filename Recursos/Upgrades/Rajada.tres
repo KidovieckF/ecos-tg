@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RajadaData" format=3 uid="uid://dyic6vn531y2d"]
+
+[ext_resource type="Script" uid="uid://cceehgqru1n67" path="res://Recursos/Upgrades/rajada.gd" id="1_l4lvt"]
+[ext_resource type="Texture2D" uid="uid://cvh1addki11fu" path="res://sprites/GUI_fantasy/water3.png" id="2_fe3dp"]
+
+[resource]
+script = ExtResource("1_l4lvt")
+Nome = "Rajada"
+textura = ExtResource("2_fe3dp")
+efeito = "+1 Rajada"
+valor_efeito = 1.0
+metadata/_custom_type_script = "uid://cceehgqru1n67"
