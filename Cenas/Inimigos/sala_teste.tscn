@@ -7,7 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://vvmuxt4upa5r" path="res://Cenas/Inimigos/dummy.tscn" id="4_tbfwo"]
 [ext_resource type="PackedScene" uid="uid://tg2ghdhmth" path="res://Cenas/Player/player.tscn" id="5_iqsdl"]
 [ext_resource type="PackedScene" uid="uid://cn8y5s0pru1up" path="res://Cenas/Mundo/HUD.tscn" id="6_4qyc7"]
-[ext_resource type="PackedScene" uid="uid://cfaot1rpn4syk" path="res://Cenas/Inimigos/boss1.tscn" id="8_uufuq"]
+[ext_resource type="Resource" uid="uid://cdc5maehwv413" path="res://Recursos/Player/Alice.tres" id="7_2w4bb"]
+[ext_resource type="Resource" uid="uid://dlstaa81tgc3d" path="res://Recursos/Armas/Gravity.tres" id="8_p6g6q"]
+[ext_resource type="Resource" uid="uid://dx613t2wpryvs" path="res://Recursos/Armas/Arma_mods.tres" id="9_dyyns"]
+[ext_resource type="PackedScene" uid="uid://cblhmuvwm5g5m" path="res://Cenas/Inimigos/inimigo_base.tscn" id="11_hbmgi"]
+[ext_resource type="Resource" uid="uid://qhe1p6ei4l7m" path="res://Recursos/Inimigos/Inimigos Comuns/tres's/Touro.tres" id="12_2w4bb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2w4bb"]
 texture = ExtResource("1_cyofo")
@@ -125,8 +129,13 @@ position = Vector2(950, 200)
 
 [node name="Player" parent="." unique_id=2096888764 instance=ExtResource("5_iqsdl")]
 position = Vector2(281, 311)
+personagem = ExtResource("7_2w4bb")
+arma = ExtResource("8_p6g6q")
+proj_mods = ExtResource("9_dyyns")
 
 [node name="HUD" parent="." unique_id=856288748 instance=ExtResource("6_4qyc7")]
 
-[node name="Boss" parent="." unique_id=419242515 instance=ExtResource("8_uufuq")]
-position = Vector2(1203.4069, 295.25092)
+[node name="InimigoBase" parent="." unique_id=1673984598 instance=ExtResource("11_hbmgi")]
+position = Vector2(698, 312)
+data = ExtResource("12_2w4bb")
+ativo = true

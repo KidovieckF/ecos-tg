@@ -6,22 +6,39 @@ signal morreu
 @export var cena_moeda : PackedScene
 @export var data : inimigo_data
 var last_direction
-var ativo = false
+@export var ativo = false
 var vida_max
 var vida_atual
 var ind_dano = preload("res://Cenas/Mundo/Ind_dano.tscn")
 var morto = false
 var dano_pendente = 0
+var estado_custom = {}
 
 
 func _ready() -> void:
 	set_physics_process(true) 
 	$CollisionShape2D.set_deferred("disabled",false)
-	vida_max = data.vida * player.nivel
-	vida_atual = vida_max
 	$AreaDano.pegarDano(data.dano)
 
 func _physics_process(delta: float) -> void:
+	if vida_atual == null:
+		if not player:
+			player = get_tree().get_first_node_in_group("Players")
+		if player:
+			vida_max = data.vida * player.nivel
+			vida_atual = vida_max
+		else:
+			return
+			
+	dano_na_fila()
+	
+	if player != null and not morto:
+		data.movimento(self,delta)
+		if $AcaoTimer.is_stopped() and data.tem_acao:
+			data.acao(self, delta)
+			
+		
+func dano_na_fila():
 	if dano_pendente > 0 and not morto:
 		print("Processando dano_pendente: ", dano_pendente, " | vida_atual ANTES: ", vida_atual)
 		vida_atual -= dano_pendente
@@ -33,23 +50,7 @@ func _physics_process(delta: float) -> void:
 			morrer()
 			print(">>> VOLTOU DO morrer()")
 			return
-	
-	
-	if player != null and not morto:
-		
-		var direction = (player.global_position - global_position).normalized()
-		if direction:
-			if direction.x > 0: 
-				last_direction = direction
-				$Sprite2D.flip_h = false
-				$Sprite2D.play("Andando")
-			elif direction.x < 0:
-				last_direction = direction
-				$Sprite2D.flip_h = true
-				$Sprite2D.play("Andando")
-		velocity = direction * data.speed
-		move_and_slide()
-		
+
 
 func take_damage(quantidade, cor = Color.WHITE):
 	if morto:

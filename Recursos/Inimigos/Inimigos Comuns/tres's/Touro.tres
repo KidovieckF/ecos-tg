@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Ini_ChargeData" format=3 uid="uid://qhe1p6ei4l7m"]
+
+[ext_resource type="Script" uid="uid://bojmwph7rphoi" path="res://Recursos/Inimigos/Inimigos Comuns/inimigo_charge.gd" id="1_4jny1"]
+[ext_resource type="Texture2D" uid="uid://bh6fc76w8pbv7" path="res://icon.svg" id="2_63yku"]
+
+[resource]
+script = ExtResource("1_4jny1")
+Nome = "Touro"
+vida = 30
+textura = ExtResource("2_63yku")
+dano = 10.0
+speed = 100.0
+peso_spawn = 10
+metadata/_custom_type_script = "uid://bojmwph7rphoi"

@@ -16,6 +16,7 @@ var deu_suculento = false
 var deu_ultimato = false
 var primeira_fase = true
 var processando_onda = false
+@export var tipos_inimigos : Array[inimigo_data]
 
 
 func _ready() -> void:
@@ -102,11 +103,19 @@ func chamar_onda():
 		add_child(novo_elite)
 			
 func registrar_inimigo():
+	var indice_tipo = 0
 	var novo_inimigo = inimigo.instantiate()
+	var roll = randi_range(1, 100)
+	for i in range(tipos_inimigos.size()):
+		roll -= tipos_inimigos[i].peso_spawn
+		if roll <= 0:
+			indice_tipo = i
+			break
 	var rand_x = randf_range(50, 1000)
 	var rand_y = randf_range(40, 590)
 	novo_inimigo.position = Vector2(rand_x, rand_y)
 	novo_inimigo.player = player
+	novo_inimigo.data = tipos_inimigos[indice_tipo]
 	add_child(novo_inimigo)
 	if deu_grandao:
 		novo_inimigo.scale = Vector2(2,2)

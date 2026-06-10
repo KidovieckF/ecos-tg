@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Ini_MorcegoData" format=3 uid="uid://cjts5h3migdsa"]
+
+[ext_resource type="Script" uid="uid://brmlddd6tlogk" path="res://Recursos/Inimigos/Inimigos Comuns/inimigo_morcego.gd" id="1_yrash"]
+[ext_resource type="Texture2D" uid="uid://bh6fc76w8pbv7" path="res://icon.svg" id="2_edd5y"]
+
+[resource]
+script = ExtResource("1_yrash")
+Nome = "Morcego"
+vida = 10
+textura = ExtResource("2_edd5y")
+dano = 3.0
+speed = 200.0
+peso_spawn = 70
+metadata/_custom_type_script = "uid://brmlddd6tlogk"
