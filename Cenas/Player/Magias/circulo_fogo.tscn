@@ -43,6 +43,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_yg7ov")
 shape = SubResource("CircleShape2D_n6u44")
 
 [node name="Timer" type="Timer" parent="." unique_id=1813471522]
+wait_time = 0.5
 one_shot = true
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=492655712]

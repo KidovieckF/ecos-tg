@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 RecursosGlobais="*uid://bgxwsadti2jr6"
+RunData="*uid://b0vf5pkdsy8od"
 
 [display]
 

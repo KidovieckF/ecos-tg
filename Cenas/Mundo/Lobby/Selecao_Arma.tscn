@@ -7,7 +7,15 @@
 [ext_resource type="Resource" uid="uid://b36ypyd4u11v7" path="res://Recursos/Armas/Laser.tres" id="5_snjkb"]
 [ext_resource type="Resource" uid="uid://dlstaa81tgc3d" path="res://Recursos/Armas/Gravity.tres" id="6_6irj2"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6irj2"]
+bg_color = Color(0.73649013, 0.56529593, 0.34246415, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [node name="Control" type="Control" unique_id=1796593688]
+z_index = 15
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,6 +39,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6irj2")
 
 [node name="GridContainer" type="GridContainer" parent="Panel" unique_id=787028472]
 layout_mode = 1

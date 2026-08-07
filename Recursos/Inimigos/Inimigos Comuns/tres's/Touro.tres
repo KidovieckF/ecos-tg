@@ -11,4 +11,5 @@ textura = ExtResource("2_63yku")
 dano = 10.0
 speed = 100.0
 peso_spawn = 10
+exp = 25.0
 metadata/_custom_type_script = "uid://bojmwph7rphoi"

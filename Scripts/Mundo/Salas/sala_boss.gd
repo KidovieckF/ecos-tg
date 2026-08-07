@@ -8,6 +8,7 @@ var sensor_ja_ativado = false
 var tempo_de_vida = 0
 var boss_cena = preload("res://Cenas/Inimigos/boss1.tscn")
 var boss_fall = preload("res://Cenas/Inimigos/boss_fall.tscn")
+var portal_lobby = preload("res://Cenas/Mundo/Portal_lobby.tscn")
 
 func _ready() -> void:
 	pass
@@ -24,6 +25,12 @@ func ajustar_parede(norte, sul, leste, oeste):
 		$ParedeLeste.clear()
 	if oeste == true:
 		$ParedeOeste.clear()
+
+func spawnar_portal():
+	var portal = portal_lobby.instantiate()
+	portal.position = Vector2(1139 / 2, 641 / 2) 
+	call_deferred("add_child", portal)
+
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if sensor_ja_ativado == false and tempo_de_vida > 0.5:
@@ -48,3 +55,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		var boss = boss_cena.instantiate()
 		boss.position = $SpawnBoss.position
 		add_child(boss)
+		boss.morreu.connect(spawnar_portal)

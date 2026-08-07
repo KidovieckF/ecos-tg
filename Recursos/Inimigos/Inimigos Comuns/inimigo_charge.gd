@@ -28,7 +28,7 @@ func movimento(inimigo: CharacterBody2D, delta: float) -> void:
 				
 		"disparada":
 			var direcao = inimigo.global_position.direction_to(inimigo.estado_custom["alvo"])
-			inimigo.velocity = direcao * inimigo.data.speed * 100
+			inimigo.velocity = direcao * inimigo.data.speed * 6
 			inimigo.move_and_slide()
 			if inimigo.is_on_wall() or (inimigo.global_position.distance_to(inimigo.estado_custom["alvo"]) <= 10):
 				inimigo.estado_custom["fase"] = "stun"

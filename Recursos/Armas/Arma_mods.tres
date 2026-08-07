@@ -5,5 +5,4 @@
 [resource]
 script = ExtResource("1_q8yks")
 velocidade = 300.0
-proj_extras = 1
-rajada = 1
+rajada = 3

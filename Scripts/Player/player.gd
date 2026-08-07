@@ -19,20 +19,20 @@ var vida_maxima
 var atacando = false
 
 @onready var sprite = $Sprite2D
-@onready var hud = get_parent().get_node("HUD")
-@onready var hud_moedas = get_parent().get_node("HUD/TextureRect2/ColorRect/Dinheiro")
+@onready var hud = get_tree().get_first_node_in_group("HUD")
 var game_over_scene = preload("res://Cenas/Mundo/Game_over.tscn")
 var upgrade = preload("res://Hud_upgrade.tscn")
 
 var magia1 = preload("res://Cenas/Player/Magias/Magia1.tscn")
 
 func _ready() -> void:
-	barra_exp = personagem.exp_bar
-	vida_atual = personagem.vida
-	vida_maxima = personagem.vida 
-	$AttackTimer.wait_time = personagem.atk_cd
 	if RecursosGlobais.arma_escolhida:
 		arma = RecursosGlobais.arma_escolhida
+	if RunData.arma_escolhida == null:
+		RunData.iniciar_run(personagem, arma)
+	RunData.carregar_player(self)
+	$AttackTimer.wait_time = personagem.atk_cd
+	
 
 func _physics_process(delta: float) -> void:
 	if $AttackTimer.is_stopped():
@@ -140,6 +140,7 @@ func take_damage(quantidade, cor = Color.WHITE):
 		pode_tomar_dano = false
 	if vida_atual <= 0 and morto == false:
 		morto = true
+		RunData.resetar_run()
 		var game_over = game_over_scene.instantiate()
 		get_tree().root.add_child(game_over)
 		
@@ -148,7 +149,7 @@ func curar(quantidade):
 	hud.atualizar_vida(vida_atual, vida_maxima)
 		
 func coletar_moeda():
-	hud_moedas.text = "$: " + str(RecursosGlobais.moeda)
+	hud.atualizar_dinheiro()
 	
 
 func trocar_camera():

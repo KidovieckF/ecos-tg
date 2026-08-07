@@ -2,16 +2,23 @@ extends Node
 
 @export var player: CharacterBody2D
 var inimigo = preload("res://Cenas/Inimigos/inimigo_base.tscn")
-var salas_possiveis = [ preload("res://Cenas/Mundo/Salas/sala_base.tscn")] #preload("res://Cenas/Mundo/Salas/sala_2.tscn", preload("res://Cenas/Mundo/Salas/sala_1.tscn")  ]
+var salas_andar1 = [ preload("res://Cenas/Mundo/Salas/sala_base.tscn")] #preload("res://Cenas/Mundo/Salas/sala_2.tscn", preload("res://Cenas/Mundo/Salas/sala_1.tscn")  ]
+var salas_andar2 = [ preload("res://Cenas/Mundo/Salas/sala_base2.tscn")]
 var sala_boss =  preload("res://Cenas/Mundo/Salas/sala_boss.tscn")
 var porta = preload("res://Cenas/Mundo/Salas/Porta.tscn")
 var room_altura = 641
 var room_largura = 1139
 var room_size = Vector2(room_largura,room_altura)
+var salas_possiveis = {}
 var salas_criadas = {}
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
+	if RunData.andar == 1:
+		salas_possiveis = salas_andar1.duplicate()
+	elif RunData.andar == 2:
+		salas_possiveis =salas_andar2.duplicate()
+		
 	generate_level()# Replace with function body.
 	player.trocar_camera()
 
@@ -25,11 +32,11 @@ func _process(delta: float) -> void:
 func generate_level():
 	var current_pos = Vector2i(0, 0)
 	var directions = [Vector2i.RIGHT, Vector2i.LEFT, Vector2i.UP, Vector2i.DOWN]
-	while salas_criadas.size() < 15:
+	while salas_criadas.size() < 2:
 		var walk_dir = directions.pick_random()
 		var sala_sorteada = salas_possiveis.pick_random()
 		var nova_sala = sala_sorteada.instantiate()
-		if salas_criadas.size() == 14:
+		if salas_criadas.size() == 1:
 			nova_sala = sala_boss.instantiate()
 		if not salas_criadas.has(current_pos):
 			nova_sala.global_position = Vector2(current_pos.x * room_size.x, current_pos.y * room_size.y)

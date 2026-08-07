@@ -17,6 +17,7 @@ func _on_arma_btn_pressed() -> void:
 	var player = get_tree().get_first_node_in_group("Players")
 	player.arma = armas[index]
 	RecursosGlobais.arma_escolhida = armas[index]
+	RunData.arma_escolhida = armas[index]
 	queue_free()
 	
 func _on_direita_btn_pressed() -> void:

@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_o701e")
-dano = 2.0
+dano = 20.0
 speed = 100.0
 projetil = ExtResource("1_d8i62")
 textura = ExtResource("3_dfpno")
