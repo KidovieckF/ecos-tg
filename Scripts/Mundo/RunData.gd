@@ -14,6 +14,11 @@ var xp_atual := 0.0
 var barra_exp := 0.0
 var nivel := 1
 var dano_adicional := 0
+var dificuldade = 1
+var mult_dificuldade = 1 + (dificuldade * 0.05)
+
+func multiplicar_dificuldade() -> float:
+	return 1.0 + dificuldade * 0.05
 
 func iniciar_run(personagem: player_data, p_arma: ArmaRecurso) -> void:
 	resetar_run()
@@ -35,6 +40,7 @@ func resetar_run() -> void:
 	barra_exp = 0
 	nivel = 1
 	dano_adicional = 0
+	dificuldade = 1
 
 func guardar_player(player) -> void:
 	vida_atual = player.vida_atual

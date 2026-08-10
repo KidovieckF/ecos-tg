@@ -22,7 +22,8 @@ var atacando = false
 @onready var hud = get_tree().get_first_node_in_group("HUD")
 var game_over_scene = preload("res://Cenas/Mundo/Game_over.tscn")
 var upgrade = preload("res://Hud_upgrade.tscn")
-
+var pause_scene = preload("res://Cenas/Huds/hud_pause.tscn")
+var pausado = false
 var magia1 = preload("res://Cenas/Player/Magias/Magia1.tscn")
 
 func _ready() -> void:
@@ -56,7 +57,12 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("Atirar"):
 		atacando = false
 		arma.parar_uso(self)
-	
+	if Input.is_action_just_pressed("Pause") and pausado:
+		get_tree().paused = false
+		queue_free()
+	elif Input.is_action_just_pressed("Pause") and not pausado:
+		var pause_hud = pause_scene.instantiate()
+		add_child(pause_hud)
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

@@ -16,6 +16,7 @@ var deu_suculento = false
 var deu_ultimato = false
 var primeira_fase = true
 var processando_onda = false
+var dificuldade = 1
 @export var tipos_inimigos : Array[inimigo_data]
 
 
@@ -65,15 +66,19 @@ func ajustar_parede(norte, sul, leste, oeste):
 		$ParedeOeste.clear()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	
+
 	inicar_sala(body)
 	print("SALA: ", name, " | DETECTOU: ", body.name, " | POSIÇÃO DO CORPO: ", body.global_position)
 	
 	
 func inicar_sala(body):
-	
 	if sensor_ja_ativado == false and tempo_de_vida > 0.5:
+		RunData.dificuldade += dificuldade
+		print("Dificuldade: ",RunData.dificuldade)
 		if body.is_in_group("Players"):
 			sensor_ja_ativado = true
+			
 			for p in portas_da_sala:
 				print("fechei a porta")
 				p.fechar_porta()

@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://vpn7328v8dk0"]
+
+[ext_resource type="Script" uid="uid://2mjo0td1ofhv" path="res://Scripts/Huds/hud_vitoria.gd" id="1_akcb2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcpnq"]
+bg_color = Color(0.25774807, 0.6642891, 0.728546, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="HudVitoria" type="CanvasLayer" unique_id=1900386487]
+process_mode = 3
+script = ExtResource("1_akcb2")
+
+[node name="Panel" type="Panel" parent="." unique_id=1430322236]
+custom_minimum_size = Vector2(500, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jcpnq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=483459877]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=1953336203]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 13
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer" unique_id=708922006]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Parabéns você venceu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="Button" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1311520960]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Voltar ao menu"
+
+[node name="Recomeçar" type="Button" parent="Panel/HBoxContainer/VBoxContainer" unique_id=20403383]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Recomeçar"
+
+[node name="Estatisticas" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=1901226432]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 1
+
+[node name="Titulo" type="Label" parent="Panel/HBoxContainer/Estatisticas" unique_id=1934764142]
+layout_mode = 2
+text = "Estatisticas da Run"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tempo" type="Label" parent="Panel/HBoxContainer/Estatisticas" unique_id=2131857154]
+layout_mode = 2
+text = "Tempo de Jogo:"
+
+[node name="Inimigos" type="Label" parent="Panel/HBoxContainer/Estatisticas" unique_id=417485784]
+layout_mode = 2
+text = "Inimigos Mortos"
+
+[node name="Dano" type="Label" parent="Panel/HBoxContainer/Estatisticas" unique_id=1053468353]
+layout_mode = 2
+text = "Dano Causado"
+
+[node name="Salas" type="Label" parent="Panel/HBoxContainer/Estatisticas" unique_id=2102690445]
+layout_mode = 2
+text = "Salas entradas:"
+
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/Recomeçar" to="." method="_on_recomeçar_pressed"]

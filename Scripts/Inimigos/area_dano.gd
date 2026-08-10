@@ -5,7 +5,7 @@ var player_na_area = false
 var player
 
 func pegarDano(dano):
-	dano_atual = dano
+	dano_atual = dano * RunData.mult_dificuldade
 
 func _physics_process(delta: float) -> void:
 	pass

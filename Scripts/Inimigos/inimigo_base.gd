@@ -25,8 +25,10 @@ func _physics_process(delta: float) -> void:
 		if not player:
 			player = get_tree().get_first_node_in_group("Players")
 		if player:
-			vida_max = data.vida * player.nivel
+			RunData.multiplicar_dificuldade()
+			vida_max = data.vida * player.nivel * RunData.mult_dificuldade
 			vida_atual = vida_max
+			
 		else:
 			return
 			
