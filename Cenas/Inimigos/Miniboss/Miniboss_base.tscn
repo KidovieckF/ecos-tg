@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cukq5y8hrtubj"]
+
+[ext_resource type="Script" uid="uid://clbk752i4e46s" path="res://Scripts/Miniboss/miniboss_base.gd" id="1_uufx7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tfqr0"]
+
+[node name="Miniboss" type="CharacterBody2D" unique_id=1074078104]
+script = ExtResource("1_uufx7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=846899384]
+shape = SubResource("CircleShape2D_tfqr0")

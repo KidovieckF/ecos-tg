@@ -1,0 +1,1 @@
+extends miniboss_data
