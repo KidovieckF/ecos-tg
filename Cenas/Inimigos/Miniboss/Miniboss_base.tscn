@@ -1,11 +1,54 @@
 [gd_scene format=3 uid="uid://cukq5y8hrtubj"]
 
 [ext_resource type="Script" uid="uid://clbk752i4e46s" path="res://Scripts/Miniboss/miniboss_base.gd" id="1_uufx7"]
+[ext_resource type="Resource" uid="uid://tx214mphm6et" path="res://Recursos/Inimigos/Miniboss/lich/lich.tres" id="2_auln1"]
+[ext_resource type="Texture2D" uid="uid://bh6fc76w8pbv7" path="res://icon.svg" id="2_tfqr0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tfqr0"]
+radius = 34.132095
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uufx7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_auln1"]
+radius = 35.057095
 
 [node name="Miniboss" type="CharacterBody2D" unique_id=1074078104]
+collision_layer = 4
+collision_mask = 7
+motion_mode = 1
 script = ExtResource("1_uufx7")
+data = ExtResource("2_auln1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=846899384]
 shape = SubResource("CircleShape2D_tfqr0")
+
+[node name="AtaqueBase" type="Area2D" parent="." unique_id=784242304]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AtaqueBase" unique_id=1794647593]
+shape = SubResource("RectangleShape2D_uufx7")
+
+[node name="Polygon2D" type="Polygon2D" parent="AtaqueBase" unique_id=125314007]
+visible = false
+color = Color(0.8, 0.16078432, 0, 0.3882353)
+polygon = PackedVector2Array(79, -29, 89, -19, 118, -39, 78, -51)
+
+[node name="SpecialActionTimer" type="Timer" parent="." unique_id=849809809]
+wait_time = 4.0
+one_shot = true
+
+[node name="AcaoTimer" type="Timer" parent="." unique_id=1630171453]
+wait_time = 3.0
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=484788681]
+position = Vector2(-3.8146973e-06, -3.8146973e-06)
+scale = Vector2(0.4765625, 0.4765625)
+texture = ExtResource("2_tfqr0")
+
+[node name="BodyDmg" type="Area2D" parent="." unique_id=828494753]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyDmg" unique_id=1462527031]
+shape = SubResource("CircleShape2D_auln1")
+
+[connection signal="body_entered" from="AtaqueBase" to="." method="_on_ataque_base_body_entered"]
+[connection signal="body_entered" from="BodyDmg" to="." method="_on_body_dmg_body_entered"]

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="inimigo_lich" format=3 uid="uid://tx214mphm6et"]
+
+[ext_resource type="Script" uid="uid://cnqamu3nuvxi1" path="res://Recursos/Inimigos/Miniboss/lich/lich.gd" id="1_6cttu"]
+[ext_resource type="PackedScene" uid="uid://c7lsw1h1uljyn" path="res://Cenas/Inimigos/projetil_ini.tscn" id="1_v0uru"]
+[ext_resource type="Texture2D" uid="uid://bh6fc76w8pbv7" path="res://icon.svg" id="3_t7p6c"]
+
+[resource]
+script = ExtResource("1_6cttu")
+Nome = "Lich"
+vida = 200.0
+textura = ExtResource("3_t7p6c")
+dano = 20.0
+speed = 100.0
+projetil = ExtResource("1_v0uru")
+tem_acao = true
+peso_spawn = 1
+exp = 100.0
+dano_melee = 10.0
+metadata/_custom_type_script = "uid://cnqamu3nuvxi1"

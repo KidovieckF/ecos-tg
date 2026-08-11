@@ -2,8 +2,6 @@ extends CharacterBody2D
 
 signal morreu
 @export var player :CharacterBody2D
-@export var cena_item : PackedScene
-@export var cena_moeda : PackedScene
 @export var data : miniboss_data
 var last_direction
 @export var ativo = false
@@ -18,7 +16,6 @@ var estado_custom = {}
 func _ready() -> void:
 	set_physics_process(true) 
 	$CollisionShape2D.set_deferred("disabled",false)
-	$AreaDano.pegarDano(data.dano)
 
 func _physics_process(delta: float) -> void:
 	if vida_atual == null:
@@ -39,6 +36,10 @@ func _physics_process(delta: float) -> void:
 		if $AcaoTimer.is_stopped() and data.tem_acao:
 			data.acao(self, delta)
 			
+	var corpos_encostados = $BodyDmg.get_overlapping_bodies()
+	for body in corpos_encostados:
+		if body.is_in_group("Players"):
+			body.take_damage(data.dano_melee)
 		
 func dano_na_fila():
 	if dano_pendente > 0 and not morto:
@@ -81,14 +82,10 @@ func morrer():
 	morreu.emit()
 	
 func spawn_item():
-	var sorteio = randi() % 100
-	if sorteio <= 50:
-		var novo_item = cena_item.instantiate()
-		novo_item.position = position
-		novo_item.coletado.connect(player.curar)
-		get_parent().add_child(novo_item)
-		var moeda_nova = cena_moeda.instantiate()
-		moeda_nova.position = position
-		moeda_nova.coletado.connect(player.coletar_moeda)
-		get_parent().add_child(moeda_nova)
+	pass
 		
+
+
+func _on_ataque_base_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Players"):
+		body.take_damage(data.dano)
