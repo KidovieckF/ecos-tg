@@ -5,6 +5,7 @@ var inimigo = preload("res://Cenas/Inimigos/inimigo_base.tscn")
 var salas_andar1 = [ preload("res://Cenas/Mundo/Salas/sala_base.tscn")] #preload("res://Cenas/Mundo/Salas/sala_2.tscn", preload("res://Cenas/Mundo/Salas/sala_1.tscn")  ]
 var salas_andar2 = [ preload("res://Cenas/Mundo/Salas/sala_base2.tscn")]
 var sala_boss =  preload("res://Cenas/Mundo/Salas/sala_boss.tscn")
+var sala_miniboss = preload("res://Cenas/Mundo/Salas/sala_baseMinboss.tscn")
 var porta = preload("res://Cenas/Mundo/Salas/Porta.tscn")
 var room_altura = 641
 var room_largura = 1139
@@ -32,12 +33,14 @@ func _process(delta: float) -> void:
 func generate_level():
 	var current_pos = Vector2i(0, 0)
 	var directions = [Vector2i.RIGHT, Vector2i.LEFT, Vector2i.UP, Vector2i.DOWN]
-	while salas_criadas.size() < 2:
+	while salas_criadas.size() < 3:
 		var walk_dir = directions.pick_random()
 		var sala_sorteada = salas_possiveis.pick_random()
 		var nova_sala = sala_sorteada.instantiate()
-		if salas_criadas.size() == 1:
+		if salas_criadas.size() == 3:
 			nova_sala = sala_boss.instantiate()
+		if salas_criadas.size() == 2:
+			nova_sala = sala_miniboss.instantiate()
 		if not salas_criadas.has(current_pos):
 			nova_sala.global_position = Vector2(current_pos.x * room_size.x, current_pos.y * room_size.y)
 			get_parent().add_child.call_deferred(nova_sala)

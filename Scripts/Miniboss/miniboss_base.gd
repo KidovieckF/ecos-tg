@@ -11,11 +11,17 @@ var ind_dano = preload("res://Cenas/Mundo/Ind_dano.tscn")
 var morto = false
 var dano_pendente = 0
 var estado_custom = {}
+var cutscene_inicial = false
 
 
 func _ready() -> void:
+	set_physics_process(false) 
+	
+	player = get_tree().get_first_node_in_group("Players")
+	if player:
+		await data.cutscene_inicial(self)
 	set_physics_process(true) 
-	$CollisionShape2D.set_deferred("disabled",false)
+	$CollisionShape2D.set_deferred("disabled", false)
 
 func _physics_process(delta: float) -> void:
 	if vida_atual == null:
@@ -28,7 +34,7 @@ func _physics_process(delta: float) -> void:
 			
 		else:
 			return
-			
+		
 	dano_na_fila()
 	
 	if player != null and not morto:

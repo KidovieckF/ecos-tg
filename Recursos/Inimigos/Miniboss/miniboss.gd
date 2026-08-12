@@ -17,3 +17,6 @@ func movimento(inimigo: CharacterBody2D, delta: float) -> void:
 
 func acao(inimigo: CharacterBody2D, delta: float) -> void:
 	pass
+
+func cutscene_inicial(inimigo: CharacterBody2D):
+	pass

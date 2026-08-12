@@ -5,6 +5,17 @@ var segunda_fase = false
 var tipo_atk
 var canalizando = false
 
+func cutscene_inicial(inimigo: CharacterBody2D):
+	canalizando = true
+	inimigo.player.set_physics_process(false)
+	await inimigo.get_tree().create_timer(2.0).timeout
+	inimigo.player.get_node("CameraJogo").tremor(300)
+	await inimigo.get_tree().create_timer(2.0).timeout
+	inimigo.player.set_physics_process(true)
+	canalizando = false
+	
+
+
 func movimento(inimigo: CharacterBody2D, delta: float) -> void:
 	var direcao = inimigo.global_position.direction_to(inimigo.player.global_position)
 	var distancia = inimigo.global_position.distance_to(inimigo.player.global_position)
@@ -39,6 +50,7 @@ func movimento(inimigo: CharacterBody2D, delta: float) -> void:
 func acao(inimigo: CharacterBody2D, delta: float) -> void:
 	if inimigo.vida_atual <= (inimigo.vida_max / 2) and not segunda_fase:
 		segunda_fase = true
+		speed *= 2
 	atacar(inimigo)
 	
 func atacar(inimigo: CharacterBody2D):
