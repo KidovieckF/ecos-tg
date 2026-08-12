@@ -17,6 +17,8 @@ var xp_atual = 0
 var vida_atual 
 var vida_maxima 
 var atacando = false
+var dashando = false
+var direcao_dash = Vector2.ZERO
 
 @onready var sprite = $Sprite2D
 @onready var hud = get_tree().get_first_node_in_group("HUD")
@@ -109,9 +111,21 @@ func _physics_process(delta: float) -> void:
 				$Sprite2D.flip_h = false
 				$Sprite2D.play("IdleCostas")
 		
-		if Input.is_action_just_pressed("Dash"):
-			velocity = direction * speed_atual * 10
-	
+		if Input.is_action_just_pressed("Dash") and not dashando and direction != Vector2.ZERO:
+			dashando = true
+			direcao_dash = direction
+			pode_tomar_dano = false 
+			await get_tree().create_timer(0.2).timeout 
+			dashando = false
+			pode_tomar_dano = true
+		if dashando:
+			velocity = direcao_dash * speed_atual * 2.5 
+		else:
+			if direction:
+				velocity = direction * speed_atual
+			else:
+				velocity.x = move_toward(velocity.x, 0, speed_atual)
+				velocity.y = move_toward(velocity.y, 0, speed_atual)
 
 	move_and_slide()
 
