@@ -5,7 +5,7 @@ var tween_fade
 var dano_atual = dano
 var charge_ativo = null
 
-func usar_arma(player,delta,dano_mult, dano_add):
+func usar_arma(player,delta,dano_mult, dano_add, direcao):
 	dano_atual += dano_add
 	dano_atual *= dano_mult
 	if player.get_node("AttackTimer").is_stopped():

@@ -41,14 +41,14 @@ func _physics_process(delta: float) -> void:
 
 	
 	
-func start(dano, speed, projeteis, indice, bounce, perfurante):
+func start(dano, speed, projeteis, indice, bounce, perfurante, direcao):
 	bounces = bounce
 	indice_projetil = indice
 	q_projeteis = projeteis
 	dano_bala = dano
 	speed_bala = speed
 	perfurante_cena = perfurante
-	direction = (get_global_mouse_position() - global_position).normalized()
+	direction = direcao
 	var desvio = (indice_projetil - (q_projeteis - 1) / 2.0) * 20.0
 	direction = direction.rotated(deg_to_rad(desvio))
 	$Destruir.start()

@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://tg2ghdhmth" path="res://Cenas/Player/player.tscn" id="5_iqsdl"]
 [ext_resource type="PackedScene" uid="uid://cn8y5s0pru1up" path="res://Cenas/Mundo/HUD.tscn" id="6_4qyc7"]
 [ext_resource type="Resource" uid="uid://cdc5maehwv413" path="res://Recursos/Player/Alice.tres" id="7_2w4bb"]
+[ext_resource type="Resource" uid="uid://ddmiyd4uofc2b" path="res://Recursos/Armas/Missil.tres" id="8_iqsdl"]
 [ext_resource type="Resource" uid="uid://dx613t2wpryvs" path="res://Recursos/Armas/Arma_mods.tres" id="9_dyyns"]
+[ext_resource type="PackedScene" uid="uid://cukq5y8hrtubj" path="res://Cenas/Inimigos/Miniboss/Miniboss_base.tscn" id="11_4qyc7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2w4bb"]
 texture = ExtResource("1_cyofo")
@@ -127,6 +129,10 @@ position = Vector2(950, 200)
 [node name="Player" parent="." unique_id=2096888764 instance=ExtResource("5_iqsdl")]
 position = Vector2(281, 311)
 personagem = ExtResource("7_2w4bb")
+arma = ExtResource("8_iqsdl")
 proj_mods = ExtResource("9_dyyns")
 
 [node name="HUD" parent="." unique_id=856288748 instance=ExtResource("6_4qyc7")]
+
+[node name="Miniboss" parent="." unique_id=1074078104 instance=ExtResource("11_4qyc7")]
+position = Vector2(679, 315)

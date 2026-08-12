@@ -2,10 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://bh6fc76w8pbv7" path="res://icon.svg" id="1_7d1ki"]
 [ext_resource type="Script" uid="uid://y42mjlpgpaur" path="res://Scripts/Mundo/NPCS/npc.gd" id="1_jfeb3"]
-[ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/FalaRecurso.gd" id="2_pga6u"]
+[ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="2_pga6u"]
 [ext_resource type="Resource" uid="uid://xerumnbc3lwc" path="res://Recursos/Npcs/Dialogos/Dialogo1.tres" id="3_6s67h"]
 [ext_resource type="Resource" uid="uid://dcmd1h5obd6fo" path="res://Recursos/Npcs/Dialogos/Dialogo1.2.tres" id="4_6s67h"]
 [ext_resource type="Resource" uid="uid://bgbermybki7fo" path="res://Recursos/Npcs/Dialogos/Dialogo1.3.tres" id="5_tcd3m"]
+
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jfeb3"]
 radius = 78.160095

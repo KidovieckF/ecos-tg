@@ -5,7 +5,7 @@ var cargas_restantes = 0
 var cooldown = 0
 
 
-func disparar_burst(player, dano_mult, dano_add, proj_por_burst):
+func disparar_burst(player, dano_mult, dano_add, proj_por_burst,direcao):
 	for i in range(proj_por_burst):
 		var dano_atual = dano
 		dano_atual += dano_add
@@ -14,10 +14,10 @@ func disparar_burst(player, dano_mult, dano_add, proj_por_burst):
 		novo_missil.scale *= player.proj_mods.tamanho
 		player.get_parent().add_child(novo_missil)
 		novo_missil.global_position = player.global_position
-		novo_missil.start(dano_atual, player.proj_mods.velocidade, proj_por_burst, i, player.proj_mods.bounces, player.proj_mods.perfurante)
+		novo_missil.start(dano_atual, player.proj_mods.velocidade, proj_por_burst, i, player.proj_mods.bounces, player.proj_mods.perfurante, direcao)
 
 		
-func usar_arma(player, delta, dano_mult, dano_add):
+func usar_arma(player, delta, dano_mult, dano_add, direcao):
 	print("atirei")
 	var total = player.proj_mods.rajada
 	var proj_por_burst = player.proj_mods.proj_extras + 1
@@ -25,13 +25,13 @@ func usar_arma(player, delta, dano_mult, dano_add):
 
 	for idx in range(total):
 		if idx == 0:
-			disparar_burst(player, dano_mult, dano_add, proj_por_burst)
+			disparar_burst(player, dano_mult, dano_add, proj_por_burst, direcao)
 		else:
 			var timer = player.get_tree().create_timer(idx * intervalo)
 			timer.timeout.connect(func():
-				disparar_burst(player, dano_mult, dano_add, proj_por_burst)
+				disparar_burst(player, dano_mult, dano_add, proj_por_burst, direcao)
 			)
-
 	player.get_node("AttackTimer").start()
+	
 func parar_uso(player):
 	pass

@@ -7,7 +7,7 @@ var moeda_run := 0
 var arma_escolhida: ArmaRecurso
 var proj_mods: ProjMods
 
-# snapshot do player (usado ao trocar de andar)
+
 var vida_max := 0.0
 var vida_atual := 0.0
 var xp_atual := 0.0
@@ -16,6 +16,8 @@ var nivel := 1
 var dano_adicional := 0
 var dificuldade = 1
 var mult_dificuldade = 1 + (dificuldade * 0.05)
+
+var gamemode = "Mouse"
 
 func multiplicar_dificuldade() -> float:
 	return 1.0 + dificuldade * 0.05

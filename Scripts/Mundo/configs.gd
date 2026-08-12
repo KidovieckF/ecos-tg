@@ -36,3 +36,7 @@ func _on_key_bind_btn_pressed() -> void:
 
 func _on_voltar_btn_pressed() -> void:
 	get_tree().change_scene_to_file("res://Cenas/Mundo/Menu_inicial.tscn")
+
+
+func _on_modo_btn_pressed() -> void:
+	get_tree().change_scene_to_file("res://Cenas/Page/ModoJogo_Page.tscn")

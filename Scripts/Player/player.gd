@@ -20,6 +20,8 @@ var atacando = false
 var dashando = false
 var direcao_dash = Vector2.ZERO
 
+var direcao_tiro
+
 @onready var sprite = $Sprite2D
 @onready var hud = get_tree().get_first_node_in_group("HUD")
 var game_over_scene = preload("res://Cenas/Mundo/Game_over.tscn")
@@ -29,6 +31,7 @@ var pausado = false
 var magia1 = preload("res://Cenas/Player/Magias/Magia1.tscn")
 
 func _ready() -> void:
+		
 	if RecursosGlobais.arma_escolhida:
 		arma = RecursosGlobais.arma_escolhida
 	if RunData.arma_escolhida == null:
@@ -41,8 +44,12 @@ func _physics_process(delta: float) -> void:
 	if $AttackTimer.is_stopped():
 		if Input.is_action_pressed("Atirar"):
 			atacando = true
-			arma.usar_arma(self, delta, personagem.dano_mult, dano_adicional)
 			var direcao_calculada = (get_global_mouse_position() - global_position).normalized()
+			if RunData.gamemode == "Direcional":
+				direcao_tiro = last_direction
+			elif RunData.gamemode == "Mouse":
+				direcao_tiro = direcao_calculada
+			arma.usar_arma(self, delta, personagem.dano_mult, dano_adicional, direcao_tiro)
 			if abs(direcao_calculada.x) > abs(direcao_calculada.y) and direcao_calculada.x > 0:
 				$Sprite2D.flip_h = false
 				$Sprite2D.play("AtirandoLado")
@@ -132,7 +139,7 @@ func _physics_process(delta: float) -> void:
 func atirar():
 	var nova_magia = arma.projetil.instantiate()
 	get_parent().add_child(nova_magia)
-	var direcao_calculada = (get_global_mouse_position() - global_position).normalized()
+	var direcao_calculada = (last_direction - global_position).normalized()
 	nova_magia.start(global_position, direcao_calculada, arma.dano, arma.speed)
 	$AttackTimer.start()
 

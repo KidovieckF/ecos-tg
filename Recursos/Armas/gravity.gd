@@ -4,7 +4,7 @@ class_name GravityArma
 var buracos_ativo = []
 var buracos_totais = 1
 
-func usar_arma(player,delta,dano_mult, dano_add):
+func usar_arma(player,delta,dano_mult, dano_add, direcao):
 	if buracos_ativo.size() < buracos_totais:
 		var dano_atual = dano
 		dano_atual += dano_add
@@ -14,7 +14,7 @@ func usar_arma(player,delta,dano_mult, dano_add):
 		novo_gravity.scale *= player.proj_mods.tamanho
 		player.get_parent().add_child(novo_gravity)
 		novo_gravity.global_position = player.global_position
-		novo_gravity.start(dano_atual, player.global_position, speed)
+		novo_gravity.start(dano_atual, player.global_position, speed, direcao)
 		player.get_node("AttackTimer").start()
 		buracos_ativo.append(novo_gravity)
 		novo_gravity.tree_exited.connect(func():

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c4v0irdmavpp2"]
 
 [ext_resource type="Script" uid="uid://bgkbpgqknvjps" path="res://Scripts/Mundo/Lobby/selecao_arma.gd" id="1_v3ayk"]
-[ext_resource type="Script" uid="uid://bmxf0u4dayjym" path="res://Recursos/arma_recurso.gd" id="2_ism1s"]
+[ext_resource type="Script" uid="uid://bmxf0u4dayjym" path="res://Recursos/Armas/arma_recurso.gd" id="2_ism1s"]
 [ext_resource type="Resource" uid="uid://ddmiyd4uofc2b" path="res://Recursos/Armas/Missil.tres" id="3_6irj2"]
 [ext_resource type="Resource" uid="uid://bk7atnl1twgbk" path="res://Recursos/Armas/Circulo_Fogo.tres" id="4_0sn3p"]
 [ext_resource type="Resource" uid="uid://b36ypyd4u11v7" path="res://Recursos/Armas/Laser.tres" id="5_snjkb"]

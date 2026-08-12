@@ -101,6 +101,17 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ghvyg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gkp0h")
 text = "Controles"
 
+[node name="modoBtn" type="Button" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VBoxContainer" unique_id=537505925]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 60)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_constants/h_separation = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_h6ouc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ghvyg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gkp0h")
+text = "Modo de Jogo"
+
 [node name="voltarBtn" type="Button" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VBoxContainer" unique_id=681556278]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 60)
@@ -113,4 +124,5 @@ text = "Voltar"
 
 [connection signal="toggled" from="GridContainer/Panel/MarginContainer/VBoxContainer2/VBoxContainer/viewBtn" to="." method="_on_view_btn_toggled"]
 [connection signal="pressed" from="GridContainer/Panel/MarginContainer/VBoxContainer2/VBoxContainer/keyBindBtn" to="." method="_on_key_bind_btn_pressed"]
+[connection signal="pressed" from="GridContainer/Panel/MarginContainer/VBoxContainer2/VBoxContainer/modoBtn" to="." method="_on_modo_btn_pressed"]
 [connection signal="pressed" from="GridContainer/Panel/MarginContainer/VBoxContainer2/VBoxContainer/voltarBtn" to="." method="_on_voltar_btn_pressed"]

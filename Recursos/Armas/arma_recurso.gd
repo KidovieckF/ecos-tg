@@ -7,7 +7,7 @@ class_name ArmaRecurso
 @export var efeito : PackedScene
 @export var textura : Texture
 
-func usar_arma(player,delta,dano_mult,dano_add):
+func usar_arma(player,delta,dano_mult,dano_add, direcao):
 	pass
 
 func parar_uso(player):

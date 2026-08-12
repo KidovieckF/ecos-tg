@@ -4,7 +4,7 @@ class_name ArmaFogo
 @export var debuff_fogo : DebuffsData
 
 
-func usar_arma(player,delta,dano_mult, dano_add):
+func usar_arma(player,delta,dano_mult, dano_add, direcao):
 	var daninho = (dano + dano_add) * dano_mult
 	var i = 0
 	if player.get_node("VolleyCooldown").is_stopped():

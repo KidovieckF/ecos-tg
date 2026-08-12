@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 	if inimigos_dentro.size() > 0:
 		for inimigo in inimigos_dentro:
 			if is_instance_valid(inimigo):
-				var direcao = (centro_global - inimigo.global_position).normalized()
+				var direcao = direcao_bala
 				inimigo.position += direcao * 100 * delta
 			
 func _on_body_entered(body: Node2D) -> void:
@@ -25,10 +25,10 @@ func _on_body_entered(body: Node2D) -> void:
 		inimigos_dentro.append(body)
 		dentro = true
 		
-func start(dano, player_pos, speed):
+func start(dano, player_pos, speed, direcao):
 	bala_speed = speed
 	bala_dano = dano
-	direcao_bala = (get_global_mouse_position() - player_pos).normalized()
+	direcao_bala = direcao
 	
 
 
