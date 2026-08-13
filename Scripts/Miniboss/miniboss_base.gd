@@ -8,10 +8,12 @@ var last_direction
 var vida_max
 var vida_atual
 var ind_dano = preload("res://Cenas/Mundo/Ind_dano.tscn")
+var artefato_hud = preload("res://Cenas/Huds/Hud_artefato.tscn")
 var morto = false
 var dano_pendente = 0
 var estado_custom = {}
 var cutscene_inicial = false
+@export var drop_artefatos : Array[Artefato_data]
 
 
 func _ready() -> void:
@@ -46,7 +48,13 @@ func _physics_process(delta: float) -> void:
 	for body in corpos_encostados:
 		if body.is_in_group("Players"):
 			body.take_damage(data.dano_melee)
+
+func dropar_artefato():
+	var artefato = randi_range(0, drop_artefatos.size())
+	var tela_recompensa = artefato_hud.instantiate()
+	tela_recompensa.exibir_artefato(drop_artefatos[artefato])
 		
+
 func dano_na_fila():
 	if dano_pendente > 0 and not morto:
 		print("Processando dano_pendente: ", dano_pendente, " | vida_atual ANTES: ", vida_atual)

@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://cwv6ldr7yx5vn"]
+
+[ext_resource type="Script" uid="uid://bhsn814hr7rhe" path="res://Scripts/Huds/hud_artefato.gd" id="1_gxihy"]
+[ext_resource type="Resource" uid="uid://jkk1dg3tgva4" path="res://Recursos/Artefatos/Teste_dano.tres" id="2_nx0b7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nx0b7"]
+bg_color = Color(0.38348114, 0.63745594, 0.7634912, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=517762579]
+process_mode = 3
+script = ExtResource("1_gxihy")
+artefato = ExtResource("2_nx0b7")
+
+[node name="Panel" type="Panel" parent="." unique_id=898417184]
+custom_minimum_size = Vector2(200, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nx0b7")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=116391653]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=127947161]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Nome" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1658918750]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Nome do item"
+
+[node name="Textura" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer" unique_id=2050442605]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Descricao" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=822383530]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Descricao"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=286528342]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="AceitarBtn" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1763407324]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+text = "Aceitar"
+
+[node name="RecusarBtn" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=361537677]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+text = "Recusar"
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/AceitarBtn" to="." method="_on_aceitar_btn_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/RecusarBtn" to="." method="_on_recusar_btn_pressed"]

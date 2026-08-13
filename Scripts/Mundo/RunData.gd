@@ -7,7 +7,10 @@ var moeda_run := 0
 var arma_escolhida: ArmaRecurso
 var proj_mods: ProjMods
 
+var artefatos_coletados : Array[Artefato_data] = []
+var personagem_base: player_data
 
+var speed_calculado: float = 300.0
 var vida_max := 0.0
 var vida_atual := 0.0
 var xp_atual := 0.0
@@ -18,6 +21,35 @@ var dificuldade = 1
 var mult_dificuldade = 1 + (dificuldade * 0.05)
 
 var gamemode = "Mouse"
+
+
+func calcular_artefatos():
+	var dano = personagem_base.dano_extra
+	var vida = personagem_base.vida
+	var speed = personagem_base.speed
+	for i in artefatos_coletados:
+		dano += i.dano_add
+		vida += i.vida_max_add
+		speed += i.speed_add 
+		
+	for j in artefatos_coletados:
+		dano *= j.dano_mult
+		vida *= j.vida_max_mult
+		speed *= j.speed_mult
+	
+	dano_adicional = dano
+	vida_max = vida
+	speed_calculado = speed
+	
+
+func adicionar_artefato(artefato : Artefato_data):
+	artefatos_coletados.append(artefato)
+	if artefato.vida_max_add > 0:
+		vida_atual += artefato.vida_max_add
+	if artefato.vida_max_mult > 1:
+		vida_atual *= artefato.vida_max_mult
+	artefato.efeito()
+	calcular_artefatos()
 
 func multiplicar_dificuldade() -> float:
 	return 1.0 + dificuldade * 0.05
@@ -30,6 +62,10 @@ func iniciar_run(personagem: player_data, p_arma: ArmaRecurso) -> void:
 	vida_max = personagem.vida
 	vida_atual = personagem.vida
 	barra_exp = personagem.exp_bar
+	speed_calculado = personagem.speed
+	personagem_base = personagem
+	artefatos_coletados.clear()
+	
 
 func resetar_run() -> void:
 	andar = 1
@@ -45,21 +81,15 @@ func resetar_run() -> void:
 	dificuldade = 1
 
 func guardar_player(player) -> void:
-	vida_atual = player.vida_atual
-	vida_max = player.vida_maxima
 	xp_atual = player.xp_atual
 	barra_exp = player.barra_exp
 	nivel = player.nivel
-	dano_adicional = player.dano_adicional
-	proj_mods = player.proj_mods
+	speed_calculado = player.speed_atuals
 
 func carregar_player(player) -> void:
-	player.vida_atual = vida_atual
-	player.vida_maxima = vida_max
 	player.xp_atual = xp_atual
 	player.barra_exp = barra_exp
 	player.nivel = nivel
-	player.dano_adicional = dano_adicional
 	player.arma = arma_escolhida
 	player.proj_mods = proj_mods
 

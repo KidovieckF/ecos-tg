@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 
-var speed_atual = 300.0
 const JUMP_VELOCITY = -400.0
 var pode_tomar_dano = true
 var tween_dano
@@ -12,10 +11,7 @@ var last_direction = Vector2(1,0)
 @export var proj_mods : ProjMods
 var morto = false
 var barra_exp
-var dano_adicional = 0
 var xp_atual = 0
-var vida_atual 
-var vida_maxima 
 var atacando = false
 var dashando = false
 var direcao_dash = Vector2.ZERO
@@ -49,7 +45,7 @@ func _physics_process(delta: float) -> void:
 				direcao_tiro = last_direction
 			elif RunData.gamemode == "Mouse":
 				direcao_tiro = direcao_calculada
-			arma.usar_arma(self, delta, personagem.dano_mult, dano_adicional, direcao_tiro)
+			arma.usar_arma(self, delta, personagem.dano_mult, RunData.dano_adicional, direcao_tiro)
 			if abs(direcao_calculada.x) > abs(direcao_calculada.y) and direcao_calculada.x > 0:
 				$Sprite2D.flip_h = false
 				$Sprite2D.play("AtirandoLado")
@@ -78,10 +74,10 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
 	if direction:
-		velocity = direction * speed_atual
+		velocity = direction * RunData.speed_calculado
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed_atual)
-		velocity.y = move_toward(velocity.y, 0, speed_atual)
+		velocity.x = move_toward(velocity.x, 0, RunData.speed_calculado)
+		velocity.y = move_toward(velocity.y, 0, RunData.speed_calculado)
 	
 	
 	
@@ -126,13 +122,13 @@ func _physics_process(delta: float) -> void:
 			dashando = false
 			pode_tomar_dano = true
 		if dashando:
-			velocity = direcao_dash * speed_atual * 2.5 
+			velocity = direcao_dash * RunData.speed_calculado * 2.5 
 		else:
 			if direction:
-				velocity = direction * speed_atual
+				velocity = direction * RunData.speed_calculado
 			else:
-				velocity.x = move_toward(velocity.x, 0, speed_atual)
-				velocity.y = move_toward(velocity.y, 0, speed_atual)
+				velocity.x = move_toward(velocity.x, 0, RunData.speed_calculado)
+				velocity.y = move_toward(velocity.y, 0, RunData.speed_calculado)
 
 	move_and_slide()
 
@@ -161,23 +157,23 @@ func ganhar_xp(exp):
 func take_damage(quantidade, cor = Color.WHITE):
 	if pode_tomar_dano == true:
 		$Timer.start()
-		vida_atual -= quantidade
+		RunData.vida_atual -= quantidade
 		tween_dano = create_tween().set_loops()
 		tween_dano.tween_property(sprite, "modulate:a", 0.0, 0.1)
 		tween_dano.tween_property(sprite, "modulate:a", 1.0, 0.1)
 
-		print("Tomou dano ", vida_atual )
-		hud.atualizar_vida(vida_atual, vida_maxima)
+		print("Tomou dano ", RunData.vida_atual )
+		hud.atualizar_vida(RunData.vida_atual, RunData.vida_max)
 		pode_tomar_dano = false
-	if vida_atual <= 0 and morto == false:
+	if RunData.vida_atual <= 0 and morto == false:
 		morto = true
 		RunData.resetar_run()
 		var game_over = game_over_scene.instantiate()
 		get_tree().root.add_child(game_over)
 		
 func curar(quantidade):
-	vida_atual =  min((vida_atual + quantidade), vida_maxima)
-	hud.atualizar_vida(vida_atual, vida_maxima)
+	RunData.vida_atual =  min((RunData.vida_atual + quantidade), RunData.vida_maxima)
+	hud.atualizar_vida(RunData.vida_atual, RunData.vida_maxima)
 		
 func coletar_moeda():
 	hud.atualizar_dinheiro()
