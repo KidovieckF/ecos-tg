@@ -63,7 +63,8 @@ func dano_na_fila():
 		if vida_atual <= 0:
 			print(">>> VIDA ZEROU! morto = true, chamando morrer()")
 			morto = true
-			$AreaDano.set_deferred("monitoring", false)
+			if has_node("AreaDano"):
+				$AreaDano.set_deferred("monitoring", false)
 			morrer()
 			print(">>> VOLTOU DO morrer()")
 			return
@@ -80,10 +81,6 @@ func take_damage(quantidade, cor = Color.WHITE):
 
 func morrer():
 	set_physics_process(false)
-	collision_layer = 0
-	collision_mask = 0
-	$AreaDano.collision_layer = 0
-	$AreaDano.collision_mask = 0
 	var death = AnimatedSprite2D.new()
 	death.sprite_frames = $Sprite2D.sprite_frames
 	death.scale = $Sprite2D.scale
