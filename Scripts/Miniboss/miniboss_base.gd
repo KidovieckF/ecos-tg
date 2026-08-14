@@ -81,14 +81,14 @@ func take_damage(quantidade, cor = Color.WHITE):
 
 func morrer():
 	set_physics_process(false)
-	var death = AnimatedSprite2D.new()
-	death.sprite_frames = $Sprite2D.sprite_frames
-	death.scale = $Sprite2D.scale
-	death.play("Morrendo")
-	death.animation_finished.connect(queue_free)
-	get_parent().add_child(death)
-	death.global_position = global_position
-	spawn_item()
+	#var death = AnimatedSprite2D.new()
+	#death.sprite_frames = $Sprite2D.sprite_frames
+	#death.scale = $Sprite2D.scale
+	#death.play("Morrendo")
+	#death.animation_finished.connect(queue_free)
+	#get_parent().add_child(death)
+	#death.global_position = global_position
+	#spawn_item()
 	queue_free()
 	morreu.emit()
 	
