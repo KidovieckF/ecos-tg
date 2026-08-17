@@ -23,10 +23,6 @@ corner_radius_bottom_left = 10
 [node name="HUD" type="CanvasLayer" unique_id=856288748 groups=["HUD"]]
 script = ExtResource("1_p1lse")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1845871983]
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1419983066 groups=["HUD"]]
 visible = false
 custom_minimum_size = Vector2(700, 20)
@@ -125,3 +121,20 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.083911665, 0.083911665, 0.083911665, 1)
 text = "$: "
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2106190135]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="InventarioGrid" type="GridContainer" parent="MarginContainer" unique_id=790275301]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8

@@ -2,28 +2,31 @@ extends CharacterBody2D
 
 
 const JUMP_VELOCITY = -400.0
+
+@export var personagem : player_data
+@export var arma : ArmaRecurso
+@export var proj_mods : ProjMods
+
+@onready var sprite = $Sprite2D
+@onready var hud = get_tree().get_first_node_in_group("HUD")
+
 var pode_tomar_dano = true
 var tween_dano
 var nivel = 1
 var last_direction = Vector2(1,0)
-@export var personagem : player_data
-@export var arma : ArmaRecurso
-@export var proj_mods : ProjMods
 var morto = false
 var barra_exp
 var xp_atual = 0
 var atacando = false
 var dashando = false
 var direcao_dash = Vector2.ZERO
-
 var direcao_tiro
-
-@onready var sprite = $Sprite2D
-@onready var hud = get_tree().get_first_node_in_group("HUD")
+var pausado = false
+var tiro_primario = false
+var tiro_secundario = false
 var game_over_scene = preload("res://Cenas/Mundo/Game_over.tscn")
 var upgrade = preload("res://Hud_upgrade.tscn")
 var pause_scene = preload("res://Cenas/Huds/hud_pause.tscn")
-var pausado = false
 var magia1 = preload("res://Cenas/Player/Magias/Magia1.tscn")
 
 func _ready() -> void:
@@ -38,14 +41,36 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if $AttackTimer.is_stopped():
-		if Input.is_action_pressed("Atirar"):
+		if Input.is_action_pressed("Atirar") and not tiro_secundario:
 			atacando = true
 			var direcao_calculada = (get_global_mouse_position() - global_position).normalized()
 			if RunData.gamemode == "Direcional":
 				direcao_tiro = last_direction
 			elif RunData.gamemode == "Mouse":
 				direcao_tiro = direcao_calculada
-			arma.usar_arma(self, delta, personagem.dano_mult, RunData.dano_adicional, direcao_tiro)
+			RunData.armas[0].usar_arma(self, delta, personagem.dano_mult, RunData.dano_adicional, direcao_tiro)
+			if abs(direcao_calculada.x) > abs(direcao_calculada.y) and direcao_calculada.x > 0:
+				$Sprite2D.flip_h = false
+				$Sprite2D.play("AtirandoLado")
+			elif abs(direcao_calculada.x) > abs(direcao_calculada.y) and direcao_calculada.x < 0:
+				$Sprite2D.flip_h = true
+				$Sprite2D.play("AtirandoLado")
+			elif abs(direcao_calculada.y) > abs(direcao_calculada.x) and direcao_calculada.y < 0:
+				$Sprite2D.flip_h = false
+				$Sprite2D.play("AtirandoCostas")
+			elif abs(direcao_calculada.y) > abs(direcao_calculada.x) and direcao_calculada.y > 0:
+				$Sprite2D.flip_h = false
+				$Sprite2D.play("AtirandoFrente")
+				
+		if Input.is_action_pressed("Atirar2") and not tiro_primario:
+			tiro_secundario = true
+			atacando = true
+			var direcao_calculada = (get_global_mouse_position() - global_position).normalized()
+			if RunData.gamemode == "Direcional":
+				direcao_tiro = last_direction
+			elif RunData.gamemode == "Mouse":
+				direcao_tiro = direcao_calculada
+			RunData.armas[0].usar_arma(self, delta, personagem.dano_mult, RunData.dano_adicional, direcao_tiro)
 			if abs(direcao_calculada.x) > abs(direcao_calculada.y) and direcao_calculada.x > 0:
 				$Sprite2D.flip_h = false
 				$Sprite2D.play("AtirandoLado")
@@ -62,16 +87,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("Atirar"):
 		atacando = false
 		arma.parar_uso(self)
-	if Input.is_action_just_pressed("Pause") and pausado:
-		get_tree().paused = false
-		queue_free()
-	elif Input.is_action_just_pressed("Pause") and not pausado:
-		var pause_hud = pause_scene.instantiate()
-		add_child(pause_hud)
 	
 	
 
-	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var direction := Input.get_vector("Esquerda", "Direita", "Cima", "Baixo")
 	
 	if direction:
 		velocity = direction * RunData.speed_calculado
@@ -114,7 +133,8 @@ func _physics_process(delta: float) -> void:
 				$Sprite2D.flip_h = false
 				$Sprite2D.play("IdleCostas")
 		
-		if Input.is_action_just_pressed("Dash") and not dashando and direction != Vector2.ZERO:
+		if Input.is_action_just_pressed("Dash") and not dashando and direction != Vector2.ZERO and $DashCD.is_stopped():     
+			$DashCD.start()
 			dashando = true
 			direcao_dash = direction
 			pode_tomar_dano = false 
@@ -172,8 +192,8 @@ func take_damage(quantidade, cor = Color.WHITE):
 		get_tree().root.add_child(game_over)
 		
 func curar(quantidade):
-	RunData.vida_atual =  min((RunData.vida_atual + quantidade), RunData.vida_maxima)
-	hud.atualizar_vida(RunData.vida_atual, RunData.vida_maxima)
+	RunData.vida_atual =  min((RunData.vida_atual + quantidade), RunData.vida_max)
+	hud.atualizar_vida(RunData.vida_atual, RunData.vida_max)
 		
 func coletar_moeda():
 	hud.atualizar_dinheiro()

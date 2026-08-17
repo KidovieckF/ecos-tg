@@ -50,9 +50,12 @@ func _physics_process(delta: float) -> void:
 			body.take_damage(data.dano_melee)
 
 func dropar_artefato():
-	var artefato = randi_range(0, drop_artefatos.size())
+	if drop_artefatos.is_empty():
+		return
+	var artefato = randi_range(0, drop_artefatos.size() - 1)
 	var tela_recompensa = artefato_hud.instantiate()
 	tela_recompensa.exibir_artefato(drop_artefatos[artefato])
+	get_parent().add_child(tela_recompensa)
 		
 
 func dano_na_fila():
@@ -81,6 +84,7 @@ func take_damage(quantidade, cor = Color.WHITE):
 
 func morrer():
 	set_physics_process(false)
+	dropar_artefato()
 	#var death = AnimatedSprite2D.new()
 	#death.sprite_frames = $Sprite2D.sprite_frames
 	#death.scale = $Sprite2D.scale

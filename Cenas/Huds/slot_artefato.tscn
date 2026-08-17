@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://co1cuxrxjq7k1"]
+
+[node name="TextureRect" type="TextureRect" unique_id=679105171]
+process_mode = 3
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 0

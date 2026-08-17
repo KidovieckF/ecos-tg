@@ -322,5 +322,8 @@ position_smoothing_enabled = true
 [node name="VolleyCooldown" type="Timer" parent="." unique_id=279288267]
 one_shot = true
 
+[node name="DashCD" type="Timer" parent="." unique_id=1681083707]
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

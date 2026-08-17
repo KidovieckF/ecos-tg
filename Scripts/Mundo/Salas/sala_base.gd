@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 					player = i
 					sensor_ja_ativado = true
 					$CanvasLayer.iniciar_roleta()
-					await get_tree().create_timer(5.0).timeout
+					await get_tree().create_timer(5.0, false).timeout
 					chamar_onda()
 					primeira_fase = false
 				
@@ -46,7 +46,7 @@ func verifica_inimigos():
 	if contador_inimigos == 0:
 		if round_atual < round_maximo:
 			processando_onda = true
-			await get_tree().create_timer(3.0).timeout
+			await get_tree().create_timer(3.0, false).timeout
 			chamar_onda()
 			round_atual += 1
 			processando_onda = false
@@ -85,7 +85,7 @@ func inicar_sala(body):
 			print("Detector de sala ativado por: ", body.name)
 			player = body
 			$CanvasLayer.iniciar_roleta()
-			await get_tree().create_timer(5.0).timeout
+			await get_tree().create_timer(5.0, false).timeout
 			chamar_onda()
 				
 		
@@ -95,12 +95,12 @@ func chamar_onda():
 	if tamanho_onda < 7:
 		for i in range(tamanho_onda):
 			registrar_inimigo()
-			await get_tree().create_timer(1.0).timeout
+			await get_tree().create_timer(1.0, false).timeout
 	else:
 		for i in range(tamanho_onda/2):
 			registrar_inimigo()
 			registrar_inimigo()
-			await get_tree().create_timer(1.0).timeout
+			await get_tree().create_timer(1.0, false).timeout
 	if deu_ultimato and round_atual == (round_maximo - 1):
 		var novo_elite = elite.instantiate()
 		novo_elite.position = Vector2(500, 295)
