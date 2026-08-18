@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://cgqmggdrhou4u"]
+
+[ext_resource type="Script" uid="uid://bddrmptq05ctm" path="res://Recursos/Upgrades/upgrades.gd" id="1_gfqra"]
+
+[resource]
+script = ExtResource("1_gfqra")
+valor = 1.0
+efeito = "bounce"
+tag = "Projetil"
+metadata/_custom_type_script = "uid://bddrmptq05ctm"

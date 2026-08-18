@@ -7,8 +7,9 @@ func _ready() -> void:
 	RunData.inventario_atualizado.connect(atualizar_inventario)
 	atualizar_inventario()
 	
+	
 func _physics_process(delta: float) -> void:
-	pass
+	%Arma.texture = RunData.armas[0].textura
 	 
 	
 func atualizar_xp(xp_atual, xp_barra, nivel):
@@ -44,4 +45,5 @@ func atualizar_inventario():
 		
 		slot_inventario.texture = artefato.icone
 		%InventarioGrid.add_child(slot_inventario)
+		
 		

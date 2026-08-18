@@ -5,7 +5,6 @@ const JUMP_VELOCITY = -400.0
 
 @export var personagem : player_data
 @export var arma : ArmaRecurso
-@export var proj_mods : ProjMods
 
 @onready var sprite = $Sprite2D
 @onready var hud = get_tree().get_first_node_in_group("HUD")
@@ -40,8 +39,16 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	
+	if Input.is_action_just_pressed("Mudar"):
+		if RunData.armas[1]:
+			var aux = RunData.armas[0]
+			RunData.armas[0] = RunData.armas[1]
+			RunData.armas[1] = aux
+	
 	if $AttackTimer.is_stopped():
 		if Input.is_action_pressed("Atirar") and not tiro_secundario:
+			tiro_primario = true
 			atacando = true
 			var direcao_calculada = (get_global_mouse_position() - global_position).normalized()
 			if RunData.gamemode == "Direcional":
@@ -63,30 +70,38 @@ func _physics_process(delta: float) -> void:
 				$Sprite2D.play("AtirandoFrente")
 				
 		if Input.is_action_pressed("Atirar2") and not tiro_primario:
-			tiro_secundario = true
-			atacando = true
-			var direcao_calculada = (get_global_mouse_position() - global_position).normalized()
-			if RunData.gamemode == "Direcional":
-				direcao_tiro = last_direction
-			elif RunData.gamemode == "Mouse":
-				direcao_tiro = direcao_calculada
-			RunData.armas[0].usar_arma(self, delta, personagem.dano_mult, RunData.dano_adicional, direcao_tiro)
-			if abs(direcao_calculada.x) > abs(direcao_calculada.y) and direcao_calculada.x > 0:
-				$Sprite2D.flip_h = false
-				$Sprite2D.play("AtirandoLado")
-			elif abs(direcao_calculada.x) > abs(direcao_calculada.y) and direcao_calculada.x < 0:
-				$Sprite2D.flip_h = true
-				$Sprite2D.play("AtirandoLado")
-			elif abs(direcao_calculada.y) > abs(direcao_calculada.x) and direcao_calculada.y < 0:
-				$Sprite2D.flip_h = false
-				$Sprite2D.play("AtirandoCostas")
-			elif abs(direcao_calculada.y) > abs(direcao_calculada.x) and direcao_calculada.y > 0:
-				$Sprite2D.flip_h = false
-				$Sprite2D.play("AtirandoFrente")
+			if RunData.armas[1]:
+				tiro_secundario = true
+				atacando = true
+				var direcao_calculada = (get_global_mouse_position() - global_position).normalized()
+				if RunData.gamemode == "Direcional":
+					direcao_tiro = last_direction
+				elif RunData.gamemode == "Mouse":
+					direcao_tiro = direcao_calculada
+				
+				RunData.armas[1].usar_arma(self, delta, personagem.dano_mult, RunData.dano_adicional, direcao_tiro)
+
+				if abs(direcao_calculada.x) > abs(direcao_calculada.y) and direcao_calculada.x > 0:
+					$Sprite2D.flip_h = false
+					$Sprite2D.play("AtirandoLado")
+				elif abs(direcao_calculada.x) > abs(direcao_calculada.y) and direcao_calculada.x < 0:
+					$Sprite2D.flip_h = true
+					$Sprite2D.play("AtirandoLado")
+				elif abs(direcao_calculada.y) > abs(direcao_calculada.x) and direcao_calculada.y < 0:
+					$Sprite2D.flip_h = false
+					$Sprite2D.play("AtirandoCostas")
+				elif abs(direcao_calculada.y) > abs(direcao_calculada.x) and direcao_calculada.y > 0:
+					$Sprite2D.flip_h = false
+					$Sprite2D.play("AtirandoFrente")
 				
 	if Input.is_action_just_released("Atirar"):
+		tiro_primario = false
 		atacando = false
-		arma.parar_uso(self)
+		RunData.armas[0].parar_uso(self)
+	if Input.is_action_just_released("Atirar2"):
+		tiro_secundario = false
+		atacando = false
+		RunData.armas[0].parar_uso(self)
 	
 	
 

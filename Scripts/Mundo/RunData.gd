@@ -6,12 +6,13 @@ signal inventario_atualizado
 
 var tela_pause_atual = null
 
+var tela_debug_atual = null
+
 var armas: Array[ArmaRecurso] = [null, null]
 
 var andar := 1
 var moeda_run := 0
 var arma_escolhida: ArmaRecurso
-var proj_mods: ProjMods
 
 
 var artefatos_coletados : Array[Artefato_data] = []
@@ -33,6 +34,18 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _unhandled_input(event):
+	if event.is_action_pressed("Debbug"):
+		var arvore = get_tree()
+		if arvore.paused:
+			arvore.paused = false
+			if is_instance_valid(tela_debug_atual):
+				tela_debug_atual.queue_free()
+		else:
+			arvore.paused = true
+			tela_debug_atual = preload("res://Cenas/Huds/Debugg_Hud.tscn").instantiate()
+			# Adiciona a tela de pause na raiz do jogo
+			arvore.root.add_child(tela_debug_atual) 
+	
 	if event.is_action_pressed("Pause"):
 		var arvore = get_tree()
 		if arvore.paused:
@@ -85,8 +98,7 @@ func iniciar_run(personagem: player_data, p_arma: ArmaRecurso) -> void:
 	resetar_run()
 	andar = 1
 	arma_escolhida = p_arma
-	armas[0] = arma_escolhida
-	proj_mods = preload("res://Recursos/Armas/Arma_mods.tres").duplicate()
+	armas[0] = arma_escolhida.duplicate()
 	vida_max = personagem.vida
 	vida_atual = personagem.vida
 	barra_exp = personagem.exp_bar
@@ -99,7 +111,6 @@ func resetar_run() -> void:
 	andar = 1
 	moeda_run = 0
 	arma_escolhida = null
-	proj_mods = null
 	vida_max = 0
 	vida_atual = 0
 	xp_atual = 0
@@ -118,7 +129,6 @@ func carregar_player(player) -> void:
 	player.barra_exp = barra_exp
 	player.nivel = nivel
 	player.arma = arma_escolhida
-	player.proj_mods = proj_mods
 
 func avancar_andar():
 	andar += 1

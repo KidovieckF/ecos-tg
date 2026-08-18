@@ -11,7 +11,6 @@ func usar_arma(player,delta,dano_mult, dano_add, direcao):
 		dano_atual *= dano_mult
 		dano_atual += (RunData.vida_max * 0.01)
 		var novo_gravity = projetil.instantiate()
-		novo_gravity.scale *= player.proj_mods.tamanho
 		player.get_parent().add_child(novo_gravity)
 		novo_gravity.global_position = player.global_position
 		novo_gravity.start(dano_atual, player.global_position, speed, direcao)

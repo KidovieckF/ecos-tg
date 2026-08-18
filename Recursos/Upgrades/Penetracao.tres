@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://dmcvxwpii80qn"]
+
+[ext_resource type="Script" uid="uid://bddrmptq05ctm" path="res://Recursos/Upgrades/upgrades.gd" id="1_38o22"]
+
+[resource]
+script = ExtResource("1_38o22")
+valor = 1.0
+efeito = "penetracao"
+tag = "Projetil"
+metadata/_custom_type_script = "uid://bddrmptq05ctm"

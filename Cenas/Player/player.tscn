@@ -308,6 +308,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="AttackTimer" type="Timer" parent="." unique_id=593634341]
+wait_time = 0.052
 one_shot = true
 
 [node name="CameraLobby" type="Camera2D" parent="." unique_id=1049809061]

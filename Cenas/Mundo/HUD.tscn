@@ -20,6 +20,13 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uh8m8"]
+bg_color = Color(0.6, 0.6, 0.6, 0.5529412)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
 [node name="HUD" type="CanvasLayer" unique_id=856288748 groups=["HUD"]]
 script = ExtResource("1_p1lse")
 
@@ -132,6 +139,22 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=221947952]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uh8m8")
+
+[node name="Arma" type="TextureRect" parent="MarginContainer/Panel" unique_id=828709127]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="InventarioGrid" type="GridContainer" parent="MarginContainer" unique_id=790275301]
 unique_name_in_owner = true

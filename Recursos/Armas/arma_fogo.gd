@@ -8,14 +8,13 @@ func usar_arma(player,delta,dano_mult, dano_add, direcao):
 	var daninho = (dano + dano_add) * dano_mult
 	var i = 0
 	if player.get_node("VolleyCooldown").is_stopped():
-		while i <= player.proj_mods.proj_extras:
+		while i <= 2: #proj extras
 			var novo_circulo = projetil.instantiate()
-			novo_circulo.scale *= player.proj_mods.tamanho
 			novo_circulo.start(daninho)
 			novo_circulo.dano_add = dano_add
 			player.get_parent().add_child(novo_circulo)
 			i += 1
-		player.get_node("VolleyCooldown").start(player.proj_mods.cooldown_lote)
+		player.get_node("VolleyCooldown").start(2) #cooldown por lote
 	RunData.speed_calculado = 100
 	
 

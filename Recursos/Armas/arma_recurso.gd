@@ -6,9 +6,24 @@ class_name ArmaRecurso
 @export var  projetil : PackedScene
 @export var efeito : PackedScene
 @export var textura : Texture
+@export var tags : Array[String]
+var upgrades_ativos : Array[UpgradeData] = []
 
 func usar_arma(player,delta,dano_mult,dano_add, direcao):
 	pass
 
 func parar_uso(player):
 	pass
+
+func tem_efeito(nome_do_efeito : String) -> bool:
+	for upg in upgrades_ativos:
+		if upg.efeito == nome_do_efeito:
+			return true
+	return false
+# Isso ajuda a perguntar: "Quantos tiros a mais eu tenho?"
+func valor_do_efeito(nome_do_efeito : String) -> float:
+	var total = 0.0
+	for upg in upgrades_ativos:
+		if upg.efeito == nome_do_efeito:
+			total += upg.valor
+	return total

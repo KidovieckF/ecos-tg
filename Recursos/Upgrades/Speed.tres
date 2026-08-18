@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://227fpktb6lk8"]
+
+[ext_resource type="Script" uid="uid://bddrmptq05ctm" path="res://Recursos/Upgrades/upgrades.gd" id="1_qubr4"]
+
+[resource]
+script = ExtResource("1_qubr4")
+valor = 20.0
+efeito = "velocidade"
+tag = "Projetil"
+metadata/_custom_type_script = "uid://bddrmptq05ctm"
