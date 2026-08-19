@@ -10,6 +10,7 @@ var bursts = 1
 var speed_calculada = 200
 var tamanho = Vector2(1,1)
 var bounces = 0
+var dano_add = 0
 var penetracao = false
 
 func calcular_upgrades():
@@ -18,6 +19,7 @@ func calcular_upgrades():
 	speed_calculada = 200
 	tamanho = Vector2(1,1)
 	bounces = 0
+	dano_add = 0
 	penetracao = false
 	print("Teste")
 	for i in upgrades_ativos:
@@ -36,7 +38,7 @@ func calcular_upgrades():
 
 
 
-func usar_arma(player,delta,dano_mult, dano_add, direcao):
+func usar_arma(player,delta,dano_mult, direcao):
 	dano_atual += dano_add
 	dano_atual *= dano_mult
 	if player.get_node("AttackTimer").is_stopped():

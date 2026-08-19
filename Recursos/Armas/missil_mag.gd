@@ -9,6 +9,7 @@ var speed_calculada = 200
 var tamanho = Vector2(1,1)
 var bounces = 0
 var penetracao = false
+var dano_add = 0
 
 func calcular_upgrades():
 	tiros_por_burst = 1
@@ -16,10 +17,14 @@ func calcular_upgrades():
 	speed_calculada = 200
 	tamanho = Vector2(1,1)
 	bounces = 0
+	dano_add = 0
 	penetracao = false
+	
 	print("Teste")
 	for i in upgrades_ativos:
 		if i.efeito == "MultiDisparos":
+			bursts += i.valor
+		if i.efeito == "Dano":
 			bursts += i.valor
 		if i.efeito == "velocidade":
 			speed_calculada += i.valor
@@ -35,7 +40,7 @@ func calcular_upgrades():
 			
 	
 
-func disparar_burst(player, dano_mult, dano_add, proj_por_burst,direcao):
+func disparar_burst(player, dano_mult, proj_por_burst,direcao):
 	for i in range(proj_por_burst):
 		var dano_atual = dano
 		dano_atual += dano_add

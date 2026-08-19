@@ -10,7 +10,7 @@ class_name ArmaRecurso
 @export var tags : Array[String]
 var upgrades_ativos : Array[UpgradeData] = []
 
-func usar_arma(player,delta,dano_add, direcao):
+func usar_arma(player,delta,dano_mult, direcao):
 	pass
 
 func parar_uso(player):
