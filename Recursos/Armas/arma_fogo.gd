@@ -3,8 +3,39 @@ class_name ArmaFogo
 
 @export var debuff_fogo : DebuffsData
 
+var tiros_por_burst = 1
+var bursts = 1
+var speed_calculada = 200
+var tamanho = Vector2(1,1)
+var bounces = 0
+var penetracao = false
+var dano_add = 0
 
-func usar_arma(player,delta,dano_mult, dano_add, direcao):
+func calcular_upgrades():
+	tiros_por_burst = 1
+	bursts = 1
+	speed_calculada = 200
+	tamanho = Vector2(1,1)
+	bounces = 0
+	penetracao = false
+	print("Teste")
+	for i in upgrades_ativos:
+		if i.efeito == "Dano":
+			dano_add += i.valor
+		if i.efeito == "MultiDisparos":
+			bursts += i.valor
+		if i.efeito == "velocidade":
+			speed_calculada += i.valor
+		if i.efeito == "+1Disparo":
+			tiros_por_burst += i.valor
+		if i.efeito == "tamanho":
+			tamanho *= i.valor
+		if i.efeito == "bounce":
+			bounces += i.valor
+		if i.efeito == "penetracao":
+			penetracao = true
+
+func usar_arma(player,delta, dano_mult, direcao):
 	var daninho = (dano + dano_add) * dano_mult
 	var i = 0
 	if player.get_node("VolleyCooldown").is_stopped():

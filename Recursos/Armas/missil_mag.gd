@@ -17,13 +17,13 @@ func calcular_upgrades():
 	tamanho = Vector2(1,1)
 	bounces = 0
 	penetracao = false
-	
+	print("Teste")
 	for i in upgrades_ativos:
-		if i.efeito == "multidisparos":
+		if i.efeito == "MultiDisparos":
 			bursts += i.valor
 		if i.efeito == "velocidade":
 			speed_calculada += i.valor
-		if i.efeito == "+1Pojetil":
+		if i.efeito == "+1Disparo":
 			tiros_por_burst += i.valor
 		if i.efeito == "tamanho":
 			tamanho *= i.valor
@@ -46,16 +46,16 @@ func disparar_burst(player, dano_mult, dano_add, proj_por_burst,direcao):
 		novo_missil.start(dano_atual, speed_calculada, proj_por_burst, i, bounces, penetracao, direcao)
 										#Dano, Velocidade, Burst, i, bounces, perfurante
 		
-func usar_arma(player, delta, dano_mult, dano_add, direcao):
+func usar_arma(player, delta, dano_mult, direcao):
 	print("atirei")
 	var intervalo = 0.08
 	for idx in range(bursts):
 		if idx == 0:
-			disparar_burst(player, dano_mult, dano_add, tiros_por_burst, direcao)
+			disparar_burst(player, dano_mult, tiros_por_burst, direcao)
 		else:
 			var timer = player.get_tree().create_timer(idx * intervalo)
 			timer.timeout.connect(func():
-				disparar_burst(player, dano_mult, dano_add, tiros_por_burst, direcao)
+				disparar_burst(player, dano_mult, tiros_por_burst, direcao)
 			)
 	player.get_node("AttackTimer").start()
 	

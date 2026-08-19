@@ -1,6 +1,7 @@
 extends Resource
 class_name ArmaRecurso
 
+@export var nome : String
 @export var dano : float
 @export var speed : float
 @export var  projetil : PackedScene
@@ -9,7 +10,7 @@ class_name ArmaRecurso
 @export var tags : Array[String]
 var upgrades_ativos : Array[UpgradeData] = []
 
-func usar_arma(player,delta,dano_mult,dano_add, direcao):
+func usar_arma(player,delta,dano_add, direcao):
 	pass
 
 func parar_uso(player):

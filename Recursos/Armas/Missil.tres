@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("1_q1obn")
+nome = "Missil"
 dano = 3.0
 speed = 200.0
 projetil = ExtResource("1_r1ddo")

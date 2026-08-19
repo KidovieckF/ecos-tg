@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://b36ypyd4u11v7" path="res://Recursos/Armas/Laser.tres" id="6_useeo"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1287604645]
+process_mode = 3
 script = ExtResource("1_gp7h0")
 armas = Array[ExtResource("2_bwern")]([ExtResource("3_gf11i"), ExtResource("4_at83a"), ExtResource("5_cj2rn"), ExtResource("6_useeo")])
 
@@ -38,6 +39,7 @@ theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="Pagina1" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=2143156107]
+unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
@@ -56,7 +58,7 @@ process_mode = 3
 layout_mode = 2
 button_pressed = true
 item_count = 4
-popup/item_0/text = "Fogo"
+popup/item_0/text = "Circulo de Fogo"
 popup/item_0/id = 0
 popup/item_1/text = "Buraco Negro"
 popup/item_1/id = 1
@@ -75,6 +77,7 @@ layout_mode = 2
 text = "Dano da arma"
 
 [node name="DanoLine" type="LineEdit" parent="Panel/MarginContainer/Pagina1/Dano" unique_id=559309362]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Speed" type="HBoxContainer" parent="Panel/MarginContainer/Pagina1" unique_id=1395944547]
@@ -87,6 +90,7 @@ layout_mode = 2
 text = "Velocidade da arma"
 
 [node name="SpeedLine" type="LineEdit" parent="Panel/MarginContainer/Pagina1/Speed" unique_id=851074081]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Projeteis" type="HBoxContainer" parent="Panel/MarginContainer/Pagina1" unique_id=1945730595]
@@ -99,6 +103,7 @@ layout_mode = 2
 text = "Quantidae de Projeteis"
 
 [node name="ProjLine" type="LineEdit" parent="Panel/MarginContainer/Pagina1/Projeteis" unique_id=2040225403]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Disparos" type="HBoxContainer" parent="Panel/MarginContainer/Pagina1" unique_id=1865889601]
@@ -111,6 +116,7 @@ layout_mode = 2
 text = "Quantidade de Disparos"
 
 [node name="DisparoLine" type="LineEdit" parent="Panel/MarginContainer/Pagina1/Disparos" unique_id=671935693]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Tamanho" type="HBoxContainer" parent="Panel/MarginContainer/Pagina1" unique_id=1660224415]
@@ -123,6 +129,7 @@ layout_mode = 2
 text = "Tamanho do projetil"
 
 [node name="TamanhoLine" type="LineEdit" parent="Panel/MarginContainer/Pagina1/Tamanho" unique_id=1238335145]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Bounce" type="HBoxContainer" parent="Panel/MarginContainer/Pagina1" unique_id=1338207070]
@@ -135,6 +142,7 @@ layout_mode = 2
 text = "Quantidade de Rebatidas"
 
 [node name="BounceLine" type="LineEdit" parent="Panel/MarginContainer/Pagina1/Bounce" unique_id=1915002218]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Penetracao" type="HBoxContainer" parent="Panel/MarginContainer/Pagina1" unique_id=81947286]
@@ -147,13 +155,24 @@ layout_mode = 2
 text = "Penetração"
 
 [node name="PenetracaoToggle" type="CheckButton" parent="Panel/MarginContainer/Pagina1/Penetracao" unique_id=1197032795]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Pagina2" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1578868799]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Pagina3" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1714691290]
+[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina2" unique_id=1728947792]
 layout_mode = 2
+text = "teste"
+
+[node name="Pagina3" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1714691290]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina3" unique_id=4454605]
+layout_mode = 2
+text = "teste3"
 
 [node name="Proximo" type="Button" parent="Panel/MarginContainer" unique_id=389874333]
 custom_minimum_size = Vector2(60, 30)
@@ -168,6 +187,12 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
+[node name="Fechar" type="Button" parent="Panel/MarginContainer" unique_id=564330489]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Fechar"
+
 [connection signal="item_selected" from="Panel/MarginContainer/Pagina1/Arma/ArmaButton" to="." method="_on_arma_button_item_selected"]
 [connection signal="text_submitted" from="Panel/MarginContainer/Pagina1/Dano/DanoLine" to="." method="_on_dano_line_text_submitted"]
 [connection signal="text_submitted" from="Panel/MarginContainer/Pagina1/Speed/SpeedLine" to="." method="_on_speed_line_text_submitted"]
@@ -178,3 +203,4 @@ size_flags_vertical = 0
 [connection signal="toggled" from="Panel/MarginContainer/Pagina1/Penetracao/PenetracaoToggle" to="." method="_on_penetracao_toggle_toggled"]
 [connection signal="pressed" from="Panel/MarginContainer/Proximo" to="." method="_on_proximo_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/Voltar" to="." method="_on_voltar_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/Fechar" to="." method="_on_fechar_pressed"]

@@ -4,7 +4,40 @@ class_name GravityArma
 var buracos_ativo = []
 var buracos_totais = 1
 
-func usar_arma(player,delta,dano_mult, dano_add, direcao):
+var tiros_por_burst = 1
+var bursts = 1
+var speed_calculada = 200
+var tamanho = Vector2(1,1)
+var bounces = 0
+var dano_add = 0
+var penetracao = false
+
+func calcular_upgrades():
+	tiros_por_burst = 1
+	bursts = 1
+	speed_calculada = 200
+	tamanho = Vector2(1,1)
+	bounces = 0
+	dano_add = 0
+	penetracao = false
+	print("Teste")
+	for i in upgrades_ativos:
+		if i.efeito == "MultiDisparos":
+			bursts += i.valor
+		if i.efeito == "Dano":
+			bursts += i.valor
+		if i.efeito == "velocidade":
+			speed_calculada += i.valor
+		if i.efeito == "+1Disparo":
+			tiros_por_burst += i.valor
+		if i.efeito == "tamanho":
+			tamanho *= i.valor
+		if i.efeito == "bounce":
+			bounces += i.valor
+		if i.efeito == "penetracao":
+			penetracao = true
+
+func usar_arma(player,delta,dano_mult, direcao):
 	if buracos_ativo.size() < buracos_totais:
 		var dano_atual = dano
 		dano_atual += dano_add

@@ -8,6 +8,7 @@
 [resource]
 script = ExtResource("1_btsob")
 debuff_fogo = ExtResource("1_bdgx3")
+nome = "Circulo de Fogo"
 dano = 1.0
 speed = 100.0
 projetil = ExtResource("1_y0gf3")

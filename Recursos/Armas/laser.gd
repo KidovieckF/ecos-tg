@@ -5,6 +5,37 @@ var tween_fade
 var dano_atual = dano
 var charge_ativo = null
 
+var tiros_por_burst = 1
+var bursts = 1
+var speed_calculada = 200
+var tamanho = Vector2(1,1)
+var bounces = 0
+var penetracao = false
+
+func calcular_upgrades():
+	tiros_por_burst = 1
+	bursts = 1
+	speed_calculada = 200
+	tamanho = Vector2(1,1)
+	bounces = 0
+	penetracao = false
+	print("Teste")
+	for i in upgrades_ativos:
+		if i.efeito == "MultiDisparos":
+			bursts += i.valor
+		if i.efeito == "velocidade":
+			speed_calculada += i.valor
+		if i.efeito == "+1Disparo":
+			tiros_por_burst += i.valor
+		if i.efeito == "tamanho":
+			tamanho *= i.valor
+		if i.efeito == "bounce":
+			bounces += i.valor
+		if i.efeito == "penetracao":
+			penetracao = true
+
+
+
 func usar_arma(player,delta,dano_mult, dano_add, direcao):
 	dano_atual += dano_add
 	dano_atual *= dano_mult
@@ -26,7 +57,7 @@ func usar_arma(player,delta,dano_mult, dano_add, direcao):
 func parar_uso(player):
 	if player.get_node("AttackTimer").is_stopped():
 		print("soltou")
-		player.speed_atual = 0
+		RunData.speed_calculado = 0
 		var novo_laser = projetil.instantiate()
 		player.get_parent().add_child(novo_laser)
 		novo_laser.global_position = player.get_node("Muzzle").global_position

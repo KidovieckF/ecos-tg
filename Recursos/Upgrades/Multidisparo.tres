@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="UpgradeDate" format=3 uid="uid://c6j14cwd7x5dj"]
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://c6j14cwd7x5dj"]
 
 [ext_resource type="Script" uid="uid://bddrmptq05ctm" path="res://Recursos/Upgrades/upgrades.gd" id="1_a63b8"]
 
 [resource]
 script = ExtResource("1_a63b8")
 valor = 1.0
-efeito = "Aumenta os disparos"
+efeito = "MultiDisparos"
 tag = "Projetil"
 metadata/_custom_type_script = "uid://bddrmptq05ctm"
