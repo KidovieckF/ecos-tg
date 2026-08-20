@@ -6,11 +6,14 @@
 [ext_resource type="Resource" uid="uid://dlstaa81tgc3d" path="res://Recursos/Armas/Gravity.tres" id="4_at83a"]
 [ext_resource type="Resource" uid="uid://ddmiyd4uofc2b" path="res://Recursos/Armas/Missil.tres" id="5_cj2rn"]
 [ext_resource type="Resource" uid="uid://b36ypyd4u11v7" path="res://Recursos/Armas/Laser.tres" id="6_useeo"]
+[ext_resource type="Script" uid="uid://dja2hqiq4y6k" path="res://Recursos/Artefatos/artefatos.gd" id="7_at83a"]
+[ext_resource type="Resource" uid="uid://jkk1dg3tgva4" path="res://Recursos/Artefatos/Teste_dano.tres" id="8_cj2rn"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1287604645]
 process_mode = 3
 script = ExtResource("1_gp7h0")
 armas = Array[ExtResource("2_bwern")]([ExtResource("3_gf11i"), ExtResource("4_at83a"), ExtResource("5_cj2rn"), ExtResource("6_useeo")])
+artefatos = Array[ExtResource("7_at83a")]([ExtResource("8_cj2rn")])
 
 [node name="Panel" type="Panel" parent="." unique_id=639147513]
 custom_minimum_size = Vector2(500, 400)
@@ -164,7 +167,24 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/Pagina2" unique_id=1728947792]
 layout_mode = 2
+size_flags_horizontal = 0
 text = "teste"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Pagina2" unique_id=1520982303]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina2/HBoxContainer" unique_id=1212207189]
+layout_mode = 2
+
+[node name="ArtefatosMenu" type="MenuButton" parent="Panel/MarginContainer/Pagina2/HBoxContainer" unique_id=1226543071]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Artefatos"
+item_count = 2
+popup/item_0/text = "ArtefatoDano"
+popup/item_0/id = 0
+popup/item_1/id = 1
 
 [node name="Pagina3" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1714691290]
 unique_name_in_owner = true

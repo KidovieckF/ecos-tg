@@ -18,6 +18,8 @@ func calcular_upgrades():
 	tamanho = Vector2(1,1)
 	bounces = 0
 	penetracao = false
+	dano_add = 0
+	
 	print("Teste")
 	for i in upgrades_ativos:
 		if i.efeito == "Dano":
@@ -35,8 +37,11 @@ func calcular_upgrades():
 		if i.efeito == "penetracao":
 			penetracao = true
 
-func usar_arma(player,delta, dano_mult, direcao):
-	var daninho = (dano + dano_add) * dano_mult
+func usar_arma(player,delta, dano_adicional,  dano_multiplicador, direcao):
+	var daninho = dano
+	daninho += dano_add #upgrade
+	daninho += dano_adicional #artefato
+	dano_add *= dano_multiplicador #artefato
 	var i = 0
 	if player.get_node("VolleyCooldown").is_stopped():
 		while i <= 2: #proj extras

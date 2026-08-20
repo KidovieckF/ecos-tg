@@ -25,9 +25,9 @@ var xp_atual := 0.0
 var barra_exp := 0.0
 var nivel := 1
 var dano_adicional := 0
+var dano_multiplicador = 1
 var dificuldade = 1
 var mult_dificuldade = 1 + (dificuldade * 0.05)
-var dano_mult_final = 1.0
 var gamemode = "Mouse"
 
 func _ready():
@@ -59,26 +59,27 @@ func _unhandled_input(event):
 			arvore.root.add_child(tela_pause_atual) 
 
 func calcular_artefatos():
-	var dano = 0.0
+	var dano = 0
 	var vida = personagem_base.vida
 	var speed = personagem_base.speed
-	var mult = 1
+	var mult = 0
 	
 	for i in artefatos_coletados:
 		dano += i.dano_add
 		vida += i.vida_max_add
 		speed += i.speed_add 
+		print("dano: ", dano)
 		mult += i.dano_mult
-		
+		print("mult: ", mult)
 	for j in artefatos_coletados:
 		vida *= j.vida_max_mult
 		speed *= j.speed_mult
 		
-	dano *= mult
+	print("dano atual", dano)
 	dano_adicional = dano
 	vida_max = vida
 	speed_calculado = speed
-	dano_mult_final = mult
+	dano_multiplicador = mult
 	
 
 func adicionar_artefato(artefato : Artefato_data):
@@ -117,6 +118,7 @@ func resetar_run() -> void:
 	barra_exp = 0
 	nivel = 1
 	dano_adicional = 0
+	dano_multiplicador = 1
 	dificuldade = 1
 
 func guardar_player(player) -> void:

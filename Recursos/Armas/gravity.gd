@@ -37,11 +37,12 @@ func calcular_upgrades():
 		if i.efeito == "penetracao":
 			penetracao = true
 
-func usar_arma(player,delta,dano_mult, direcao):
+func usar_arma(player,delta, dano_adicional, dano_multiplicador, direcao):
 	if buracos_ativo.size() < buracos_totais:
 		var dano_atual = dano
-		dano_atual += dano_add
-		dano_atual *= dano_mult
+		dano_atual += dano_add #upgrade
+		dano_atual += dano_adicional #artefato
+		dano_atual *= dano_multiplicador #artefato
 		dano_atual += (RunData.vida_max * 0.01)
 		var novo_gravity = projetil.instantiate()
 		player.get_parent().add_child(novo_gravity)

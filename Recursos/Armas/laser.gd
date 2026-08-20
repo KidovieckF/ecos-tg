@@ -38,9 +38,11 @@ func calcular_upgrades():
 
 
 
-func usar_arma(player,delta,dano_mult, direcao):
-	dano_atual += dano_add
-	dano_atual *= dano_mult
+func usar_arma(player,delta, dano_adicional, dano_multiplicador, direcao):
+	
+	dano_atual += dano_add #upgrade
+	dano_atual += dano_adicional #artefato
+	dano_atual *= dano_multiplicador #artefato
 	if player.get_node("AttackTimer").is_stopped():
 		if dano_atual < 10:
 			dano_atual += delta * 2
@@ -67,7 +69,7 @@ func parar_uso(player):
 		tween_fade = player.create_tween()
 		tween_fade.tween_property(novo_laser, "modulate:a", 0.0, 1)
 		tween_fade.tween_callback(novo_laser.queue_free)
-		player.speed_atual = 300
+		RunData.speed_calculado = 300
 		dano_atual = dano
 		if charge_ativo != null:
 			charge_ativo.queue_free()

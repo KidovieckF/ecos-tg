@@ -55,7 +55,7 @@ func _physics_process(delta: float) -> void:
 				direcao_tiro = last_direction
 			elif RunData.gamemode == "Mouse":
 				direcao_tiro = direcao_calculada
-			RunData.armas[0].usar_arma(self, delta, RunData.dano_adicional, direcao_tiro)
+			RunData.armas[0].usar_arma(self, delta, RunData.dano_adicional, RunData.dano_multiplicador, direcao_tiro)
 			if abs(direcao_calculada.x) > abs(direcao_calculada.y) and direcao_calculada.x > 0:
 				$Sprite2D.flip_h = false
 				$Sprite2D.play("AtirandoLado")
@@ -79,7 +79,7 @@ func _physics_process(delta: float) -> void:
 				elif RunData.gamemode == "Mouse":
 					direcao_tiro = direcao_calculada
 				
-				RunData.armas[1].usar_arma(self, delta, RunData.dano_adicional, direcao_tiro)
+				RunData.armas[1].usar_arma(self, delta, RunData.dano_adicional, RunData.dano_multiplicador, direcao_tiro)
 
 				if abs(direcao_calculada.x) > abs(direcao_calculada.y) and direcao_calculada.x > 0:
 					$Sprite2D.flip_h = false

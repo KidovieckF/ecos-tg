@@ -16,10 +16,16 @@ var qnt_bounce = 0
 var qnt_penetracao = 0
 var qnt_disparos = 0
 
+var art_dano = preload("res://Recursos/Artefatos/Teste_dano.tres")
+
 var pagina = 1
 @export var armas : Array[ArmaRecurso] = []
+@export var artefatos : Array[Artefato_data] = []
 
 func _ready() -> void:
+	var popup = %ArtefatosMenu.get_popup()
+	popup.id_pressed.connect(_on_item_pressed)
+	
 	for i in range(%ArmaButton.item_count):
 		if %ArmaButton.get_item_text(i) == RunData.armas[0].nome:
 			%ArmaButton.selected = i
@@ -87,12 +93,19 @@ func _on_arma_button_item_selected(index: int) -> void:
 	RunData.armas[0] = arma_escolhida
 
 
-
-
+func _on_item_pressed(id: int):
+	match id:
+		0:
+			RunData.adicionar_artefato(art_dano)
+		1:
+			print("Você clicou em Carregar Jogo!")
+		2:
+			print("Você clicou em Sair. Fechando...")
+			get_tree().quit()
 
 func _on_dano_line_text_submitted(new_text: String) -> void:
 	var quantidade = new_text.to_int()
-	var lista_limpa: Array = []
+	var lista_limpa: Array[UpgradeData] = []
 	for i in RunData.armas[0].upgrades_ativos:
 		if i.efeito != "Dano":
 			lista_limpa.append(i)
@@ -106,7 +119,7 @@ func _on_dano_line_text_submitted(new_text: String) -> void:
 
 func _on_speed_line_text_submitted(new_text: String) -> void:
 	var quantidade = new_text.to_int()
-	var lista_limpa: Array = []
+	var lista_limpa: Array[UpgradeData] = []
 	for i in RunData.armas[0].upgrades_ativos:
 		if i.efeito != "velocidade":
 			lista_limpa.append(i)
@@ -119,7 +132,7 @@ func _on_speed_line_text_submitted(new_text: String) -> void:
 
 func _on_proj_line_text_submitted(new_text: String) -> void:
 	var quantidade = new_text.to_int()
-	var lista_limpa: Array = []
+	var lista_limpa: Array[UpgradeData] = []
 	for i in RunData.armas[0].upgrades_ativos:
 		if i.efeito != "+1Disparo":
 			lista_limpa.append(i)
@@ -132,7 +145,7 @@ func _on_proj_line_text_submitted(new_text: String) -> void:
 
 func _on_disparo_line_text_submitted(new_text: String) -> void:
 	var quantidade = new_text.to_int()
-	var lista_limpa: Array = []
+	var lista_limpa: Array[UpgradeData] = []
 	for i in RunData.armas[0].upgrades_ativos:
 		if i.efeito != "MultiDisparos":
 			lista_limpa.append(i)
@@ -145,7 +158,7 @@ func _on_disparo_line_text_submitted(new_text: String) -> void:
 
 func _on_tamanho_line_text_submitted(new_text: String) -> void:
 	var quantidade = new_text.to_int()
-	var lista_limpa: Array = []
+	var lista_limpa: Array[UpgradeData] = []
 	for i in RunData.armas[0].upgrades_ativos:
 		if i.efeito != "tamanho":
 			lista_limpa.append(i)
@@ -158,7 +171,7 @@ func _on_tamanho_line_text_submitted(new_text: String) -> void:
 
 func _on_bounce_line_text_submitted(new_text: String) -> void:
 	var quantidade = new_text.to_int()
-	var lista_limpa: Array = []
+	var lista_limpa: Array[UpgradeData] = []
 	for i in RunData.armas[0].upgrades_ativos:
 		if i.efeito != "bounce":
 			lista_limpa.append(i)
