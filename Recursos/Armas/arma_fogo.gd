@@ -44,8 +44,9 @@ func usar_arma(player,delta, dano_adicional,  dano_multiplicador, direcao):
 	dano_add *= dano_multiplicador #artefato
 	var i = 0
 	if player.get_node("VolleyCooldown").is_stopped():
-		while i <= 2: #proj extras
+		while i <= bursts - 1: 
 			var novo_circulo = projetil.instantiate()
+			novo_circulo.scale *= tamanho
 			novo_circulo.start(daninho)
 			novo_circulo.dano_add = dano_add
 			player.get_parent().add_child(novo_circulo)

@@ -50,6 +50,7 @@ func disparar_burst(player, dano_adicional, dano_multiplicador, proj_por_burst,d
 		dano_atual *= dano_multiplicador #artefatos
 		print("Dano dentro da arma: ", dano_atual)
 		var novo_missil = projetil.instantiate()
+		novo_missil.scale *= tamanho
 		player.get_parent().add_child(novo_missil)
 		novo_missil.global_position = player.global_position
 		novo_missil.start(dano_atual, speed_calculada, proj_por_burst, i, bounces, penetracao, direcao)

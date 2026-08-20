@@ -77,7 +77,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/Pagina1/Dano" unique_id=1979285430]
 layout_mode = 2
-text = "Dano da arma"
+text = "Upgrades de Dano:"
 
 [node name="DanoLine" type="LineEdit" parent="Panel/MarginContainer/Pagina1/Dano" unique_id=559309362]
 unique_name_in_owner = true
@@ -90,7 +90,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/Pagina1/Speed" unique_id=977653296]
 layout_mode = 2
-text = "Velocidade da arma"
+text = "Upgrades de velocidade"
 
 [node name="SpeedLine" type="LineEdit" parent="Panel/MarginContainer/Pagina1/Speed" unique_id=851074081]
 unique_name_in_owner = true
@@ -103,7 +103,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/Pagina1/Projeteis" unique_id=1050587945]
 layout_mode = 2
-text = "Quantidae de Projeteis"
+text = "Upgrade de +1 projetil"
 
 [node name="ProjLine" type="LineEdit" parent="Panel/MarginContainer/Pagina1/Projeteis" unique_id=2040225403]
 unique_name_in_owner = true
@@ -116,7 +116,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/Pagina1/Disparos" unique_id=525029747]
 layout_mode = 2
-text = "Quantidade de Disparos"
+text = "Upgrade de multidisparo"
 
 [node name="DisparoLine" type="LineEdit" parent="Panel/MarginContainer/Pagina1/Disparos" unique_id=671935693]
 unique_name_in_owner = true
@@ -129,7 +129,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/Pagina1/Tamanho" unique_id=240156573]
 layout_mode = 2
-text = "Tamanho do projetil"
+text = "Upgrade de tamanho"
 
 [node name="TamanhoLine" type="LineEdit" parent="Panel/MarginContainer/Pagina1/Tamanho" unique_id=1238335145]
 unique_name_in_owner = true
@@ -142,7 +142,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/Pagina1/Bounce" unique_id=1187306248]
 layout_mode = 2
-text = "Quantidade de Rebatidas"
+text = "Upgrade de bounce"
 
 [node name="BounceLine" type="LineEdit" parent="Panel/MarginContainer/Pagina1/Bounce" unique_id=1915002218]
 unique_name_in_owner = true

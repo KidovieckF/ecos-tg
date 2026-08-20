@@ -43,6 +43,7 @@ func usar_arma(player,delta, dano_adicional, dano_multiplicador, direcao):
 	dano_atual += dano_add #upgrade
 	dano_atual += dano_adicional #artefato
 	dano_atual *= dano_multiplicador #artefato
+	
 	if player.get_node("AttackTimer").is_stopped():
 		if dano_atual < 10:
 			dano_atual += delta * 2
@@ -63,6 +64,7 @@ func parar_uso(player):
 		print("soltou")
 		RunData.speed_calculado = 0
 		var novo_laser = projetil.instantiate()
+		novo_laser.scale *= tamanho
 		player.get_parent().add_child(novo_laser)
 		novo_laser.global_position = player.get_node("Muzzle").global_position
 		novo_laser.start(dano_atual, player.global_position)

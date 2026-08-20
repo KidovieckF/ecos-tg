@@ -40,14 +40,16 @@ func calcular_upgrades():
 func usar_arma(player,delta, dano_adicional, dano_multiplicador, direcao):
 	if buracos_ativo.size() < buracos_totais:
 		var dano_atual = dano
+		speed_calculada = (speed_calculada + speed) / 2
 		dano_atual += dano_add #upgrade
 		dano_atual += dano_adicional #artefato
 		dano_atual *= dano_multiplicador #artefato
 		dano_atual += (RunData.vida_max * 0.01)
 		var novo_gravity = projetil.instantiate()
+		novo_gravity.scale *= tamanho
 		player.get_parent().add_child(novo_gravity)
 		novo_gravity.global_position = player.global_position
-		novo_gravity.start(dano_atual, player.global_position, speed, direcao)
+		novo_gravity.start(dano_atual, player.global_position, speed_calculada, direcao)
 		player.get_node("AttackTimer").start()
 		buracos_ativo.append(novo_gravity)
 		novo_gravity.tree_exited.connect(func():

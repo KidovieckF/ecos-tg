@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://kmtyawswx1qp"]
+
+[ext_resource type="Script" uid="uid://cpbskcm7ucaok" path="res://Scripts/Mundo/Salas/loja_hud.gd" id="1_v0yjx"]
+[ext_resource type="Script" uid="uid://bmxf0u4dayjym" path="res://Recursos/Armas/arma_recurso.gd" id="2_1xq1i"]
+[ext_resource type="PackedScene" uid="uid://dggd0dlroigjm" path="res://Cenas/Botões de itens/artefato_btn.tscn" id="2_35upk"]
+[ext_resource type="Script" uid="uid://dja2hqiq4y6k" path="res://Recursos/Artefatos/artefatos.gd" id="2_fcwhe"]
+[ext_resource type="Resource" uid="uid://jkk1dg3tgva4" path="res://Recursos/Artefatos/Teste_dano.tres" id="3_hvdk6"]
+[ext_resource type="Resource" uid="uid://b36ypyd4u11v7" path="res://Recursos/Armas/Laser.tres" id="3_wn5sp"]
+[ext_resource type="Resource" uid="uid://ddmiyd4uofc2b" path="res://Recursos/Armas/Missil.tres" id="4_h1rty"]
+[ext_resource type="Resource" uid="uid://dlstaa81tgc3d" path="res://Recursos/Armas/Gravity.tres" id="5_vypj1"]
+[ext_resource type="Resource" uid="uid://bk7atnl1twgbk" path="res://Recursos/Armas/Circulo_Fogo.tres" id="6_3eiqi"]
+[ext_resource type="PackedScene" uid="uid://bnde680ewximd" path="res://Cenas/Botões de itens/arma_btn.tscn" id="9_lqvjm"]
+
+[node name="Control" type="Control" unique_id=875357598]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v0yjx")
+armas = Array[ExtResource("2_1xq1i")]([ExtResource("3_wn5sp"), ExtResource("4_h1rty"), ExtResource("5_vypj1"), ExtResource("6_3eiqi")])
+artefatos = Array[ExtResource("2_fcwhe")]([ExtResource("3_hvdk6")])
+
+[node name="Panel" type="Panel" parent="." unique_id=1020717749]
+custom_minimum_size = Vector2(450, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1657361450]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1354755981]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ArmaBtn" parent="Panel/MarginContainer/VBoxContainer" unique_id=1540479534 instance=ExtResource("9_lqvjm")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Artefatos" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1666136618]
+layout_mode = 2
+alignment = 1
+
+[node name="ArtefatoBtn" parent="Panel/MarginContainer/VBoxContainer/Artefatos" unique_id=1204837669 instance=ExtResource("2_35upk")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ArtefatoBtn2" parent="Panel/MarginContainer/VBoxContainer/Artefatos" unique_id=631438980 instance=ExtResource("2_35upk")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/ArmaBtn" to="." method="_on_arma_btn_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Artefatos/ArtefatoBtn" to="." method="_on_artefato_btn_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Artefatos/ArtefatoBtn2" to="." method="_on_artefato_btn_2_pressed"]
