@@ -40,7 +40,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xm5xu"]
-radius = 8.0
+radius = 6.0
+height = 26.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1di7g"]
+radius = 6.0
+height = 26.0
 
 [node name="MissilMagico" type="CharacterBody2D" unique_id=1548705329]
 z_index = 2
@@ -62,4 +67,14 @@ shape = SubResource("CapsuleShape2D_xm5xu")
 [node name="Destruir" type="Timer" parent="." unique_id=1772075027]
 wait_time = 30.0
 
+[node name="Area2D" type="Area2D" parent="." unique_id=1147038562]
+collision_layer = 6
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=259772927]
+position = Vector2(-2, -1)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_1di7g")
+
 [connection signal="timeout" from="Destruir" to="." method="_on_destruir_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

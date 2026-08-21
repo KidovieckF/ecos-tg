@@ -17,7 +17,7 @@ var estado_custom = {}
 
 func _ready() -> void:
 	set_physics_process(true) 
-	$CollisionShape2D.set_deferred("disabled",false)
+	$Hurtbox.set_deferred("disabled",false)
 	$AreaDano.pegarDano(data.dano)
 
 func _physics_process(delta: float) -> void:
@@ -54,14 +54,6 @@ func dano_na_fila():
 			return
 
 
-func take_damage(quantidade, cor = Color.WHITE):
-	if morto:
-		return
-	dano_pendente += quantidade
-	var novo_dano = ind_dano.instantiate() 
-	get_parent().add_child(novo_dano)
-	novo_dano.global_position = global_position
-	novo_dano._mostrar_dano(quantidade, cor)
 
 func morrer():
 	set_physics_process(false)

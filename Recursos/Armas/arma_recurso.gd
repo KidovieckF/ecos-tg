@@ -8,7 +8,14 @@ class_name ArmaRecurso
 @export var efeito : PackedScene
 @export var textura : Texture
 @export var tags : Array[String]
+@export var barra_ultimate : float
+var barra_ultimate_atual : float
 var upgrades_ativos : Array[UpgradeData] = []
+
+
+func usar_ultimate(player,delta,dano_adicional, dano_multiplicador, direcao):
+	pass
+
 
 func usar_arma(player,delta,dano_adicional, dano_multiplicador, direcao):
 	pass

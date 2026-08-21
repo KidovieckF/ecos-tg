@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bgfuxu745s3b5"]
+
+[ext_resource type="Script" uid="uid://dhssrduapmlt7" path="res://Scripts/Inimigos/hurtbox.gd" id="1_oiunh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ssmo2"]
+
+[node name="Hurtbox" type="Area2D" unique_id=1731929558]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_oiunh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=888824941]
+shape = SubResource("CapsuleShape2D_ssmo2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

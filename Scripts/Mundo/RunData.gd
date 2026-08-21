@@ -29,6 +29,9 @@ var dano_multiplicador = 1
 var dificuldade = 1
 var mult_dificuldade = 1 + (dificuldade * 0.05)
 var gamemode = "Mouse"
+var barra_ultimate := 0
+var barra_ultimate_atual := 0
+
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -98,8 +101,10 @@ func multiplicar_dificuldade() -> float:
 func iniciar_run(personagem: player_data, p_arma: ArmaRecurso) -> void:
 	resetar_run()
 	andar = 1
+	
 	arma_escolhida = p_arma
 	armas[0] = arma_escolhida.duplicate()
+	barra_ultimate = armas[0].barra_ultimate
 	vida_max = personagem.vida
 	vida_atual = personagem.vida
 	barra_exp = personagem.exp_bar
@@ -119,6 +124,7 @@ func resetar_run() -> void:
 	nivel = 1
 	dano_adicional = 0
 	dano_multiplicador = 1
+	barra_ultimate_atual = 0
 	dificuldade = 1
 
 func guardar_player(player) -> void:

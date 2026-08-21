@@ -24,18 +24,12 @@ func _physics_process(delta: float) -> void:
 	var colisao = move_and_collide(direction * speed_bala * delta)
 	
 	if colisao:
-		var alvo = colisao.get_collider()
-		if alvo.has_method("take_damage") and not alvo.is_in_group("Players"):
-			alvo.take_damage(dano_bala, Color.WHITE)
-			if not perfurante_cena:
-				queue_free()
-		else:
-			if bounces == 0:
-				queue_free()
-			else: 
-				direction = direction.bounce(colisao.get_normal())
-				position += colisao.get_normal() * 10
-				bounces -= 1
+		if bounces == 0:
+			queue_free()
+		else: 
+			direction = direction.bounce(colisao.get_normal())
+			position += colisao.get_normal() * 10
+			bounces -= 1
 			
 
 
@@ -53,7 +47,11 @@ func start(dano, speed, projeteis, indice, bounce, perfurante, direcao):
 	direction = direction.rotated(deg_to_rad(desvio))
 	$Destruir.start()
 	
-
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.has_method("take_damage"):
+		area.take_damage(dano_bala, Color.WHITE)
+		if not perfurante_cena:
+			queue_free()
 
 func _on_destruir_timeout() -> void:
 	queue_free()

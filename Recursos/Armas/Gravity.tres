@@ -11,4 +11,5 @@ dano = 20.0
 speed = 100.0
 projetil = ExtResource("1_d8i62")
 textura = ExtResource("3_dfpno")
+barra_ultimate = 100.0
 metadata/_custom_type_script = "uid://3frisqnighny"

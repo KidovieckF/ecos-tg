@@ -11,6 +11,8 @@ var bounces = 0
 var penetracao = false
 var dano_add = 0
 
+
+
 func calcular_upgrades():
 	tiros_por_burst = 1
 	bursts = 1

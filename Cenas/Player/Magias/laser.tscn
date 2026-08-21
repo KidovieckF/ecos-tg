@@ -33,4 +33,4 @@ position = Vector2(10, -20)
 scale = Vector2(1.0161017, 1)
 points = PackedVector2Array(-10, 20, 1150, 20)
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

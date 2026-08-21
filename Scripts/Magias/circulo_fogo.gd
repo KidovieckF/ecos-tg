@@ -38,15 +38,13 @@ func start(dano):
 	dano_bala = dano
 
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.has_method("take_damage"):
-		$Timer.start()
-		inimigos_lista.append(body)
+
+	
 
 
 
-func _on_body_exited(body: Node2D) -> void:
-	inimigos_lista.erase(body)
+func _on_area_exited(area: Node2D) -> void:
+	inimigos_lista.erase(area)
 
 
 	
@@ -54,3 +52,9 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _on_tempo_vida_timeout() -> void:
 	queue_free()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.has_method("take_damage"):
+		$Timer.start()
+		inimigos_lista.append(area)

@@ -29,7 +29,8 @@ func start(dano, pos):
 	limite.target_position = Vector2(1000,0)
 
 
+	
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.has_method("take_damage"):
-		body.take_damage(dano_bala)
+func _on_area_entered(area: Area2D) -> void:
+	if area.has_method("take_damage"):
+		area.take_damage(dano_bala)

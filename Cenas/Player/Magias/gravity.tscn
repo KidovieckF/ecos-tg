@@ -45,8 +45,8 @@ shape = SubResource("CircleShape2D_b0bka")
 wait_time = 5.0
 autostart = true
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="timeout" from="TicDano" to="." method="_on_tic_dano_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Duracao" to="." method="_on_duracao_timeout"]

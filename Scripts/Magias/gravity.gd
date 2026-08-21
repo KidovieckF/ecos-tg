@@ -20,9 +20,9 @@ func _physics_process(delta: float) -> void:
 				var direcao = direcao_bala
 				inimigo.position += direcao * 100 * delta
 			
-func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Inimigos"):
-		inimigos_dentro.append(body)
+func _on_area_entered(area: Node2D) -> void:
+	if area.is_in_group("Inimigos"):
+		inimigos_dentro.append(area)
 		dentro = true
 		
 func start(dano, player_pos, speed, direcao):
@@ -32,9 +32,9 @@ func start(dano, player_pos, speed, direcao):
 	
 
 
-func _on_body_exited(body: Node2D) -> void:
-	if body.is_in_group("Inimigos"):
-		inimigos_dentro.erase(body)
+func _on_area_exited(area: Node2D) -> void:
+	if area.is_in_group("Inimigos"):
+		inimigos_dentro.erase(area)
 
 
 func _on_tic_dano_timeout() -> void:

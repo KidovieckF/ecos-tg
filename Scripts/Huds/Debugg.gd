@@ -55,7 +55,7 @@ func _ready() -> void:
 		%TamanhoLine.text = str(qnt_tamanho)
 		%BounceLine.text = str(qnt_bounce)
 
-		
+		%UltLabel.text = "Medidor da ultimate Maximo de:" + str(RunData.barra_ultimate)
 		
 func _process(delta: float) -> void:
 	if pagina > 3:
@@ -180,7 +180,10 @@ func _on_bounce_line_text_submitted(new_text: String) -> void:
 		RunData.armas[0].upgrades_ativos.append(upg_de_bounce)
 	RunData.armas[0].calcular_upgrades()
 
-
+func _on_ult_line_text_submitted(new_text: String) -> void:
+	var quantidade = new_text.to_int()
+	RunData.barra_ultimate_atual = quantidade
+	print("Quantidade da ultimate", RunData.barra_ultimate_atual)
 
 func _on_penetracao_toggle_toggled(toggled_on: bool) -> void:
 	RunData.armas[0].upgrades_ativos.append(upg_de_pentracao)

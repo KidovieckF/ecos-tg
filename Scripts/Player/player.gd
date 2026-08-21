@@ -40,6 +40,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
+	if Input.is_action_just_pressed("Ultimate") and RunData.barra_ultimate_atual == RunData.barra_ultimate:
+		print("Teste")
+		
+	
+	
 	if Input.is_action_just_pressed("Mudar"):
 		if RunData.armas[1]:
 			var aux = RunData.armas[0]
