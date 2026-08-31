@@ -2,49 +2,35 @@ extends CharacterBody2D
 
 @export var player : CharacterBody2D
 @export var inimigo : CharacterBody2D
-var magia1 = preload("res://Cenas/Player/Mascotes/proj_masc.tscn")
+@export var mascote : MascoteRucurso
 var is_in_range = []
-var speed = 300
 
 func _ready() -> void:
 	pass
 	
 func _physics_process(delta: float) -> void:
 	player = get_tree().get_first_node_in_group("Players")
-	var direction = (player.global_position - global_position).normalized()
-	var distancia = global_position.distance_to(player.global_position)
-	if distancia > 50:
-		velocity = direction * speed
-	else:
-		velocity = Vector2.ZERO
+	mascote.movimentação(self, player)
 	move_and_slide()
+
+func _on_range_area_entered(area : Area2D) -> void:	
+	var dono_da_area = area.get_parent()
+	if dono_da_area != null and dono_da_area.is_in_group("Inimigos"):
+		is_in_range.append(dono_da_area)
+		if $AtkTimer.is_stopped():
+			$AtkTimer.start()
+
+
+func _on_range_area_exited(area : Area2D) -> void:
+	var dono_da_area = area.get_parent()
 	
-	
+	if dono_da_area != null and dono_da_area.is_in_group("Inimigos"):
+		is_in_range.erase(dono_da_area)
 
-
-func _atirar(body):
-	var nova_magia = magia1.instantiate()
-	get_parent().add_child(nova_magia)
-	var direcao_calculada = (body.global_position - global_position).normalized()
-	nova_magia.start(global_position, direcao_calculada)
-	
-
-
-func _on_range_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Inimigos"):
-		print("entrou no range")
-		is_in_range.append(body)
-		$AtkTimer.start()
-			
-
-
-func _on_range_body_exited(body: Node2D) -> void:
-	if body.is_in_group("Inimigos"):
-		is_in_range.erase(body)
-		
 
 
 func _on_atk_timer_timeout() -> void:
+	print("O Timer disparou!")
 	var alvo_proximo = null
 	var distancia_minima = 99999
 	for inimigo in is_in_range:
@@ -53,5 +39,6 @@ func _on_atk_timer_timeout() -> void:
 			distancia_minima = dist
 			alvo_proximo = inimigo
 	if alvo_proximo != null:
-		_atirar(alvo_proximo)
+		print("Vou atacar o alvo: ", alvo_proximo)
+		mascote.atacar(self, alvo_proximo)
 		

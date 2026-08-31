@@ -1,0 +1,11 @@
+[gd_resource type="Resource" format=3 uid="uid://ctf04aqblyocg"]
+
+[ext_resource type="PackedScene" uid="uid://8yl0wbd7vevn" path="res://Cenas/Player/Mascotes/proj_masc.tscn" id="1_pp31h"]
+[ext_resource type="Script" uid="uid://lxih8hcqo2hb" path="res://Recursos/Mascotes/Stellae.gd" id="2_pp31h"]
+
+[resource]
+script = ExtResource("2_pp31h")
+nome = "Stellae"
+dano = 2.0
+projetil = ExtResource("1_pp31h")
+metadata/_custom_type_script = "uid://btx64qywe4rmn"

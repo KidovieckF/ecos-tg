@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bicc657fo2xe4" path="res://Scripts/Inimigos/dummy.gd" id="1_e2yw5"]
 [ext_resource type="Texture2D" uid="uid://bh6fc76w8pbv7" path="res://icon.svg" id="2_cll37"]
+[ext_resource type="PackedScene" uid="uid://bgfuxu745s3b5" path="res://Cenas/Inimigos/Hurtbox.tscn" id="3_cll37"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bt8kr"]
 size = Vector2(72, 73)
@@ -19,3 +20,5 @@ texture = ExtResource("2_cll37")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1375467250]
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_bt8kr")
+
+[node name="Hurtbox" parent="." unique_id=1731929558 instance=ExtResource("3_cll37")]

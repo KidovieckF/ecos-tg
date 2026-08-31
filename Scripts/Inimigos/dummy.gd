@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 var ind_dano = preload("res://Cenas/Mundo/Ind_dano.tscn")
-
+var morto = false
+var dano_pendente = 0
 
 
 func _ready() -> void:
