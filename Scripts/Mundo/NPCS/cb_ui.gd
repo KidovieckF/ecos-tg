@@ -24,7 +24,7 @@ func pegar_dialogo(lista : Array[FalaRecurso]):
 func mostrar_dialogo():
 	recurso_atual = lista_atual[indice]
 	if recurso_atual.respostas.size() == 0:
-		%Label2.text = recurso_atual.falas
+		%Label2.text = "AHIBBBA"
 		%resposta1.visible = false
 		%resposta2.visible = false
 		indice +=1

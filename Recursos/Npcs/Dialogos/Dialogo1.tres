@@ -4,7 +4,6 @@
 [ext_resource type="Resource" uid="uid://dcmd1h5obd6fo" path="res://Recursos/Npcs/Dialogos/Dialogo1.2.tres" id="2_va6yy"]
 [ext_resource type="Resource" uid="uid://bgbermybki7fo" path="res://Recursos/Npcs/Dialogos/Dialogo1.3.tres" id="3_5fq4k"]
 
-
 [resource]
 script = ExtResource("1_aikou")
 falas = "Olá

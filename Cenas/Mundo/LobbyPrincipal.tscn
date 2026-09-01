@@ -17,6 +17,7 @@
 [ext_resource type="Resource" uid="uid://dlstaa81tgc3d" path="res://Recursos/Armas/Gravity.tres" id="12_bgptu"]
 [ext_resource type="Texture2D" uid="uid://dvflhsc8pa4lx" path="res://sprites/bolo.jpg" id="14_p80qs"]
 [ext_resource type="PackedScene" uid="uid://dxd5x5mpfk775" path="res://Cenas/Mundo/NPCS/npc.tscn" id="15_bfg8p"]
+[ext_resource type="PackedScene" uid="uid://babqw4lnc6yd1" path="res://Cenas/Mundo/NPCS/Cb_UI.tscn" id="18_bgptu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j3osq"]
 texture = ExtResource("1_0nch6")
@@ -296,3 +297,5 @@ tile_set = SubResource("TileSet_lpdy4")
 
 [node name="Npc" parent="." unique_id=270457254 instance=ExtResource("15_bfg8p")]
 position = Vector2(1274, 786)
+
+[node name="UI_CB" parent="." unique_id=1101056834 instance=ExtResource("18_bgptu")]

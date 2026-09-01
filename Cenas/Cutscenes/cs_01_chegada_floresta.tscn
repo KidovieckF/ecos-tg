@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c6rq2crctjmml" path="res://sprites/characters/alicia/AliciaCostasIdle.png" id="7_gq7i4"]
 [ext_resource type="Texture2D" uid="uid://m8m4kimu531l" path="res://sprites/characters/alicia/spritefrenteIdle.png" id="8_sffsy"]
 [ext_resource type="Texture2D" uid="uid://u6h2m5jroh2j" path="res://sprites/characters/alicia/AliciaDireitaIdle.png" id="9_c74lg"]
+[ext_resource type="Texture2D" uid="uid://bh6fc76w8pbv7" path="res://icon.svg" id="14_qxjan"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gq7i4"]
 texture = ExtResource("1_s71b3")
@@ -113,7 +114,7 @@ sources/0 = SubResource("TileSetAtlasSource_gq7i4")
 
 [sub_resource type="Animation" id="Animation_h32wm"]
 resource_name = "Alice_Andando"
-length = 3.0
+length = 3.0333333
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -121,12 +122,44 @@ tracks/0/path = NodePath("Sprite2D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [&"AndandoLado"],
 "method": &"play"
+}, {
+"args": [&"IdleLado"],
+"method": &"play"
 }]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/GridContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_qxjan"]
+resource_name = "Conversa"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/GridContainer/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Tome cuidado pela frente
+"]
 }
 
 [sub_resource type="Animation" id="Animation_6s653"]
@@ -159,10 +192,36 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/GridContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/GridContainer/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["teste
+"]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r5u00"]
 _data = {
 &"Alice_Andando": SubResource("Animation_h32wm"),
+&"Conversa": SubResource("Animation_qxjan"),
 &"Fundo_mexendo": SubResource("Animation_6s653"),
 &"RESET": SubResource("Animation_r5u00")
 }
@@ -432,6 +491,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gq7i4"]
+bg_color = Color(0.5575779, 0.32899976, 0.27130184, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
 [node name="Cs01ChegadaFloresta" type="Node2D" unique_id=1081335673]
 script = ExtResource("1_6s653")
 
@@ -463,4 +529,63 @@ offset = Vector2(575, 320)
 position = Vector2(550, 350)
 scale = Vector2(1.6666665, 1.3343326)
 sprite_frames = SubResource("SpriteFrames_kvulb")
-animation = &"AndandoLado"
+animation = &"IdleLado"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=63224560]
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer" unique_id=2024652780]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/GridContainer" unique_id=590811349]
+custom_minimum_size = Vector2(1153, 654)
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 250
+theme_override_constants/margin_bottom = 22
+
+[node name="HBoxContainer" type="VBoxContainer" parent="CanvasLayer/GridContainer/MarginContainer" unique_id=635817182]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GridContainer/MarginContainer/HBoxContainer" unique_id=168424694]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+texture = ExtResource("14_qxjan")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/GridContainer/MarginContainer/HBoxContainer" unique_id=976929224]
+custom_minimum_size = Vector2(700, 200)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+theme_override_styles/panel = SubResource("StyleBoxFlat_gq7i4")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/GridContainer/MarginContainer/HBoxContainer/Panel" unique_id=1969917294]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GridContainer/MarginContainer/HBoxContainer/Panel/MarginContainer" unique_id=1830057197]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=1049026521]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "teste
+"
