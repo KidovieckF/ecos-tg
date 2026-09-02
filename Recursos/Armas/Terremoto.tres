@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ArmaTerremoto" format=3 uid="uid://ccfcv5ykvloh0"]
+
+[ext_resource type="Script" uid="uid://1ceahqg57ney" path="res://Recursos/Armas/terremoto.gd" id="1_8lxra"]
+[ext_resource type="PackedScene" uid="uid://b3sth7ng6ynt0" path="res://Cenas/Player/Magias/terromoto_cena.tscn" id="1_ewfrp"]
+[ext_resource type="Texture2D" uid="uid://jmrgbtjq4dqf" path="res://sprites/GUI_fantasy/earth1.png" id="3_wtfsg"]
+
+[resource]
+script = ExtResource("1_8lxra")
+nome = "Terremoto"
+dano = 2.0
+speed = 1.0
+projetil = ExtResource("1_ewfrp")
+textura = ExtResource("3_wtfsg")
+metadata/_custom_type_script = "uid://1ceahqg57ney"

@@ -7,7 +7,7 @@ class_name MascoteRucurso
 
 
 
-func movimentação(mascote_body, player):
+func movimentacao(mascote_body, player):
 	pass
 
 func atacar(mascote_body, inimigo):

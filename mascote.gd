@@ -10,7 +10,7 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	player = get_tree().get_first_node_in_group("Players")
-	mascote.movimentação(self, player)
+	mascote.movimentacao(self, player)
 	move_and_slide()
 
 func _on_range_area_entered(area : Area2D) -> void:	

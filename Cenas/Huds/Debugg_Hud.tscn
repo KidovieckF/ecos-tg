@@ -7,12 +7,13 @@
 [ext_resource type="Resource" uid="uid://ddmiyd4uofc2b" path="res://Recursos/Armas/Missil.tres" id="5_cj2rn"]
 [ext_resource type="Resource" uid="uid://b36ypyd4u11v7" path="res://Recursos/Armas/Laser.tres" id="6_useeo"]
 [ext_resource type="Script" uid="uid://dja2hqiq4y6k" path="res://Recursos/Artefatos/artefatos.gd" id="7_at83a"]
+[ext_resource type="Resource" uid="uid://ccfcv5ykvloh0" path="res://Recursos/Armas/Terremoto.tres" id="7_cj2rn"]
 [ext_resource type="Resource" uid="uid://jkk1dg3tgva4" path="res://Recursos/Artefatos/Teste_dano.tres" id="8_cj2rn"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1287604645]
 process_mode = 3
 script = ExtResource("1_gp7h0")
-armas = Array[ExtResource("2_bwern")]([ExtResource("3_gf11i"), ExtResource("4_at83a"), ExtResource("5_cj2rn"), ExtResource("6_useeo")])
+armas = Array[ExtResource("2_bwern")]([ExtResource("3_gf11i"), ExtResource("4_at83a"), ExtResource("5_cj2rn"), ExtResource("6_useeo"), ExtResource("7_cj2rn")])
 artefatos = Array[ExtResource("7_at83a")]([ExtResource("8_cj2rn")])
 
 [node name="Panel" type="Panel" parent="." unique_id=639147513]
@@ -60,7 +61,7 @@ unique_name_in_owner = true
 process_mode = 3
 layout_mode = 2
 button_pressed = true
-item_count = 4
+item_count = 5
 popup/item_0/text = "Circulo de Fogo"
 popup/item_0/id = 0
 popup/item_1/text = "Buraco Negro"
@@ -69,6 +70,8 @@ popup/item_2/text = "Missil"
 popup/item_2/id = 2
 popup/item_3/text = "Laser"
 popup/item_3/id = 3
+popup/item_4/text = "Terremoto"
+popup/item_4/id = 4
 
 [node name="Dano" type="HBoxContainer" parent="Panel/MarginContainer/Pagina1" unique_id=1241425734]
 layout_mode = 2

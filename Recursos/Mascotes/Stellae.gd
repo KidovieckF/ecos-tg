@@ -1,8 +1,8 @@
 extends MascoteRucurso
+class_name MascoteStellae
 
 
-
-func movimentação(mascote_body, player):
+func movimentacao(mascote_body, player):
 	var direction = (player.global_position - mascote_body.global_position).normalized()
 	var distancia = mascote_body.global_position.distance_to(player.global_position)
 	if distancia > 50:

@@ -17,6 +17,7 @@
 [ext_resource type="Resource" uid="uid://dlstaa81tgc3d" path="res://Recursos/Armas/Gravity.tres" id="12_bgptu"]
 [ext_resource type="Texture2D" uid="uid://dvflhsc8pa4lx" path="res://sprites/bolo.jpg" id="14_p80qs"]
 [ext_resource type="PackedScene" uid="uid://dxd5x5mpfk775" path="res://Cenas/Mundo/NPCS/npc.tscn" id="15_bfg8p"]
+[ext_resource type="Resource" uid="uid://ctf04aqblyocg" path="res://Recursos/Mascotes/Stellae.tres" id="16_p80qs"]
 [ext_resource type="PackedScene" uid="uid://babqw4lnc6yd1" path="res://Cenas/Mundo/NPCS/Cb_UI.tscn" id="18_bgptu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j3osq"]
@@ -289,8 +290,9 @@ tile_set = SubResource("TileSet_rgvdi")
 position = Vector2(1148, 84)
 
 [node name="Mascote" parent="." unique_id=778746216 instance=ExtResource("8_wbc7f")]
-visible = false
 position = Vector2(1004, 1623)
+motion_mode = 1
+mascote = ExtResource("16_p80qs")
 
 [node name="Y-sort" type="TileMapLayer" parent="." unique_id=1471099493]
 tile_set = SubResource("TileSet_lpdy4")
@@ -299,3 +301,4 @@ tile_set = SubResource("TileSet_lpdy4")
 position = Vector2(1274, 786)
 
 [node name="UI_CB" parent="." unique_id=1101056834 instance=ExtResource("18_bgptu")]
+visible = false
