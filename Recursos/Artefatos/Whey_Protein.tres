@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Artefato_data" format=3 uid="uid://c3yfatrjyk0dn"]
+
+[ext_resource type="Script" uid="uid://dja2hqiq4y6k" path="res://Recursos/Artefatos/artefatos.gd" id="1_0sdyu"]
+
+[resource]
+script = ExtResource("1_0sdyu")
+nome = "Whey Protein"
+preco = 10
+vida_max_add = 10.0
+limite = -1
+raridade = "Comum"
+metadata/_custom_type_script = "uid://dja2hqiq4y6k"

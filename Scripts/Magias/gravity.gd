@@ -5,6 +5,7 @@ var inimigos_dentro = []
 var bala_speed = 0
 var bala_dano = 0
 var direcao_bala = Vector2.ZERO
+var e_critico :bool
 
 func  _ready() -> void:
 	pass
@@ -13,34 +14,37 @@ func _physics_process(delta: float) -> void:
 	position += direcao_bala * bala_speed * delta
 	
 	
-	var centro_global = $Panel.global_position + $Panel.size / 2
+	var centro_global = global_position
 	if inimigos_dentro.size() > 0:
 		for inimigo in inimigos_dentro:
 			if is_instance_valid(inimigo):
-				var direcao = direcao_bala
-				inimigo.position += direcao * 100 * delta
+				var direcao = (centro_global - inimigo.owner.global_position).normalized()
+				inimigo.get_parent().position += direcao * 150 * delta
 			
 func _on_area_entered(area: Node2D) -> void:
-	if area.is_in_group("Inimigos"):
+	if area.owner != null and area.owner.is_in_group("Inimigos"):
 		inimigos_dentro.append(area)
 		dentro = true
 		
-func start(dano, player_pos, speed, direcao):
+func start(dano, player_pos, speed, direcao, critico):
 	bala_speed = speed
 	bala_dano = dano
 	direcao_bala = direcao
-	
+	e_critico = critico
 
 
 func _on_area_exited(area: Node2D) -> void:
-	if area.is_in_group("Inimigos"):
+	if area.owner != null and area.owner.is_in_group("Inimigos"):
 		inimigos_dentro.erase(area)
 
 
 func _on_tic_dano_timeout() -> void:
 	for i in inimigos_dentro:
-		print(bala_dano)
-		i.take_damage(bala_dano, Color.WHITE)
+		if is_instance_valid(i):
+			var cor = Color.WHITE
+			if e_critico:
+				cor = Color.YELLOW
+			i.take_damage(bala_dano, cor, e_critico)
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

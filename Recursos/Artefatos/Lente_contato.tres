@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Artefato_data" format=3 uid="uid://cxsavst11aid2"]
+
+[ext_resource type="Script" uid="uid://dja2hqiq4y6k" path="res://Recursos/Artefatos/artefatos.gd" id="1_d5pbw"]
+
+[resource]
+script = ExtResource("1_d5pbw")
+nome = "Lente de Contato"
+preco = 10
+chance_critico_add = 5.0
+raridade = "Comum"
+metadata/_custom_type_script = "uid://dja2hqiq4y6k"

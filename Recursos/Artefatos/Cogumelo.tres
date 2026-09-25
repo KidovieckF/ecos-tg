@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Artefato_data" format=3 uid="uid://p4ymefu3uxdq"]
+
+[ext_resource type="Script" uid="uid://dja2hqiq4y6k" path="res://Recursos/Artefatos/artefatos.gd" id="1_5vcmr"]
+
+[resource]
+script = ExtResource("1_5vcmr")
+nome = "Cogumelo Esquisito"
+tiro_pela_culatra = true
+tamanho_magia_mult = 2.0
+limite = 2
+raridade = "Raro"
+metadata/_custom_type_script = "uid://dja2hqiq4y6k"

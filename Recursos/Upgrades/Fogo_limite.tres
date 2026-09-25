@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://3f6o26rqw3s"]
+
+[ext_resource type="Script" uid="uid://bddrmptq05ctm" path="res://Recursos/Upgrades/upgrades.gd" id="1_x3dst"]
+
+[resource]
+script = ExtResource("1_x3dst")
+valor = 2.0
+efeito = "fogo_limite"
+metadata/_custom_type_script = "uid://bddrmptq05ctm"

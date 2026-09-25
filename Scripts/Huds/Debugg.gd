@@ -8,6 +8,14 @@ var upg_de_multidisparo = preload("res://Recursos/Upgrades/Multidisparo.tres")
 var upg_de_bounce = preload("res://Recursos/Upgrades/Bounce.tres")
 var upg_de_pentracao = preload("res://Recursos/Upgrades/Penetracao.tres")
 var upg_de_disparos = preload("res://Recursos/Upgrades/Disparos.tres")
+var upg_de_explosao_FOGO = preload("res://Recursos/Upgrades/Explosao_FOGO.tres")
+var upg_de_bala_teleguiada = preload("res://Recursos/Upgrades/Teleguiado.tres")
+var upg_de_missil_explosao = preload("res://Recursos/Upgrades/Missil_explosivo.tres")
+var upg_de_missil_orbital = preload("res://Recursos/Upgrades/Missil_orbital.tres")
+var upg_de_titan_andar = preload("res://Recursos/Upgrades/Terremoto_andar.tres")
+var upg_de_titan_danotick = preload("res://Recursos/Upgrades/Terremoto_DanoTick.tres")
+var upg_de_titan_slow = preload("res://Recursos/Upgrades/Terremoto_slow.tres")
+var upg_de_titan_stun = preload("res://Recursos/Upgrades/Terremoto_stun.tres") 
 var qnt_dano = 0
 var qnt_speed = 0
 var qnt_tamanho = 0
@@ -15,8 +23,30 @@ var qnt_multDisparo = 0
 var qnt_bounce = 0
 var qnt_penetracao = 0
 var qnt_disparos = 0
+var qnt_explosao = 0
+var qnt_missil_explosao = 0
+var qnt_teleguiado = 0
+var qnt_orbital = 0
+var qnt_titan_andar = 0
+var qnt_titan_danotick = 0
+var qnt_titan_slow = 0
+var qnt_titan_stun = 0
 
-var art_dano = preload("res://Recursos/Artefatos/Teste_dano.tres")
+var art_dano = preload("res://Recursos/Artefatos/Cristral_mana.tres")
+var art_vida = preload("res://Recursos/Artefatos/Whey_Protein.tres")
+var art_chanceCrit = preload("res://Recursos/Artefatos/Lente_contato.tres")
+var art_vida_mult = preload("res://Recursos/Artefatos/O_suco.tres")
+var art_atkS = preload("res://Recursos/Artefatos/Coldre_xerife.tres")
+var art_armadura = preload("res://Recursos/Artefatos/Armadura_pesada.tres")
+var art_cogumelo = preload("res://Recursos/Artefatos/Cogumelo.tres")
+var art_cristal = preload("res://Recursos/Artefatos/Cristal_corrompido.tres")
+var art_prensa = preload("res://Recursos/Artefatos/Prensa.tres")
+var art_flor = preload("res://Recursos/Artefatos/Florzinha.tres")
+var art_botina = preload("res://Recursos/Artefatos/Botina_Xerife.tres")
+var art_oculos = preload("res://Recursos/Artefatos/Oculos_sol.tres")
+var art_chapeu = preload("res://Recursos/Artefatos/Chapeu_cowboy.tres")
+var art_egide = preload("res://Recursos/Artefatos/Egide.tres")
+
 
 var pagina = 1
 @export var armas : Array[ArmaRecurso] = []
@@ -45,16 +75,40 @@ func _ready() -> void:
 			qnt_multDisparo += 1 
 		if upgrade.efeito == "bounce":
 			qnt_bounce += 1
+		if upgrade.efeito == "explosao": 
+			qnt_explosao += 1 
+		if upgrade.efeito == "Teleguiado": 
+			qnt_teleguiado += 1
+		if upgrade.efeito == "missil_explosao":
+			qnt_missil_explosao += 1
+		if upgrade.efeito == "missil_orbital":
+			qnt_orbital += 1
+		if upgrade.efeito == "terremoto_passos":
+			qnt_titan_andar += 1
+		if upgrade.efeito == "terremoto_danotick":
+			qnt_titan_danotick += 1
+		if upgrade.efeito == "slow":
+			qnt_titan_slow += 1
+		if upgrade.efeito == "stun":
+			qnt_titan_stun += 1
 		if upgrade.efeito == "penetracao":
 			%PenetracaoToggle.toggled
-			
+		
+		%Titan_SlowLine.text = str(qnt_titan_slow)
+		%Titan_StunLine.text = str(qnt_titan_stun)
+		%Titan_DanoTickLine.text = str(qnt_titan_danotick)
+		%Titan_andarLine.text = str(qnt_titan_andar)
+		%OrbitalLine.text = str(qnt_orbital)
+		%ExplosaoMissilLine.text = str(qnt_missil_explosao)
 		%DanoLine.text = str(qnt_dano)
 		%SpeedLine.text = str(qnt_speed)
 		%ProjLine.text = str(qnt_disparos)
 		%DisparoLine.text = str(qnt_multDisparo)
 		%TamanhoLine.text = str(qnt_tamanho)
 		%BounceLine.text = str(qnt_bounce)
-
+		%ExplosaoLine.text = str(qnt_explosao)
+		%TeleguiadoLine.text = str(qnt_teleguiado)
+		
 		%UltLabel.text = "Medidor da ultimate Maximo de:" + str(RunData.barra_ultimate)
 		
 func _process(delta: float) -> void:
@@ -98,10 +152,31 @@ func _on_item_pressed(id: int):
 		0:
 			RunData.adicionar_artefato(art_dano)
 		1:
-			print("Você clicou em Carregar Jogo!")
+			RunData.adicionar_artefato(art_vida)
 		2:
-			print("Você clicou em Sair. Fechando...")
-			get_tree().quit()
+			RunData.adicionar_artefato(art_chanceCrit)
+		3:
+			RunData.adicionar_artefato(art_vida_mult)
+		4:
+			RunData.adicionar_artefato(art_atkS)
+		5:
+			RunData.adicionar_artefato(art_armadura)
+		6: 
+			RunData.adicionar_artefato(art_cogumelo)
+		7:
+			RunData.adicionar_artefato(art_cristal)
+		8:
+			RunData.adicionar_artefato(art_prensa)
+		9:
+			RunData.adicionar_artefato(art_flor)
+		10:
+			RunData.adicionar_artefato(art_botina)
+		11:
+			RunData.adicionar_artefato(art_oculos)
+		12:
+			RunData.adicionar_artefato(art_chapeu)
+		13: 
+			RunData.adicionar_artefato(art_egide)
 
 func _on_dano_line_text_submitted(new_text: String) -> void:
 	var quantidade = new_text.to_int()
@@ -154,7 +229,80 @@ func _on_disparo_line_text_submitted(new_text: String) -> void:
 		RunData.armas[0].upgrades_ativos.append(upg_de_multidisparo)
 	RunData.armas[0].calcular_upgrades()
 
+func _on_explosao_line_text_submitted(new_text: String) -> void:
+	var quantidade = new_text.to_int()
+	var lista_limpa: Array[UpgradeData] = []
+	
+	for i in RunData.armas[0].upgrades_ativos:
+		if i.efeito != "explosao":
+			lista_limpa.append(i)
+			
+	RunData.armas[0].upgrades_ativos = lista_limpa
+	
+	for i in range(quantidade):
+		RunData.armas[0].upgrades_ativos.append(upg_de_explosao_FOGO)
+		
+	RunData.armas[0].calcular_upgrades()
 
+func _on_teleguiado_line_text_submitted(new_text: String) -> void:
+	var quantidade = new_text.to_int()
+	var lista_limpa: Array[UpgradeData] = []
+	
+	for i in RunData.armas[0].upgrades_ativos:
+		if i.efeito != "Teleguiado":
+			lista_limpa.append(i)
+			
+	RunData.armas[0].upgrades_ativos = lista_limpa
+	
+	for i in range(quantidade):
+		RunData.armas[0].upgrades_ativos.append(upg_de_bala_teleguiada)
+		
+	RunData.armas[0].calcular_upgrades()
+	
+func _on_orbital_line_text_submitted(new_text: String) -> void:
+	var quantidade = new_text.to_int()
+	var lista_limpa: Array[UpgradeData] = []
+	
+	for i in RunData.armas[0].upgrades_ativos:
+		if i.efeito != "missil_orbital":
+			lista_limpa.append(i)
+			
+	RunData.armas[0].upgrades_ativos = lista_limpa
+	
+	for i in range(quantidade):
+		RunData.armas[0].upgrades_ativos.append(upg_de_missil_orbital)
+		
+	RunData.armas[0].calcular_upgrades()
+
+func _on_titan_andar_line_text_submitted(new_text: String) -> void:
+	var quantidade = new_text.to_int()
+	var lista_limpa: Array[UpgradeData] = []
+	
+	for i in RunData.armas[0].upgrades_ativos:
+		if i.efeito != "terremoto_passos":
+			lista_limpa.append(i)
+			
+	RunData.armas[0].upgrades_ativos = lista_limpa
+	
+	for i in range(quantidade):
+		RunData.armas[0].upgrades_ativos.append(upg_de_titan_andar)
+		
+	RunData.armas[0].calcular_upgrades()
+
+func _on_explosao_missil_line_text_submitted(new_text: String) -> void:
+	var quantidade = new_text.to_int()
+	var lista_limpa: Array[UpgradeData] = []
+	
+	for i in RunData.armas[0].upgrades_ativos:
+		if i.efeito != "missil_explosao":
+			lista_limpa.append(i)
+			
+	RunData.armas[0].upgrades_ativos = lista_limpa
+	
+	for i in range(quantidade):
+		RunData.armas[0].upgrades_ativos.append(upg_de_missil_explosao)
+		
+	RunData.armas[0].calcular_upgrades()
 
 func _on_tamanho_line_text_submitted(new_text: String) -> void:
 	var quantidade = new_text.to_int()
@@ -167,7 +315,39 @@ func _on_tamanho_line_text_submitted(new_text: String) -> void:
 		RunData.armas[0].upgrades_ativos.append(upg_de_tamanho)
 	RunData.armas[0].calcular_upgrades()
 
+func _on_titan_dano_tick_line_text_submitted(new_text: String) -> void:
+	var quantidade = new_text.to_int()
+	var lista_limpa: Array[UpgradeData] = []
+	for i in RunData.armas[0].upgrades_ativos:
+		if i.efeito != "terremoto_danotick":
+			lista_limpa.append(i)
+	RunData.armas[0].upgrades_ativos = lista_limpa
+	for i in range(quantidade):
+		RunData.armas[0].upgrades_ativos.append(upg_de_titan_danotick)
+	RunData.armas[0].calcular_upgrades()
 
+func _on_titan_slow_line_text_submitted(new_text: String) -> void:
+	var quantidade = new_text.to_int()
+	var lista_limpa: Array[UpgradeData] = []
+	for i in RunData.armas[0].upgrades_ativos:
+		if i.efeito != "slow":
+			lista_limpa.append(i)
+	RunData.armas[0].upgrades_ativos = lista_limpa
+	for i in range(quantidade):
+		RunData.armas[0].upgrades_ativos.append(upg_de_titan_slow)
+	RunData.armas[0].calcular_upgrades()
+
+
+func _on_titan_stun_line_text_submitted(new_text: String) -> void:
+	var quantidade = new_text.to_int()
+	var lista_limpa: Array[UpgradeData] = []
+	for i in RunData.armas[0].upgrades_ativos:
+		if i.efeito != "stun":
+			lista_limpa.append(i)
+	RunData.armas[0].upgrades_ativos = lista_limpa
+	for i in range(quantidade):
+		RunData.armas[0].upgrades_ativos.append(upg_de_titan_stun)
+	RunData.armas[0].calcular_upgrades()
 
 func _on_bounce_line_text_submitted(new_text: String) -> void:
 	var quantidade = new_text.to_int()

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://n5ekjsfkdjce"]
 
 [ext_resource type="Script" uid="uid://dqgu7wmkeuk66" path="res://Scripts/Huds/hud_upgrade.gd" id="1_jkgpm"]
-[ext_resource type="Script" uid="uid://8c037puqgbug" path="res://Recursos/itens_data.gd" id="2_x6fcg"]
 [ext_resource type="PackedScene" uid="uid://ywipkdmnc0ja" path="res://Cenas/Mundo/upgrade.tscn" id="6_lwiws"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwiws"]
@@ -12,9 +11,9 @@ corner_radius_bottom_right = 60
 corner_radius_bottom_left = 60
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1338939119]
-process_mode = 3
+process_mode = 2
+layer = 11
 script = ExtResource("1_jkgpm")
-upgrades = Array[ExtResource("2_x6fcg")]([null])
 
 [node name="Panel" type="Panel" parent="." unique_id=1929398772]
 custom_minimum_size = Vector2(600, 180)
@@ -56,6 +55,7 @@ alignment = 1
 
 [node name="Upgrade1" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=973647185 instance=ExtResource("6_lwiws")]
 unique_name_in_owner = true
+process_mode = 3
 layout_mode = 2
 
 [node name="Upgrade2" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=395707873 instance=ExtResource("6_lwiws")]

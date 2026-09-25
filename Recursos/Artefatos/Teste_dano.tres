@@ -8,6 +8,7 @@ script = ExtResource("1_rq6bv")
 nome = "Teste"
 descricao = "Teste"
 icone = ExtResource("1_5xo6g")
+preco = 3
 dano_add = 2.0
 dano_mult = 2.0
 vida_max_add = 10.0

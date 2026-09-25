@@ -2,6 +2,10 @@ extends Area2D
 
 signal coletado(valor)
 
+func _ready() -> void:
+	#$AnimationTree.play("Float")
+	pass
+	
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Players"):
 		coletado.emit(5)

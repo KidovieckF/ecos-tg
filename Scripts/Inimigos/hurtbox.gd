@@ -12,13 +12,18 @@ func _process(delta: float) -> void:
 	pass
 
 
-func take_damage(quantidade, cor = Color.WHITE):
+func take_damage(quantidade, cor = Color.WHITE, critico = false, ativa_artefatos = true):
 	if owner.morto:
 		return
 		
 	owner.dano_pendente += quantidade
 	
 	var novo_dano = ind_dano.instantiate() 
+	if critico == true and ativa_artefatos == true:
+		novo_dano.scale = Vector2(2, 2)
+		RunData.sinal_critico.emit(quantidade, global_position)
+		print("Critou") 
+	
 	owner.get_parent().add_child(novo_dano)
 	novo_dano.global_position = owner.global_position
 	novo_dano._mostrar_dano(quantidade, cor) 

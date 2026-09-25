@@ -5,6 +5,8 @@ var pos_final
 @onready var limite : RayCast2D = $RayCast2D
 @onready var mira : Line2D = $Line2D
 @onready var laser : Panel = $Panel
+var e_critico :bool
+
 
 func _ready() -> void:
 	pass
@@ -23,9 +25,10 @@ func _physics_process(delta: float) -> void:
 
 
 
-func start(dano, pos):
+func start(dano, pos, critico):
 	dano_bala = dano
 	look_at(get_global_mouse_position())
+	e_critico = critico
 	limite.target_position = Vector2(1000,0)
 
 
@@ -33,4 +36,7 @@ func start(dano, pos):
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.has_method("take_damage"):
-		area.take_damage(dano_bala)
+		var cor = Color.WHITE
+		if e_critico:
+			cor = Color.YELLOW
+		area.take_damage(dano_bala, cor, e_critico)

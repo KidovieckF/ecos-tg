@@ -30,7 +30,6 @@ func _on_range_area_exited(area : Area2D) -> void:
 
 
 func _on_atk_timer_timeout() -> void:
-	print("O Timer disparou!")
 	var alvo_proximo = null
 	var distancia_minima = 99999
 	for inimigo in is_in_range:
@@ -39,6 +38,5 @@ func _on_atk_timer_timeout() -> void:
 			distancia_minima = dist
 			alvo_proximo = inimigo
 	if alvo_proximo != null:
-		print("Vou atacar o alvo: ", alvo_proximo)
 		mascote.atacar(self, alvo_proximo)
 		

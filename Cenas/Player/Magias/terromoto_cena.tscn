@@ -38,6 +38,8 @@ shape = SubResource("CircleShape2D_0xkgh")
 [node name="Timer" type="Timer" parent="." unique_id=2106567692]
 wait_time = 2.0
 
+[node name="Timer2" type="Timer" parent="." unique_id=1785772045]
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

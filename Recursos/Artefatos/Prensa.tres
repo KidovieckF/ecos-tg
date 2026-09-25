@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Artefato_data" format=3 uid="uid://dcgarxkry7h0c"]
+
+[ext_resource type="Script" uid="uid://dja2hqiq4y6k" path="res://Recursos/Artefatos/artefatos.gd" id="1_ufcl2"]
+
+[resource]
+script = ExtResource("1_ufcl2")
+nome = "Prensa Hidraúlica"
+preco = 10
+prensa_hidraulica = true
+dano_mult = 5.0
+atk_speed_mult = -0.75
+tamanho_magia_mult = -0.7
+metadata/_custom_type_script = "uid://dja2hqiq4y6k"

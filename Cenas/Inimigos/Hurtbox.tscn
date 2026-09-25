@@ -5,7 +5,7 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ssmo2"]
 
 [node name="Hurtbox" type="Area2D" unique_id=1731929558]
-collision_layer = 4
+collision_layer = 6
 collision_mask = 7
 script = ExtResource("1_oiunh")
 

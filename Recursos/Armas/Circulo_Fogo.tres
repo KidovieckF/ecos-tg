@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://cw5iiwhsfuxji" path="res://Recursos/Armas/arma_fogo.gd" id="1_btsob"]
 [ext_resource type="PackedScene" uid="uid://c3d68ydxd6jsq" path="res://Cenas/Player/Magias/circulo_fogo.tscn" id="1_y0gf3"]
 [ext_resource type="Texture2D" uid="uid://d1jnott6ebre4" path="res://sprites/GUI_fantasy/fire1.png" id="4_vcf4t"]
+[ext_resource type="Script" uid="uid://bddrmptq05ctm" path="res://Recursos/Upgrades/upgrades.gd" id="5_76djj"]
+[ext_resource type="Resource" uid="uid://c6j14cwd7x5dj" path="res://Recursos/Upgrades/Multidisparo.tres" id="6_wbg6r"]
+[ext_resource type="Resource" uid="uid://di7pdywk7r0nr" path="res://Recursos/Upgrades/Tamanho.tres" id="7_nn2yx"]
+[ext_resource type="Resource" uid="uid://bbk331fykv6fn" path="res://Recursos/Upgrades/Dano.tres" id="8_xha6n"]
 
 [resource]
 script = ExtResource("1_btsob")
@@ -13,4 +17,6 @@ dano = 1.0
 speed = 100.0
 projetil = ExtResource("1_y0gf3")
 textura = ExtResource("4_vcf4t")
+preco = 100
+tipos_upgrade = Array[ExtResource("5_76djj")]([ExtResource("6_wbg6r"), ExtResource("7_nn2yx"), ExtResource("8_xha6n")])
 metadata/_custom_type_script = "uid://cw5iiwhsfuxji"

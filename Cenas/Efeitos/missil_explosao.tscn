@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://m7v6h1dsagvb"]
+
+[ext_resource type="Texture2D" uid="uid://co00je878isq2" path="res://sprites/Explosões/Explosions pack/explosion-1-a/spritesheet.png" id="1_20s5n"]
+[ext_resource type="Script" uid="uid://bjbnx51cu23sd" path="res://Scripts/Upgrades/missil_explosao.gd" id="2_gw13t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gw13t"]
+atlas = ExtResource("1_20s5n")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm405"]
+atlas = ExtResource("1_20s5n")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfnoh"]
+atlas = ExtResource("1_20s5n")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43lrl"]
+atlas = ExtResource("1_20s5n")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsfis"]
+atlas = ExtResource("1_20s5n")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avp2a"]
+atlas = ExtResource("1_20s5n")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yippn"]
+atlas = ExtResource("1_20s5n")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbggq"]
+atlas = ExtResource("1_20s5n")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pi4rf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gw13t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pm405")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfnoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43lrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsfis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avp2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yippn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbggq")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=1777759406]
+sprite_frames = SubResource("SpriteFrames_pi4rf")
+frame = 7
+frame_progress = 1.0
+script = ExtResource("2_gw13t")

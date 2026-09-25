@@ -4,6 +4,11 @@
 [ext_resource type="Script" uid="uid://cgjta1tov0xnx" path="res://Recursos/Armas/laser.gd" id="1_bxf8g"]
 [ext_resource type="PackedScene" uid="uid://b68cn53lhoovb" path="res://Cenas/Player/Magias/laser_charge.tscn" id="1_u7gy8"]
 [ext_resource type="Texture2D" uid="uid://cphgndc03yaom" path="res://sprites/Hud/Exp_Mana.png" id="4_86wco"]
+[ext_resource type="Script" uid="uid://bddrmptq05ctm" path="res://Recursos/Upgrades/upgrades.gd" id="5_ljvpu"]
+[ext_resource type="Resource" uid="uid://di7pdywk7r0nr" path="res://Recursos/Upgrades/Tamanho.tres" id="6_ay2s1"]
+[ext_resource type="Resource" uid="uid://bbk331fykv6fn" path="res://Recursos/Upgrades/Dano.tres" id="7_3lk24"]
+[ext_resource type="Resource" uid="uid://cvmfhy7r67soe" path="res://Recursos/Upgrades/Disparos.tres" id="8_us6hu"]
+[ext_resource type="Resource" uid="uid://cgqmggdrhou4u" path="res://Recursos/Upgrades/Bounce.tres" id="9_xsbmk"]
 
 [resource]
 script = ExtResource("1_bxf8g")
@@ -12,4 +17,6 @@ dano = 1.0
 projetil = ExtResource("1_5wopn")
 efeito = ExtResource("1_u7gy8")
 textura = ExtResource("4_86wco")
+preco = 100
+tipos_upgrade = Array[ExtResource("5_ljvpu")]([ExtResource("6_ay2s1"), ExtResource("7_3lk24"), ExtResource("8_us6hu"), ExtResource("9_xsbmk")])
 metadata/_custom_type_script = "uid://cgjta1tov0xnx"

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="UpgradeMissil_Bomba" format=3 uid="uid://ehwvotjaw3mq"]
+
+[ext_resource type="Script" uid="uid://ss5qwkg2k3h" path="res://Recursos/Upgrades/missil_explosao.gd" id="1_jqsbw"]
+
+[resource]
+script = ExtResource("1_jqsbw")
+valor = 2.0
+efeito = "missil_explosao"
+metadata/_custom_type_script = "uid://ss5qwkg2k3h"

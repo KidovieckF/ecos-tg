@@ -7,7 +7,8 @@ class_name ArmaRecurso
 @export var  projetil : PackedScene
 @export var efeito : PackedScene
 @export var textura : Texture
-@export var tags : Array[String]
+@export var preco : int
+@export var tipos_upgrade : Array[UpgradeData]
 @export var barra_ultimate : float
 var barra_ultimate_atual : float
 var upgrades_ativos : Array[UpgradeData] = []
@@ -28,7 +29,7 @@ func tem_efeito(nome_do_efeito : String) -> bool:
 		if upg.efeito == nome_do_efeito:
 			return true
 	return false
-# Isso ajuda a perguntar: "Quantos tiros a mais eu tenho?"
+
 func valor_do_efeito(nome_do_efeito : String) -> float:
 	var total = 0.0
 	for upg in upgrades_ativos:

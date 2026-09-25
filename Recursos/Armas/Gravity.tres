@@ -3,13 +3,19 @@
 [ext_resource type="PackedScene" uid="uid://b0th5tt33bnwn" path="res://Cenas/Player/Magias/gravity.tscn" id="1_d8i62"]
 [ext_resource type="Script" uid="uid://3frisqnighny" path="res://Recursos/Armas/gravity.gd" id="1_o701e"]
 [ext_resource type="Texture2D" uid="uid://ej0bmv5awjl3" path="res://sprites/GUI_fantasy/thunder4.png" id="3_dfpno"]
+[ext_resource type="Script" uid="uid://bddrmptq05ctm" path="res://Recursos/Upgrades/upgrades.gd" id="4_dnapc"]
+[ext_resource type="Resource" uid="uid://bbk331fykv6fn" path="res://Recursos/Upgrades/Dano.tres" id="5_2hvlx"]
+[ext_resource type="Resource" uid="uid://227fpktb6lk8" path="res://Recursos/Upgrades/Speed.tres" id="6_024gb"]
+[ext_resource type="Resource" uid="uid://di7pdywk7r0nr" path="res://Recursos/Upgrades/Tamanho.tres" id="7_2ltw4"]
 
 [resource]
 script = ExtResource("1_o701e")
 nome = "Buraco Negro"
-dano = 20.0
+dano = 3.0
 speed = 100.0
 projetil = ExtResource("1_d8i62")
 textura = ExtResource("3_dfpno")
+preco = 100
+tipos_upgrade = Array[ExtResource("4_dnapc")]([ExtResource("5_2hvlx"), ExtResource("6_024gb"), ExtResource("7_2ltw4")])
 barra_ultimate = 100.0
 metadata/_custom_type_script = "uid://3frisqnighny"

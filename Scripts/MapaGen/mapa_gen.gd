@@ -7,11 +7,14 @@ var salas_andar2 = [ preload("res://Cenas/Mundo/Salas/sala_base2.tscn")]
 var sala_boss =  preload("res://Cenas/Mundo/Salas/sala_boss.tscn")
 var sala_miniboss = preload("res://Cenas/Mundo/Salas/sala_baseMinboss.tscn")
 var porta = preload("res://Cenas/Mundo/Salas/Porta.tscn")
+var loja = preload("res://Cenas/Mundo/Salas/sala_loja.tscn")
 var room_altura = 641
 var room_largura = 1139
 var room_size = Vector2(room_largura,room_altura)
 var salas_possiveis = {}
 var salas_criadas = {}
+var pity = 0
+var loja_criada = false
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
@@ -33,14 +36,26 @@ func _process(delta: float) -> void:
 func generate_level():
 	var current_pos = Vector2i(0, 0)
 	var directions = [Vector2i.RIGHT, Vector2i.LEFT, Vector2i.UP, Vector2i.DOWN]
-	while salas_criadas.size() < 3:
+	while salas_criadas.size() < 6:
 		var walk_dir = directions.pick_random()
 		var sala_sorteada = salas_possiveis.pick_random()
-		var nova_sala = sala_sorteada.instantiate()
+		var nova_sala = null
 		if salas_criadas.size() == 3:
 			nova_sala = sala_boss.instantiate()
-		if salas_criadas.size() == 2:
+		elif salas_criadas.size() == 2:
 			nova_sala = sala_miniboss.instantiate()
+		elif salas_criadas.size() < 1:
+			nova_sala = sala_sorteada.instantiate()
+		elif not loja_criada:
+			if randi_range(0, 10) <= 1 or pity >= 3: 
+				nova_sala = loja.instantiate()
+				loja_criada = true # Impede que nasçam mais lojas
+			else:
+				nova_sala = sala_sorteada.instantiate()
+				pity += 1 
+		else:
+			nova_sala = sala_sorteada.instantiate()
+			
 		if not salas_criadas.has(current_pos):
 			nova_sala.global_position = Vector2(current_pos.x * room_size.x, current_pos.y * room_size.y)
 			get_parent().add_child.call_deferred(nova_sala)

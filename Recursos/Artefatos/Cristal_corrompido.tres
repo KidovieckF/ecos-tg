@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Artefato_data" format=3 uid="uid://c266hb46vdxjk"]
+
+[ext_resource type="Script" uid="uid://dja2hqiq4y6k" path="res://Recursos/Artefatos/artefatos.gd" id="1_u8rmb"]
+
+[resource]
+script = ExtResource("1_u8rmb")
+cristal_corrompido = true
+dano_mult = 1.0
+limite = 1
+raridade = "Raro"
+metadata/_custom_type_script = "uid://dja2hqiq4y6k"

@@ -7,7 +7,11 @@ func _ready() -> void:
 	atualizar_inventario()
 	get_tree().paused = true
 	%VidaMax.text = "Vida Máxima: " + str(RunData.vida_max)
-	%Dano.text = "Multiplicador de Dano: " + str(RunData.dano_mult_final)
+	%ChanceCrit.text = "Chance de Critico: " + str(RunData.chance_critico)
+	%DanoCrit.text = "Dano Critico: " + str(RunData.dano_critico)
+	%Dano.text = "Multiplicador de Dano: " + str(RunData.dano_multiplicador)
+	%AtkSpeed.text = "Velocidade de Ataque: " + str(RunData.mult_de_atk_speed)
+	%DanoRed.text = "Redução de Dano: " + str(RunData.dano_reducao * 100) + "%"
 	%Speed.text = "Velocidade: " + str(RunData.speed_calculado)
 	%Dificuldade.text = "Dificuldade: " + str(RunData.dificuldade)
 	

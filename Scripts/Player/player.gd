@@ -23,6 +23,8 @@ var direcao_tiro
 var pausado = false
 var tiro_primario = false
 var tiro_secundario = false
+
+var cura_ind = preload("res://Cenas/Player/cura_ind.tscn")
 var game_over_scene = preload("res://Cenas/Mundo/Game_over.tscn")
 var upgrade = preload("res://Hud_upgrade.tscn")
 var pause_scene = preload("res://Cenas/Huds/hud_pause.tscn")
@@ -35,7 +37,7 @@ func _ready() -> void:
 	if RunData.arma_escolhida == null:
 		RunData.iniciar_run(personagem, arma)
 	RunData.carregar_player(self)
-	$AttackTimer.wait_time = personagem.atk_cd
+	$AttackTimer.wait_time = personagem.atk_cd / RunData.mult_de_atk_speed
 	
 
 func _physics_process(delta: float) -> void:
@@ -43,6 +45,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Ultimate") and RunData.barra_ultimate_atual == RunData.barra_ultimate:
 		print("Teste")
 		
+	for upgrade in RunData.armas[0].upgrades_ativos:
+		if upgrade.has_method("ao_atualizar_jogador"):
+			upgrade.ao_atualizar_jogador(self, delta)
+
 	
 	
 	if Input.is_action_just_pressed("Mudar"):
@@ -52,6 +58,7 @@ func _physics_process(delta: float) -> void:
 			RunData.armas[1] = aux
 	
 	if $AttackTimer.is_stopped():
+		$AttackTimer.wait_time = personagem.atk_cd / RunData.mult_de_atk_speed
 		if Input.is_action_pressed("Atirar") and not tiro_secundario:
 			tiro_primario = true
 			atacando = true
@@ -112,11 +119,13 @@ func _physics_process(delta: float) -> void:
 
 	var direction := Input.get_vector("Esquerda", "Direita", "Cima", "Baixo")
 	
+	var vel_final = RunData.speed_calculado + RunData.speed_bonus_temporario
+	
 	if direction:
-		velocity = direction * RunData.speed_calculado
+		velocity = direction * vel_final
 	else:
-		velocity.x = move_toward(velocity.x, 0, RunData.speed_calculado)
-		velocity.y = move_toward(velocity.y, 0, RunData.speed_calculado)
+		velocity.x = move_toward(velocity.x, 0, vel_final)
+		velocity.y = move_toward(velocity.y, 0, vel_final)
 	
 	
 	
@@ -152,6 +161,9 @@ func _physics_process(delta: float) -> void:
 			elif last_direction.y < 0:
 				$Sprite2D.flip_h = false
 				$Sprite2D.play("IdleCostas")
+				
+		if velocity == Vector2.ZERO:
+			RunData.aplicar_efeitos_parado(self, delta) 
 		
 		if Input.is_action_just_pressed("Dash") and not dashando and direction != Vector2.ZERO and $DashCD.is_stopped():     
 			$DashCD.start()
@@ -165,10 +177,11 @@ func _physics_process(delta: float) -> void:
 			velocity = direcao_dash * RunData.speed_calculado * 2.5 
 		else:
 			if direction:
-				velocity = direction * RunData.speed_calculado
+				velocity = direction * vel_final
 			else:
-				velocity.x = move_toward(velocity.x, 0, RunData.speed_calculado)
-				velocity.y = move_toward(velocity.y, 0, RunData.speed_calculado)
+				velocity.x = move_toward(velocity.x, 0, vel_final)
+				velocity.y = move_toward(velocity.y, 0, vel_final)
+
 
 	move_and_slide()
 
@@ -190,14 +203,15 @@ func ganhar_xp(exp):
 		print("nivel: ",nivel)
 		var upg_scene = upgrade.instantiate()
 		add_child(upg_scene)
-		get_tree().paused = true
 	hud.atualizar_xp(xp_atual, barra_exp, nivel)
 	
 
 func take_damage(quantidade, cor = Color.WHITE):
 	if pode_tomar_dano == true:
 		$Timer.start()
-		RunData.vida_atual -= quantidade
+		var quantidade_real = quantidade * (1.0 - RunData.dano_reducao)
+		quantidade_real = max(0, quantidade - RunData.dano_reducao)
+		RunData.vida_atual -= quantidade_real
 		tween_dano = create_tween().set_loops()
 		tween_dano.tween_property(sprite, "modulate:a", 0.0, 0.1)
 		tween_dano.tween_property(sprite, "modulate:a", 1.0, 0.1)
@@ -211,9 +225,13 @@ func take_damage(quantidade, cor = Color.WHITE):
 		var game_over = game_over_scene.instantiate()
 		get_tree().root.add_child(game_over)
 		
-func curar(quantidade):
+func curar(quantidade : float):
+	var cena_ind_cura = cura_ind.instantiate()
+	get_parent().add_child(cena_ind_cura)
 	RunData.vida_atual =  min((RunData.vida_atual + quantidade), RunData.vida_max)
 	hud.atualizar_vida(RunData.vida_atual, RunData.vida_max)
+	cena_ind_cura.global_position = global_position
+	cena_ind_cura._mostrar_cura(quantidade, Color.GREEN)
 		
 func coletar_moeda():
 	hud.atualizar_dinheiro()

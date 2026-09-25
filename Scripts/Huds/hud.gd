@@ -6,6 +6,7 @@ var slot_artefato = preload("res://Cenas/Huds/slot_artefato.tscn")
 func _ready() -> void:
 	RunData.inventario_atualizado.connect(atualizar_inventario)
 	atualizar_inventario()
+
 	
 	
 func _physics_process(delta: float) -> void:
@@ -20,6 +21,7 @@ func atualizar_xp(xp_atual, xp_barra, nivel):
 func atualizar_vida(vida_atual, vida_barra):
 	%Vida.max_value = vida_barra
 	%Vida.value = vida_atual
+	%Vidatexto.text = str(vida_atual) + "/" + str(vida_barra)
 	
 	
 func atualizar_vida_boss(valor):

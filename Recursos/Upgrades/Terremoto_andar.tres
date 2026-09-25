@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="UpgradeAndarTerremoto" format=3 uid="uid://bnwl03wtn4c1s"]
+
+[ext_resource type="Script" uid="uid://dtlxsfosdcirp" path="res://Recursos/Upgrades/Terremoto_andar.gd" id="1_vna7e"]
+
+[resource]
+script = ExtResource("1_vna7e")
+efeito = "terremoto_passos"
+metadata/_custom_type_script = "uid://dtlxsfosdcirp"

@@ -51,7 +51,7 @@ height = 26.0
 z_index = 2
 position = Vector2(-1, 0)
 collision_layer = 8
-collision_mask = 6
+collision_mask = 2
 script = ExtResource("1_1di7g")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1647020027]

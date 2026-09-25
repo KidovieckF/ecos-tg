@@ -11,6 +11,13 @@
 [ext_resource type="Resource" uid="uid://bk7atnl1twgbk" path="res://Recursos/Armas/Circulo_Fogo.tres" id="6_3eiqi"]
 [ext_resource type="PackedScene" uid="uid://bnde680ewximd" path="res://Cenas/Botões de itens/arma_btn.tscn" id="9_lqvjm"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xq1i"]
+bg_color = Color(0.7411765, 0.79607844, 0.3372549, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [node name="Control" type="Control" unique_id=875357598]
 layout_mode = 3
 anchors_preset = 15
@@ -36,6 +43,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1xq1i")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1657361450]
 layout_mode = 1
@@ -46,22 +54,61 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_top = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1354755981]
+[node name="VBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer" unique_id=211867884]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 100
 alignment = 1
 
-[node name="ArmaBtn" parent="Panel/MarginContainer/VBoxContainer" unique_id=1540479534 instance=ExtResource("9_lqvjm")]
+[node name="ArmaContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=854873507]
 unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="PrecoArma" type="Label" parent="Panel/MarginContainer/VBoxContainer/ArmaContainer" unique_id=1963747939]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "$:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ArmaBtn" parent="Panel/MarginContainer/VBoxContainer/ArmaContainer" unique_id=1540479534 instance=ExtResource("9_lqvjm")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
-[node name="Artefatos" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1666136618]
+[node name="DescricaoArma" type="Label" parent="Panel/MarginContainer/VBoxContainer/ArmaContainer" unique_id=289303844]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ComprarBtn" type="Label" parent="Panel/MarginContainer/VBoxContainer/ArmaContainer" unique_id=1868012845]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Comprar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Artefatos" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1261010873]
 layout_mode = 2
 alignment = 1
 
+[node name="ArtNome1" type="Label" parent="Panel/MarginContainer/VBoxContainer/Artefatos" unique_id=1324601388]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="ArtefatoBtn" parent="Panel/MarginContainer/VBoxContainer/Artefatos" unique_id=1204837669 instance=ExtResource("2_35upk")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ArtPreco1" type="Label" parent="Panel/MarginContainer/VBoxContainer/Artefatos" unique_id=1971750596]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ArtNome2" type="Label" parent="Panel/MarginContainer/VBoxContainer/Artefatos" unique_id=823963107]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -69,6 +116,10 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/ArmaBtn" to="." method="_on_arma_btn_pressed"]
+[node name="ArtPreco3" type="Label" parent="Panel/MarginContainer/VBoxContainer/Artefatos" unique_id=542849185]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/ArmaContainer/ArmaBtn" to="." method="_on_arma_btn_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Artefatos/ArtefatoBtn" to="." method="_on_artefato_btn_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Artefatos/ArtefatoBtn2" to="." method="_on_artefato_btn_2_pressed"]

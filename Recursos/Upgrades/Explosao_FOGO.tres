@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="UpgradeExplosao" format=3 uid="uid://dr0qrvuggtors"]
+
+[ext_resource type="Script" uid="uid://cfkxu63cxaxpw" path="res://Recursos/Upgrades/explosao_fogo.gd" id="1_nq3qu"]
+
+[resource]
+script = ExtResource("1_nq3qu")
+valor = 1.0
+efeito = "explosao"
+metadata/_custom_type_script = "uid://cfkxu63cxaxpw"

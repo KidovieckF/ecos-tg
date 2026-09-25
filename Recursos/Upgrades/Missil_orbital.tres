@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="UpgradeOrbital" format=3 uid="uid://ofjkxt4rv2l2"]
+
+[ext_resource type="Script" uid="uid://yqksmfb30swm" path="res://Recursos/Upgrades/missil_orbital.gd" id="1_wn1wl"]
+
+[resource]
+script = ExtResource("1_wn1wl")
+efeito = "missil_orbital"
+metadata/_custom_type_script = "uid://yqksmfb30swm"

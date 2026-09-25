@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://dmcvxwpii80qn"]
 
 [ext_resource type="Script" uid="uid://bddrmptq05ctm" path="res://Recursos/Upgrades/upgrades.gd" id="1_38o22"]
+[ext_resource type="Texture2D" uid="uid://caha7h6fdsc1p" path="res://sprites/GUI_fantasy/earth5.png" id="2_4a2pp"]
 
 [resource]
 script = ExtResource("1_38o22")
 valor = 1.0
 efeito = "penetracao"
 tag = "Projetil"
+textura = ExtResource("2_4a2pp")
 metadata/_custom_type_script = "uid://bddrmptq05ctm"

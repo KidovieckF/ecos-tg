@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://6nn5njmupl0c"]
+
+[ext_resource type="Script" uid="uid://bddrmptq05ctm" path="res://Recursos/Upgrades/upgrades.gd" id="1_3r2aq"]
+
+[resource]
+script = ExtResource("1_3r2aq")
+valor = 2.0
+efeito = "terremoto_danotick"
+metadata/_custom_type_script = "uid://bddrmptq05ctm"

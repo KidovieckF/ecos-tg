@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="UpgradeTerremotoSlowStun" format=3 uid="uid://cfb5asxfts8pv"]
+
+[ext_resource type="Script" uid="uid://n1jtcqncw2aa" path="res://Recursos/Upgrades/Terremoto_slowstun.gd" id="1_qweoc"]
+
+[resource]
+script = ExtResource("1_qweoc")
+efeito = "slow"
+metadata/_custom_type_script = "uid://n1jtcqncw2aa"

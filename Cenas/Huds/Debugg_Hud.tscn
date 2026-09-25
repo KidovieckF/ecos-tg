@@ -138,6 +138,32 @@ text = "Upgrade de tamanho"
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="Explosao" type="HBoxContainer" parent="Panel/MarginContainer/Pagina1" unique_id=336728416]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina1/Explosao" unique_id=32674053]
+layout_mode = 2
+text = "Upgrade de explosao"
+
+[node name="ExplosaoLine" type="LineEdit" parent="Panel/MarginContainer/Pagina1/Explosao" unique_id=606261753]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Teleguiado" type="HBoxContainer" parent="Panel/MarginContainer/Pagina1" unique_id=1316548665]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina1/Teleguiado" unique_id=1417938916]
+layout_mode = 2
+text = "Upgrade de Teleguiado"
+
+[node name="TeleguiadoLine" type="LineEdit" parent="Panel/MarginContainer/Pagina1/Teleguiado" unique_id=1397942056]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="Bounce" type="HBoxContainer" parent="Panel/MarginContainer/Pagina1" unique_id=1338207070]
 layout_mode = 2
 theme_override_constants/separation = 20
@@ -184,10 +210,35 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 text = "Artefatos"
-item_count = 2
+item_count = 14
 popup/item_0/text = "ArtefatoDano"
 popup/item_0/id = 0
+popup/item_1/text = "ArtefatoVida"
 popup/item_1/id = 1
+popup/item_2/text = "ArtefatoChanCrit"
+popup/item_2/id = 2
+popup/item_3/text = "ArtefatoVidaMult"
+popup/item_3/id = 3
+popup/item_4/text = "ArteafatoAtkS"
+popup/item_4/id = 4
+popup/item_5/text = "ArtefatoArmadura"
+popup/item_5/id = 5
+popup/item_6/text = "ArtefatoCogumelo"
+popup/item_6/id = 6
+popup/item_7/text = "ArtefatoCorrompido"
+popup/item_7/id = 7
+popup/item_8/text = "ArtefatoPrensa"
+popup/item_8/id = 8
+popup/item_9/text = "ArtefatoFlor"
+popup/item_9/id = 9
+popup/item_10/text = "ArtefatoBotina"
+popup/item_10/id = 10
+popup/item_11/text = "ArtefatoOculos"
+popup/item_11/id = 11
+popup/item_12/text = "ArtefatoChapeu"
+popup/item_12/id = 12
+popup/item_13/text = "ArtefatoEgide"
+popup/item_13/id = 13
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/Pagina2" unique_id=1863537480]
 layout_mode = 2
@@ -209,6 +260,84 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Panel/MarginContainer/Pagina3" unique_id=4454605]
 layout_mode = 2
 text = "teste3"
+
+[node name="ExplosaoMissil" type="HBoxContainer" parent="Panel/MarginContainer/Pagina3" unique_id=2033576831]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina3/ExplosaoMissil" unique_id=1575712644]
+layout_mode = 2
+text = "Upgrade de explosao do Missil"
+
+[node name="ExplosaoMissilLine" type="LineEdit" parent="Panel/MarginContainer/Pagina3/ExplosaoMissil" unique_id=696584771]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Orbital" type="HBoxContainer" parent="Panel/MarginContainer/Pagina3" unique_id=1529967944]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina3/Orbital" unique_id=1819095107]
+layout_mode = 2
+text = "Upgrade de Orbital do Missil"
+
+[node name="OrbitalLine" type="LineEdit" parent="Panel/MarginContainer/Pagina3/Orbital" unique_id=858051332]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Orbital2" type="HBoxContainer" parent="Panel/MarginContainer/Pagina3" unique_id=119097870]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina3/Orbital2" unique_id=2079129501]
+layout_mode = 2
+text = "Upgrade de Alice Gorda"
+
+[node name="Titan_andarLine" type="LineEdit" parent="Panel/MarginContainer/Pagina3/Orbital2" unique_id=71379537]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TitanDanoTick" type="HBoxContainer" parent="Panel/MarginContainer/Pagina3" unique_id=1932037923]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina3/TitanDanoTick" unique_id=1547222876]
+layout_mode = 2
+text = "Upgrade de Titan Dano e Tick"
+
+[node name="Titan_DanoTickLine" type="LineEdit" parent="Panel/MarginContainer/Pagina3/TitanDanoTick" unique_id=274431147]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TitanSlow" type="HBoxContainer" parent="Panel/MarginContainer/Pagina3" unique_id=1502455017]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina3/TitanSlow" unique_id=679217957]
+layout_mode = 2
+text = "Upgrade de Titan Slow"
+
+[node name="Titan_SlowLine" type="LineEdit" parent="Panel/MarginContainer/Pagina3/TitanSlow" unique_id=2145647871]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TitanStun" type="HBoxContainer" parent="Panel/MarginContainer/Pagina3" unique_id=1160917383]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina3/TitanStun" unique_id=1952273874]
+layout_mode = 2
+text = "Upgrade de Titan Stun"
+
+[node name="Titan_StunLine" type="LineEdit" parent="Panel/MarginContainer/Pagina3/TitanStun" unique_id=361791711]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="Proximo" type="Button" parent="Panel/MarginContainer" unique_id=389874333]
 custom_minimum_size = Vector2(60, 30)
@@ -235,9 +364,17 @@ text = "Fechar"
 [connection signal="text_submitted" from="Panel/MarginContainer/Pagina1/Projeteis/ProjLine" to="." method="_on_proj_line_text_submitted"]
 [connection signal="text_submitted" from="Panel/MarginContainer/Pagina1/Disparos/DisparoLine" to="." method="_on_disparo_line_text_submitted"]
 [connection signal="text_submitted" from="Panel/MarginContainer/Pagina1/Tamanho/TamanhoLine" to="." method="_on_tamanho_line_text_submitted"]
+[connection signal="text_submitted" from="Panel/MarginContainer/Pagina1/Explosao/ExplosaoLine" to="." method="_on_explosao_line_text_submitted"]
+[connection signal="text_submitted" from="Panel/MarginContainer/Pagina1/Teleguiado/TeleguiadoLine" to="." method="_on_teleguiado_line_text_submitted"]
 [connection signal="text_submitted" from="Panel/MarginContainer/Pagina1/Bounce/BounceLine" to="." method="_on_bounce_line_text_submitted"]
 [connection signal="toggled" from="Panel/MarginContainer/Pagina1/Penetracao/PenetracaoToggle" to="." method="_on_penetracao_toggle_toggled"]
 [connection signal="text_submitted" from="Panel/MarginContainer/Pagina2/HBoxContainer2/UltLine" to="." method="_on_ult_line_text_submitted"]
+[connection signal="text_submitted" from="Panel/MarginContainer/Pagina3/ExplosaoMissil/ExplosaoMissilLine" to="." method="_on_explosao_missil_line_text_submitted"]
+[connection signal="text_submitted" from="Panel/MarginContainer/Pagina3/Orbital/OrbitalLine" to="." method="_on_orbital_line_text_submitted"]
+[connection signal="text_submitted" from="Panel/MarginContainer/Pagina3/Orbital2/Titan_andarLine" to="." method="_on_titan_andar_line_text_submitted"]
+[connection signal="text_submitted" from="Panel/MarginContainer/Pagina3/TitanDanoTick/Titan_DanoTickLine" to="." method="_on_titan_dano_tick_line_text_submitted"]
+[connection signal="text_submitted" from="Panel/MarginContainer/Pagina3/TitanSlow/Titan_SlowLine" to="." method="_on_titan_slow_line_text_submitted"]
+[connection signal="text_submitted" from="Panel/MarginContainer/Pagina3/TitanStun/Titan_StunLine" to="." method="_on_titan_stun_line_text_submitted"]
 [connection signal="pressed" from="Panel/MarginContainer/Proximo" to="." method="_on_proximo_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/Voltar" to="." method="_on_voltar_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/Fechar" to="." method="_on_fechar_pressed"]

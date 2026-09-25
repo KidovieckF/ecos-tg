@@ -3,6 +3,14 @@
 [ext_resource type="Script" uid="uid://cbbclb2ewf041" path="res://Recursos/Armas/missil_mag.gd" id="1_q1obn"]
 [ext_resource type="PackedScene" uid="uid://c0f05vw2vnj4s" path="res://Cenas/Player/Magias/missil_magico.tscn" id="1_r1ddo"]
 [ext_resource type="Texture2D" uid="uid://bvmut8b2ofrfm" path="res://sprites/GUI_fantasy/water1.png" id="3_s0p7e"]
+[ext_resource type="Script" uid="uid://bddrmptq05ctm" path="res://Recursos/Upgrades/upgrades.gd" id="4_r2tnh"]
+[ext_resource type="Resource" uid="uid://cgqmggdrhou4u" path="res://Recursos/Upgrades/Bounce.tres" id="5_d3ndh"]
+[ext_resource type="Resource" uid="uid://cvmfhy7r67soe" path="res://Recursos/Upgrades/Disparos.tres" id="6_f32h8"]
+[ext_resource type="Resource" uid="uid://bbk331fykv6fn" path="res://Recursos/Upgrades/Dano.tres" id="7_gvuu2"]
+[ext_resource type="Resource" uid="uid://di7pdywk7r0nr" path="res://Recursos/Upgrades/Tamanho.tres" id="8_f3s5x"]
+[ext_resource type="Resource" uid="uid://227fpktb6lk8" path="res://Recursos/Upgrades/Speed.tres" id="9_o8icm"]
+[ext_resource type="Resource" uid="uid://c6j14cwd7x5dj" path="res://Recursos/Upgrades/Multidisparo.tres" id="10_m8g23"]
+[ext_resource type="Resource" uid="uid://dmcvxwpii80qn" path="res://Recursos/Upgrades/Penetracao.tres" id="11_3ld7n"]
 
 [resource]
 script = ExtResource("1_q1obn")
@@ -11,4 +19,6 @@ dano = 3.0
 speed = 200.0
 projetil = ExtResource("1_r1ddo")
 textura = ExtResource("3_s0p7e")
+preco = 100
+tipos_upgrade = Array[ExtResource("4_r2tnh")]([ExtResource("5_d3ndh"), ExtResource("6_f32h8"), ExtResource("7_gvuu2"), ExtResource("8_f3s5x"), ExtResource("9_o8icm"), ExtResource("10_m8g23"), ExtResource("11_3ld7n")])
 metadata/_custom_type_script = "uid://cbbclb2ewf041"

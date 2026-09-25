@@ -1,0 +1,8 @@
+[gd_resource type="Resource" format=3 uid="uid://cl3s0gmbcciyt"]
+
+[ext_resource type="Script" uid="uid://3ef3b1ps7f3y" path="res://Recursos/Upgrades/missul_teleguiado.gd" id="1_284s6"]
+
+[resource]
+script = ExtResource("1_284s6")
+efeito = "Teleguiado"
+metadata/_custom_type_script = "uid://3ef3b1ps7f3y"

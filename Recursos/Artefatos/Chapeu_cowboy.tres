@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Artefato_data" format=3 uid="uid://xjsoxubfqpj3"]
+
+[ext_resource type="Script" uid="uid://dja2hqiq4y6k" path="res://Recursos/Artefatos/artefatos.gd" id="1_1hkcu"]
+
+[resource]
+script = ExtResource("1_1hkcu")
+nome = "Chapéu do Cowboy"
+preco = 10
+tem_chapeu = 1
+limite = 2
+raridade = "Lendario"
+metadata/_custom_type_script = "uid://dja2hqiq4y6k"

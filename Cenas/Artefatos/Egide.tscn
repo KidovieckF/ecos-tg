@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ddftixqg22h7u"]
+
+[ext_resource type="Script" uid="uid://diek820ksnjn3" path="res://Scripts/Artefatos/egide.gd" id="1_8073m"]
+[ext_resource type="Texture2D" uid="uid://iaahgxmi07kh" path="res://sprites/GUI_fantasy/armor5.png" id="2_43cfl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bhpjk"]
+height = 38.0
+
+[node name="Node2D" type="Area2D" unique_id=511826982]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("1_8073m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1178848658]
+shape = SubResource("CapsuleShape2D_bhpjk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=223206476]
+scale = Vector2(1, 1.8125)
+texture = ExtResource("2_43cfl")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

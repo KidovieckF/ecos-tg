@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://cvmfhy7r67soe"]
 
 [ext_resource type="Script" uid="uid://bddrmptq05ctm" path="res://Recursos/Upgrades/upgrades.gd" id="1_fdvle"]
+[ext_resource type="Texture2D" uid="uid://ceyq45fycaek8" path="res://sprites/GUI_fantasy/light1.png" id="2_gx2ux"]
 
 [resource]
 script = ExtResource("1_fdvle")
 valor = 1.0
 efeito = "+1Disparo"
 tag = "Projetil"
+textura = ExtResource("2_gx2ux")
 metadata/_custom_type_script = "uid://bddrmptq05ctm"

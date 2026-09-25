@@ -5,7 +5,7 @@ var dano_atual
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("Atirei")
+	pass
 
 
 
@@ -21,7 +21,6 @@ func start(pos, dir, dano):
 
 
 func _on_body_entered(body: Node2D) -> void:
-	print("sumiu")
 	if body.has_method("take_damage"):
 		body.take_damage(dano_atual)
 	queue_free()

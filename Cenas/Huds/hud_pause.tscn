@@ -83,12 +83,32 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "teste"
 
+[node name="DanoRed" type="Label" parent="MarginContainer/Panel/VBoxContainer" unique_id=453769442]
+unique_name_in_owner = true
+layout_mode = 2
+text = "teste"
+
+[node name="ChanceCrit" type="Label" parent="MarginContainer/Panel/VBoxContainer" unique_id=773709696]
+unique_name_in_owner = true
+layout_mode = 2
+text = "teste"
+
+[node name="DanoCrit" type="Label" parent="MarginContainer/Panel/VBoxContainer" unique_id=324838646]
+unique_name_in_owner = true
+layout_mode = 2
+text = "teste"
+
 [node name="Dano" type="Label" parent="MarginContainer/Panel/VBoxContainer" unique_id=1843058010]
 unique_name_in_owner = true
 layout_mode = 2
 text = "teste"
 
 [node name="Speed" type="Label" parent="MarginContainer/Panel/VBoxContainer" unique_id=357621174]
+unique_name_in_owner = true
+layout_mode = 2
+text = "teste"
+
+[node name="AtkSpeed" type="Label" parent="MarginContainer/Panel/VBoxContainer" unique_id=379601243]
 unique_name_in_owner = true
 layout_mode = 2
 text = "teste"

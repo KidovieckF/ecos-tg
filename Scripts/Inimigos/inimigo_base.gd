@@ -42,20 +42,23 @@ func _physics_process(delta: float) -> void:
 		
 func dano_na_fila():
 	if dano_pendente > 0 and not morto:
-		print("Processando dano_pendente: ", dano_pendente, " | vida_atual ANTES: ", vida_atual)
 		vida_atual -= dano_pendente
 		dano_pendente = 0
 		if vida_atual <= 0:
-			print(">>> VIDA ZEROU! morto = true, chamando morrer()")
 			morto = true
 			$AreaDano.set_deferred("monitoring", false)
 			morrer()
-			print(">>> VOLTOU DO morrer()")
 			return
 
 
 
 func morrer():
+	var player = get_tree().get_first_node_in_group("Players")
+	
+	if player:
+		for upgrade in RunData.armas[0].upgrades_ativos:
+			upgrade.ao_inimigo_morrer(self, player)
+				
 	set_physics_process(false)
 	collision_layer = 0
 	collision_mask = 0

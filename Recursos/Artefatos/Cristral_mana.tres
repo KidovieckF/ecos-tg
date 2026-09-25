@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Artefato_data" format=3 uid="uid://bf8mmmebhygai"]
+
+[ext_resource type="Script" uid="uid://dja2hqiq4y6k" path="res://Recursos/Artefatos/artefatos.gd" id="1_iu2h8"]
+
+[resource]
+script = ExtResource("1_iu2h8")
+nome = "Cristral de Mana"
+preco = 10
+dano_mult = 0.1
+limite = -1
+raridade = "Comum"
+metadata/_custom_type_script = "uid://dja2hqiq4y6k"
