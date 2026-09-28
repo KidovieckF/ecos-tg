@@ -13,6 +13,7 @@ var dano_add = 0
 var crescimento = 1
 var limite = 6
 var tempo_vida = 3
+var tem_fogo_espalha = false
 
 func calcular_upgrades():
 	tiros_por_burst = 1
@@ -21,6 +22,7 @@ func calcular_upgrades():
 	tamanho = Vector2(1,1)
 	bounces = 0
 	penetracao = false
+	tem_fogo_espalha = false
 	dano_add = 0
 	
 	crescimento = 1
@@ -46,6 +48,8 @@ func calcular_upgrades():
 			limite += i.valor
 		if i.efeito == "fogo_tempoVida":
 			tempo_vida += i.valor
+		if i.efeito == "fogo_espalha":
+			tem_fogo_espalha = true
 		if i.efeito == "penetracao":
 			penetracao = true
 			

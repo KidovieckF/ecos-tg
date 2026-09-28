@@ -28,9 +28,9 @@ func _spawnar_terremoto(arma, player, mundo):
 
 	var chao = arma.projetil.instantiate()
 	
-	mundo.add_child(chao)
+	
 
-	chao.global_position = player.global_position 
+	
 	
 
 	var is_critico = arma.calcular_critico()
@@ -39,8 +39,10 @@ func _spawnar_terremoto(arma, player, mundo):
 	dano_atual = (dano_atual + arma.dano_add + RunData.dano_adicional) * RunData.dano_multiplicador
 	
 	var direcao = Vector2.ZERO 
-	
-	chao.start(dano_atual, is_critico)
+	chao.scale *= arma.tamanho * RunData.mult_tamanho
+	chao.start(dano_atual, is_critico, arma.velocidade_de_tick)
+	mundo.add_child(chao)
+	chao.global_position = player.global_position 
 	
 	for upgrade in arma.upgrades_ativos:
 		if upgrade.has_method("ao_atirar"): 

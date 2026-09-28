@@ -11,6 +11,7 @@ var caminho : Array
 var limite_queimadura
 var tempo_vida_fogo
 var crescimento_fogo
+var tem_crescimento
 
 
 @export var cena_da_queimadura : PackedScene
@@ -26,22 +27,17 @@ func _ready() -> void:
 	global_position = posicao_mouse + Vector2(randf_range(-raio, raio), randf_range(-raio, raio))
 
 func _process(delta: float) -> void:
+	scale += Vector2(crescimento_fogo, crescimento_fogo) * delta * 0.1
 	
-	scale += Vector2(crescimento_fogo, crescimento_fogo) * delta
-	
-	
-	
-
 
 func start(dano, crescimento, limite, tempo_vida):
 	dano_bala = dano
 	limite_queimadura = limite
 	tempo_vida_fogo = tempo_vida
-	crescimento_fogo = crescimento
-
-
-
-	
+	if crescimento > 1:
+		crescimento_fogo = crescimento
+	else:
+		crescimento_fogo = 0
 
 
 
@@ -71,6 +67,5 @@ func _on_timer_timeout() -> void:
 			var nova_queima = cena_da_queimadura.instantiate()
 			nova_queima.name = ("Queimadura")
 			nova_queima.debuff = debuff
-			nova_queima.dano_add = dano_add
-			nova_queima.limite_stacks = limite_queimadura
 			inimigos.add_child(nova_queima)
+			nova_queima.adicionar_stacks(limite_queimadura, dano_bala)

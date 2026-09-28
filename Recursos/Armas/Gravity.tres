@@ -11,7 +11,7 @@
 [resource]
 script = ExtResource("1_o701e")
 nome = "Buraco Negro"
-dano = 3.0
+dano = 100.0
 speed = 100.0
 projetil = ExtResource("1_d8i62")
 textura = ExtResource("3_dfpno")

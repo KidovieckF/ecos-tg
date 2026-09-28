@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://ggstmwl67hmc"]
+
+[ext_resource type="Script" uid="uid://bddrmptq05ctm" path="res://Recursos/Upgrades/upgrades.gd" id="1_07hop"]
+
+[resource]
+script = ExtResource("1_07hop")
+valor = 1.0
+efeito = "gravity_adicional"
+metadata/_custom_type_script = "uid://bddrmptq05ctm"

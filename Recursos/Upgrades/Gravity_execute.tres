@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="UpgradeGravityExecute" format=3 uid="uid://dl6rtge6gtann"]
+
+[ext_resource type="Script" uid="uid://bt4rmcgh4jrdc" path="res://Recursos/Upgrades/gravity_execute.gd" id="1_k20k8"]
+
+[resource]
+script = ExtResource("1_k20k8")
+efeito = "gravity_execute"
+metadata/_custom_type_script = "uid://bt4rmcgh4jrdc"

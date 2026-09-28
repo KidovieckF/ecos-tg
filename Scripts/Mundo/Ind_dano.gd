@@ -12,8 +12,8 @@ func _physics_process(delta: float) -> void:
 
 func _mostrar_dano(dano, color = Color.WHITE):
 	print("dano ", dano)
-	$".".modulate = color
-	$".".text = "%.0f" % dano
+	modulate = color
+	text = "%.0f" % dano
 	var num_ale = randf_range(-10, 10)
 	global_position.x += num_ale
 	num_ale = randf_range(-10, 10)

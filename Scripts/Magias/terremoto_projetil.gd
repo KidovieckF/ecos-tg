@@ -9,7 +9,7 @@ var indice_atual = 0
 var caminho : Array
 var ticks = 0
 var e_critico :bool
-var velocidade_tick
+var velocidade_tick = 0
 
 func _ready() -> void:
 	var raio = 20

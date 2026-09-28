@@ -4,6 +4,8 @@ class_name GravityArma
 var buracos_ativo = []
 var buracos_totais = 1
 
+var limiar_execute = 0.05
+
 var tiros_por_burst = 1
 var bursts = 1
 var speed_calculada = 200
@@ -40,6 +42,8 @@ func calcular_upgrades():
 			bounces += i.valor
 		if i.efeito == "penetracao":
 			penetracao = true
+		if i.efeito == "gravity_adicional":
+			buracos_totais +=1
 		print(i.efeito)
 		
 	RunData.aplicar_modificadores_globais(self)

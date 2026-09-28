@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="UpgradeLaserRicochete" format=3 uid="uid://c1yi86df786xp"]
+
+[ext_resource type="Script" uid="uid://bidesiy8lbcfl" path="res://Recursos/Upgrades/laser_ricochete.gd" id="1_mfk3s"]
+
+[resource]
+script = ExtResource("1_mfk3s")
+efeito = "laser_ricochete"
+metadata/_custom_type_script = "uid://bidesiy8lbcfl"

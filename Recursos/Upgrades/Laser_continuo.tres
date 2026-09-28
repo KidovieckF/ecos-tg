@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://dcbkifj6gpg08"]
+
+[ext_resource type="Script" uid="uid://bddrmptq05ctm" path="res://Recursos/Upgrades/upgrades.gd" id="1_gbuyb"]
+
+[resource]
+script = ExtResource("1_gbuyb")
+efeito = "laser_continuo"
+metadata/_custom_type_script = "uid://bddrmptq05ctm"

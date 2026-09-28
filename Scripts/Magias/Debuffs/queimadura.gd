@@ -3,13 +3,19 @@ extends StatusBase
 var stacks = 1
 var cor = Color.RED
 var dano_final = 0
-var limite_stacks = 0
+var limite_stacks = 6
 
+func _ready() -> void:
+	$TimerDano.start()
+	$Timer.start() 
 
 func _physics_process(delta: float) -> void:
 	pass
-
+	
 func adicionar_stacks(limite, dano_do_fogo):
+	limite_stacks = limite
+	if stacks > limite:
+		stacks = limite
 	dano_final = dano_do_fogo
 	$Timer.start()
 	stacks += 1

@@ -44,7 +44,6 @@ shape = SubResource("CircleShape2D_n6u44")
 
 [node name="Timer" type="Timer" parent="." unique_id=1813471522]
 wait_time = 0.5
-one_shot = true
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=492655712]
 amount = 20
@@ -52,7 +51,7 @@ texture = ExtResource("4_203b1")
 process_material = SubResource("ParticleProcessMaterial_xmlj2")
 
 [node name="TempoVida" type="Timer" parent="." unique_id=1096452655]
-wait_time = 3.0
+wait_time = 5.0
 one_shot = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

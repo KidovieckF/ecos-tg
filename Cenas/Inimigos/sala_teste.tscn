@@ -117,13 +117,16 @@ tile_map_data = PackedByteArray("AAAAAAsAAQAAAAAAAAAAAAwAAQAAAAAAAAAAAA0AAQAAAAA
 tile_set = SubResource("TileSet_hbmgi")
 
 [node name="Node2D" parent="." unique_id=1118123320 groups=["Inimigos"] instance=ExtResource("4_tbfwo")]
-position = Vector2(950, 350)
+position = Vector2(1032, 347)
 
 [node name="Node2D3" parent="." unique_id=636479965 groups=["Inimigos"] instance=ExtResource("4_tbfwo")]
-position = Vector2(950, 500)
+position = Vector2(867, 236)
 
 [node name="Node2D2" parent="." unique_id=1204847228 groups=["Inimigos"] instance=ExtResource("4_tbfwo")]
-position = Vector2(950, 200)
+position = Vector2(969, 116)
+
+[node name="Node2D4" parent="." unique_id=2022665522 groups=["Inimigos"] instance=ExtResource("4_tbfwo")]
+position = Vector2(930, 463)
 
 [node name="Player" parent="." unique_id=2096888764 instance=ExtResource("5_iqsdl")]
 position = Vector2(281, 311)

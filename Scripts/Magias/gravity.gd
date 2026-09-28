@@ -45,6 +45,10 @@ func _on_tic_dano_timeout() -> void:
 			if e_critico:
 				cor = Color.YELLOW
 			i.take_damage(bala_dano, cor, e_critico)
+			if RunData.armas[0] != null:
+				for upgrade in RunData.armas[0].upgrades_ativos:
+					if upgrade.has_method("ao_causar_dano"):
+						upgrade.ao_causar_dano(i.get_parent(), bala_dano, self)
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

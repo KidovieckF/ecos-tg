@@ -44,6 +44,7 @@ theme_override_constants/margin_bottom = 20
 
 [node name="Pagina1" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=2143156107]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 alignment = 1
 
@@ -192,6 +193,7 @@ layout_mode = 2
 
 [node name="Pagina2" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1578868799]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/Pagina2" unique_id=1728947792]
@@ -287,16 +289,16 @@ text = "Upgrade de Orbital do Missil"
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Orbital2" type="HBoxContainer" parent="Panel/MarginContainer/Pagina3" unique_id=119097870]
+[node name="TitanAndar" type="HBoxContainer" parent="Panel/MarginContainer/Pagina3" unique_id=119097870]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina3/Orbital2" unique_id=2079129501]
+[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina3/TitanAndar" unique_id=2079129501]
 layout_mode = 2
 text = "Upgrade de Alice Gorda"
 
-[node name="Titan_andarLine" type="LineEdit" parent="Panel/MarginContainer/Pagina3/Orbital2" unique_id=71379537]
+[node name="Titan_andarLine" type="LineEdit" parent="Panel/MarginContainer/Pagina3/TitanAndar" unique_id=71379537]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -339,6 +341,118 @@ text = "Upgrade de Titan Stun"
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="FogoLimite" type="HBoxContainer" parent="Panel/MarginContainer/Pagina3" unique_id=905165627]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina3/FogoLimite" unique_id=68997644]
+layout_mode = 2
+text = "Upgrade de Fogo Limite"
+
+[node name="FogoLimiteLine" type="LineEdit" parent="Panel/MarginContainer/Pagina3/FogoLimite" unique_id=872436038]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FogoCrescimento" type="HBoxContainer" parent="Panel/MarginContainer/Pagina3" unique_id=2081261491]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina3/FogoCrescimento" unique_id=2042798106]
+layout_mode = 2
+text = "Upgrade de Fogo Crescimento"
+
+[node name="FogoCrescimentoLine" type="LineEdit" parent="Panel/MarginContainer/Pagina3/FogoCrescimento" unique_id=65218351]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FogoTempoVida" type="HBoxContainer" parent="Panel/MarginContainer/Pagina3" unique_id=717140536]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina3/FogoTempoVida" unique_id=2056150753]
+layout_mode = 2
+text = "Upgrade de Fogo Tempo Vida"
+
+[node name="FogoTempoVidaLine" type="LineEdit" parent="Panel/MarginContainer/Pagina3/FogoTempoVida" unique_id=188606814]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Pagina4" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=816965574]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina4" unique_id=866703232]
+layout_mode = 2
+text = "teste3"
+
+[node name="FogoEspalha" type="HBoxContainer" parent="Panel/MarginContainer/Pagina4" unique_id=1856753439]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina4/FogoEspalha" unique_id=364706867]
+layout_mode = 2
+text = "Upgrade de Fogo Espalha"
+
+[node name="FogoEspalhaLine" type="LineEdit" parent="Panel/MarginContainer/Pagina4/FogoEspalha" unique_id=1246406806]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="GravityExecute" type="HBoxContainer" parent="Panel/MarginContainer/Pagina4" unique_id=1738681494]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina4/GravityExecute" unique_id=1210783844]
+layout_mode = 2
+text = "Upgrade de Gravity Execute"
+
+[node name="GravityExecuteLine" type="LineEdit" parent="Panel/MarginContainer/Pagina4/GravityExecute" unique_id=1570199006]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="GravityAdicional" type="HBoxContainer" parent="Panel/MarginContainer/Pagina4" unique_id=1015884149]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina4/GravityAdicional" unique_id=1577679733]
+layout_mode = 2
+text = "Upgrade de Gravity Adicional"
+
+[node name="GravityAdicionalLine" type="LineEdit" parent="Panel/MarginContainer/Pagina4/GravityAdicional" unique_id=1607396930]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LaserRicochete" type="HBoxContainer" parent="Panel/MarginContainer/Pagina4" unique_id=646087556]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina4/LaserRicochete" unique_id=1290912672]
+layout_mode = 2
+text = "Upgrade de Laser Ricochete"
+
+[node name="LaserRicocheteLine" type="LineEdit" parent="Panel/MarginContainer/Pagina4/LaserRicochete" unique_id=836337473]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LaserContinuo" type="HBoxContainer" parent="Panel/MarginContainer/Pagina4" unique_id=1716164050]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Pagina4/LaserContinuo" unique_id=772956021]
+layout_mode = 2
+text = "Upgrade de Laser Continuo"
+
+[node name="LaserContinuoLine" type="LineEdit" parent="Panel/MarginContainer/Pagina4/LaserContinuo" unique_id=1916261753]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="Proximo" type="Button" parent="Panel/MarginContainer" unique_id=389874333]
 custom_minimum_size = Vector2(60, 30)
 layout_mode = 2
@@ -371,10 +485,18 @@ text = "Fechar"
 [connection signal="text_submitted" from="Panel/MarginContainer/Pagina2/HBoxContainer2/UltLine" to="." method="_on_ult_line_text_submitted"]
 [connection signal="text_submitted" from="Panel/MarginContainer/Pagina3/ExplosaoMissil/ExplosaoMissilLine" to="." method="_on_explosao_missil_line_text_submitted"]
 [connection signal="text_submitted" from="Panel/MarginContainer/Pagina3/Orbital/OrbitalLine" to="." method="_on_orbital_line_text_submitted"]
-[connection signal="text_submitted" from="Panel/MarginContainer/Pagina3/Orbital2/Titan_andarLine" to="." method="_on_titan_andar_line_text_submitted"]
+[connection signal="text_submitted" from="Panel/MarginContainer/Pagina3/TitanAndar/Titan_andarLine" to="." method="_on_titan_andar_line_text_submitted"]
 [connection signal="text_submitted" from="Panel/MarginContainer/Pagina3/TitanDanoTick/Titan_DanoTickLine" to="." method="_on_titan_dano_tick_line_text_submitted"]
 [connection signal="text_submitted" from="Panel/MarginContainer/Pagina3/TitanSlow/Titan_SlowLine" to="." method="_on_titan_slow_line_text_submitted"]
 [connection signal="text_submitted" from="Panel/MarginContainer/Pagina3/TitanStun/Titan_StunLine" to="." method="_on_titan_stun_line_text_submitted"]
+[connection signal="text_submitted" from="Panel/MarginContainer/Pagina3/FogoLimite/FogoLimiteLine" to="." method="_on_fogo_limite_line_text_submitted"]
+[connection signal="text_submitted" from="Panel/MarginContainer/Pagina3/FogoCrescimento/FogoCrescimentoLine" to="." method="_on_fogo_crescimento_line_text_submitted"]
+[connection signal="text_submitted" from="Panel/MarginContainer/Pagina3/FogoTempoVida/FogoTempoVidaLine" to="." method="_on_fogo_tempo_vida_line_text_submitted"]
+[connection signal="text_submitted" from="Panel/MarginContainer/Pagina4/FogoEspalha/FogoEspalhaLine" to="." method="_on_fogo_espalha_line_text_submitted"]
+[connection signal="text_submitted" from="Panel/MarginContainer/Pagina4/GravityExecute/GravityExecuteLine" to="." method="_on_gravity_execute_line_text_submitted"]
+[connection signal="text_submitted" from="Panel/MarginContainer/Pagina4/GravityAdicional/GravityAdicionalLine" to="." method="_on_gravity_adicional_line_text_submitted"]
+[connection signal="text_submitted" from="Panel/MarginContainer/Pagina4/LaserRicochete/LaserRicocheteLine" to="." method="_on_laser_ricochete_line_text_submitted"]
+[connection signal="text_submitted" from="Panel/MarginContainer/Pagina4/LaserContinuo/LaserContinuoLine" to="." method="_on_laser_continuo_line_text_submitted"]
 [connection signal="pressed" from="Panel/MarginContainer/Proximo" to="." method="_on_proximo_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/Voltar" to="." method="_on_voltar_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/Fechar" to="." method="_on_fechar_pressed"]
