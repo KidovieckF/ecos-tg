@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b3sth7ng6ynt0"]
 
 [ext_resource type="Script" uid="uid://dan813jfsx5q8" path="res://Scripts/Magias/terremoto_projetil.gd" id="1_lpk3a"]
+[ext_resource type="Texture2D" uid="uid://dch75dfyqljyt" path="res://sprites/magias/Terremoto.png" id="2_0xkgh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lpk3a"]
 bg_color = Color(0.91764706, 0.4117647, 0, 0.29803923)
@@ -39,6 +40,10 @@ shape = SubResource("CircleShape2D_0xkgh")
 wait_time = 2.0
 
 [node name="Timer2" type="Timer" parent="." unique_id=1785772045]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=303289044]
+texture = ExtResource("2_0xkgh")
+hframes = 3
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

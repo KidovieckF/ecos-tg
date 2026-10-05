@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cctwdw2h0fint"]
 
 [ext_resource type="Texture2D" uid="uid://c6w3hqb1vni6y" path="res://sprites/tilesets/floors/flooring.png" id="1_0nch6"]
+[ext_resource type="Script" uid="uid://bkk8p8f4ajrii" path="res://Scripts/Mundo/lobby_principal.gd" id="1_ofs3d"]
 [ext_resource type="Texture2D" uid="uid://bh6fc76w8pbv7" path="res://icon.svg" id="2_ied7t"]
 [ext_resource type="Texture2D" uid="uid://ch5yml431qtic" path="res://sprites/tilesets/walls/wooden_door.png" id="3_2au4h"]
 [ext_resource type="PackedScene" uid="uid://tg2ghdhmth" path="res://Cenas/Player/player.tscn" id="4_nboww"]
@@ -269,6 +270,7 @@ texture = ExtResource("14_p80qs")
 sources/0 = SubResource("TileSetAtlasSource_b6ipa")
 
 [node name="Lobby" type="Node2D" unique_id=770474112]
+script = ExtResource("1_ofs3d")
 
 [node name="HUD" parent="." unique_id=856288748 instance=ExtResource("8_nboww")]
 visible = false
@@ -290,7 +292,7 @@ tile_set = SubResource("TileSet_rgvdi")
 position = Vector2(1148, 84)
 
 [node name="Mascote" parent="." unique_id=778746216 instance=ExtResource("8_wbc7f")]
-position = Vector2(1004, 1623)
+position = Vector2(1056, 1830)
 motion_mode = 1
 mascote = ExtResource("16_p80qs")
 

@@ -4,6 +4,8 @@
 
 [resource]
 script = ExtResource("1_u8rmb")
+nome = "Cristal Corrompido"
+preco = 30
 cristal_corrompido = true
 dano_mult = 1.0
 limite = 1

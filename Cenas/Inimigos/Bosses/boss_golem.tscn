@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://737r1coxsi0g"]
+
+[ext_resource type="PackedScene" uid="uid://bqr6tm6awdcpj" path="res://Cenas/Inimigos/Bosses/Boss_base.tscn" id="1_gjyh8"]
+[ext_resource type="Script" uid="uid://bbnfiue0l8ng5" path="res://Scripts/Inimigos/boss_golem.gd" id="2_twfkx"]
+[ext_resource type="Texture2D" uid="uid://brb87korx7nce" path="res://sprites/magias/Fireball_Sprite_Sheet.png" id="3_twfkx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6waj"]
+atlas = ExtResource("3_twfkx")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hc8hi"]
+atlas = ExtResource("3_twfkx")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oi1px"]
+atlas = ExtResource("3_twfkx")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5xsq"]
+atlas = ExtResource("3_twfkx")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rif5d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6waj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hc8hi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oi1px")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5xsq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Boss_golem" unique_id=1918095306 instance=ExtResource("1_gjyh8")]
+z_index = 2
+script = ExtResource("2_twfkx")
+nome_boss = "Golem"
+vida_base = 1000.0
+ataques = Array[String](["jogar_pedra_no_player", "gerar_xadrez"])
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1562925289]
+sprite_frames = SubResource("SpriteFrames_rif5d")
+frame_progress = 0.58523595
+
+[connection signal="timeout" from="TimerAtaque" to="." method="_on_timer_ataque_timeout"]

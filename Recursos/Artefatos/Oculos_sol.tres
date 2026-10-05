@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_f5f2e")
 nome = "Oculos de sol"
+arma_requerida = "Circulo de Fogo"
 cura_queimadura_pct = 0.1
 limite = 1
 raridade = "Lendario"

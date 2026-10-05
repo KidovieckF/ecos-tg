@@ -67,6 +67,8 @@ func _physics_process(delta: float) -> void:
 				direcao_tiro = last_direction
 			elif RunData.gamemode == "Mouse":
 				direcao_tiro = direcao_calculada
+				
+			$Muzzle.position = direcao_tiro * 30.0
 			RunData.armas[0].usar_arma(self, delta, RunData.dano_adicional, RunData.dano_multiplicador, direcao_tiro)
 			if abs(direcao_calculada.x) > abs(direcao_calculada.y) and direcao_calculada.x > 0:
 				$Sprite2D.flip_h = false
@@ -81,6 +83,7 @@ func _physics_process(delta: float) -> void:
 				$Sprite2D.flip_h = false
 				$Sprite2D.play("AtirandoFrente")
 				
+				
 		if Input.is_action_pressed("Atirar2") and not tiro_primario:
 			if RunData.armas[1]:
 				tiro_secundario = true
@@ -90,21 +93,25 @@ func _physics_process(delta: float) -> void:
 					direcao_tiro = last_direction
 				elif RunData.gamemode == "Mouse":
 					direcao_tiro = direcao_calculada
-				
+				$Muzzle.position = direcao_tiro * 30.0
 				RunData.armas[1].usar_arma(self, delta, RunData.dano_adicional, RunData.dano_multiplicador, direcao_tiro)
 
 				if abs(direcao_calculada.x) > abs(direcao_calculada.y) and direcao_calculada.x > 0:
 					$Sprite2D.flip_h = false
 					$Sprite2D.play("AtirandoLado")
+					
 				elif abs(direcao_calculada.x) > abs(direcao_calculada.y) and direcao_calculada.x < 0:
 					$Sprite2D.flip_h = true
 					$Sprite2D.play("AtirandoLado")
+					
 				elif abs(direcao_calculada.y) > abs(direcao_calculada.x) and direcao_calculada.y < 0:
 					$Sprite2D.flip_h = false
 					$Sprite2D.play("AtirandoCostas")
+					
 				elif abs(direcao_calculada.y) > abs(direcao_calculada.x) and direcao_calculada.y > 0:
 					$Sprite2D.flip_h = false
 					$Sprite2D.play("AtirandoFrente")
+					
 				
 	if Input.is_action_just_released("Atirar"):
 		tiro_primario = false
@@ -202,6 +209,11 @@ func ganhar_xp(exp):
 		nivel +=1
 		print("nivel: ",nivel)
 		var upg_scene = upgrade.instantiate()
+		if nivel % 5 == 0:
+			upg_scene.eh_upgrade_de_arma = true
+		else:
+			upg_scene.eh_upgrade_de_arma = false
+			
 		add_child(upg_scene)
 	hud.atualizar_xp(xp_atual, barra_exp, nivel)
 	

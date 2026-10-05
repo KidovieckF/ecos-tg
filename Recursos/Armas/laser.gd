@@ -64,7 +64,7 @@ func usar_arma(player,delta, dano_adicional, dano_multiplicador, direcao):
 			var is_critico = calcular_critico()
 			if is_critico: dano_final *= RunData.dano_critico
 			
-			laser_instancia.start(dano_final, player.global_position, is_critico)
+			laser_instancia.start(dano_final, player.global_position, false)
 			
 		laser_instancia.look_at(player.get_global_mouse_position())
 	else:
@@ -78,7 +78,7 @@ func usar_arma(player,delta, dano_adicional, dano_multiplicador, direcao):
 				animacao.play("charge")
 
 	if charge_ativo != null:
-			charge_ativo.global_position = player.get_node("Muzzle").global_position - Vector2(0, 20)
+			charge_ativo.global_position = player.get_node("Muzzle").global_position
 			charge_ativo.look_at(player.get_global_mouse_position())
 	
 
@@ -86,8 +86,10 @@ func usar_arma(player,delta, dano_adicional, dano_multiplicador, direcao):
 func parar_uso(player):
 	if tem_laser_continuo:
 		if laser_instancia != null:
-			laser_instancia.queue_free()
+			laser_instancia.sumir_encolhendo(0.5)
 			laser_instancia = null
+			player.get_node("AttackTimer").wait_time = 2.0 / RunData.mult_de_atk_speed
+			player.get_node("AttackTimer").start()
 	else:
 		if player.get_node("AttackTimer").is_stopped():
 			print("soltou")
@@ -107,9 +109,7 @@ func parar_uso(player):
 			player.get_parent().add_child(novo_laser)
 			novo_laser.global_position = player.get_node("Muzzle").global_position
 			novo_laser.start(dano_final, player.global_position, is_critico)
-			tween_fade = player.create_tween()
-			tween_fade.tween_property(novo_laser, "modulate:a", 0.0, 1)
-			tween_fade.tween_callback(novo_laser.queue_free)
+			novo_laser.sumir_encolhendo(1.0) 
 			RunData.speed_calculado = 300
 			dano_carregado = 0.0
 			if charge_ativo != null:

@@ -25,6 +25,7 @@ func _ready() -> void:
 	$TempoVida.wait_time += tempo_vida_fogo
 	$TempoVida.start()
 	global_position = posicao_mouse + Vector2(randf_range(-raio, raio), randf_range(-raio, raio))
+	$AnimatedSprite2D.play("default")
 
 func _process(delta: float) -> void:
 	scale += Vector2(crescimento_fogo, crescimento_fogo) * delta * 0.1

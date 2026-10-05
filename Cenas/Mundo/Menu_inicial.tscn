@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://iqmolkeyby7q"]
 
 [ext_resource type="Script" uid="uid://c058681e4rws3" path="res://Scripts/Mundo/menu_inicial.gd" id="1_gqker"]
+[ext_resource type="Texture2D" uid="uid://cf2h8ug54b7er" path="res://sprites/Hud/quadradoBase.png" id="2_0bfyd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqker"]
 bg_color = Color(0.38976315, 0.63101834, 0.7908379, 1)
@@ -9,12 +10,12 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1d0q"]
-bg_color = Color(0.22352941, 0.39215687, 0.63529414, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u1pnh"]
+texture = ExtResource("2_0bfyd")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnyq4"]
 bg_color = Color(0.22352941, 0.39215687, 0.63529414, 1)
@@ -30,48 +31,19 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d50gw"]
-bg_color = Color(0.22352941, 0.39215687, 0.63529414, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dh1nt"]
+texture = ExtResource("2_0bfyd")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdsfh"]
-bg_color = Color(0.2231988, 0.39308956, 0.63687485, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xl0mq"]
-bg_color = Color(0.22352941, 0.39215687, 0.63529414, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dfdx"]
-bg_color = Color(0.22352941, 0.39215687, 0.63529414, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-corner_detail = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6422"]
-bg_color = Color(0.22352941, 0.39215687, 0.63529414, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pi82x"]
-bg_color = Color(0.22352941, 0.39215687, 0.63529414, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8l4ds"]
+texture = ExtResource("2_0bfyd")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 
 [node name="Control" type="Control" unique_id=837846862]
 layout_mode = 3
@@ -128,7 +100,7 @@ horizontal_alignment = 1
 [node name="IniciarBtn" type="Button" parent="GridContainer/Panel/GridContainer/MarginContainer/VBoxContainer" unique_id=1181953328]
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_e1d0q")
+theme_override_styles/normal = SubResource("StyleBoxTexture_u1pnh")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tnyq4")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0bfyd")
 text = "Começar"
@@ -136,17 +108,13 @@ text = "Começar"
 [node name="ConfigsBtn" type="Button" parent="GridContainer/Panel/GridContainer/MarginContainer/VBoxContainer" unique_id=1438923239]
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_d50gw")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_wdsfh")
-theme_override_styles/hover = SubResource("StyleBoxFlat_xl0mq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_dh1nt")
 text = "Configurações"
 
 [node name="SairBtn" type="Button" parent="GridContainer/Panel/GridContainer/MarginContainer/VBoxContainer" unique_id=1121167264]
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_7dfdx")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_g6422")
-theme_override_styles/hover = SubResource("StyleBoxFlat_pi82x")
+theme_override_styles/normal = SubResource("StyleBoxTexture_8l4ds")
 text = "Fechar"
 
 [connection signal="pressed" from="GridContainer/Panel/GridContainer/MarginContainer/VBoxContainer/IniciarBtn" to="." method="_on_iniciar_btn_pressed"]

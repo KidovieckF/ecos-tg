@@ -1,13 +1,13 @@
 extends CanvasLayer
 
 #Upgrade
-var upg_de_dano = preload("res://Recursos/Upgrades/Dano.tres")
-var upg_de_speed = preload("res://Recursos/Upgrades/Speed.tres")
-var upg_de_tamanho = preload("res://Recursos/Upgrades/Tamanho.tres")
-var upg_de_multidisparo = preload("res://Recursos/Upgrades/Multidisparo.tres")
-var upg_de_bounce = preload("res://Recursos/Upgrades/Bounce.tres")
-var upg_de_pentracao = preload("res://Recursos/Upgrades/Penetracao.tres")
-var upg_de_disparos = preload("res://Recursos/Upgrades/Disparos.tres")
+var upg_de_dano = preload("res://Recursos/Upgrades/Gerais/Dano.tres")
+var upg_de_speed = preload("res://Recursos/Upgrades/Gerais/Speed.tres")
+var upg_de_tamanho = preload("res://Recursos/Upgrades/Gerais/Tamanho.tres")
+var upg_de_multidisparo = preload("res://Recursos/Upgrades/Gerais/Multidisparo.tres")
+var upg_de_bounce = preload("res://Recursos/Upgrades/Gerais/Bounce.tres")
+var upg_de_pentracao = preload("res://Recursos/Upgrades/Gerais/Penetracao.tres")
+var upg_de_disparos = preload("res://Recursos/Upgrades/Gerais/Disparos.tres")
 var upg_de_explosao_FOGO = preload("res://Recursos/Upgrades/Explosao_FOGO.tres")
 var upg_de_bala_teleguiada = preload("res://Recursos/Upgrades/Teleguiado.tres")
 var upg_de_missil_explosao = preload("res://Recursos/Upgrades/Missil_explosivo.tres")

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://gho8m25vn6vn"]
+
+[ext_resource type="Texture2D" uid="uid://b24kq72fl4uqc" path="res://sprites/inimigos/Projeteis/Pedra_golem.png" id="1_anog1"]
+[ext_resource type="Script" uid="uid://cn4rse7cxenxj" path="res://Scripts/Inimigos/Proj_boss/bola_golem.gd" id="1_dj5py"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dj5py"]
+radius = 66.007576
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbl4v"]
+bg_color = Color(1, 0.34715065, 0.2388078, 0.50980395)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="Node2D" type="Area2D" unique_id=98616204]
+script = ExtResource("1_dj5py")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1040160591]
+shape = SubResource("CircleShape2D_dj5py")
+
+[node name="Sombra" type="Panel" parent="." unique_id=498532014]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -67.0
+offset_right = 67.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fbl4v")
+
+[node name="Pedra" type="Sprite2D" parent="." unique_id=982977251]
+visible = false
+texture = ExtResource("1_anog1")

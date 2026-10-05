@@ -5,6 +5,7 @@ var slot_artefato = preload("res://Cenas/Huds/slot_artefato.tscn")
 
 func _ready() -> void:
 	RunData.inventario_atualizado.connect(atualizar_inventario)
+	atualizar_vida(RunData.vida_atual, RunData.vida_max)
 	atualizar_inventario()
 
 	

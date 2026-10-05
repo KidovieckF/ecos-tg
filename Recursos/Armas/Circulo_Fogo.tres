@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://c3d68ydxd6jsq" path="res://Cenas/Player/Magias/circulo_fogo.tscn" id="1_y0gf3"]
 [ext_resource type="Texture2D" uid="uid://d1jnott6ebre4" path="res://sprites/GUI_fantasy/fire1.png" id="4_vcf4t"]
 [ext_resource type="Script" uid="uid://bddrmptq05ctm" path="res://Recursos/Upgrades/upgrades.gd" id="5_76djj"]
-[ext_resource type="Resource" uid="uid://c6j14cwd7x5dj" path="res://Recursos/Upgrades/Multidisparo.tres" id="6_wbg6r"]
-[ext_resource type="Resource" uid="uid://di7pdywk7r0nr" path="res://Recursos/Upgrades/Tamanho.tres" id="7_nn2yx"]
-[ext_resource type="Resource" uid="uid://bbk331fykv6fn" path="res://Recursos/Upgrades/Dano.tres" id="8_xha6n"]
+[ext_resource type="Resource" uid="uid://c6j14cwd7x5dj" path="res://Recursos/Upgrades/Gerais/Multidisparo.tres" id="6_wbg6r"]
+[ext_resource type="Resource" uid="uid://di7pdywk7r0nr" path="res://Recursos/Upgrades/Gerais/Tamanho.tres" id="7_nn2yx"]
+[ext_resource type="Resource" uid="uid://bbk331fykv6fn" path="res://Recursos/Upgrades/Gerais/Dano.tres" id="8_xha6n"]
 
 [resource]
 script = ExtResource("1_btsob")

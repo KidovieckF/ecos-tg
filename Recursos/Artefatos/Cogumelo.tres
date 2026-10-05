@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_5vcmr")
 nome = "Cogumelo Esquisito"
+preco = 20
 tiro_pela_culatra = true
 tamanho_magia_mult = 2.0
 limite = 2

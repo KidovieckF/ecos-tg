@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://b3sth7ng6ynt0" path="res://Cenas/Player/Magias/terromoto_cena.tscn" id="1_ewfrp"]
 [ext_resource type="Texture2D" uid="uid://jmrgbtjq4dqf" path="res://sprites/GUI_fantasy/earth1.png" id="3_wtfsg"]
 [ext_resource type="Script" uid="uid://bddrmptq05ctm" path="res://Recursos/Upgrades/upgrades.gd" id="4_wtfsg"]
-[ext_resource type="Resource" uid="uid://bbk331fykv6fn" path="res://Recursos/Upgrades/Dano.tres" id="5_6kvej"]
-[ext_resource type="Resource" uid="uid://di7pdywk7r0nr" path="res://Recursos/Upgrades/Tamanho.tres" id="6_2dlv8"]
-[ext_resource type="Resource" uid="uid://c6j14cwd7x5dj" path="res://Recursos/Upgrades/Multidisparo.tres" id="7_6q03p"]
+[ext_resource type="Resource" uid="uid://bbk331fykv6fn" path="res://Recursos/Upgrades/Gerais/Dano.tres" id="5_6kvej"]
+[ext_resource type="Resource" uid="uid://di7pdywk7r0nr" path="res://Recursos/Upgrades/Gerais/Tamanho.tres" id="6_2dlv8"]
+[ext_resource type="Resource" uid="uid://c6j14cwd7x5dj" path="res://Recursos/Upgrades/Gerais/Multidisparo.tres" id="7_6q03p"]
 
 [resource]
 script = ExtResource("1_8lxra")

@@ -5,6 +5,7 @@ class_name Artefato_data
 @export var descricao : String
 @export var icone : Texture2D
 @export var preco : int
+@export var arma_requerida : String = ""
 
 #Variaveis especificas: Artefato 
 @export var tiro_pela_culatra : bool = false

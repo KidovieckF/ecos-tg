@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://u6h2m5jroh2j" path="res://sprites/characters/alicia/AliciaDireitaIdle.png" id="9_c74lg"]
 [ext_resource type="Texture2D" uid="uid://bh6fc76w8pbv7" path="res://icon.svg" id="14_qxjan"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gq7i4"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h32wm"]
 texture = ExtResource("1_s71b3")
 0:0/0 = 0
 0:1/0 = 0
@@ -41,11 +41,11 @@ texture = ExtResource("1_s71b3")
 0:5/0/y_sort_origin = 11
 0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.3971996, 11.577866, 8.356955, 11.751968, 12.013124, 19.586615, 10.272093, 25.157919, -3.656168, 25.506124, -9.923885, 23.416887, -11.664917, 17.149168)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sffsy"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r5u00"]
 texture = ExtResource("2_6s653")
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c74lg"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kvulb"]
 texture = ExtResource("3_qxjan")
 1:1/0 = 0
 2:2/0 = 0
@@ -108,13 +108,13 @@ texture = ExtResource("3_qxjan")
 [sub_resource type="TileSet" id="TileSet_h32wm"]
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
-sources/1 = SubResource("TileSetAtlasSource_sffsy")
-sources/2 = SubResource("TileSetAtlasSource_c74lg")
-sources/0 = SubResource("TileSetAtlasSource_gq7i4")
+sources/1 = SubResource("TileSetAtlasSource_r5u00")
+sources/2 = SubResource("TileSetAtlasSource_kvulb")
+sources/0 = SubResource("TileSetAtlasSource_h32wm")
 
 [sub_resource type="Animation" id="Animation_h32wm"]
 resource_name = "Alice_Andando"
-length = 3.0333333
+length = 4.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true

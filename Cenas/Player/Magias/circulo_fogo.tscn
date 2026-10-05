@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://q5t6vn72yav6" path="res://Cenas/Player/Magias/Debuffs/Queimadura.tscn" id="2_omwdj"]
 [ext_resource type="Resource" uid="uid://cn1yre7vhal61" path="res://Recursos/Debuffs/Queimadura.tres" id="3_budvu"]
 [ext_resource type="Texture2D" uid="uid://b8tuhorwa7qqo" path="res://sprites/particulas/Fire.png" id="4_203b1"]
+[ext_resource type="Texture2D" uid="uid://c17f4x10k4s0w" path="res://sprites/magias/pixilart-sprite.png" id="5_xmlj2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yg7ov"]
 bg_color = Color(0.83534527, 0.1381338, 0.1879346, 0.16862746)
@@ -13,7 +14,7 @@ corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n6u44"]
-radius = 88.02273
+radius = 71.063354
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xmlj2"]
 particle_flag_disable_z = true
@@ -25,6 +26,56 @@ linear_accel_max = -69.89
 scale_min = 0.099999994
 scale_max = 0.19999999
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmlj2"]
+atlas = ExtResource("5_xmlj2")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwg3g"]
+atlas = ExtResource("5_xmlj2")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igjq6"]
+atlas = ExtResource("5_xmlj2")
+region = Rect2(320, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4aei"]
+atlas = ExtResource("5_xmlj2")
+region = Rect2(480, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g66ol"]
+atlas = ExtResource("5_xmlj2")
+region = Rect2(640, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sea3"]
+atlas = ExtResource("5_xmlj2")
+region = Rect2(800, 0, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0sea3"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_xmlj2")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_vwg3g")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_igjq6")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_p4aei")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_g66ol")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_0sea3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Circulo" type="Area2D" unique_id=1801574145]
 collision_layer = 0
 collision_mask = 6
@@ -33,10 +84,10 @@ cena_da_queimadura = ExtResource("2_omwdj")
 debuff = ExtResource("3_budvu")
 
 [node name="Panel" type="Panel" parent="." unique_id=1060036699]
-offset_left = -86.0
-offset_top = -85.0
-offset_right = 87.0
-offset_bottom = 88.0
+offset_left = -71.0
+offset_top = -71.0
+offset_right = 71.0
+offset_bottom = 71.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_yg7ov")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2103240278]
@@ -53,6 +104,11 @@ process_material = SubResource("ParticleProcessMaterial_xmlj2")
 [node name="TempoVida" type="Timer" parent="." unique_id=1096452655]
 wait_time = 5.0
 one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=511427050]
+position = Vector2(-1.4999995, -0.49999952)
+scale = Vector2(1.0687499, 1.0687499)
+sprite_frames = SubResource("SpriteFrames_0sea3")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

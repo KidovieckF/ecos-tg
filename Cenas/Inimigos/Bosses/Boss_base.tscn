@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bqr6tm6awdcpj"]
+
+[ext_resource type="Script" uid="uid://cekl13lqixqdy" path="res://Scripts/Inimigos/boss_base.gd" id="1_sgb02"]
+
+[node name="Boss_base" type="CharacterBody2D" unique_id=1918095306]
+script = ExtResource("1_sgb02")
+
+[node name="TimerAtaque" type="Timer" parent="." unique_id=1378544482]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1562925289]

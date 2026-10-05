@@ -4,6 +4,7 @@ const ANDARES_MAXIMOS = 3
 
 signal inventario_atualizado
 
+var artefatos_disponiveis : Array[Artefato_data] = []
 
 #Cenas Artefatos
 var cena_Iha_artefato = preload("res://Cenas/Artefatos/IHA_artefato.tscn")
@@ -45,7 +46,7 @@ var egides_ativas : Array[Node] = []
 var egides_totais = 0
 var recarregando_egide = false
 
-
+var upgrades_gerais_pool : Array[UpgradeData] = []
 
 #Cowboy
 var chapeus_coletados = 0
@@ -81,6 +82,7 @@ func _ready():
 	sinal_dano_queimadura.connect(_ativar_cura_fogo)
 	sinal_critico.connect(_ativar_chapeu_cowboy)
 	sinal_egide_morreu.connect(_iniciar_recarga_egide) 
+	carregar_todos_artefatos()
 
 
 func _process(delta: float) -> void:
@@ -126,10 +128,41 @@ func _unhandled_input(event):
 		else:
 			arvore.paused = true
 			tela_pause_atual = preload("res://Cenas/Huds/hud_pause.tscn").instantiate()
-			# Adiciona a tela de pause na raiz do jogo
 			arvore.root.add_child(tela_pause_atual) 
+			
+			
+func carregar_todos_artefatos():
+	artefatos_disponiveis.clear()
+	var dir = DirAccess.open("res://Recursos/Artefatos/")
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if not dir.current_is_dir() and (file_name.ends_with(".tres") or file_name.ends_with(".tres.remap")):
+				var actual_name = file_name.replace(".remap", "")
+				var res = load("res://Recursos/Artefatos/" + actual_name)
+				if res is Artefato_data:
+					artefatos_disponiveis.append(res)
+			file_name = dir.get_next()
+
+func carregar_upgrades_gerais():
+	upgrades_gerais_pool.clear()
+	var dir = DirAccess.open("res://Recursos/Upgrades/Gerais/")
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if not dir.current_is_dir() and (file_name.ends_with(".tres") or file_name.ends_with(".tres.remap")):
+				var actual_name = file_name.replace(".remap", "")
+				var res = load("res://Recursos/Upgrades/Gerais/" + actual_name)
+				if res is UpgradeData:
+					upgrades_gerais_pool.append(res)
+			file_name = dir.get_next()
+
 
 func calcular_artefatos():
+	var qtd = 0
+	
 	var dano = 0
 	var vida = personagem_base.vida
 	var speed = personagem_base.speed
@@ -227,8 +260,19 @@ func aplicar_modificadores_globais(arma):
 
 func adicionar_artefato(artefato : Artefato_data):
 	var vida_max_antiga = vida_max 
+	var qtd = 0
+	
 	
 	artefatos_coletados.append(artefato)
+	
+	for a in artefatos_coletados:
+		if a.resource_path == artefato.resource_path: 
+			qtd += 1
+			
+	if artefato.limite > 0 and qtd >= artefato.limite:
+		#Procura o artefato pelo caminho do arquivo
+		artefatos_disponiveis = artefatos_disponiveis.filter(func(a): return a.resource_path != artefato.resource_path) 
+	
 	inventario_atualizado.emit()
 	artefato.efeito()
 	calcular_artefatos()
@@ -240,6 +284,8 @@ func adicionar_artefato(artefato : Artefato_data):
 	
 	if vida_atual > vida_max:
 		vida_atual = vida_max
+		
+	
 
 
 func multiplicar_dificuldade() -> float:
@@ -259,6 +305,8 @@ func iniciar_run(personagem: player_data, p_arma: ArmaRecurso) -> void:
 	speed_calculado = personagem.speed
 	personagem_base = personagem
 	artefatos_coletados.clear()
+	carregar_todos_artefatos()
+	carregar_upgrades_gerais()
 	calcular_artefatos()
 	
 

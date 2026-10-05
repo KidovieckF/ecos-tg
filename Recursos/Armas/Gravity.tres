@@ -4,9 +4,10 @@
 [ext_resource type="Script" uid="uid://3frisqnighny" path="res://Recursos/Armas/gravity.gd" id="1_o701e"]
 [ext_resource type="Texture2D" uid="uid://ej0bmv5awjl3" path="res://sprites/GUI_fantasy/thunder4.png" id="3_dfpno"]
 [ext_resource type="Script" uid="uid://bddrmptq05ctm" path="res://Recursos/Upgrades/upgrades.gd" id="4_dnapc"]
-[ext_resource type="Resource" uid="uid://bbk331fykv6fn" path="res://Recursos/Upgrades/Dano.tres" id="5_2hvlx"]
-[ext_resource type="Resource" uid="uid://227fpktb6lk8" path="res://Recursos/Upgrades/Speed.tres" id="6_024gb"]
-[ext_resource type="Resource" uid="uid://di7pdywk7r0nr" path="res://Recursos/Upgrades/Tamanho.tres" id="7_2ltw4"]
+[ext_resource type="Resource" uid="uid://bbk331fykv6fn" path="res://Recursos/Upgrades/Gerais/Dano.tres" id="5_2hvlx"]
+[ext_resource type="Resource" uid="uid://227fpktb6lk8" path="res://Recursos/Upgrades/Gerais/Speed.tres" id="6_024gb"]
+[ext_resource type="Resource" uid="uid://di7pdywk7r0nr" path="res://Recursos/Upgrades/Gerais/Tamanho.tres" id="7_2ltw4"]
+
 
 [resource]
 script = ExtResource("1_o701e")

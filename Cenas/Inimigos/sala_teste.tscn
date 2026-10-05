@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://cdc5maehwv413" path="res://Recursos/Player/Alice.tres" id="7_2w4bb"]
 [ext_resource type="PackedScene" uid="uid://dc55a68xesber" path="res://Cenas/Player/Mascotes/mascote.tscn" id="8_iqsdl"]
 [ext_resource type="Resource" uid="uid://ctf04aqblyocg" path="res://Recursos/Mascotes/Stellae.tres" id="9_4qyc7"]
+[ext_resource type="PackedScene" uid="uid://737r1coxsi0g" path="res://Cenas/Inimigos/Bosses/boss_golem.tscn" id="11_4qyc7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2w4bb"]
 texture = ExtResource("1_cyofo")
@@ -117,16 +118,16 @@ tile_map_data = PackedByteArray("AAAAAAsAAQAAAAAAAAAAAAwAAQAAAAAAAAAAAA0AAQAAAAA
 tile_set = SubResource("TileSet_hbmgi")
 
 [node name="Node2D" parent="." unique_id=1118123320 groups=["Inimigos"] instance=ExtResource("4_tbfwo")]
-position = Vector2(1032, 347)
+position = Vector2(163, 579)
 
 [node name="Node2D3" parent="." unique_id=636479965 groups=["Inimigos"] instance=ExtResource("4_tbfwo")]
-position = Vector2(867, 236)
+position = Vector2(481, 582)
 
 [node name="Node2D2" parent="." unique_id=1204847228 groups=["Inimigos"] instance=ExtResource("4_tbfwo")]
-position = Vector2(969, 116)
+position = Vector2(650, 588)
 
 [node name="Node2D4" parent="." unique_id=2022665522 groups=["Inimigos"] instance=ExtResource("4_tbfwo")]
-position = Vector2(930, 463)
+position = Vector2(309, 586)
 
 [node name="Player" parent="." unique_id=2096888764 instance=ExtResource("5_iqsdl")]
 position = Vector2(281, 311)
@@ -137,3 +138,7 @@ personagem = ExtResource("7_2w4bb")
 [node name="Mascote" parent="." unique_id=778746216 instance=ExtResource("8_iqsdl")]
 position = Vector2(281, 311)
 mascote = ExtResource("9_4qyc7")
+
+[node name="Boss_golem" parent="." unique_id=1918095306 instance=ExtResource("11_4qyc7")]
+position = Vector2(1153, 334)
+ataques = Array[String](["jogar_pedra_no_player", "gerar_xadrez", "ataque_retas_cruzadas", "ataque_metralhadora"])

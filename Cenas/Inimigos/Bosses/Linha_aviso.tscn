@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dpqb35egjd1fn"]
+
+[ext_resource type="Script" uid="uid://c474pjn5s5i77" path="res://Scripts/Inimigos/linha_aviso.gd" id="1_pjccc"]
+[ext_resource type="Texture2D" uid="uid://b24kq72fl4uqc" path="res://sprites/inimigos/Projeteis/Pedra_golem.png" id="2_lpjij"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bo10l"]
+radius = 27.166155
+
+[node name="Node2D" type="Node2D" unique_id=1838768880]
+script = ExtResource("1_pjccc")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1016086577]
+z_index = 2
+offset_left = -1139.0
+offset_top = -20.0
+offset_bottom = 20.0
+
+[node name="pedra_voadora" type="Area2D" parent="." unique_id=570166200]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pedra_voadora" unique_id=1814453743]
+shape = SubResource("CircleShape2D_bo10l")
+
+[node name="Sprite2D" type="Sprite2D" parent="pedra_voadora" unique_id=1910609415]
+texture = ExtResource("2_lpjij")
+
+[connection signal="body_entered" from="pedra_voadora" to="." method="_on_pedra_voadora_body_entered"]

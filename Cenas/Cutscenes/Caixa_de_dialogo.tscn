@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://s2yaqedcqp27"]
+
+[ext_resource type="Texture2D" uid="uid://b6uq75f3ayk48" path="res://sprites/Portraits/sasha_dialogo_4.png" id="1_sg4cn"]
+[ext_resource type="Texture2D" uid="uid://bv8m568d5c51l" path="res://sprites/Hud/caixaDialogoFolha.png" id="2_sg4cn"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1917002634]
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1368732767]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GridContainer" unique_id=46186155]
+custom_minimum_size = Vector2(1153, 654)
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/MarginContainer" unique_id=1439509249]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = -150
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/MarginContainer/HBoxContainer" unique_id=2071253754]
+z_index = 2
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 6
+texture = ExtResource("1_sg4cn")
+expand_mode = 1
+
+[node name="Panel" type="NinePatchRect" parent="GridContainer/MarginContainer/HBoxContainer" unique_id=1042197794]
+custom_minimum_size = Vector2(700, 230)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+texture = ExtResource("2_sg4cn")
+region_rect = Rect2(13.887424, 12.654825, 227.76515, 80.10891)
+
+[node name="MarginContainer" type="MarginContainer" parent="GridContainer/MarginContainer/HBoxContainer/Panel" unique_id=1636499227]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/MarginContainer/HBoxContainer/Panel/MarginContainer" unique_id=511796504]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="GridContainer/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=1710002619]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "teste
+"
