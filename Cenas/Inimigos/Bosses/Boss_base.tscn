@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bqr6tm6awdcpj"]
 
 [ext_resource type="Script" uid="uid://cekl13lqixqdy" path="res://Scripts/Inimigos/boss_base.gd" id="1_sgb02"]
+[ext_resource type="PackedScene" uid="uid://bgfuxu745s3b5" path="res://Cenas/Inimigos/Hurtbox.tscn" id="2_drhxw"]
 
 [node name="Boss_base" type="CharacterBody2D" unique_id=1918095306]
 script = ExtResource("1_sgb02")
@@ -8,3 +9,23 @@ script = ExtResource("1_sgb02")
 [node name="TimerAtaque" type="Timer" parent="." unique_id=1378544482]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1562925289]
+
+[node name="Hurtbox" parent="." unique_id=1731929558 instance=ExtResource("2_drhxw")]
+
+[node name="CanvasBoss" type="CanvasLayer" parent="." unique_id=1853036111]
+visible = false
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasBoss" unique_id=1894256632]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -293.5
+offset_top = -46.0
+offset_right = 293.5
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4

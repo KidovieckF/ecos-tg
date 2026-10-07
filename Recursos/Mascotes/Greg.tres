@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MascoteGreg" format=3 uid="uid://dy8j530kk27qx"]
+
+[ext_resource type="PackedScene" uid="uid://crs3u1x185n68" path="res://Cenas/Player/Mascotes/Greg_bomba.tscn" id="1_8jk6u"]
+[ext_resource type="Script" uid="uid://djna43p0huls8" path="res://Recursos/Mascotes/Greg.gd" id="1_yhprj"]
+[ext_resource type="Texture2D" uid="uid://dgbrxh3ww05wm" path="res://sprites/Mascotes/Greg.jpg" id="3_racwb"]
+
+[resource]
+script = ExtResource("1_yhprj")
+nome = "Greg"
+dano = 10.0
+projetil = ExtResource("1_8jk6u")
+textura = ExtResource("3_racwb")
+metadata/_custom_type_script = "uid://djna43p0huls8"

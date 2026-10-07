@@ -6,12 +6,13 @@ var dano_atual
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
-
+	$Sprite2D.play("default")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position += direction * 300 * delta
+	rotation = direction.angle()
 
 
 func start(pos, dir, dano):

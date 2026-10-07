@@ -16,11 +16,14 @@ offset_top = -20.0
 offset_bottom = 20.0
 
 [node name="pedra_voadora" type="Area2D" parent="." unique_id=570166200]
+scale = Vector2(0.695, 0.695)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pedra_voadora" unique_id=1814453743]
 shape = SubResource("CircleShape2D_bo10l")
 
 [node name="Sprite2D" type="Sprite2D" parent="pedra_voadora" unique_id=1910609415]
+position = Vector2(0.5, 0.5)
+scale = Vector2(1.015625, 1.015625)
 texture = ExtResource("2_lpjij")
 
 [connection signal="body_entered" from="pedra_voadora" to="." method="_on_pedra_voadora_body_entered"]

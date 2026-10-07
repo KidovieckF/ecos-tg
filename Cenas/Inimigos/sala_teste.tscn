@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cn8y5s0pru1up" path="res://Cenas/Mundo/HUD.tscn" id="6_4qyc7"]
 [ext_resource type="Resource" uid="uid://cdc5maehwv413" path="res://Recursos/Player/Alice.tres" id="7_2w4bb"]
 [ext_resource type="PackedScene" uid="uid://dc55a68xesber" path="res://Cenas/Player/Mascotes/mascote.tscn" id="8_iqsdl"]
-[ext_resource type="Resource" uid="uid://ctf04aqblyocg" path="res://Recursos/Mascotes/Stellae.tres" id="9_4qyc7"]
+[ext_resource type="Resource" uid="uid://dy8j530kk27qx" path="res://Recursos/Mascotes/Greg.tres" id="10_4qyc7"]
 [ext_resource type="PackedScene" uid="uid://737r1coxsi0g" path="res://Cenas/Inimigos/Bosses/boss_golem.tscn" id="11_4qyc7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2w4bb"]
@@ -137,8 +137,8 @@ personagem = ExtResource("7_2w4bb")
 
 [node name="Mascote" parent="." unique_id=778746216 instance=ExtResource("8_iqsdl")]
 position = Vector2(281, 311)
-mascote = ExtResource("9_4qyc7")
+mascote = ExtResource("10_4qyc7")
 
-[node name="Boss_golem" parent="." unique_id=1918095306 instance=ExtResource("11_4qyc7")]
-position = Vector2(1153, 334)
+[node name="Boss_golem" parent="." unique_id=1918095306 groups=["Boss"] instance=ExtResource("11_4qyc7")]
+position = Vector2(1081, 343)
 ataques = Array[String](["jogar_pedra_no_player", "gerar_xadrez", "ataque_retas_cruzadas", "ataque_metralhadora"])

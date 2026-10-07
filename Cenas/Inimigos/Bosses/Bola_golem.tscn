@@ -36,3 +36,5 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_fbl4v")
 [node name="Pedra" type="Sprite2D" parent="." unique_id=982977251]
 visible = false
 texture = ExtResource("1_anog1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

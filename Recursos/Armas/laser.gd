@@ -42,6 +42,8 @@ func calcular_upgrades():
 			tamanho *= i.valor
 		if i.efeito == "bounce":
 			bounces += i.valor
+		if i.efeito == "Dano":
+			dano_add += i.valor
 		if i.efeito == "penetracao":
 			penetracao = true
 		if i.efeito == "laser_continuo":
@@ -52,6 +54,7 @@ func calcular_upgrades():
 
 
 func usar_arma(player,delta, dano_adicional, dano_multiplicador, direcao):
+	
 	if tem_laser_continuo:
 		if laser_instancia == null:
 			laser_instancia = projetil_continuo.instantiate()
@@ -87,6 +90,7 @@ func parar_uso(player):
 	if tem_laser_continuo:
 		if laser_instancia != null:
 			laser_instancia.sumir_encolhendo(0.5)
+			laser_instancia.reparent(player.get_parent())
 			laser_instancia = null
 			player.get_node("AttackTimer").wait_time = 2.0 / RunData.mult_de_atk_speed
 			player.get_node("AttackTimer").start()

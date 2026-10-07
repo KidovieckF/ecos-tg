@@ -6,7 +6,7 @@ var portas_da_sala = []
 var contador_inimigos = 0
 var sensor_ja_ativado = false
 var tempo_de_vida = 0
-var boss_cena = preload("res://Cenas/Inimigos/boss1.tscn")
+var boss_cena = preload("res://Cenas/Inimigos/Bosses/boss_golem.tscn")
 var boss_fall = preload("res://Cenas/Inimigos/boss_fall.tscn")
 var portal_lobby = preload("res://Cenas/Mundo/Portal_lobby.tscn")
 
@@ -25,6 +25,11 @@ func ajustar_parede(norte, sul, leste, oeste):
 		$ParedeLeste.clear()
 	if oeste == true:
 		$ParedeOeste.clear()
+		
+	if leste == true and oeste == false:
+		$SpawnBoss.position.x = 100
+	else:
+		$SpawnBoss.position.x = 1000
 
 func spawnar_portal():
 	var portal = portal_lobby.instantiate()

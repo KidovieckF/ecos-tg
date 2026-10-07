@@ -6,7 +6,7 @@ extends CharacterBody2D
 var is_in_range = []
 
 func _ready() -> void:
-	pass
+	$Sprite2D.texture = mascote.textura
 	
 func _physics_process(delta: float) -> void:
 	player = get_tree().get_first_node_in_group("Players")

@@ -30,7 +30,6 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="TicTimer" type="Timer" parent="." unique_id=481104794]
-wait_time = 0.1
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

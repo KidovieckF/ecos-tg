@@ -6,6 +6,22 @@ var projetil = preload("res://Cenas/Inimigos/Bosses/Bola.tscn")
 @onready var player = get_tree().get_first_node_in_group("Players")
 
 
+func _ready() -> void:
+	print("vida atual:", vida_atual )
+	cutscene_inicial()
+
+	
+	
+
+func cutscene_inicial():
+	player.set_physics_process(false)
+	await get_tree().create_timer(2.0).timeout
+	player.get_node("CameraJogo").tremor(300)
+	revelar_barra()
+	await get_tree().create_timer(2.0).timeout
+	player.set_physics_process(true)
+	timer_ataque.start()
+
 func jogar_pedra_no_player():
 	sprite.play("Atacar")
 	
@@ -59,20 +75,20 @@ func ataque_retas_cruzadas():
 	await get_tree().create_timer(3.0).timeout
 	finalizar_ataque()
 	
+	
 
 func ataque_metralhadora():
 	sprite.play("Magia")
 	
 	for i in range(20):
-		var espalhamento = randf_range(-10, 10) 
+		var espalhamento = randf_range(-5, 5) 
 		
 		var novo_tiro = projetil.instantiate()
 		get_parent().add_child(novo_tiro)
 		
 		var direcao = (player.global_position - global_position).normalized().rotated(deg_to_rad(espalhamento))
 		novo_tiro.global_position = global_position
-		
-		#novo_tiro.start(global_position, direcao) 
+		novo_tiro.start(global_position, direcao) 
 		await get_tree().create_timer(randf_range(0.05, 0.15)).timeout
 	await get_tree().create_timer(1.0).timeout
 	finalizar_ataque()

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://crs3u1x185n68"]
+
+[ext_resource type="Script" uid="uid://beswyt0p1n5hm" path="res://Scripts/Player/Mascotes/greg_bomba.gd" id="1_ifden"]
+[ext_resource type="Texture2D" uid="uid://gjei8mmp5rg3" path="res://sprites/magias/Bomba_Greg.png" id="2_cj40g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cj40g"]
+radius = 53.009434
+
+[sub_resource type="Gradient" id="Gradient_cj40g"]
+colors = PackedColorArray(0, 0, 0, 0.6627451, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4n8yu"]
+gradient = SubResource("Gradient_cj40g")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.595)
+
+[node name="Area2D" type="Area2D" unique_id=1417686143]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("1_ifden")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=260798196]
+visible = false
+shape = SubResource("CircleShape2D_cj40g")
+
+[node name="Sombra" type="Sprite2D" parent="." unique_id=1108321185]
+scale = Vector2(1.305, 1.305)
+texture = SubResource("GradientTexture2D_4n8yu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1913960974]
+position = Vector2(2, -5)
+texture = ExtResource("2_cj40g")

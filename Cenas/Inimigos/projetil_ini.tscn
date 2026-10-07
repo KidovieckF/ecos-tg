@@ -1,7 +1,43 @@
 [gd_scene format=3 uid="uid://c7lsw1h1uljyn"]
 
-[ext_resource type="Texture2D" uid="uid://caxfw1d7sj3hp" path="res://sprites/inimigos/arqueiro.jpg" id="1_2v54s"]
 [ext_resource type="Script" uid="uid://dcs3bqnmqcrfh" path="res://Scripts/Inimigos/projetil_ini.gd" id="1_7opwe"]
+[ext_resource type="Texture2D" uid="uid://brb87korx7nce" path="res://sprites/magias/Fireball_Sprite_Sheet.png" id="2_7opwe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62n6v"]
+atlas = ExtResource("2_7opwe")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umuno"]
+atlas = ExtResource("2_7opwe")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_my7mx"]
+atlas = ExtResource("2_7opwe")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xt5o"]
+atlas = ExtResource("2_7opwe")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nnp2h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62n6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umuno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_my7mx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xt5o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7opwe"]
 size = Vector2(60.5, 16)
@@ -9,10 +45,11 @@ size = Vector2(60.5, 16)
 [node name="ProjetilIni" type="Area2D" unique_id=1053165397]
 script = ExtResource("1_7opwe")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1857063303]
-position = Vector2(1, -9.536743e-07)
-scale = Vector2(0.3025, 0.08000001)
-texture = ExtResource("1_2v54s")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=343156127]
+position = Vector2(0.49999905, 0)
+scale = Vector2(1.90625, 0.49999997)
+sprite_frames = SubResource("SpriteFrames_nnp2h")
+frame_progress = 0.95293546
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1301051678]
 position = Vector2(0.75, 0)

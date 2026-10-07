@@ -10,12 +10,15 @@ var morto = false
 
 @onready var timer_ataque = $TimerAtaque
 @onready var sprite = $AnimatedSprite2D
+@onready var barra_vida = $CanvasBoss/ProgressBar
 
 func _ready() -> void:
 	vida_atual = vida_base * RunData.mult_dificuldade
+	
 	timer_ataque.wait_time = tempo_entre_ataques
 	timer_ataque.start()
 	sprite.play("Idle")
+	
 
 func _on_timer_ataque_timeout() -> void:
 	print("Atacou")
@@ -31,3 +34,33 @@ func finalizar_ataque() -> void:
 	if not morto:
 		sprite.play("Idle")
 		timer_ataque.start()
+
+func revelar_barra():
+
+	vida_atual = vida_base * RunData.mult_dificuldade
+	print("Vida Base do Boss: ", vida_base)
+	print("Vida Atual Calculada: ", vida_atual)
+	
+	barra_vida.max_value = vida_base
+	barra_vida.value = vida_atual
+	
+
+	$CanvasBoss.visible = true
+	
+	barra_vida.value = 0
+	var tween = create_tween()
+	tween.tween_property(barra_vida, "value", vida_atual, 4.0).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+	
+func atualizar_barra():
+	var tween = create_tween()
+	tween.tween_property(barra_vida, "value", vida_atual, 0.2)
+
+func receber_dano(quantidade):
+	if morto: return
+	print("Dano do boss: ", quantidade)
+	vida_atual -= quantidade
+	atualizar_barra() 
+	
+	if vida_atual <= 0:
+		morto = true
+		print("BOSS MORREU!")
