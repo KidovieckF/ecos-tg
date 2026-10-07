@@ -9,16 +9,16 @@ var vida_atual : float
 var morto = false
 
 @onready var timer_ataque = $TimerAtaque
-@onready var sprite = $AnimatedSprite2D
+
 @onready var barra_vida = $CanvasBoss/ProgressBar
+@onready var anim = $AnimationPlayer
 
 func _ready() -> void:
 	vida_atual = vida_base * RunData.mult_dificuldade
 	
 	timer_ataque.wait_time = tempo_entre_ataques
 	timer_ataque.start()
-	sprite.play("Idle")
-	
+	anim.play("Idle")
 
 func _on_timer_ataque_timeout() -> void:
 	print("Atacou")
@@ -32,7 +32,7 @@ func _on_timer_ataque_timeout() -> void:
 
 func finalizar_ataque() -> void:
 	if not morto:
-		sprite.play("Idle")
+		anim.play("Idle")
 		timer_ataque.start()
 
 func revelar_barra():

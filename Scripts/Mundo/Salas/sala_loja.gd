@@ -7,7 +7,7 @@ var hud_loja = preload("res://Cenas/Huds/hud_loja.tscn")
 
 func _ready() -> void:
 	pass 
-
+	$StaticBody2D/Sasha.play("default")
 
 
 func _process(delta: float) -> void:

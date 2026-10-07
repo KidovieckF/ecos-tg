@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bjeekix7tv3t5" path="res://sprites/tilesets/grass.png" id="2_xviru"]
 [ext_resource type="Texture2D" uid="uid://xjhnbcblp4dr" path="res://sprites/tilesets/plains.png" id="3_don3u"]
 [ext_resource type="Texture2D" uid="uid://jc2kemrhhsj" path="res://sprites/image-removebg-preview.png" id="5_a8esp"]
+[ext_resource type="Texture2D" uid="uid://dpqsxwijm42j3" path="res://sprites/characters/SashaFrente.png" id="6_a8esp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8esp"]
 texture = ExtResource("1_l3wb6")
@@ -106,6 +107,56 @@ sources/0 = SubResource("TileSetAtlasSource_a8esp")
 [sub_resource type="CircleShape2D" id="CircleShape2D_kd64y"]
 radius = 276.07993
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kd64y"]
+atlas = ExtResource("6_a8esp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23mvt"]
+atlas = ExtResource("6_a8esp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c01ck"]
+atlas = ExtResource("6_a8esp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2cd8"]
+atlas = ExtResource("6_a8esp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1od5c"]
+atlas = ExtResource("6_a8esp")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v68ht"]
+atlas = ExtResource("6_a8esp")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nhr4s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kd64y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23mvt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c01ck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2cd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1od5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v68ht")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_don3u"]
 texture = ExtResource("3_don3u")
 1:4/0 = 0
@@ -169,6 +220,11 @@ position = Vector2(571, 321)
 scale = Vector2(0.53256524, 0.53256524)
 shape = SubResource("CircleShape2D_kd64y")
 
+[node name="Sasha" type="AnimatedSprite2D" parent="StaticBody2D" unique_id=2088321964]
+position = Vector2(461.25003, 331.04257)
+scale = Vector2(2.0781257, 2.1223412)
+sprite_frames = SubResource("SpriteFrames_nhr4s")
+
 [node name="ParedeNorte" type="TileMapLayer" parent="." unique_id=837561575]
 z_index = 1
 tile_map_data = PackedByteArray("AAABAAAAAAACAAYAAAACAAAAAAACAAYAAAADAAAAAAACAAYAAAAEAAAAAAACAAYAAAAFAAAAAAACAAYAAAAGAAAAAAACAAYAAAAHAAAAAAACAAYAAAAIAAAAAAACAAYAAAAJAAAAAAACAAYAAAAKAAAAAAACAAYAAAALAAAAAAACAAYAAAAMAAAAAAACAAYAAAANAAAAAAACAAYAAAAOAAAAAAACAAYAAAAPAAAAAAACAAYAAAAQAAAAAAACAAYAAAARAAAAAAACAAYAAAASAAAAAAACAAYAAAATAAAAAAACAAYAAAAUAAAAAAACAAYAAAAVAAAAAAACAAYAAAAWAAAAAAACAAYAAAAXAAAAAAACAAYAAAAYAAAAAAACAAYAAAAZAAAAAAACAAYAAAAaAAAAAAACAAYAAAAbAAAAAAACAAYAAAAcAAAAAAACAAYAAAAdAAAAAAACAAYAAAAeAAAAAAACAAYAAAAfAAAAAAACAAYAAAAgAAAAAAACAAYAAAAhAAAAAAACAAYAAAAiAAAAAAACAAYAAAAjAAAAAAACAAYAAAAkAAAAAAACAAYAAAAlAAAAAAACAAYAAAAmAAAAAAACAAYAAAAnAAAAAAACAAYAAAAoAAAAAAACAAYAAAApAAAAAAACAAYAAAAqAAAAAAACAAYAAAArAAAAAAACAAYAAAAsAAAAAAACAAYAAAAtAAAAAAACAAYAAAAuAAAAAAACAAYAAAAvAAAAAAACAAYAAAAwAAAAAAACAAYAAAAxAAAAAAACAAYAAAAyAAAAAAACAAYAAAAzAAAAAAACAAYAAAA0AAAAAAACAAYAAAA1AAAAAAACAAYAAAA2AAAAAAACAAYAAAA3AAAAAAACAAYAAAA4AAAAAAACAAYAAAA5AAAAAAACAAYAAAA6AAAAAAACAAYAAAA7AAAAAAACAAYAAAA8AAAAAAACAAYAAAA9AAAAAAACAAYAAAA+AAAAAAACAAYAAAA/AAAAAAACAAYAAABAAAAAAAACAAYAAABBAAAAAAACAAYAAABCAAAAAAACAAYAAABDAAAAAAACAAYAAABEAAAAAAACAAYAAABFAAAAAAACAAYAAABGAAAAAAACAAYAAABHAAAAAAAFAAYAAAAAAAAAAAAEAAYAAAA=")
@@ -190,6 +246,7 @@ tile_map_data = PackedByteArray("AABHACYAAAABAAUAAABHACUAAAABAAUAAABHACQAAAABAAU
 tile_set = SubResource("TileSet_a8esp")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1508091385]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1591338921]
 position = Vector2(576, 321.5)

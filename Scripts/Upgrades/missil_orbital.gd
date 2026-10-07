@@ -14,7 +14,6 @@ func _process(delta):
 		return
 		
 	var total_misseis = arma.tiros_por_burst * arma.bursts
-	
 
 	if misseis_carregados.size() < total_misseis:
 		timer_reload -= delta
@@ -23,16 +22,13 @@ func _process(delta):
 			var tempo_total = player.personagem.atk_cd / RunData.mult_de_atk_speed + 10
 			timer_reload = tempo_total / total_misseis
 			
-	
 	timer_tiro -= delta
 	if timer_tiro <= 0 and misseis_carregados.size() > 0:
 		var inimigo = _achar_inimigo()
 		if inimigo:
 			_atirar_um_missil(inimigo)
-			timer_tiro = 0.1 # <-- Mude aqui para alterar a cadência de fogo entre os mísseis
+			timer_tiro = 0.1 
 			
-	# 3. ORGANIZADOR VISUAL
-	# Atualiza a posição de todo mundo nas suas costas para ficarem bonitos
 	_atualizar_posicoes()
 
 func _spawnar_um_missil():
@@ -42,7 +38,8 @@ func _spawnar_um_missil():
 	missil_real.set_physics_process(false)
 	missil_real.get_node("Area2D").monitoring = false
 	
-	# Faz ele nascer invisível no centro para o lerp empurrar ele pra fora bonito
+	missil_real.fantasma_de_parede = true 
+	
 	missil_real.position = Vector2.ZERO 
 	
 	add_child(missil_real)
@@ -53,8 +50,10 @@ func _atirar_um_missil(inimigo):
 	var player = get_parent()
 	var mundo = player.get_parent()
 	
-	# Puxa a primeira bala da sua asa e arranca ela da lista
 	var missil = misseis_carregados.pop_front()
+	
+	if not is_instance_valid(missil): return 
+	
 	var direcao_exata = (inimigo.global_position - missil.global_position).normalized()
 	
 	var pos_salva = missil.global_position
@@ -71,6 +70,12 @@ func _atirar_um_missil(inimigo):
 	missil.set_physics_process(true)
 	missil.get_node("Area2D").set_deferred("monitoring", true)
 	
+	# === DESLIGA O FANTASMA DEPOIS DE 1 SEGUNDO ===
+	get_tree().create_timer(1.0).timeout.connect(func():
+		if is_instance_valid(missil):
+			missil.fantasma_de_parede = false
+	)
+	
 	for upgrade in arma.upgrades_ativos:
 		if upgrade.has_method("ao_atirar"): upgrade.ao_atirar(player, direcao_exata, missil)
 		if upgrade.efeito == "missil_explosao":
@@ -79,6 +84,8 @@ func _atirar_um_missil(inimigo):
 			)
 
 func _atualizar_posicoes():
+	misseis_carregados = misseis_carregados.filter(func(m): return is_instance_valid(m))
+	
 	var qtd_atual = misseis_carregados.size()
 	if qtd_atual == 0: return
 	
@@ -87,11 +94,8 @@ func _atualizar_posicoes():
 	for i in range(qtd_atual):
 		var missil = misseis_carregados[i]
 		var angulo_atual = PI + (espacamento * (i + 1))
-		
-		# Onde o míssil deveria estar
 		var pos_alvo = Vector2(cos(angulo_atual), sin(angulo_atual)) * raio_hover
 		
-		# Usa Lerp para deslizar os mísseis suavemente pelo ar até a nova posição
 		missil.position = missil.position.lerp(pos_alvo, 0.15)
 		missil.rotation = angulo_atual + (PI/2)
 

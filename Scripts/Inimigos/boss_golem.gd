@@ -9,7 +9,7 @@ var projetil = preload("res://Cenas/Inimigos/Bosses/Bola.tscn")
 func _ready() -> void:
 	print("vida atual:", vida_atual )
 	cutscene_inicial()
-
+	$Corpo_golem/Mao_esquerda.visible = true
 	
 	
 
@@ -23,7 +23,7 @@ func cutscene_inicial():
 	timer_ataque.start()
 
 func jogar_pedra_no_player():
-	sprite.play("Atacar")
+	anim.play("Ataque bola")
 	
 	var pedra = cena_pedra.instantiate()
 	get_parent().add_child(pedra)
@@ -33,7 +33,7 @@ func jogar_pedra_no_player():
 	finalizar_ataque()
 
 func gerar_xadrez():
-	sprite.play("Magia")
+	anim.play("Ataque bola")
 	
 	var espacamento = 150 
 	var colunas = 8
@@ -56,7 +56,7 @@ func gerar_xadrez():
 
 
 func ataque_retas_cruzadas():
-	sprite.play("Magia")
+	anim.play("Ataque bola")
 	
 	var espacamento = 120
 	var quantidade_linhas = 8
@@ -78,7 +78,8 @@ func ataque_retas_cruzadas():
 	
 
 func ataque_metralhadora():
-	sprite.play("Magia")
+	anim.play("Lançar bola")
+	var offset_mao = Vector2(-235, 2)
 	
 	for i in range(20):
 		var espalhamento = randf_range(-5, 5) 
@@ -86,9 +87,11 @@ func ataque_metralhadora():
 		var novo_tiro = projetil.instantiate()
 		get_parent().add_child(novo_tiro)
 		
-		var direcao = (player.global_position - global_position).normalized().rotated(deg_to_rad(espalhamento))
-		novo_tiro.global_position = global_position
-		novo_tiro.start(global_position, direcao) 
+		var ponto_de_saida = global_position + offset_mao
+		
+		var direcao = (player.global_position - ponto_de_saida).normalized().rotated(deg_to_rad(espalhamento))
+		novo_tiro.global_position = ponto_de_saida
+		novo_tiro.start(ponto_de_saida, direcao) 
 		await get_tree().create_timer(randf_range(0.05, 0.15)).timeout
 	await get_tree().create_timer(1.0).timeout
 	finalizar_ataque()

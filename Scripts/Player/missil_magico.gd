@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var fantasma_de_parede = false 
+
 var speed_bala = 0
 var dano_bala = 0
 var direction = Vector2.RIGHT
@@ -10,31 +12,26 @@ var bounces = 0
 var perfurante_cena = false
 var e_critico = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Atirei")
 	config_mask = collision_mask
 	print(global_position)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	$Sprite2D.play("default")
 	rotation = direction.angle()
-	
-	var colisao = move_and_collide(direction * speed_bala * delta)
-	
-	if colisao:
-		if bounces == 0:
-			queue_free()
-		else: 
-			direction = direction.bounce(colisao.get_normal())
-			position += colisao.get_normal() * 10
-			bounces -= 1
-			
-
-
-	
+	if fantasma_de_parede:
+		position += direction * speed_bala * delta
+	else:
+		var colisao = move_and_collide(direction * speed_bala * delta)
+		
+		if colisao:
+			if bounces == 0:
+				queue_free()
+			else: 
+				direction = direction.bounce(colisao.get_normal())
+				position += colisao.get_normal() * 10
+				bounces -= 1
 	
 func start(dano, speed, projeteis, indice, bounce, perfurante, direcao, critico):
 	bounces = bounce

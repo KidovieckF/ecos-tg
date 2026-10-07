@@ -139,6 +139,5 @@ personagem = ExtResource("7_2w4bb")
 position = Vector2(281, 311)
 mascote = ExtResource("10_4qyc7")
 
-[node name="Boss_golem" parent="." unique_id=1918095306 groups=["Boss"] instance=ExtResource("11_4qyc7")]
-position = Vector2(1081, 343)
-ataques = Array[String](["jogar_pedra_no_player", "gerar_xadrez", "ataque_retas_cruzadas", "ataque_metralhadora"])
+[node name="Boss_golem" parent="." unique_id=1918095306 instance=ExtResource("11_4qyc7")]
+position = Vector2(1052, 294)

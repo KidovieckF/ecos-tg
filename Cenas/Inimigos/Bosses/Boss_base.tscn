@@ -8,8 +8,6 @@ script = ExtResource("1_sgb02")
 
 [node name="TimerAtaque" type="Timer" parent="." unique_id=1378544482]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1562925289]
-
 [node name="Hurtbox" parent="." unique_id=1731929558 instance=ExtResource("2_drhxw")]
 
 [node name="CanvasBoss" type="CanvasLayer" parent="." unique_id=1853036111]

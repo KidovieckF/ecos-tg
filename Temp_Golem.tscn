@@ -1,18 +1,16 @@
-[gd_scene format=3 uid="uid://737r1coxsi0g"]
+[gd_scene format=3 uid="uid://dxybc2r2eqte5"]
 
-[ext_resource type="PackedScene" uid="uid://bqr6tm6awdcpj" path="res://Cenas/Inimigos/Bosses/Boss_base.tscn" id="1_gjyh8"]
-[ext_resource type="Script" uid="uid://bbnfiue0l8ng5" path="res://Scripts/Inimigos/boss_golem.gd" id="2_twfkx"]
-[ext_resource type="Texture2D" uid="uid://cvn13eunwsr3m" path="res://sprites/Boss/Golem_braco_direito.png" id="3_3mf2w"]
-[ext_resource type="Texture2D" uid="uid://cj2sq1c2kw5o0" path="res://sprites/Boss/Golem_braco_esquerdo.png" id="4_xj3x5"]
-[ext_resource type="Texture2D" uid="uid://dwih65dmtdubx" path="res://sprites/Boss/Golem_perna_esquerda.png" id="5_uv6xy"]
-[ext_resource type="Texture2D" uid="uid://b14kodlq3dfp6" path="res://sprites/Boss/Golem_perna_direita.png" id="6_m6qb1"]
-[ext_resource type="Texture2D" uid="uid://cxkdwr1hassdq" path="res://sprites/Boss/Golem_torso.png" id="7_021d1"]
-[ext_resource type="Texture2D" uid="uid://c2c7852s7e7a7" path="res://sprites/Boss/Golem_cabeca.png" id="8_b0tjx"]
-[ext_resource type="Texture2D" uid="uid://ecad7brkitky" path="res://sprites/Boss/Golem_boca.png" id="9_qvtdg"]
-[ext_resource type="Texture2D" uid="uid://clovwcfv6jhk2" path="res://sprites/Boss/Golem_pe_direito.png" id="10_7oruw"]
-[ext_resource type="Texture2D" uid="uid://ddti4hxjwbwae" path="res://sprites/Boss/Golem_pe_esquerdo.png" id="11_mqc6m"]
-[ext_resource type="Texture2D" uid="uid://bleabvyclwkqm" path="res://sprites/Boss/Golem_mao_esquerda.png" id="12_8grf5"]
-[ext_resource type="Texture2D" uid="uid://h7bnr21sd7m5" path="res://sprites/Boss/Golem_mao_direita.png" id="13_r5s8i"]
+[ext_resource type="Texture2D" uid="uid://cvn13eunwsr3m" path="res://sprites/Boss/Golem_braco_direito.png" id="1_v500c"]
+[ext_resource type="Texture2D" uid="uid://cj2sq1c2kw5o0" path="res://sprites/Boss/Golem_braco_esquerdo.png" id="2_vatq0"]
+[ext_resource type="Texture2D" uid="uid://dwih65dmtdubx" path="res://sprites/Boss/Golem_perna_esquerda.png" id="3_ac1vn"]
+[ext_resource type="Texture2D" uid="uid://b14kodlq3dfp6" path="res://sprites/Boss/Golem_perna_direita.png" id="4_k8p08"]
+[ext_resource type="Texture2D" uid="uid://cxkdwr1hassdq" path="res://sprites/Boss/Golem_torso.png" id="5_mxiae"]
+[ext_resource type="Texture2D" uid="uid://c2c7852s7e7a7" path="res://sprites/Boss/Golem_cabeca.png" id="6_7rddf"]
+[ext_resource type="Texture2D" uid="uid://ecad7brkitky" path="res://sprites/Boss/Golem_boca.png" id="7_vvy62"]
+[ext_resource type="Texture2D" uid="uid://clovwcfv6jhk2" path="res://sprites/Boss/Golem_pe_direito.png" id="8_kkytw"]
+[ext_resource type="Texture2D" uid="uid://ddti4hxjwbwae" path="res://sprites/Boss/Golem_pe_esquerdo.png" id="9_x5fow"]
+[ext_resource type="Texture2D" uid="uid://bleabvyclwkqm" path="res://sprites/Boss/Golem_mao_esquerda.png" id="10_dh8fl"]
+[ext_resource type="Texture2D" uid="uid://h7bnr21sd7m5" path="res://sprites/Boss/Golem_mao_direita.png" id="11_5hjg4"]
 
 [sub_resource type="Animation" id="Animation_3mf2w"]
 resource_name = "Ataque bola"
@@ -770,10 +768,10 @@ tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bsejv"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v500c"]
 _data = {
 &"Ataque bola": SubResource("Animation_3mf2w"),
 &"Idle": SubResource("Animation_t22an"),
@@ -781,74 +779,61 @@ _data = {
 &"RESET": SubResource("Animation_phadj")
 }
 
-[node name="Boss_golem" unique_id=1918095306 instance=ExtResource("1_gjyh8")]
-z_index = 2
-script = ExtResource("2_twfkx")
-nome_boss = "Golem"
-vida_base = 1000.0
-ataques = Array[String](["jogar_pedra_no_player", "gerar_xadrez"])
+[node name="Node2D" type="Node2D" unique_id=523599759]
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="1" unique_id=1531638672]
+[node name="Corpo_golem" type="Node2D" parent="." unique_id=2089754956]
 
-[node name="Corpo_golem" type="Node2D" parent="." index="2" unique_id=2114689019]
-
-[node name="Braco_direito" type="Sprite2D" parent="Corpo_golem" index="0" unique_id=1361134997]
+[node name="Braco_direito" type="Sprite2D" parent="Corpo_golem" unique_id=1461873548]
 position = Vector2(42, -43)
-texture = ExtResource("3_3mf2w")
+texture = ExtResource("1_v500c")
 offset = Vector2(49, 56)
 
-[node name="Braco_esquerdo" type="Sprite2D" parent="Corpo_golem" index="1" unique_id=1076585332]
+[node name="Braco_esquerdo" type="Sprite2D" parent="Corpo_golem" unique_id=238636485]
 position = Vector2(-42, -42)
-texture = ExtResource("4_xj3x5")
+texture = ExtResource("2_vatq0")
 offset = Vector2(-43, 61)
 
-[node name="Perna_esquerda" type="Sprite2D" parent="Corpo_golem" index="2" unique_id=1759831295]
+[node name="Perna_esquerda" type="Sprite2D" parent="Corpo_golem" unique_id=621767792]
 position = Vector2(-31, 64)
-texture = ExtResource("5_uv6xy")
+texture = ExtResource("3_ac1vn")
 offset = Vector2(-1, 30)
 
-[node name="Perna_direita" type="Sprite2D" parent="Corpo_golem" index="3" unique_id=968947341]
+[node name="Perna_direita" type="Sprite2D" parent="Corpo_golem" unique_id=198110822]
 position = Vector2(15, 58)
-texture = ExtResource("6_m6qb1")
+texture = ExtResource("4_k8p08")
 offset = Vector2(4, 45)
 
-[node name="Torso" type="Sprite2D" parent="Corpo_golem" index="4" unique_id=767166313]
-texture = ExtResource("7_021d1")
+[node name="Torso" type="Sprite2D" parent="Corpo_golem" unique_id=1077191824]
+texture = ExtResource("5_mxiae")
 
-[node name="Cabeça" type="Sprite2D" parent="Corpo_golem" index="5" unique_id=533875861]
+[node name="Cabeça" type="Sprite2D" parent="Corpo_golem" unique_id=652012380]
 position = Vector2(-9, -50)
-texture = ExtResource("8_b0tjx")
+texture = ExtResource("6_7rddf")
 offset = Vector2(-30, -2)
 
-[node name="Boca" type="Sprite2D" parent="Corpo_golem" index="6" unique_id=633963334]
+[node name="Boca" type="Sprite2D" parent="Corpo_golem" unique_id=1485923334]
 position = Vector2(-3, -29)
-texture = ExtResource("9_qvtdg")
+texture = ExtResource("7_vvy62")
 offset = Vector2(-36, 1)
 
-[node name="Pe_direito" type="Sprite2D" parent="Corpo_golem" index="7" unique_id=2055628232]
+[node name="Pe_direito" type="Sprite2D" parent="Corpo_golem" unique_id=1376179752]
 position = Vector2(51, 156)
-texture = ExtResource("10_7oruw")
+texture = ExtResource("8_kkytw")
 
-[node name="Pe_esquerdo" type="Sprite2D" parent="Corpo_golem" index="8" unique_id=902714968]
+[node name="Pe_esquerdo" type="Sprite2D" parent="Corpo_golem" unique_id=1623218037]
 position = Vector2(-52, 156)
-texture = ExtResource("11_mqc6m")
+texture = ExtResource("9_x5fow")
 
-[node name="Mao_esquerda" type="Sprite2D" parent="Corpo_golem" index="9" unique_id=1072792144]
-z_index = 1
+[node name="Mao_esquerda" type="Sprite2D" parent="Corpo_golem" unique_id=1600474060]
+visible = false
 position = Vector2(-86, 117)
-texture = ExtResource("12_8grf5")
+texture = ExtResource("10_dh8fl")
 offset = Vector2(26, 31)
 
-[node name="Mao_direita" type="Sprite2D" parent="Corpo_golem" index="10" unique_id=2005154950]
+[node name="Mao_direita" type="Sprite2D" parent="Corpo_golem" unique_id=1010026512]
 position = Vector2(96, 114)
-texture = ExtResource("13_r5s8i")
+texture = ExtResource("11_5hjg4")
 offset = Vector2(-26, 32)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=41997723]
-libraries/ = SubResource("AnimationLibrary_bsejv")
-
-[node name="Hurtbox" parent="." index="4" unique_id=1731929558]
-position = Vector2(0, 43.975)
-scale = Vector2(10.395, 10.395)
-
-[connection signal="timeout" from="TimerAtaque" to="." method="_on_timer_ataque_timeout"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1374832225]
+libraries/ = SubResource("AnimationLibrary_v500c")
