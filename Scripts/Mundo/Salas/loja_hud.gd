@@ -9,75 +9,56 @@ var sorte2 :Artefato_data
 var sorte3 :Artefato_data
 
 var sorteArma : ArmaRecurso
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
+	sorte1 = RunData.sortear_artefato_por_pesos(RunData.PESOS_LOJA)
 	
-	var pool_loja = RunData.artefatos_disponiveis.filter(func(a): 
-		return a.arma_requerida == "" or (RunData.armas[0] != null and a.arma_requerida == RunData.armas[0].nome)
-	)
-	
-	
-	if pool_loja.size() > 0:
-		var index_sorteado = sortear_artefato(pool_loja)
-		sorte1 = pool_loja[index_sorteado]
+	if sorte1 != null:
 		%ArtNome1.text = sorte1.nome
 		%ArtefatoBtn.texture_normal = sorte1.icone
 		%ArtPreco1.text = "$" + str(sorte1.preco)
-		pool_loja.remove_at(index_sorteado)
+		%ArtefatoBtn.tooltip_text = sorte1.nome + "\n" + sorte1.descricao
 	else:
 		%ArtefatoBtn.visible = false
+		%ArtNome1.visible = false
+		%ArtPreco1.visible = false
+
+	var tentativas = 0
+	sorte2 = RunData.sortear_artefato_por_pesos(RunData.PESOS_LOJA)
+	while sorte2 == sorte1 and RunData.artefatos_disponiveis.size() > 1 and tentativas < 10:
+		sorte2 = RunData.sortear_artefato_por_pesos(RunData.PESOS_LOJA)
+		tentativas += 1
 		
-	if pool_loja.size() > 0:
-		var index_sorteado = sortear_artefato(pool_loja)
-		sorte2 = pool_loja[index_sorteado]
+	if sorte2 != null and sorte2 != sorte1:
 		%ArtNome2.text = sorte2.nome
 		%ArtefatoBtn2.texture_normal = sorte2.icone
 		%ArtPreco3.text = "$: " + str(sorte2.preco)
+		%ArtefatoBtn2.tooltip_text = sorte2.nome + "\n" + sorte2.descricao
 	else:
 		%ArtefatoBtn2.visible = false
-	
-	var mostrar_arma = randi_range(0,1)
-	
+		%ArtNome2.visible = false
+		%ArtPreco3.visible = false
+
+	var mostrar_arma = randi_range(0, 1)
 	if mostrar_arma == 1:
 		sortear_arma()
 		sorteArma = armas[sorteadoArma]
 		%PrecoArma.text = "$: " + str(sorteArma.preco)
 		%DescricaoArma.text = str(sorteArma.nome)
 		%ArmaBtn.texture_normal = sorteArma.textura
+		%ArmaBtn.tooltip_text = sorteArma.nome
 	elif mostrar_arma == 0:
 		%PrecoArma.visible = false
 		%ArmaBtn.visible = false
 		%DescricaoArma.text = "Nenhuma arma em estoque."
 		%ComprarBtn.visible = false
-		
-func sortear_artefato(pool_atual: Array) -> int:
-	if pool_atual.size() == 0:
-		return -1
-		
-	var chance = randi() % 100  # Rola o dado de 0 a 99
-	var raridade_sorteada = ""
-	
-	if chance < 50: # 50% de chance
-		raridade_sorteada = "Comum"
-	elif chance < 80: # 30% de chance
-		raridade_sorteada = "Incomum"
-	elif chance < 90: # 10% de chance
-		raridade_sorteada = "Raro" 
-		
-	var pool_filtrada = pool_atual.filter(func(a): return a.raridade == raridade_sorteada)
-	
-	if pool_filtrada.size() == 0:
-		pool_filtrada = pool_atual
-		
-	var item_escolhido = pool_filtrada[randi_range(0, pool_filtrada.size() - 1)]
-	
-	return pool_atual.find(item_escolhido)
+
 
 	
 func sortear_arma():
 	sorteadoArma =  randi_range(0, armas.size() - 1 )
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
 	pass
 

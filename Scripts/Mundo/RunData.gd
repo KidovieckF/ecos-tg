@@ -1,6 +1,29 @@
 extends Node
 
 const ANDARES_MAXIMOS = 3
+var pity_drop_artefato: int = 0
+
+const PESOS_INIMIGO_COMUM = {
+	"Comum": 70,
+	"Incomum": 25,
+	"Raro": 5
+}
+const PESOS_MINIBOSS = {
+	"Incomum": 45,
+	"Raro": 40,
+	"Epico": 15
+}
+const PESOS_BOSS = {
+	"Raro": 40,
+	"Epico": 40,
+	"Lendario": 20
+}
+const PESOS_LOJA = {
+	"Comum": 50,
+	"Incomum": 30,
+	"Raro": 15,
+	"Epico": 5
+}
 
 signal inventario_atualizado
 
@@ -288,8 +311,11 @@ func adicionar_artefato(artefato : Artefato_data):
 	
 
 
-func multiplicar_dificuldade() -> float:
-	return 1.0 + dificuldade * 0.05
+func multiplicar_dificuldade():
+	var bonus_andar = (andar - 1) * 0.50
+	var bonus_salas = (dificuldade - 1) * 0.04
+	mult_dificuldade = 1.0 + bonus_andar + bonus_salas
+
 
 func iniciar_run(personagem: player_data, p_arma: ArmaRecurso) -> void:
 	resetar_run()
@@ -326,6 +352,7 @@ func resetar_run() -> void:
 	dano_multiplicador = 1
 	barra_ultimate_atual = 0
 	dificuldade = 1
+	pity_drop_artefato = 0
 
 func guardar_player(player) -> void:
 	xp_atual = player.xp_atual
@@ -340,6 +367,50 @@ func carregar_player(player) -> void:
 
 func avancar_andar():
 	andar += 1
+
+# DROPS DE ARTEFATOS:
+func checar_drop_inimigo_comum() -> Artefato_data:
+	var chance_base = 2.0
+	var chance_atual = chance_base + (pity_drop_artefato * 0.1)
+	var roll = randf_range(0.0, 100.0)
+	
+	if roll <= chance_atual:
+		pity_drop_artefato = 0
+		return sortear_artefato_por_pesos(PESOS_INIMIGO_COMUM)
+	else:
+		pity_drop_artefato += 1
+		return null
+
+
+func sortear_artefato_por_pesos(pesos: Dictionary) -> Artefato_data:
+	var pool_valida = artefatos_disponiveis.filter(func(a):
+		return a.arma_requerida == "" or (armas[0] != null and a.arma_requerida == armas[0].nome)
+	)
+	
+	if pool_valida.is_empty():
+		return null
+		
+	var peso_total = 0
+	for p in pesos.values():
+		peso_total += p
+		
+	var sorteio = randi_range(1, peso_total)
+	var raridade_sorteada = ""
+	var acumulado = 0
+	
+	for raridade in pesos.keys():
+		acumulado += pesos[raridade]
+		if sorteio <= acumulado:
+			raridade_sorteada = raridade
+			break
+			
+	var candidatos = pool_valida.filter(func(a): return a.raridade == raridade_sorteada)
+	
+	if candidatos.is_empty():
+		candidatos = pool_valida
+		
+	return candidatos.pick_random()
+
 
 
 #EFEITOS DOS ARTEFATOS!!!!
@@ -359,7 +430,7 @@ func _ativar_cura_fogo(dano_recebido, inimigo):
 
 	if cura_queimadura_total > 0:
 		print("Ativou")
-		# Multiplica o dano da queimadura pela sua porcentagem de cura
+
 		var cura_calculada = dano_recebido * cura_queimadura_total
 		
 		# Procura o Player na tela

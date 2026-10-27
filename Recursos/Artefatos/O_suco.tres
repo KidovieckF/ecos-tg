@@ -1,11 +1,14 @@
 [gd_resource type="Resource" script_class="Artefato_data" format=3 uid="uid://d0fet88xt2ne2"]
 
+[ext_resource type="Texture2D" uid="uid://boymph7sa44o3" path="res://sprites/Artefatos/O_suco.png" id="1_64gxv"]
 [ext_resource type="Script" uid="uid://dja2hqiq4y6k" path="res://Recursos/Artefatos/artefatos.gd" id="1_lu602"]
 
 [resource]
 script = ExtResource("1_lu602")
 nome = "O Suco"
-preco = 10
+descricao = "Aumenta a vida máxima do jogador em +10% cumulativo."
+icone = ExtResource("1_64gxv")
+preco = 75
 vida_max_mult = 0.1
 limite = 10
 raridade = "Raro"

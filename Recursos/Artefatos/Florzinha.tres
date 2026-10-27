@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="Artefato_data" format=3 uid="uid://ugdxj1bxxlpb"]
 
 [ext_resource type="Script" uid="uid://dja2hqiq4y6k" path="res://Recursos/Artefatos/artefatos.gd" id="1_i6st3"]
+[ext_resource type="Texture2D" uid="uid://hra01bep0niv" path="res://sprites/Artefatos/Flor_fofa.png" id="1_vkd2h"]
 
 [resource]
 script = ExtResource("1_i6st3")
 nome = "Florzinha Fofinha"
-preco = 10
+descricao = "Regenera 1% da vida máxima por segundo enquanto ficar parado."
+icone = ExtResource("1_vkd2h")
+preco = 35
 cura_parado = 1.0
+raridade = "Incomum"
 metadata/_custom_type_script = "uid://dja2hqiq4y6k"

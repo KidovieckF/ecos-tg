@@ -786,7 +786,7 @@ z_index = 2
 script = ExtResource("2_twfkx")
 nome_boss = "Golem"
 vida_base = 1000.0
-ataques = Array[String](["jogar_pedra_no_player", "gerar_xadrez"])
+ataques = Array[String](["jogar_pedra_no_player", "gerar_xadrez", "ataque_retas_cruzadas", "ataque_metralhadora"])
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1" unique_id=1531638672]
 

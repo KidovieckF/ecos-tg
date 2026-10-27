@@ -1,11 +1,14 @@
 [gd_resource type="Resource" script_class="Artefato_data" format=3 uid="uid://c266hb46vdxjk"]
 
+[ext_resource type="Texture2D" uid="uid://bra7nppy1nt0a" path="res://sprites/Artefatos/Cristal_corrompido.png" id="1_m0hs6"]
 [ext_resource type="Script" uid="uid://dja2hqiq4y6k" path="res://Recursos/Artefatos/artefatos.gd" id="1_u8rmb"]
 
 [resource]
 script = ExtResource("1_u8rmb")
 nome = "Cristal Corrompido"
-preco = 30
+descricao = "Dobra seu dano (+100%), mas corta sua vida máxima pela metade."
+icone = ExtResource("1_m0hs6")
+preco = 70
 cristal_corrompido = true
 dano_mult = 1.0
 limite = 1

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cfndixou3x5ha"
+path="res://.godot/imported/Beyond the Forest.mp3-e5e9e899fc2ec1d66e8af34100ab3a8d.mp3str"
+
+[deps]
+
+source_file="res://Sons/Beyond the Forest.mp3"
+dest_files=["res://.godot/imported/Beyond the Forest.mp3-e5e9e899fc2ec1d66e8af34100ab3a8d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

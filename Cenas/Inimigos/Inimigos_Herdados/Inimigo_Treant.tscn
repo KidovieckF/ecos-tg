@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cbt16msfnuonm"]
+
+[ext_resource type="PackedScene" uid="uid://cblhmuvwm5g5m" path="res://Cenas/Inimigos/inimigo_base.tscn" id="1_3gpm3"]
+[ext_resource type="Texture2D" uid="uid://dr0hye3w8rvqe" path="res://sprites/inimigos/treant/treant.png" id="2_nebq7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xs1p3"]
+atlas = ExtResource("2_nebq7")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m5n8v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xs1p3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3gpm3"]
+radius = 56.008926
+
+[node name="InimigoBase" unique_id=1673984598 instance=ExtResource("1_3gpm3")]
+
+[node name="AreaDano" parent="." index="0" unique_id=636268532]
+scale = Vector2(4.73, 4.73)
+
+[node name="Sprite2D" parent="." index="1" unique_id=208783479]
+position = Vector2(1, 1)
+scale = Vector2(0.24618748, 0.31918752)
+sprite_frames = SubResource("SpriteFrames_m5n8v")
+animation = &"default"
+frame = 0
+frame_progress = 0.0
+
+[node name="Hurtbox" parent="." index="3" unique_id=1731929558]
+visible = true
+scale = Vector2(4.65, 4.65)
+
+[node name="CollisionShape2D" parent="." index="4" unique_id=354137520]
+shape = SubResource("CircleShape2D_3gpm3")

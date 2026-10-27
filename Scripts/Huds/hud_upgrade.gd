@@ -22,7 +22,6 @@ func _ready() -> void:
 	var ativos = RunData.armas[0].upgrades_ativos
 	
 	for upg in pool_bruta:
-
 		if upg.limite > 0:
 			var qtd = 0
 			for a in ativos:
@@ -30,8 +29,7 @@ func _ready() -> void:
 					qtd += 1
 			if qtd >= upg.limite:
 				continue
-
-		# Exclusao da lista de upgrades incompativeis
+				
 		var bloqueado = false
 		for excl in upg.excludentes:
 			for a in ativos:
@@ -51,13 +49,12 @@ func _ready() -> void:
 		if bloqueado:
 			continue 
 		
-		# Exclusao da lista de upgrades incompativeis com a arma
-		var arma_proibida = false
-		for arma in upg.armas_proibidas:
-			if arma.resource_path == RunData.armas[0].resource_path:
-				arma_proibida = true
+		var compativel = false
+		for upg_permitido in RunData.armas[0].tipos_upgrade:
+			if upg_permitido.resource_path == upg.resource_path:
+				compativel = true
 				break
-		if arma_proibida:
+		if not compativel:
 			continue
 			
 		upgrades_da_loja.append(upg)

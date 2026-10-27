@@ -45,8 +45,9 @@ func atualizar_inventario():
 		child.queue_free()
 	for artefato in RunData.artefatos_coletados:
 		var slot_inventario = slot_artefato.instantiate()
-		
 		slot_inventario.texture = artefato.icone
+		slot_inventario.tooltip_text = artefato.nome + "\n" + artefato.descricao
 		%InventarioGrid.add_child(slot_inventario)
+
 		
 		

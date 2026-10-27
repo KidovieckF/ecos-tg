@@ -53,7 +53,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
 
 [node name="VBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer" unique_id=211867884]
 layout_mode = 2
@@ -79,6 +81,8 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="DescricaoArma" type="Label" parent="Panel/MarginContainer/VBoxContainer/ArmaContainer" unique_id=289303844]
 unique_name_in_owner = true
@@ -104,6 +108,8 @@ layout_mode = 2
 [node name="ArtefatoBtn" parent="Panel/MarginContainer/VBoxContainer/Artefatos" unique_id=1204837669 instance=ExtResource("2_35upk")]
 unique_name_in_owner = true
 layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="ArtPreco1" type="Label" parent="Panel/MarginContainer/VBoxContainer/Artefatos" unique_id=1971750596]
 unique_name_in_owner = true
@@ -116,6 +122,8 @@ layout_mode = 2
 [node name="ArtefatoBtn2" parent="Panel/MarginContainer/VBoxContainer/Artefatos" unique_id=631438980 instance=ExtResource("2_35upk")]
 unique_name_in_owner = true
 layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="ArtPreco3" type="Label" parent="Panel/MarginContainer/VBoxContainer/Artefatos" unique_id=542849185]
 unique_name_in_owner = true

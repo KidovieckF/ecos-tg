@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://p713lsk8r24v"]
+
+[ext_resource type="Script" uid="uid://cxcgkrp2cb4ud" path="res://Scripts/Huds/roleta_disco.gd" id="1_33dr4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abpi3"]
+corner_radius_top_left = 500
+corner_radius_top_right = 500
+corner_radius_bottom_right = 500
+corner_radius_bottom_left = 500
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33dr4"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=181250552]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1449020825]
+custom_minimum_size = Vector2(400, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.16862746, 0.16862746, 0.16862746, 0.5372549)
+
+[node name="Control" type="Control" parent="ColorRect" unique_id=1200636808]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Titulo" type="Label" parent="ColorRect/Control" unique_id=1489954954]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Roleta"
+
+[node name="Control" type="Control" parent="ColorRect/Control" unique_id=1637984393]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Roleta_dentro" type="Panel" parent="ColorRect/Control/Control" unique_id=732631022]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(350, 350)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -175.0
+offset_right = 175.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(175, 175)
+theme_override_styles/panel = SubResource("StyleBoxFlat_abpi3")
+script = ExtResource("1_33dr4")
+
+[node name="Polygon2D" type="Polygon2D" parent="ColorRect/Control/Control" unique_id=570311549]
+position = Vector2(202, 4)
+offset = Vector2(-194, -4)
+polygon = PackedVector2Array(194, 0, 175, 22, 193, 59, 212, 22)
+
+[node name="Girar_Button" type="Button" parent="ColorRect/Control/Control" unique_id=156365490]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.045
+anchor_top = 0.89000005
+anchor_right = 0.165
+anchor_bottom = 0.96700007
+offset_top = -3.0517578e-05
+offset_bottom = 0.19998169
+grow_vertical = 0
+text = "Girar"
+
+[node name="Pino_rolete" type="Panel" parent="ColorRect/Control/Control" unique_id=1303317053]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_33dr4")
+
+[connection signal="pressed" from="ColorRect/Control/Control/Girar_Button" to="ColorRect/Control/Control/Roleta_dentro" method="_on_girar_button_pressed"]

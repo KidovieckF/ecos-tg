@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://clbk752i4e46s" path="res://Scripts/Miniboss/miniboss_base.gd" id="1_uufx7"]
 [ext_resource type="Resource" uid="uid://tx214mphm6et" path="res://Recursos/Inimigos/Miniboss/lich/lich.tres" id="2_auln1"]
 [ext_resource type="Texture2D" uid="uid://bh6fc76w8pbv7" path="res://icon.svg" id="2_tfqr0"]
+[ext_resource type="PackedScene" uid="uid://bgfuxu745s3b5" path="res://Cenas/Inimigos/Hurtbox.tscn" id="4_qpefd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tfqr0"]
 radius = 34.132095
@@ -12,7 +13,7 @@ radius = 34.132095
 [sub_resource type="CircleShape2D" id="CircleShape2D_auln1"]
 radius = 35.057095
 
-[node name="Miniboss" type="CharacterBody2D" unique_id=1074078104]
+[node name="Miniboss" type="CharacterBody2D" unique_id=1074078104 groups=["Boss", "Inimigos"]]
 collision_layer = 4
 collision_mask = 7
 motion_mode = 1
@@ -49,6 +50,8 @@ texture = ExtResource("2_tfqr0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BodyDmg" unique_id=1462527031]
 shape = SubResource("CircleShape2D_auln1")
+
+[node name="Hurtbox" parent="." unique_id=1731929558 instance=ExtResource("4_qpefd")]
 
 [connection signal="body_entered" from="AtaqueBase" to="." method="_on_ataque_base_body_entered"]
 [connection signal="body_entered" from="BodyDmg" to="." method="_on_body_dmg_body_entered"]

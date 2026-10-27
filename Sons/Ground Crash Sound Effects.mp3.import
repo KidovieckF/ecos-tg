@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://f0k5js8huirn"
+path="res://.godot/imported/Ground Crash Sound Effects.mp3-bee7fa2e0ada52843a99716a67249f85.mp3str"
+
+[deps]
+
+source_file="res://Sons/Ground Crash Sound Effects.mp3"
+dest_files=["res://.godot/imported/Ground Crash Sound Effects.mp3-bee7fa2e0ada52843a99716a67249f85.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="Artefato_data" format=3 uid="uid://by1ae61tagkpp"]
 
 [ext_resource type="Script" uid="uid://dja2hqiq4y6k" path="res://Recursos/Artefatos/artefatos.gd" id="1_f5f2e"]
+[ext_resource type="Texture2D" uid="uid://8qv4ut0fkncq" path="res://sprites/Artefatos/Oculos_sol.png" id="1_ksk47"]
 
 [resource]
 script = ExtResource("1_f5f2e")
 nome = "Oculos de sol"
+descricao = "Converte 10% do dano por queimadura em cura (Requer Círculo de Fogo)."
+icone = ExtResource("1_ksk47")
+preco = 200
 arma_requerida = "Circulo de Fogo"
 cura_queimadura_pct = 0.1
 limite = 1

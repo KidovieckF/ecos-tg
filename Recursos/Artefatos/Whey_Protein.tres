@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="Artefato_data" format=3 uid="uid://c3yfatrjyk0dn"]
 
 [ext_resource type="Script" uid="uid://dja2hqiq4y6k" path="res://Recursos/Artefatos/artefatos.gd" id="1_0sdyu"]
+[ext_resource type="Texture2D" uid="uid://itma05j4v2ib" path="res://sprites/Artefatos/whey.png" id="1_f07nb"]
 
 [resource]
 script = ExtResource("1_0sdyu")
 nome = "Whey Protein"
+descricao = "Concede +10 pontos fixos de vida máxima."
+icone = ExtResource("1_f07nb")
 preco = 10
 vida_max_add = 10.0
 limite = -1

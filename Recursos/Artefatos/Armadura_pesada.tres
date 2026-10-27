@@ -1,11 +1,14 @@
 [gd_resource type="Resource" script_class="Artefato_data" format=3 uid="uid://co0co7hkgqjrk"]
 
+[ext_resource type="Texture2D" uid="uid://kfrxswo01wl7" path="res://sprites/Artefatos/Armadura.png" id="1_72lr8"]
 [ext_resource type="Script" uid="uid://dja2hqiq4y6k" path="res://Recursos/Artefatos/artefatos.gd" id="1_tcd33"]
 
 [resource]
 script = ExtResource("1_tcd33")
 nome = "Armadura Extravagante Pesada de Oricalco"
-preco = 20
+descricao = "Reduz 25% do dano recebido, mas reduz 50% da velocidade."
+icone = ExtResource("1_72lr8")
+preco = 100
 speed_mult = -0.5
 reducao_dano = 0.25
 raridade = "Epico"

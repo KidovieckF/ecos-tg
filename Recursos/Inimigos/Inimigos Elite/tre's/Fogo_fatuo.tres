@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Ini_FogoFatuoData" format=3 uid="uid://3hqnvaovm6bg"]
+
+[ext_resource type="PackedScene" uid="uid://bgjw8q8w3pkv0" path="res://Cenas/Inimigos/Inimigos_Herdados/Inimigo_fogo_fatuo.tscn" id="1_jy6mq"]
+[ext_resource type="Script" uid="uid://csdgqtmr1m8mx" path="res://Recursos/Inimigos/Inimigos Elite/elite_fogo_fatuo.gd" id="1_s310d"]
+[ext_resource type="PackedScene" uid="uid://c7lsw1h1uljyn" path="res://Cenas/Inimigos/projetil_ini.tscn" id="2_p2t45"]
+
+[resource]
+script = ExtResource("1_s310d")
+Nome = "Fogo Fátuo"
+vida = 5
+dano = 20.0
+speed = 200.0
+projetil = ExtResource("2_p2t45")
+peso_spawn = 10
+exp = 20.0
+cena_inimigo = ExtResource("1_jy6mq")
+metadata/_custom_type_script = "uid://csdgqtmr1m8mx"

@@ -1,11 +1,14 @@
 [gd_resource type="Resource" script_class="Artefato_data" format=3 uid="uid://wb5nha0vmft2"]
 
+[ext_resource type="Texture2D" uid="uid://w35nlj0657x0" path="res://sprites/Artefatos/Bandoleira.png" id="1_1i02d"]
 [ext_resource type="Script" uid="uid://dja2hqiq4y6k" path="res://Recursos/Artefatos/artefatos.gd" id="1_ejwix"]
 
 [resource]
 script = ExtResource("1_ejwix")
 nome = "Coldre do Xerife"
-preco = 10
+descricao = "Aumenta em +100% a cadência de disparo (velocidade de ataque)."
+icone = ExtResource("1_1i02d")
+preco = 30
 atk_speed_mult = 1.0
 limite = 5
 raridade = "Incomum"

@@ -49,6 +49,7 @@ func calcular_upgrades():
 	
 
 func disparar_burst(player, dano_adicional, dano_multiplicador, proj_por_burst,direcao):
+	AudioManager.tocar_sfx(AudioManager.SFX_MAGIA_SWOOSH, -4.0, true)
 	for i in range(proj_por_burst):
 		var dano_atual = dano
 		var is_critico = calcular_critico()

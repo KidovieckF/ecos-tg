@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Ini_CogumeloData" format=3 uid="uid://nldmomj5yhv0"]
+
+[ext_resource type="PackedScene" uid="uid://bbbyog0cafm1y" path="res://Cenas/Inimigos/Inimigos_Herdados/Inimigo_Cogumelo.tscn" id="1_i81db"]
+[ext_resource type="Script" uid="uid://ylcxjvssv2xv" path="res://Recursos/Inimigos/Inimigos Comuns/Cogumelo.gd" id="1_s0oqp"]
+
+[resource]
+script = ExtResource("1_s0oqp")
+Nome = "Cogumelo"
+vida = 35
+dano = 10.0
+speed = 105.0
+peso_spawn = 35
+dificuldade_minima = 3
+exp = 10.0
+cena_inimigo = ExtResource("1_i81db")
+metadata/_custom_type_script = "uid://ylcxjvssv2xv"

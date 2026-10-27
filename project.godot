@@ -11,14 +11,19 @@ config_version=5
 [application]
 
 config/name="Ecos_TG"
-run/main_scene="uid://cctwdw2h0fint"
+run/main_scene="uid://iqmolkeyby7q"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://b6cuqblgiagsn"
 
 [autoload]
 
 RecursosGlobais="*uid://bgxwsadti2jr6"
 RunData="*uid://b0vf5pkdsy8od"
+AudioManager="*uid://d3nctfopxw1i"
 
 [display]
 

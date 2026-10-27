@@ -17,8 +17,9 @@ var tem_crescimento
 @export var cena_da_queimadura : PackedScene
 @export var debuff : DebuffsData
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
+	AudioManager.tocar_sfx(AudioManager.SFX_FOGO, -2.0, false)
 	var raio = 20
 	var posicao_mouse = get_global_mouse_position()
 	$Timer.start()

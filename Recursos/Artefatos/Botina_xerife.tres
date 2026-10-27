@@ -1,11 +1,14 @@
 [gd_resource type="Resource" script_class="Artefato_data" format=3 uid="uid://b3pt0bmvmaavd"]
 
 [ext_resource type="Script" uid="uid://dja2hqiq4y6k" path="res://Recursos/Artefatos/artefatos.gd" id="1_4kcot"]
+[ext_resource type="Texture2D" uid="uid://c513x8c7oiat1" path="res://sprites/Artefatos/Botina.png" id="1_yrdwh"]
 
 [resource]
 script = ExtResource("1_4kcot")
 nome = "Botina do Pé Rapado"
-preco = 10
+descricao = "Concede velocidade de movimento bônus ao acertar golpes críticos."
+icone = ExtResource("1_yrdwh")
+preco = 65
 speed_ao_critar = 200.0
 limite = 2
 raridade = "Raro"

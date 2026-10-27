@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://b2g6mctbarsd2"]
+
+[ext_resource type="Script" uid="uid://dhb1t6brfomqv" path="res://Scripts/Artefatos/artefato_drop.gd" id="1_gc4dw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gc4dw"]
+
+[sub_resource type="Animation" id="Animation_gc4dw"]
+resource_name = "Float"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icone:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s7lc3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icone:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eyk6v"]
+_data = {
+&"Float": SubResource("Animation_gc4dw"),
+&"RESET": SubResource("Animation_s7lc3")
+}
+
+[node name="ArtefatoDrop" type="Area2D" unique_id=1977009999]
+script = ExtResource("1_gc4dw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=472070245]
+shape = SubResource("CircleShape2D_gc4dw")
+
+[node name="Sombra" type="Sprite2D" parent="." unique_id=1361726057]
+
+[node name="Icone" type="Sprite2D" parent="." unique_id=1345453811]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1797288243]
+libraries/ = SubResource("AnimationLibrary_eyk6v")

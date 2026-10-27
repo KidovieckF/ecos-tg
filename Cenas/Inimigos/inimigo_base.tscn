@@ -192,7 +192,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rdres"]
-radius = 13.0
+radius = 8.062258
 
 [node name="InimigoBase" type="CharacterBody2D" unique_id=1673984598 groups=["Inimigos"]]
 z_index = 1
@@ -205,7 +205,6 @@ cena_moeda = ExtResource("3_j57b0")
 data = SubResource("Resource_hqgbl")
 
 [node name="AreaDano" parent="." unique_id=636268532 instance=ExtResource("4_f5d5q")]
-position = Vector2(1, -1)
 collision_mask = 7
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=208783479]

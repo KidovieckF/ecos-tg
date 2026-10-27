@@ -52,4 +52,8 @@ func inicar_sala(body):
 			var miniboss_scene = miniboss.instantiate()
 			miniboss_scene.position = $SpawnBoss.position
 			add_child(miniboss_scene)
-			
+			miniboss_scene.morreu.connect(func():
+				for p in portas_da_sala:
+					p.abrir_porta()
+				print("Miniboss derrotado! Portas abertas.")
+			)

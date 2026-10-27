@@ -1,11 +1,14 @@
 [gd_resource type="Resource" script_class="Artefato_data" format=3 uid="uid://p4ymefu3uxdq"]
 
 [ext_resource type="Script" uid="uid://dja2hqiq4y6k" path="res://Recursos/Artefatos/artefatos.gd" id="1_5vcmr"]
+[ext_resource type="Texture2D" uid="uid://blxhbx1ke34qg" path="res://sprites/Artefatos/Cogumelo.png" id="1_iv6jh"]
 
 [resource]
 script = ExtResource("1_5vcmr")
 nome = "Cogumelo Esquisito"
-preco = 20
+descricao = "Dobra o tamanho das magias (+100%), mas com risco de tiro invertido."
+icone = ExtResource("1_iv6jh")
+preco = 60
 tiro_pela_culatra = true
 tamanho_magia_mult = 2.0
 limite = 2

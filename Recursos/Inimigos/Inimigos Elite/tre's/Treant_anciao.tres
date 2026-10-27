@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Ini_TreantData" format=3 uid="uid://kwibw81ekwab"]
+
+[ext_resource type="PackedScene" uid="uid://cbt16msfnuonm" path="res://Cenas/Inimigos/Inimigos_Herdados/Inimigo_Treant.tscn" id="1_q5cel"]
+[ext_resource type="Script" uid="uid://1a46i53bvqco" path="res://Recursos/Inimigos/Inimigos Elite/Treant_anciao.gd" id="1_ta8pe"]
+
+[resource]
+script = ExtResource("1_ta8pe")
+Nome = "Treant Ancião"
+vida = 90
+dano = 22.0
+speed = 60.0
+peso_spawn = 10
+exp = 30.0
+cena_inimigo = ExtResource("1_q5cel")
+metadata/_custom_type_script = "uid://1a46i53bvqco"

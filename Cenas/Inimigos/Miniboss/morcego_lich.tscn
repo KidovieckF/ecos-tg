@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d1elfnxwa08bw"]
+
+[ext_resource type="Script" uid="uid://dd1v3hene4qah" path="res://Scripts/Inimigos/Proj_boss/lich_morcego.gd" id="1_tpfyo"]
+[ext_resource type="Texture2D" uid="uid://burf3mvhthp3" path="res://sprites/Boss/Projetil_lich.png" id="2_1lbgq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2n7eb"]
+radius = 9.5
+height = 42.0
+
+[node name="Area2D" type="Area2D" unique_id=899813064]
+script = ExtResource("1_tpfyo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=238491088]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_2n7eb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=813961205]
+texture = ExtResource("2_1lbgq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

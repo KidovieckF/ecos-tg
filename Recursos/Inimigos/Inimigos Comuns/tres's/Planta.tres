@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Ini_PlantaCarnivoraData" format=3 uid="uid://bs2myq81lqnjn"]
+
+[ext_resource type="PackedScene" uid="uid://dynyci80p4j17" path="res://Cenas/Inimigos/Inimigos_Herdados/Inimigo_Planta.tscn" id="1_63ngk"]
+[ext_resource type="Script" uid="uid://bxu7ft50iyaom" path="res://Recursos/Inimigos/Inimigos Comuns/inimigo_planta.gd" id="1_l3axx"]
+[ext_resource type="PackedScene" uid="uid://c7lsw1h1uljyn" path="res://Cenas/Inimigos/projetil_ini.tscn" id="2_4vjqf"]
+
+[resource]
+script = ExtResource("1_l3axx")
+Nome = "Planta atiradora"
+vida = 20
+dano = 10.0
+projetil = ExtResource("2_4vjqf")
+peso_spawn = 10
+dificuldade_minima = 2
+exp = 5.0
+cena_inimigo = ExtResource("1_63ngk")
+metadata/_custom_type_script = "uid://bxu7ft50iyaom"

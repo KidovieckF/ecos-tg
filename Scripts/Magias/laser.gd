@@ -1,43 +1,36 @@
 extends Area2D
 
 var dano_bala
-var pos_final
+var pos_final = Vector2.ZERO
 @onready var limite : RayCast2D = $RayCast2D
 @onready var mira : Line2D = $Line2D
-var e_critico :bool
-
+@onready var col_shape : CollisionShape2D = $CollisionShape2D
+var e_critico : bool
 
 func _ready() -> void:
-	pass
-
-func _physics_process(delta: float) -> void:
-	limite.force_raycast_update()
-	if limite.is_colliding():
-		
-		pos_final = limite.get_collision_point()
-		pos_final = to_local(pos_final)
-		
-	else:
-		pos_final = limite.target_position
-	mira.set_point_position(1, pos_final)
-
-
+	AudioManager.tocar_sfx_charge(AudioManager.SFX_LASER, 3.6, -2.0)
+	if col_shape and col_shape.shape:
+		col_shape.shape = col_shape.shape.duplicate()
 
 func start(dano, pos, critico):
 	dano_bala = dano
 	look_at(get_global_mouse_position())
 	e_critico = critico
-	limite.target_position = Vector2(1000,0)
+	limite.target_position = Vector2(1000, 0)
 	limite.force_raycast_update()
+	
 	if limite.is_colliding():
 		pos_final = to_local(limite.get_collision_point())
 	else:
 		pos_final = limite.target_position
-	mira.set_point_position(1, pos_final)
+		
 	mira.set_point_position(0, Vector2.ZERO)
+	mira.set_point_position(1, pos_final)
+	
+
+	atualizar_colisao(Vector2.ZERO, pos_final)
 	
 	var direcao_mouse = get_global_mouse_position() - global_position
-	
 	if abs(direcao_mouse.y) > abs(direcao_mouse.x) and direcao_mouse.y < 0:
 		z_index = 4 
 	else:
@@ -45,18 +38,28 @@ func start(dano, pos, critico):
 
 func sumir_encolhendo(tempo: float):
 	set_physics_process(false)
-	
 	var tween = create_tween()
-	
 	tween.tween_interval(0.2) 
 	
-
 	tween.tween_method(atualizar_origem, Vector2.ZERO, pos_final, tempo).set_trans(Tween.TRANS_SINE)
-	
 	tween.tween_callback(queue_free)
 
 func atualizar_origem(nova_origem: Vector2):
 	mira.set_point_position(0, nova_origem)
+	atualizar_colisao(nova_origem, pos_final)
+
+func atualizar_colisao(inicio: Vector2, fim: Vector2):
+	if not col_shape or not col_shape.shape:
+		return
+		
+	var comprimento = max(0.0, fim.x - inicio.x)
+	
+	if comprimento <= 5.0:
+		col_shape.disabled = true
+	else:
+		col_shape.disabled = false
+		col_shape.shape.size.x = comprimento
+		col_shape.position.x = inicio.x + (comprimento / 2.0)
 
 
 func _on_area_entered(area: Area2D) -> void:

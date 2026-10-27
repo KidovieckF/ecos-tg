@@ -55,8 +55,11 @@ text = "Nome do item"
 
 [node name="Textura" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer" unique_id=2050442605]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Descricao" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=822383530]
 unique_name_in_owner = true

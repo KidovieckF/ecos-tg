@@ -3,19 +3,13 @@ extends Node2D
 var conv_box = preload("res://Cenas/Mundo/NPCS/Cb_UI.tscn")
 
 func _ready() -> void:
+	AudioManager.tocar_musica(AudioManager.BGM_LOBBY)
 	var player = get_tree().get_first_node_in_group("Players")
 	if not player: return
 	
-	# Desabilita o controle de movimento para a cutscene
 	player.set_physics_process(false)
-	
-	# Salva a posição alvo onde ele deve terminar a caminhada
 	var posicao_final = player.global_position
-	
-	# Move para baixo (fora da tela)
 	player.global_position = posicao_final + Vector2(0, 400)
-	
-	# Animação de andar para cima
 	player.get_node("Sprite2D").play("AndandoCosta")
 	
 	var tween = create_tween()

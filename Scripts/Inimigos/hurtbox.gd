@@ -16,18 +16,18 @@ func take_damage(quantidade, cor = Color.WHITE, critico = false, ativa_artefatos
 	if owner.morto:
 		return
 		
-	if owner.is_in_group("Boss"):
+	if owner.is_in_group("Boss") or owner.has_method("receber_dano"):
 		owner.receber_dano(quantidade)
 	elif owner.is_in_group("Inimigos"):
 		owner.dano_pendente += quantidade
+		
 	var novo_dano = ind_dano.instantiate() 
 
 	if critico == true and ativa_artefatos == true:
 		novo_dano.scale = Vector2(2, 2)
 		RunData.sinal_critico.emit(quantidade, global_position)
-		print("Critou") 
 	
 	owner.get_parent().add_child(novo_dano)
 	novo_dano.global_position = owner.global_position
 	novo_dano._mostrar_dano(quantidade, cor) 
-	RunData.barra_ultimate_atual =  min((RunData.barra_ultimate_atual + (quantidade * 0.01)), RunData.barra_ultimate)
+	RunData.barra_ultimate_atual = min((RunData.barra_ultimate_atual + (quantidade * 0.01)), RunData.barra_ultimate)

@@ -9,6 +9,7 @@ const JUMP_VELOCITY = -400.0
 @onready var sprite = $Sprite2D
 @onready var hud = get_tree().get_first_node_in_group("HUD")
 
+var timer_passo: float = 0.0
 var pode_tomar_dano = true
 var tween_dano
 var nivel = 1
@@ -189,8 +190,20 @@ func _physics_process(delta: float) -> void:
 				velocity.x = move_toward(velocity.x, 0, vel_final)
 				velocity.y = move_toward(velocity.y, 0, vel_final)
 
-
+	
 	move_and_slide()
+	_processar_passos(delta)
+
+func _processar_passos(delta: float) -> void:
+	if velocity.length() > 25.0 and not dashando:
+		timer_passo -= delta
+		if timer_passo <= 0.0:
+			var intervalo = clamp(90.0 / velocity.length(), 0.20, 0.42)
+			timer_passo = intervalo
+			
+			AudioManager.tocar_sfx(AudioManager.SFX_PASSO_GRAMA, -20.0, true)
+	else:
+		timer_passo = 0.06
 
 func atirar():
 	var nova_magia = arma.projetil.instantiate()
@@ -203,7 +216,7 @@ func ganhar_xp(exp):
 	xp_atual += exp 
 	print("EXP: ", xp_atual)
 	if xp_atual >= barra_exp:
-		xp_atual = 0
+		xp_atual -= barra_exp
 		barra_exp = barra_exp * 1.25
 		print("upei de nivel")
 		nivel +=1
@@ -222,7 +235,6 @@ func take_damage(quantidade, cor = Color.WHITE):
 	if pode_tomar_dano == true:
 		$Timer.start()
 		var quantidade_real = quantidade * (1.0 - RunData.dano_reducao)
-		quantidade_real = max(0, quantidade - RunData.dano_reducao)
 		RunData.vida_atual -= quantidade_real
 		tween_dano = create_tween().set_loops()
 		tween_dano.tween_property(sprite, "modulate:a", 0.0, 0.1)

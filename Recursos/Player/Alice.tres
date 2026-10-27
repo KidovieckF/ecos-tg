@@ -5,8 +5,7 @@
 [resource]
 script = ExtResource("1_868og")
 nome = "Alice"
-vida = 20.0
-dano_mult = 1.0
+vida = 50.0
 speed = 300.0
 energia = 100.0
 exp_bar = 100.0

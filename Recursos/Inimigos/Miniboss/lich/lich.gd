@@ -74,6 +74,7 @@ func ataque_tempestade_de_corvos(inimigo: CharacterBody2D):
 	tipo_atk = "tempestade"
 	canalizando = true
 	for i in range(20):
+		if not is_instance_valid(inimigo) or inimigo.morto or not inimigo.is_inside_tree(): return
 		for j in range(8):
 			var espalhamento = randf_range(-5, 5)
 			var novo_tiro = projetil.instantiate()
@@ -81,18 +82,24 @@ func ataque_tempestade_de_corvos(inimigo: CharacterBody2D):
 			var direcao = Vector2.RIGHT.rotated(deg_to_rad(j * 45 + espalhamento))
 			novo_tiro.global_position = inimigo.global_position
 			novo_tiro.start(inimigo.global_position ,direcao)
-		await inimigo.get_tree().create_timer(randf_range(0.01,0.08)).timeout
-		
+		await inimigo.get_tree().create_timer(randf_range(0.01, 0.08)).timeout
+		if not is_instance_valid(inimigo) or inimigo.morto or not inimigo.is_inside_tree():
+			return
+			
 	inimigo.get_node("AcaoTimer").start()
 	await inimigo.get_tree().create_timer(2.0).timeout
 	canalizando = false
 		
 func ataque_garra(inimigo: CharacterBody2D):
+	if not is_instance_valid(inimigo) or inimigo.morto: 
+		return
 	inimigo.get_node("AcaoTimer").start()
 	print("Ataquei Garra")
 	tipo_atk = "garra"
 	canalizando = true
 	await inimigo.get_tree().create_timer(0.5).timeout
+	if not is_instance_valid(inimigo) or inimigo.morto or not inimigo.is_inside_tree(): 
+		return
 	inimigo.get_node("AtaqueBase").look_at(inimigo.player.global_position)
 	var formato_cone = ConvexPolygonShape2D.new()
 	
@@ -105,10 +112,14 @@ func ataque_garra(inimigo: CharacterBody2D):
 	inimigo.get_node("AtaqueBase/Polygon2D").visible = true
 	inimigo.get_node("AtaqueBase/CollisionShape2D").set_deferred("disabled", true)
 	await inimigo.get_tree().create_timer(0.5).timeout
+	if not is_instance_valid(inimigo) or inimigo.morto or not inimigo.is_inside_tree(): 
+		return
 	inimigo.get_node("AtaqueBase/CollisionShape2D").shape = formato_cone
 	inimigo.get_node("AtaqueBase/CollisionShape2D").set_deferred("disabled", false)
 	inimigo.get_node("AtaqueBase/Polygon2D").visible = false
 	await inimigo.get_tree().create_timer(0.5).timeout
+	if not is_instance_valid(inimigo) or inimigo.morto or not inimigo.is_inside_tree(): 
+		return
 	inimigo.get_node("AtaqueBase/CollisionShape2D").set_deferred("disabled", true)
 	canalizando = false
 
@@ -121,6 +132,8 @@ func ataque_corvos(inimigo: CharacterBody2D):
 	var i = 0
 	print("Iniciando animação FORTE")
 	while i < 20:
+		if not is_instance_valid(inimigo) or inimigo.morto or not inimigo.is_inside_tree(): 
+			return
 		var espalhamento = randf_range(-5, 5)
 		var novo_tiro = projetil.instantiate()
 		inimigo.get_parent().add_child(novo_tiro)
@@ -128,5 +141,7 @@ func ataque_corvos(inimigo: CharacterBody2D):
 		novo_tiro.global_position = inimigo.global_position
 		novo_tiro.start(inimigo.global_position ,direcao)
 		await inimigo.get_tree().create_timer(randf_range(0.01,0.08)).timeout
+		if not is_instance_valid(inimigo) or inimigo.morto or not inimigo.is_inside_tree(): 
+			return
 		i += 1
 	canalizando = false

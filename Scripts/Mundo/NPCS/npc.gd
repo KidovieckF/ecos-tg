@@ -8,9 +8,9 @@ var aberto = false
 signal dar_falas
 @export var dialogo : Array[FalaRecurso]
 
+
 func _ready() -> void:
 	pass
-
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Interagir") and player_perto and not aberto:
 		var ui_Cb = ui_cena.instantiate()

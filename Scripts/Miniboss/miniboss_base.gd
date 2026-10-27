@@ -9,6 +9,7 @@ var vida_max
 var vida_atual
 var ind_dano = preload("res://Cenas/Mundo/Ind_dano.tscn")
 var artefato_hud = preload("res://Cenas/Huds/Hud_artefato.tscn")
+var cena_drop_artefato = preload("res://Cenas/Artefatos/Artefato_drop.tscn")
 var morto = false
 var dano_pendente = 0
 var estado_custom = {}
@@ -31,7 +32,7 @@ func _physics_process(delta: float) -> void:
 			player = get_tree().get_first_node_in_group("Players")
 		if player:
 			RunData.multiplicar_dificuldade()
-			vida_max = data.vida * player.nivel * RunData.mult_dificuldade
+			vida_max = data.vida * RunData.mult_dificuldade
 			vida_atual = vida_max
 			
 		else:
@@ -50,13 +51,16 @@ func _physics_process(delta: float) -> void:
 			body.take_damage(data.dano_melee)
 
 func dropar_artefato():
-	if drop_artefatos.is_empty():
-		return
-	var artefato = randi_range(0, drop_artefatos.size() - 1)
-	var tela_recompensa = artefato_hud.instantiate()
-	tela_recompensa.exibir_artefato(drop_artefatos[artefato])
-	get_parent().add_child(tela_recompensa)
-		
+
+	var artefato_sorteado = RunData.sortear_artefato_por_pesos(RunData.PESOS_MINIBOSS)
+	
+	if artefato_sorteado != null:
+		var drop_art = cena_drop_artefato.instantiate()
+		drop_art.position = position
+		get_parent().add_child(drop_art)
+		drop_art.global_position = global_position
+		drop_art.configurar(artefato_sorteado)
+
 
 func dano_na_fila():
 	if dano_pendente > 0 and not morto:
@@ -93,8 +97,9 @@ func morrer():
 	#get_parent().add_child(death)
 	#death.global_position = global_position
 	#spawn_item()
-	queue_free()
 	morreu.emit()
+	queue_free()
+	
 	
 func spawn_item():
 	pass
