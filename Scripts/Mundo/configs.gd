@@ -40,3 +40,9 @@ func _on_voltar_btn_pressed() -> void:
 
 func _on_modo_btn_pressed() -> void:
 	get_tree().change_scene_to_file("res://Cenas/Page/ModoJogo_Page.tscn")
+
+
+func _on_sound_btn_pressed() -> void:
+	AudioManager.tocar_sfx(AudioManager.SFX_BOTAO, -2.0, false)
+	var tela = preload("res://Cenas/Huds/tela_configuracoes.tscn").instantiate()
+	add_child(tela)

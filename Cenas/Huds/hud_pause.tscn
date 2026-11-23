@@ -2,32 +2,113 @@
 
 [ext_resource type="Script" uid="uid://cics4gm28f78c" path="res://Scripts/Huds/hud_pause.gd" id="1_1jjnq"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itkwu"]
-bg_color = Color(0.7911095, 0.53335613, 0.34232062, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_overlay"]
+bg_color = Color(0.04, 0.05, 0.07, 0.72)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card_center"]
+bg_color = Color(0.117647, 0.129412, 0.176471, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.780392, 0.635294, 0.341176, 0.85)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.55)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+bg_color = Color(0.18, 0.19, 0.25, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.38, 0.48, 0.7)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.25, 0.27, 0.36, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.9, 0.75, 0.4, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+bg_color = Color(0.14, 0.15, 0.2, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.7, 0.55, 0.25, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card_side"]
+bg_color = Color(0.109804, 0.121569, 0.164706, 0.94)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.282353, 0.321569, 0.419608, 0.8)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stat_badge"]
+bg_color = Color(0.15, 0.17, 0.23, 0.75)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.24, 0.27, 0.35, 0.6)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [node name="HudPause" type="CanvasLayer" unique_id=1889491015]
 process_mode = 3
 layer = 4
 script = ExtResource("1_1jjnq")
 
+[node name="Overlay" type="Panel" parent="." unique_id=1001]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_overlay")
+
 [node name="Panel" type="Panel" parent="." unique_id=523021845]
-custom_minimum_size = Vector2(300, 200)
+custom_minimum_size = Vector2(280, 260)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -210.0
+offset_top = -130.0
+offset_right = 70.0
+offset_bottom = 130.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_itkwu")
+theme_override_styles/panel = SubResource("StyleBoxFlat_card_center")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=57118998]
 layout_mode = 1
@@ -36,93 +117,201 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_top = 15
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=930794798]
 layout_mode = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 14
+alignment = 1
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1443666085]
 layout_mode = 2
-text = "Jogo Pausado"
+theme_override_colors/font_color = Color(0.95, 0.85, 0.55, 1)
+theme_override_font_sizes/font_size = 20
+text = "JOGO PAUSADO"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Menu" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=853328473]
-custom_minimum_size = Vector2(150, 30)
+[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer" unique_id=1002]
 layout_mode = 2
-size_flags_horizontal = 4
-text = "Ir ao Menu"
+theme_override_constants/separation = 4
 
 [node name="Voltar" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=1303615332]
-custom_minimum_size = Vector2(150, 30)
+custom_minimum_size = Vector2(200, 36)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Voltar"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.85, 0.55, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+text = "Continuar"
+
+[node name="Configuracoes" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=1781733904]
+custom_minimum_size = Vector2(200, 36)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.85, 0.55, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+text = "Configurações"
+
+[node name="Menu" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=853328473]
+custom_minimum_size = Vector2(200, 36)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.9, 0.5, 0.5, 1)
+theme_override_colors/font_hover_color = Color(1, 0.65, 0.65, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+text = "Ir ao Menu Principal"
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=176374422]
-custom_minimum_size = Vector2(300, 0)
-anchors_preset = 9
+custom_minimum_size = Vector2(330, 0)
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -350.0
+offset_top = 18.0
+offset_right = -18.0
+offset_bottom = -18.0
+grow_horizontal = 0
 grow_vertical = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
 
 [node name="Panel" type="Panel" parent="MarginContainer" unique_id=1761932225]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card_side")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel" unique_id=1541006672]
-layout_mode = 0
-offset_right = 290.0
-offset_bottom = 638.0
+[node name="SideMargin" type="MarginContainer" parent="MarginContainer/Panel" unique_id=1003]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
 
-[node name="VidaMax" type="Label" parent="MarginContainer/Panel/VBoxContainer" unique_id=1918756540]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/SideMargin" unique_id=1541006672]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="TituloStats" type="Label" parent="MarginContainer/Panel/SideMargin/VBoxContainer" unique_id=1004]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.85, 0.55, 1)
+theme_override_font_sizes/font_size = 15
+text = "ESTATÍSTICAS DA RUN"
+horizontal_alignment = 1
+
+[node name="HSep1" type="HSeparator" parent="MarginContainer/Panel/SideMargin/VBoxContainer" unique_id=1005]
+layout_mode = 2
+
+[node name="StatsGrid" type="VBoxContainer" parent="MarginContainer/Panel/SideMargin/VBoxContainer" unique_id=1006]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="VidaMax" type="Label" parent="MarginContainer/Panel/SideMargin/VBoxContainer/StatsGrid" unique_id=1918756540]
 unique_name_in_owner = true
 layout_mode = 2
-text = "teste"
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_stat_badge")
+text = "  Vida Máxima: 100"
 
-[node name="DanoRed" type="Label" parent="MarginContainer/Panel/VBoxContainer" unique_id=453769442]
+[node name="DanoRed" type="Label" parent="MarginContainer/Panel/SideMargin/VBoxContainer/StatsGrid" unique_id=453769442]
 unique_name_in_owner = true
 layout_mode = 2
-text = "teste"
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_stat_badge")
+text = "  Redução de Dano: 0%"
 
-[node name="ChanceCrit" type="Label" parent="MarginContainer/Panel/VBoxContainer" unique_id=773709696]
+[node name="Dano" type="Label" parent="MarginContainer/Panel/SideMargin/VBoxContainer/StatsGrid" unique_id=1843058010]
 unique_name_in_owner = true
 layout_mode = 2
-text = "teste"
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_stat_badge")
+text = "  Multiplicador de Dano: 1.0"
 
-[node name="DanoCrit" type="Label" parent="MarginContainer/Panel/VBoxContainer" unique_id=324838646]
+[node name="ChanceCrit" type="Label" parent="MarginContainer/Panel/SideMargin/VBoxContainer/StatsGrid" unique_id=773709696]
 unique_name_in_owner = true
 layout_mode = 2
-text = "teste"
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_stat_badge")
+text = "  Chance de Crítico: 5%"
 
-[node name="Dano" type="Label" parent="MarginContainer/Panel/VBoxContainer" unique_id=1843058010]
+[node name="DanoCrit" type="Label" parent="MarginContainer/Panel/SideMargin/VBoxContainer/StatsGrid" unique_id=324838646]
 unique_name_in_owner = true
 layout_mode = 2
-text = "teste"
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_stat_badge")
+text = "  Dano Crítico: 1.5x"
 
-[node name="Speed" type="Label" parent="MarginContainer/Panel/VBoxContainer" unique_id=357621174]
+[node name="AtkSpeed" type="Label" parent="MarginContainer/Panel/SideMargin/VBoxContainer/StatsGrid" unique_id=379601243]
 unique_name_in_owner = true
 layout_mode = 2
-text = "teste"
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_stat_badge")
+text = "  Velocidade de Ataque: 1.0"
 
-[node name="AtkSpeed" type="Label" parent="MarginContainer/Panel/VBoxContainer" unique_id=379601243]
+[node name="Speed" type="Label" parent="MarginContainer/Panel/SideMargin/VBoxContainer/StatsGrid" unique_id=357621174]
 unique_name_in_owner = true
 layout_mode = 2
-text = "teste"
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_stat_badge")
+text = "  Velocidade: 100"
 
-[node name="Dificuldade" type="Label" parent="MarginContainer/Panel/VBoxContainer" unique_id=2131122726]
+[node name="Dificuldade" type="Label" parent="MarginContainer/Panel/SideMargin/VBoxContainer/StatsGrid" unique_id=2131122726]
 unique_name_in_owner = true
 layout_mode = 2
-text = "teste"
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_stat_badge")
+text = "  Dificuldade: Normal"
 
-[node name="InventarioGrid" type="GridContainer" parent="MarginContainer/Panel/VBoxContainer" unique_id=534666523]
+[node name="HSep2" type="HSeparator" parent="MarginContainer/Panel/SideMargin/VBoxContainer" unique_id=1007]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TituloArtefatos" type="Label" parent="MarginContainer/Panel/SideMargin/VBoxContainer" unique_id=1008]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.85, 0.55, 1)
+theme_override_font_sizes/font_size = 14
+text = "ARTEFATOS (0)"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Panel/SideMargin/VBoxContainer" unique_id=1009]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="InventarioGrid" type="GridContainer" parent="MarginContainer/Panel/SideMargin/VBoxContainer/ScrollContainer" unique_id=534666523]
 unique_name_in_owner = true
 process_mode = 3
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 5
 
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Voltar" to="." method="_on_voltar_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Configuracoes" to="." method="_on_configuracoes_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]

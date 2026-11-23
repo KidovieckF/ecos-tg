@@ -1,33 +1,50 @@
 [gd_scene format=3 uid="uid://c2h6ln6wms0te"]
 
 [ext_resource type="Script" uid="uid://bhtqiq2wxffrw" path="res://Scripts/Page/MododeJogo_Page.gd" id="1_5v471"]
+[ext_resource type="Texture2D" uid="uid://c5pgy4lulcov8" path="res://sprites/Menu_Principal/tela.jpeg" id="2_06ul2"]
+[ext_resource type="Texture2D" uid="uid://bq5cfeqjetr5c" path="res://sprites/Hud/HUD-Sheet.png" id="3_0sntc"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22k4p"]
-bg_color = Color(0.20116621, 0.6701982, 0.73026145, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-corner_detail = 20
+[sub_resource type="AtlasTexture" id="AtlasTexture_7715k"]
+atlas = ExtResource("3_0sntc")
+region = Rect2(1338, 85, 61, 57)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06ul2"]
-bg_color = Color(0.79090595, 0.5359514, 0.3105779, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ry0mj"]
+texture = ExtResource("3_0sntc")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(565, 78, 118, 16)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sntc"]
-bg_color = Color(0.8003111, 0.54096544, 0.0056778886, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kcudh"]
+texture = ExtResource("3_0sntc")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(1546, 165, 162, 50)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7715k"]
-bg_color = Color(0.8117647, 0.5176471, 0.34901962, 1)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u4fu8"]
+load_path = "res://.godot/imported/HUD-Sheet.png-d22be834532b02a703452ff1416511ca.ctex"
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ry0mj"]
-bg_color = Color(0.5568628, 0.3254902, 0.19215687, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q5sta"]
+texture = SubResource("CompressedTexture2D_u4fu8")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(291, 108, 168, 34)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcudh"]
-bg_color = Color(0.5568628, 0.3254902, 0.19215687, 1)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v4bfw"]
+load_path = "res://.godot/imported/HUD-Sheet.png-d22be834532b02a703452ff1416511ca.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4aqrk"]
+texture = SubResource("CompressedTexture2D_v4bfw")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(291, 108, 168, 34)
 
 [node name="Control" type="Control" unique_id=778765263]
 layout_mode = 3
@@ -38,7 +55,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5v471")
 
-[node name="Panel" type="Panel" parent="." unique_id=501589667]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=112109437]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_06ul2")
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect" unique_id=1298348491]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.49803922)
+
+[node name="Panel" type="TextureRect" parent="." unique_id=921303476]
 custom_minimum_size = Vector2(500, 600)
 layout_mode = 1
 anchors_preset = 8
@@ -54,7 +89,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-theme_override_styles/panel = SubResource("StyleBoxFlat_22k4p")
+texture = SubResource("AtlasTexture_7715k")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1403887249]
 layout_mode = 1
@@ -63,74 +98,56 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 30
+theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=343447408]
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_constants/separation = 36
+alignment = 1
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer2" unique_id=1292902458]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 32
 text = "Modos de Jogo"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="Panel/MarginContainer/VBoxContainer2" unique_id=1600791492]
-custom_minimum_size = Vector2(400, 30)
-layout_mode = 2
-size_flags_horizontal = 8
-
-[node name="ModoDirecional" type="CheckButton" parent="Panel/MarginContainer/VBoxContainer2/Panel" unique_id=670372322]
+[node name="ModoDirecional" type="CheckButton" parent="Panel/MarginContainer/VBoxContainer2" unique_id=670372322]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
+layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxFlat_06ul2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ry0mj")
 text = "Modo Direcional"
 
 [node name="Label2" type="Label" parent="Panel/MarginContainer/VBoxContainer2" unique_id=957948402]
 custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
-size_flags_horizontal = 8
-theme_override_styles/normal = SubResource("StyleBoxFlat_0sntc")
+size_flags_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_ry0mj")
 text = "Nesse modo o tiro vai na direção que a 
 está olhando."
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Panel2" type="Panel" parent="Panel/MarginContainer/VBoxContainer2" unique_id=53284146]
-custom_minimum_size = Vector2(400, 30)
-layout_mode = 2
-size_flags_horizontal = 8
-
-[node name="ModoMouse" type="CheckButton" parent="Panel/MarginContainer/VBoxContainer2/Panel2" unique_id=317992285]
+[node name="ModoMouse" type="CheckButton" parent="Panel/MarginContainer/VBoxContainer2" unique_id=317992285]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
+layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxFlat_06ul2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ry0mj")
 text = "Modo Mouse"
 
 [node name="Label3" type="Label" parent="Panel/MarginContainer/VBoxContainer2" unique_id=1981337317]
 custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_styles/normal = SubResource("StyleBoxFlat_0sntc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ry0mj")
 text = "Nesse modo a persnoagem atira na direção 
 que o mouse está"
 horizontal_alignment = 1
@@ -141,11 +158,11 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 60)
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_styles/normal = SubResource("StyleBoxFlat_7715k")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ry0mj")
-theme_override_styles/hover = SubResource("StyleBoxFlat_kcudh")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kcudh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_q5sta")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4aqrk")
 text = "Voltar"
 
-[connection signal="toggled" from="Panel/MarginContainer/VBoxContainer2/Panel/ModoDirecional" to="." method="_on_modo_direcional_toggled"]
-[connection signal="toggled" from="Panel/MarginContainer/VBoxContainer2/Panel2/ModoMouse" to="." method="_on_modo_mouse_toggled"]
+[connection signal="toggled" from="Panel/MarginContainer/VBoxContainer2/ModoDirecional" to="." method="_on_modo_direcional_toggled"]
+[connection signal="toggled" from="Panel/MarginContainer/VBoxContainer2/ModoMouse" to="." method="_on_modo_mouse_toggled"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer2/voltarBtn" to="." method="_on_voltar_btn_pressed"]

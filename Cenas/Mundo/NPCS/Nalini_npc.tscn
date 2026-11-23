@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b2dne8sthc487"]
+
+[ext_resource type="PackedScene" uid="uid://dxd5x5mpfk775" path="res://Cenas/Mundo/NPCS/npc.tscn" id="1_sgn5h"]
+[ext_resource type="Script" uid="uid://dhuyw51h764jf" path="res://Scripts/Mundo/NPCS/nalini_npc.gd" id="2_84syb"]
+[ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="3_i47tk"]
+[ext_resource type="Texture2D" uid="uid://bjcx8w6fgakt6" path="res://sprites/characters/Nalini.png" id="4_84syb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84syb"]
+atlas = ExtResource("4_84syb")
+region = Rect2(0, 0, 20, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i47tk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84syb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="NPC" unique_id=270457254 instance=ExtResource("1_sgn5h")]
+script = ExtResource("2_84syb")
+dialogo_primeira_vez = Array[ExtResource("3_i47tk")]([])
+dialogo_loop = Array[ExtResource("3_i47tk")]([])
+
+[node name="Sprite2D" parent="." index="0" unique_id=1157716206]
+sprite_frames = SubResource("SpriteFrames_i47tk")

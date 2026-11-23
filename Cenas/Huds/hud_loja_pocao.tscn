@@ -1,0 +1,379 @@
+[gd_scene format=3 uid="uid://koy2ijyoc4ro"]
+
+[ext_resource type="Script" uid="uid://ddvxalb6oaj2b" path="res://Scripts/Huds/hud_loja_pocao.gd" id="1_nccaa"]
+[ext_resource type="Script" uid="uid://blhdm3gysvc7j" path="res://Recursos/Poções/PocaoData.gd" id="2_0fxgp"]
+[ext_resource type="Resource" uid="uid://2pduxha57nok" path="res://Recursos/Poções/Elixir_furia.tres" id="3_4mx7a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_overlay"]
+bg_color = Color(0.04, 0.05, 0.08, 0.75)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_window"]
+bg_color = Color(0.12, 0.11, 0.17, 0.97)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.72, 0.45, 0.88, 0.85)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.6)
+shadow_size = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_money"]
+bg_color = Color(0.16, 0.14, 0.22, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.72, 0.45, 0.88, 0.8)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_close"]
+bg_color = Color(0.25, 0.15, 0.18, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.7, 0.35, 0.4, 0.8)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.15, 0.135, 0.22, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.42, 0.35, 0.58, 0.7)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frame"]
+bg_color = Color(0.09, 0.08, 0.13, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.55, 0.4, 0.75, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_buy"]
+bg_color = Color(0.22, 0.18, 0.32, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.82, 0.62, 0.95, 0.9)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Hud_loja_pocao" type="CanvasLayer" unique_id=1501272950]
+process_mode = 2
+script = ExtResource("1_nccaa")
+catalogo_pocoes = Array[ExtResource("2_0fxgp")]([ExtResource("3_4mx7a")])
+
+[node name="Overlay" type="Panel" parent="." unique_id=4001]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_overlay")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=4002]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer" unique_id=171513649]
+custom_minimum_size = Vector2(760, 440)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_window")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Panel" unique_id=643505705]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer" unique_id=1225796141]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="TopBar" type="HBoxContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=192336431]
+layout_mode = 2
+alignment = 1
+
+[node name="TitleBox" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/TopBar" unique_id=4003]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/TopBar/TitleBox" unique_id=933524486]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.82, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "ALQUIMIA DE NALINI"
+
+[node name="Sublabel" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/TopBar/TitleBox" unique_id=4004]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.7, 0.85, 1)
+theme_override_font_sizes/font_size = 12
+text = "Elixires e infusões mágicas que fortalecem seus atributos"
+
+[node name="DinheiroLabel" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/TopBar" unique_id=4005]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 32)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 0.9, 0.45, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_money")
+text = "0 Moedas"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/TopBar" unique_id=290142796]
+custom_minimum_size = Vector2(80, 32)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_close")
+text = "Fechar"
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=4006]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=1783202086]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="Slot1" type="PanelContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1638464151]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="Margin" type="MarginContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot1" unique_id=4011]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot1/Margin" unique_id=4012]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Badge" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot1/Margin/VBox" unique_id=4013]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.6, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "[ POÇÃO ]"
+horizontal_alignment = 1
+
+[node name="Frame" type="PanelContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot1/Margin/VBox" unique_id=4014]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_frame")
+
+[node name="Icone" type="TextureRect" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot1/Margin/VBox/Frame" unique_id=1518499154]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Nome" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot1/Margin/VBox" unique_id=1594438976]
+custom_minimum_size = Vector2(180, 24)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "Poção"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Descricao" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot1/Margin/VBox" unique_id=4015]
+custom_minimum_size = Vector2(180, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.85, 0.8, 0.95, 1)
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BtnComprar" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot1/Margin/VBox" unique_id=183712658]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_buy")
+text = "Comprar"
+
+[node name="Slot2" type="PanelContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=996205373]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="Margin" type="MarginContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot2" unique_id=4021]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot2/Margin" unique_id=4022]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Badge" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot2/Margin/VBox" unique_id=4023]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.6, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "[ POÇÃO ]"
+horizontal_alignment = 1
+
+[node name="Frame" type="PanelContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot2/Margin/VBox" unique_id=4024]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_frame")
+
+[node name="Icone" type="TextureRect" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot2/Margin/VBox/Frame" unique_id=280636545]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Nome" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot2/Margin/VBox" unique_id=1567765905]
+custom_minimum_size = Vector2(180, 24)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "Poção"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Descricao" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot2/Margin/VBox" unique_id=4025]
+custom_minimum_size = Vector2(180, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.85, 0.8, 0.95, 1)
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BtnComprar" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot2/Margin/VBox" unique_id=129917561]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_buy")
+text = "Comprar"
+
+[node name="Slot3" type="PanelContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1418722192]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="Margin" type="MarginContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot3" unique_id=4031]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot3/Margin" unique_id=4032]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Badge" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot3/Margin/VBox" unique_id=4033]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.6, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "[ POÇÃO ]"
+horizontal_alignment = 1
+
+[node name="Frame" type="PanelContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot3/Margin/VBox" unique_id=4034]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_frame")
+
+[node name="Icone" type="TextureRect" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot3/Margin/VBox/Frame" unique_id=1764250157]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Nome" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot3/Margin/VBox" unique_id=1159820177]
+custom_minimum_size = Vector2(180, 24)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "Poção"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Descricao" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot3/Margin/VBox" unique_id=4035]
+custom_minimum_size = Vector2(180, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.85, 0.8, 0.95, 1)
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BtnComprar" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Slot3/Margin/VBox" unique_id=1168566768]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_buy")
+text = "Comprar"
+
+[connection signal="pressed" from="CenterContainer/Panel/MarginContainer/VBoxContainer/TopBar/Button" to="." method="_on_button_pressed"]

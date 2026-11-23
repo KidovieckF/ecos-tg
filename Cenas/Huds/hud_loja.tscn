@@ -2,133 +2,394 @@
 
 [ext_resource type="Script" uid="uid://cpbskcm7ucaok" path="res://Scripts/Mundo/Salas/loja_hud.gd" id="1_v0yjx"]
 [ext_resource type="Script" uid="uid://bmxf0u4dayjym" path="res://Recursos/Armas/arma_recurso.gd" id="2_1xq1i"]
-[ext_resource type="PackedScene" uid="uid://dggd0dlroigjm" path="res://Cenas/Botões de itens/artefato_btn.tscn" id="2_35upk"]
-[ext_resource type="Script" uid="uid://dja2hqiq4y6k" path="res://Recursos/Artefatos/artefatos.gd" id="2_fcwhe"]
 [ext_resource type="Resource" uid="uid://jkk1dg3tgva4" path="res://Recursos/Artefatos/Teste_dano.tres" id="3_hvdk6"]
 [ext_resource type="Resource" uid="uid://b36ypyd4u11v7" path="res://Recursos/Armas/Laser.tres" id="3_wn5sp"]
 [ext_resource type="Resource" uid="uid://ddmiyd4uofc2b" path="res://Recursos/Armas/Missil.tres" id="4_h1rty"]
 [ext_resource type="Resource" uid="uid://dlstaa81tgc3d" path="res://Recursos/Armas/Gravity.tres" id="5_vypj1"]
 [ext_resource type="Resource" uid="uid://bk7atnl1twgbk" path="res://Recursos/Armas/Circulo_Fogo.tres" id="6_3eiqi"]
-[ext_resource type="PackedScene" uid="uid://bnde680ewximd" path="res://Cenas/Botões de itens/arma_btn.tscn" id="9_lqvjm"]
+[ext_resource type="Script" uid="uid://dja2hqiq4y6k" path="res://Recursos/Artefatos/artefatos.gd" id="7_fcwhe"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xq1i"]
-bg_color = Color(0.7411765, 0.79607844, 0.3372549, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_overlay"]
+bg_color = Color(0.04, 0.05, 0.08, 0.75)
 
-[node name="Control" type="Control" unique_id=875357598]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shop_window"]
+bg_color = Color(0.113725, 0.12549, 0.168627, 0.97)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.78, 0.63, 0.34, 0.9)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.6)
+shadow_size = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.14, 0.155, 0.21, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.32, 0.36, 0.48, 0.7)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icon_frame"]
+bg_color = Color(0.08, 0.09, 0.12, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.42, 0.46, 0.6, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_buy_btn"]
+bg_color = Color(0.2, 0.23, 0.32, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.85, 0.72, 0.38, 0.9)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_money_badge"]
+bg_color = Color(0.16, 0.18, 0.24, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.78, 0.63, 0.34, 0.8)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_close_btn"]
+bg_color = Color(0.25, 0.15, 0.15, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.65, 0.3, 0.3, 0.8)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Control" type="CanvasLayer" unique_id=1835022328]
 process_mode = 3
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 script = ExtResource("1_v0yjx")
 armas = Array[ExtResource("2_1xq1i")]([ExtResource("3_wn5sp"), ExtResource("4_h1rty"), ExtResource("5_vypj1"), ExtResource("6_3eiqi")])
-artefatos = Array[ExtResource("2_fcwhe")]([ExtResource("3_hvdk6")])
+artefatos = Array[ExtResource("7_fcwhe")]([ExtResource("3_hvdk6")])
 
-[node name="Panel" type="Panel" parent="." unique_id=1020717749]
-custom_minimum_size = Vector2(450, 300)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+[node name="Overlay" type="Panel" parent="." unique_id=3001]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1xq1i")
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_overlay")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1657361450]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=3002]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer" unique_id=1020717749]
+custom_minimum_size = Vector2(740, 440)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_shop_window")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Panel" unique_id=1657361450]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 18
 
-[node name="VBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer" unique_id=211867884]
+[node name="RootVBox" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer" unique_id=3003]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 14
+
+[node name="TopBar" type="HBoxContainer" parent="CenterContainer/Panel/MarginContainer/RootVBox" unique_id=3004]
+layout_mode = 2
 alignment = 1
 
-[node name="ArmaContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=854873507]
-unique_name_in_owner = true
+[node name="TitleBox" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer/RootVBox/TopBar" unique_id=3005]
 layout_mode = 2
-alignment = 1
+size_flags_horizontal = 3
 
-[node name="PrecoArma" type="Label" parent="Panel/MarginContainer/VBoxContainer/ArmaContainer" unique_id=1963747939]
-unique_name_in_owner = true
+[node name="Titulo" type="Label" parent="CenterContainer/Panel/MarginContainer/RootVBox/TopBar/TitleBox" unique_id=3006]
 layout_mode = 2
-size_flags_horizontal = 4
-text = "$:"
+theme_override_colors/font_color = Color(0.98, 0.88, 0.55, 1)
+theme_override_font_sizes/font_size = 22
+text = "BAZAR DA SASHA"
+
+[node name="Subtitulo" type="Label" parent="CenterContainer/Panel/MarginContainer/RootVBox/TopBar/TitleBox" unique_id=3007]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.77, 0.88, 1)
+theme_override_font_sizes/font_size = 12
+text = "Armas e relíquias para auxiliar em sua descida"
+
+[node name="DinheiroLabel" type="Label" parent="CenterContainer/Panel/MarginContainer/RootVBox/TopBar" unique_id=3008]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 32)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 0.9, 0.45, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_money_badge")
+text = "0 Moedas"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ArmaBtn" parent="Panel/MarginContainer/VBoxContainer/ArmaContainer" unique_id=1540479534 instance=ExtResource("9_lqvjm")]
+[node name="BtnFechar" type="Button" parent="CenterContainer/Panel/MarginContainer/RootVBox/TopBar" unique_id=3009]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(80, 32)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_close_btn")
+text = "Fechar"
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/Panel/MarginContainer/RootVBox" unique_id=3010]
+layout_mode = 2
+
+[node name="ItemsHBox" type="HBoxContainer" parent="CenterContainer/Panel/MarginContainer/RootVBox" unique_id=211867884]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="ArmaContainer" type="PanelContainer" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox" unique_id=854873507]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(215, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="Margin" type="MarginContainer" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArmaContainer" unique_id=3011]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArmaContainer/Margin" unique_id=3012]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="BadgeArma" type="Label" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArmaContainer/Margin/VBox" unique_id=3013]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.65, 0.35, 1)
+theme_override_font_sizes/font_size = 12
+text = "[ ARMA ]"
+horizontal_alignment = 1
+
+[node name="Frame" type="PanelContainer" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArmaContainer/Margin/VBox" unique_id=3014]
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_icon_frame")
+
+[node name="ArmaBtn" type="TextureButton" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArmaContainer/Margin/VBox/Frame" unique_id=1540479534]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="DescricaoArma" type="Label" parent="Panel/MarginContainer/VBoxContainer/ArmaContainer" unique_id=289303844]
+[node name="DescricaoArma" type="Label" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArmaContainer/Margin/VBox" unique_id=289303844]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 36)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "Arma"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
-[node name="ComprarBtn" type="Label" parent="Panel/MarginContainer/VBoxContainer/ArmaContainer" unique_id=1868012845]
+[node name="PrecoArma" type="Label" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArmaContainer/Margin/VBox" unique_id=1963747939]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.45, 1)
+theme_override_font_sizes/font_size = 14
+text = "$0"
+horizontal_alignment = 1
+
+[node name="ComprarBtn" type="Button" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArmaContainer/Margin/VBox" unique_id=1868012845]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_buy_btn")
 text = "Comprar"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Artefatos" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1261010873]
+[node name="ArtefatoCard1" type="PanelContainer" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox" unique_id=3020]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(215, 300)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="Margin" type="MarginContainer" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArtefatoCard1" unique_id=3021]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArtefatoCard1/Margin" unique_id=3022]
+layout_mode = 2
+theme_override_constants/separation = 8
 alignment = 1
 
-[node name="ArtNome1" type="Label" parent="Panel/MarginContainer/VBoxContainer/Artefatos" unique_id=1324601388]
-unique_name_in_owner = true
+[node name="BadgeArt1" type="Label" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArtefatoCard1/Margin/VBox" unique_id=3023]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.85, 0.95, 1)
+theme_override_font_sizes/font_size = 12
+text = "[ ARTEFATO ]"
+horizontal_alignment = 1
 
-[node name="ArtefatoBtn" parent="Panel/MarginContainer/VBoxContainer/Artefatos" unique_id=1204837669 instance=ExtResource("2_35upk")]
-unique_name_in_owner = true
+[node name="Frame" type="PanelContainer" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArtefatoCard1/Margin/VBox" unique_id=3024]
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_icon_frame")
+
+[node name="ArtefatoBtn" type="TextureButton" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArtefatoCard1/Margin/VBox/Frame" unique_id=1204837669]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="ArtPreco1" type="Label" parent="Panel/MarginContainer/VBoxContainer/Artefatos" unique_id=1971750596]
+[node name="ArtNome1" type="Label" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArtefatoCard1/Margin/VBox" unique_id=1324601388]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 36)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "Artefato 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
-[node name="ArtNome2" type="Label" parent="Panel/MarginContainer/VBoxContainer/Artefatos" unique_id=823963107]
+[node name="ArtPreco1" type="Label" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArtefatoCard1/Margin/VBox" unique_id=1971750596]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.45, 1)
+theme_override_font_sizes/font_size = 14
+text = "$0"
+horizontal_alignment = 1
 
-[node name="ArtefatoBtn2" parent="Panel/MarginContainer/VBoxContainer/Artefatos" unique_id=631438980 instance=ExtResource("2_35upk")]
+[node name="ComprarBtnArt1" type="Button" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArtefatoCard1/Margin/VBox" unique_id=3025]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_buy_btn")
+text = "Comprar"
+
+[node name="ArtefatoCard2" type="PanelContainer" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox" unique_id=3030]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(215, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="Margin" type="MarginContainer" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArtefatoCard2" unique_id=3031]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArtefatoCard2/Margin" unique_id=3032]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="BadgeArt2" type="Label" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArtefatoCard2/Margin/VBox" unique_id=3033]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.85, 0.95, 1)
+theme_override_font_sizes/font_size = 12
+text = "[ ARTEFATO ]"
+horizontal_alignment = 1
+
+[node name="Frame" type="PanelContainer" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArtefatoCard2/Margin/VBox" unique_id=3034]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_icon_frame")
+
+[node name="ArtefatoBtn2" type="TextureButton" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArtefatoCard2/Margin/VBox/Frame" unique_id=631438980]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="ArtPreco3" type="Label" parent="Panel/MarginContainer/VBoxContainer/Artefatos" unique_id=542849185]
+[node name="ArtNome2" type="Label" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArtefatoCard2/Margin/VBox" unique_id=823963107]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "Artefato 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ArtPreco3" type="Label" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArtefatoCard2/Margin/VBox" unique_id=542849185]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.45, 1)
+theme_override_font_sizes/font_size = 14
+text = "$0"
+horizontal_alignment = 1
 
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/ArmaContainer/ArmaBtn" to="." method="_on_arma_btn_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Artefatos/ArtefatoBtn" to="." method="_on_artefato_btn_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Artefatos/ArtefatoBtn2" to="." method="_on_artefato_btn_2_pressed"]
+[node name="ComprarBtnArt2" type="Button" parent="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArtefatoCard2/Margin/VBox" unique_id=3035]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_buy_btn")
+text = "Comprar"
+
+[connection signal="pressed" from="CenterContainer/Panel/MarginContainer/RootVBox/TopBar/BtnFechar" to="." method="fechar"]
+[connection signal="pressed" from="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArmaContainer/Margin/VBox/Frame/ArmaBtn" to="." method="_on_arma_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArmaContainer/Margin/VBox/ComprarBtn" to="." method="_on_arma_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArtefatoCard1/Margin/VBox/Frame/ArtefatoBtn" to="." method="_on_artefato_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArtefatoCard1/Margin/VBox/ComprarBtnArt1" to="." method="_on_artefato_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArtefatoCard2/Margin/VBox/Frame/ArtefatoBtn2" to="." method="_on_artefato_btn_2_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/MarginContainer/RootVBox/ItemsHBox/ArtefatoCard2/Margin/VBox/ComprarBtnArt2" to="." method="_on_artefato_btn_2_pressed"]

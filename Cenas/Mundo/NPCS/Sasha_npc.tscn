@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://di1nurcqjsg24"]
+
+[ext_resource type="PackedScene" uid="uid://dxd5x5mpfk775" path="res://Cenas/Mundo/NPCS/npc.tscn" id="1_v5ifg"]
+[ext_resource type="Script" uid="uid://bn5y6so6mfl7k" path="res://Scripts/Mundo/NPCS/sasha_npc.gd" id="2_qjdle"]
+[ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="3_xjmhk"]
+[ext_resource type="Texture2D" uid="uid://dpqsxwijm42j3" path="res://sprites/characters/SashaFrente.png" id="4_qjdle"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjmhk"]
+atlas = ExtResource("4_qjdle")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eir63"]
+atlas = ExtResource("4_qjdle")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ai6o"]
+atlas = ExtResource("4_qjdle")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12wb6"]
+atlas = ExtResource("4_qjdle")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k822x"]
+atlas = ExtResource("4_qjdle")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0q2sx"]
+atlas = ExtResource("4_qjdle")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jcrfs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjmhk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eir63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ai6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12wb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k822x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0q2sx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="NPC" unique_id=270457254 instance=ExtResource("1_v5ifg")]
+script = ExtResource("2_qjdle")
+dialogo_primeira_vez = Array[ExtResource("3_xjmhk")]([])
+dialogo_loop = Array[ExtResource("3_xjmhk")]([])
+
+[node name="Sprite2D" parent="." index="0" unique_id=1157716206]
+sprite_frames = SubResource("SpriteFrames_jcrfs")
+frame_progress = 0.2220697

@@ -1,49 +1,144 @@
 [gd_scene format=3 uid="uid://iqmolkeyby7q"]
 
 [ext_resource type="Script" uid="uid://c058681e4rws3" path="res://Scripts/Mundo/menu_inicial.gd" id="1_gqker"]
-[ext_resource type="Texture2D" uid="uid://cf2h8ug54b7er" path="res://sprites/Hud/quadradoBase.png" id="2_0bfyd"]
+[ext_resource type="Texture2D" uid="uid://c5pgy4lulcov8" path="res://sprites/Menu_Principal/tela.jpeg" id="2_8l4ds"]
+[ext_resource type="Texture2D" uid="uid://di6ws0gndxu8c" path="res://sprites/Menu_Principal/Titulo.png" id="3_jqej5"]
+[ext_resource type="Texture2D" uid="uid://bq5cfeqjetr5c" path="res://sprites/Hud/HUD-Sheet.png" id="3_wvejf"]
+[ext_resource type="Texture2D" uid="uid://11pfcmrwb7yw" path="res://sprites/Menu_Principal/Alicia_menu.png" id="5_wvejf"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqker"]
-bg_color = Color(0.38976315, 0.63101834, 0.7908379, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktt3g"]
+atlas = ExtResource("3_wvejf")
+region = Rect2(1546, 165, 162, 50)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u1pnh"]
-texture = ExtResource("2_0bfyd")
+texture = SubResource("AtlasTexture_ktt3g")
 texture_margin_left = 20.0
 texture_margin_top = 20.0
 texture_margin_right = 20.0
 texture_margin_bottom = 20.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnyq4"]
-bg_color = Color(0.22352941, 0.39215687, 0.63529414, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0fdn"]
+atlas = ExtResource("3_wvejf")
+region = Rect2(291, 107, 169, 35)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bfyd"]
-bg_color = Color(0.22352941, 0.39215687, 0.63529414, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_na1qu"]
+texture = SubResource("AtlasTexture_r0fdn")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dh1nt"]
-texture = ExtResource("2_0bfyd")
-texture_margin_left = 20.0
-texture_margin_top = 20.0
-texture_margin_right = 20.0
-texture_margin_bottom = 20.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nxti6"]
+texture = SubResource("AtlasTexture_r0fdn")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8l4ds"]
-texture = ExtResource("2_0bfyd")
+texture = SubResource("AtlasTexture_ktt3g")
 texture_margin_left = 20.0
 texture_margin_top = 20.0
 texture_margin_right = 20.0
 texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jqej5"]
+texture = SubResource("AtlasTexture_r0fdn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wvejf"]
+texture = SubResource("AtlasTexture_r0fdn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3ke6w"]
+texture = SubResource("AtlasTexture_ktt3g")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a4krp"]
+texture = SubResource("AtlasTexture_r0fdn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l2cdo"]
+texture = SubResource("AtlasTexture_r0fdn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vp5cb"]
+texture = SubResource("AtlasTexture_ktt3g")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_grbha"]
+texture = SubResource("AtlasTexture_r0fdn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l75ac"]
+texture = SubResource("AtlasTexture_r0fdn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2gx27"]
+texture = SubResource("AtlasTexture_ktt3g")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o4qmo"]
+texture = SubResource("AtlasTexture_r0fdn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ktt3g"]
+texture = SubResource("AtlasTexture_r0fdn")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4qmo"]
+atlas = ExtResource("3_wvejf")
+region = Rect2(54, 109, 144, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ke6w"]
+atlas = ExtResource("5_wvejf")
+region = Rect2(0, 0, 205, 285)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4krp"]
+atlas = ExtResource("5_wvejf")
+region = Rect2(205, 0, 205, 285)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2cdo"]
+atlas = ExtResource("5_wvejf")
+region = Rect2(410, 0, 205, 285)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vp5cb"]
+atlas = ExtResource("5_wvejf")
+region = Rect2(615, 0, 205, 285)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grbha"]
+atlas = ExtResource("5_wvejf")
+region = Rect2(820, 0, 205, 285)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l75ac"]
+atlas = ExtResource("5_wvejf")
+region = Rect2(1025, 0, 205, 285)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gx27"]
+atlas = ExtResource("5_wvejf")
+region = Rect2(1230, 0, 205, 285)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o4qmo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ke6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4krp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2cdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vp5cb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grbha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l75ac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gx27")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Control" type="Control" unique_id=837846862]
 layout_mode = 3
@@ -54,6 +149,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gqker")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=644807006]
+layout_mode = 0
+offset_left = -47.0
+offset_top = 627.0
+offset_right = 1194.0
+offset_bottom = 1329.0
+color = Color(0.17569023, 0.2846696, 0.17600936, 1)
+
 [node name="GridContainer" type="GridContainer" parent="." unique_id=1473827019]
 layout_mode = 1
 anchors_preset = 15
@@ -63,14 +166,13 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="Panel" parent="GridContainer" unique_id=1593590850]
-custom_minimum_size = Vector2(800, 600)
+[node name="Tela" type="TextureRect" parent="GridContainer" unique_id=395178751]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-theme_override_styles/panel = SubResource("StyleBoxFlat_gqker")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_8l4ds")
 
-[node name="GridContainer" type="GridContainer" parent="GridContainer/Panel" unique_id=169097734]
+[node name="NuvensContainer" type="Control" parent="GridContainer/Tela" unique_id=1313472214]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -78,45 +180,159 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="GridContainer/Panel/GridContainer" unique_id=647387457]
+[node name="MarginContainer" type="MarginContainer" parent="GridContainer/Tela" unique_id=353435652]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="GridContainer/Tela/MarginContainer" unique_id=169097734]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GridContainer/Tela/MarginContainer/GridContainer" unique_id=647387457]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/margin_top = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Panel/GridContainer/MarginContainer" unique_id=413392290]
-custom_minimum_size = Vector2(500, 400)
+[node name="Titulo" type="TextureRect" parent="GridContainer/Tela/MarginContainer/GridContainer/MarginContainer" unique_id=1061819245]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("3_jqej5")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Tela/MarginContainer/GridContainer/MarginContainer" unique_id=413392290]
+custom_minimum_size = Vector2(500, 400)
+layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 4
-theme_override_constants/separation = 40
+theme_override_constants/separation = 30
 alignment = 1
 
-[node name="Label" type="Label" parent="GridContainer/Panel/GridContainer/MarginContainer/VBoxContainer" unique_id=1380015206]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Ecos de Hiki"
-horizontal_alignment = 1
-
-[node name="IniciarBtn" type="Button" parent="GridContainer/Panel/GridContainer/MarginContainer/VBoxContainer" unique_id=1181953328]
+[node name="IniciarBtn" type="Button" parent="GridContainer/Tela/MarginContainer/GridContainer/MarginContainer/VBoxContainer" unique_id=1181953328]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.33776215, 0.12706554, 0.047066107, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_u1pnh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_tnyq4")
-theme_override_styles/hover = SubResource("StyleBoxFlat_0bfyd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_na1qu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nxti6")
 text = "Começar"
 
-[node name="ConfigsBtn" type="Button" parent="GridContainer/Panel/GridContainer/MarginContainer/VBoxContainer" unique_id=1438923239]
+[node name="NovaRunBtn" type="Button" parent="GridContainer/Tela/MarginContainer/GridContainer/MarginContainer/VBoxContainer" unique_id=1931552109]
+unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_dh1nt")
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.3372549, 0.1254902, 0.047058824, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_8l4ds")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_jqej5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wvejf")
+text = "Iniciar Nova Run"
+
+[node name="ConfigsBtn" type="Button" parent="GridContainer/Tela/MarginContainer/GridContainer/MarginContainer/VBoxContainer" unique_id=1438923239]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.3372549, 0.1254902, 0.047058824, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_3ke6w")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_a4krp")
+theme_override_styles/hover = SubResource("StyleBoxTexture_l2cdo")
 text = "Configurações"
 
-[node name="SairBtn" type="Button" parent="GridContainer/Panel/GridContainer/MarginContainer/VBoxContainer" unique_id=1121167264]
+[node name="HistoricoBtn" type="Button" parent="GridContainer/Tela/MarginContainer/GridContainer/MarginContainer/VBoxContainer" unique_id=345761371]
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_8l4ds")
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.3372549, 0.1254902, 0.047058824, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_vp5cb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_grbha")
+theme_override_styles/hover = SubResource("StyleBoxTexture_l75ac")
+text = "Historico
+"
+
+[node name="SairBtn" type="Button" parent="GridContainer/Tela/MarginContainer/GridContainer/MarginContainer/VBoxContainer" unique_id=1121167264]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.3372549, 0.1254902, 0.047058824, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_2gx27")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_o4qmo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ktt3g")
 text = "Fechar"
 
-[connection signal="pressed" from="GridContainer/Panel/GridContainer/MarginContainer/VBoxContainer/IniciarBtn" to="." method="_on_iniciar_btn_pressed"]
-[connection signal="pressed" from="GridContainer/Panel/GridContainer/MarginContainer/VBoxContainer/ConfigsBtn" to="." method="_on_configs_btn_pressed"]
-[connection signal="pressed" from="GridContainer/Panel/GridContainer/MarginContainer/VBoxContainer/SairBtn" to="." method="_on_sair_btn_pressed"]
+[node name="Panel" type="TextureRect" parent="GridContainer/Tela/MarginContainer/GridContainer/MarginContainer/VBoxContainer" unique_id=398743828]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_o4qmo")
+
+[node name="MarginSeed" type="MarginContainer" parent="GridContainer/Tela/MarginContainer/GridContainer/MarginContainer/VBoxContainer/Panel" unique_id=2142120335]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 35
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Tela/MarginContainer/GridContainer/MarginContainer/VBoxContainer/Panel/MarginSeed" unique_id=1071972080]
+layout_mode = 2
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/Tela/MarginContainer/GridContainer/MarginContainer/VBoxContainer/Panel/MarginSeed/VBoxContainer" unique_id=1181242430]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="GridContainer/Tela/MarginContainer/GridContainer/MarginContainer/VBoxContainer/Panel/MarginSeed/VBoxContainer/HBoxContainer" unique_id=195341994]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Seed:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SeedLine" type="LineEdit" parent="GridContainer/Tela/MarginContainer/GridContainer/MarginContainer/VBoxContainer/Panel/MarginSeed/VBoxContainer/HBoxContainer" unique_id=442969829]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 20)
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1610719145]
+position = Vector2(997, 247)
+sprite_frames = SubResource("SpriteFrames_o4qmo")
+frame_progress = 0.5812452
+
+[node name="Transicao" type="CanvasLayer" parent="." unique_id=212815292]
+layer = 10
+
+[node name="Fade" type="ColorRect" parent="Transicao" unique_id=230531151]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[connection signal="pressed" from="GridContainer/Tela/MarginContainer/GridContainer/MarginContainer/VBoxContainer/IniciarBtn" to="." method="_on_iniciar_btn_pressed"]
+[connection signal="pressed" from="GridContainer/Tela/MarginContainer/GridContainer/MarginContainer/VBoxContainer/NovaRunBtn" to="." method="_on_nova_run_btn_pressed"]
+[connection signal="pressed" from="GridContainer/Tela/MarginContainer/GridContainer/MarginContainer/VBoxContainer/ConfigsBtn" to="." method="_on_configs_btn_pressed"]
+[connection signal="pressed" from="GridContainer/Tela/MarginContainer/GridContainer/MarginContainer/VBoxContainer/HistoricoBtn" to="." method="_on_historico_btn_pressed"]
+[connection signal="pressed" from="GridContainer/Tela/MarginContainer/GridContainer/MarginContainer/VBoxContainer/SairBtn" to="." method="_on_sair_btn_pressed"]

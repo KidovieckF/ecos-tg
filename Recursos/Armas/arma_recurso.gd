@@ -10,6 +10,15 @@ class_name ArmaRecurso
 @export var preco : int
 @export var tipos_upgrade : Array[UpgradeData]
 @export var barra_ultimate : float
+
+@export_enum("Inicial", "Intermediaria", "Avancada") var tier : String = "Inicial"
+@export var ocupa_dois_slots : bool = false
+
+var nivel : int = 1
+var xp_atual : float = 0.0
+var barra_exp : float = 30.0
+
+
 var barra_ultimate_atual : float
 var upgrades_ativos : Array[UpgradeData] = []
 

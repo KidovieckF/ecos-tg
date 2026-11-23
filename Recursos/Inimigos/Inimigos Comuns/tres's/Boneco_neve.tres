@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Ini_BonecoNeveData" format=3 uid="uid://bdoudxmp4aq1x"]
+
+[ext_resource type="Script" uid="uid://bfc6hr8tem8ld" path="res://Recursos/Inimigos/Inimigos Comuns/inimigo_boneco_neve.gd" id="1_o6ryu"]
+[ext_resource type="PackedScene" uid="uid://dm5m6odrnhfs2" path="res://Cenas/Inimigos/Inimigos_Herdados/Boneco_De_Neve.tscn" id="1_ur8ge"]
+[ext_resource type="PackedScene" uid="uid://c7lsw1h1uljyn" path="res://Cenas/Inimigos/projetil_ini.tscn" id="2_vitpu"]
+
+[resource]
+script = ExtResource("1_o6ryu")
+Nome = "Boneco de Neve"
+vida = 20
+dano = 10.0
+projetil = ExtResource("2_vitpu")
+tem_acao = true
+peso_spawn = 35
+exp = 20.0
+cena_inimigo = ExtResource("1_ur8ge")
+metadata/_custom_type_script = "uid://bfc6hr8tem8ld"

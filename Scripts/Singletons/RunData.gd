@@ -3,6 +3,16 @@ extends Node
 const ANDARES_MAXIMOS = 3
 var pity_drop_artefato: int = 0
 
+
+#lobby
+var treino_liberado: bool = false
+
+#seed
+var seed_atual: int = 0
+var seed_customizada: int = 0
+var dados_restauracao_mapa: Dictionary = {}
+
+
 const PESOS_INIMIGO_COMUM = {
 	"Comum": 70,
 	"Incomum": 25,
@@ -28,6 +38,10 @@ const PESOS_LOJA = {
 signal inventario_atualizado
 
 var artefatos_disponiveis : Array[Artefato_data] = []
+
+#Poções
+var pocoes_ativas : Dictionary = {}
+signal pocoes_atualizadas
 
 #Cenas Artefatos
 var cena_Iha_artefato = preload("res://Cenas/Artefatos/IHA_artefato.tscn")
@@ -109,6 +123,8 @@ func _ready():
 
 
 func _process(delta: float) -> void:
+	if arma_escolhida != null and not get_tree().paused:
+		SaveManager.adicionar_tempo(delta)
 	if fila_de_tiros_chapeu.size() > 0 and chapeu_atirando == false:
 		chapeu_atirando = true
 		var alvo_posicao = fila_de_tiros_chapeu.pop_front()
@@ -154,6 +170,9 @@ func _unhandled_input(event):
 			arvore.root.add_child(tela_pause_atual) 
 			
 			
+func pode_trocar_arma_inicial() -> bool:
+	return andar == 1
+
 func carregar_todos_artefatos():
 	artefatos_disponiveis.clear()
 	var dir = DirAccess.open("res://Recursos/Artefatos/")
@@ -263,6 +282,18 @@ func calcular_artefatos():
 	chance_critico = 50 + chance_crit_add
 	mult_de_atk_speed = atk_speed_mult
 	
+	for tipo in pocoes_ativas.keys():
+		var dados = pocoes_ativas[tipo]
+		match tipo:
+			"dano":
+				dano_multiplicador += dados["valor_buff"]
+			"speed":
+				speed_calculado += dados["valor_buff"]
+			"vida_max":
+				vida_max += dados["valor_buff"]
+			"atk_speed":
+				mult_de_atk_speed += dados["valor_buff"]
+	
 func aplicar_efeitos_parado(player, delta):
 	# ITEM 10: Plantinha Fofinha
 	if cura_parado_total > 0:
@@ -308,7 +339,67 @@ func adicionar_artefato(artefato : Artefato_data):
 	if vida_atual > vida_max:
 		vida_atual = vida_max
 		
+func aplicar_pocao(pocao: PocaoData) -> void:
+	if pocao == null:
+		return
+		
+	# Caso 1: Cura instantânea (não dura salas)
+	if pocao.tipo_buff == "cura_instantanea":
+		vida_atual = min(vida_atual + pocao.valor_buff, vida_max)
+		var hud = get_tree().get_first_node_in_group("HUD")
+		if hud and hud.has_method("atualizar_vida"):
+			hud.atualizar_vida(vida_atual, vida_max)
+		print("🧪 Curou instantaneamente: ", pocao.valor_buff)
+		return
+		
+	# Caso 2: Buff temporário por salas
+	pocoes_ativas[pocao.tipo_buff] = {
+		"nome": pocao.nome,
+		"tipo_buff": pocao.tipo_buff,
+		"valor_buff": pocao.valor_buff,
+		"salas_restantes": pocao.salas_duracao,
+		"icone": pocao.icone,
+		"cor_aura": pocao.cor_aura
+	}
 	
+	# Se aumentou a vida máxima, também concede a vida na hora
+	if pocao.tipo_buff == "vida_max":
+		vida_atual += pocao.valor_buff
+		
+	calcular_artefatos()
+	
+	var hud = get_tree().get_first_node_in_group("HUD")
+	if hud and hud.has_method("atualizar_vida"):
+		hud.atualizar_vida(vida_atual, vida_max)
+		
+	pocoes_atualizadas.emit()
+	print("🧪 Poção ativada: ", pocao.nome, " por ", pocao.salas_duracao, " salas!")
+# Chamado toda vez que o jogador limpa com sucesso uma sala de combate
+func consumir_carga_pocoes() -> void:
+	if pocoes_ativas.is_empty():
+		return
+		
+	var expiradas : Array = []
+	for tipo in pocoes_ativas.keys():
+		pocoes_ativas[tipo]["salas_restantes"] -= 1
+		print("🧪 Poção [%s] restante: %d salas" % [pocoes_ativas[tipo]["nome"], pocoes_ativas[tipo]["salas_restantes"]])
+		if pocoes_ativas[tipo]["salas_restantes"] <= 0:
+			expiradas.append(tipo)
+			
+	for tipo in expiradas:
+		print("💨 Efeito da poção [%s] acabou!" % pocoes_ativas[tipo]["nome"])
+		pocoes_ativas.erase(tipo)
+		
+	calcular_artefatos()
+	
+	if vida_atual > vida_max:
+		vida_atual = vida_max
+		
+	var hud = get_tree().get_first_node_in_group("HUD")
+	if hud and hud.has_method("atualizar_vida"):
+		hud.atualizar_vida(vida_atual, vida_max)
+		
+	pocoes_atualizadas.emit()
 
 
 func multiplicar_dificuldade():
@@ -319,6 +410,17 @@ func multiplicar_dificuldade():
 
 func iniciar_run(personagem: player_data, p_arma: ArmaRecurso) -> void:
 	resetar_run()
+	
+	if seed_customizada != 0:
+		seed_atual = seed_customizada
+		seed_customizada = 0
+	else:
+		randomize()
+		seed_atual = randi()
+		
+	seed(seed_atual)
+	print(">>> RUN INICIADA COM SEED NATIVA: ", seed_atual)
+	
 	
 	andar = 1
 	
@@ -353,6 +455,8 @@ func resetar_run() -> void:
 	barra_ultimate_atual = 0
 	dificuldade = 1
 	pity_drop_artefato = 0
+	pocoes_ativas.clear()
+	treino_liberado = false
 
 func guardar_player(player) -> void:
 	xp_atual = player.xp_atual

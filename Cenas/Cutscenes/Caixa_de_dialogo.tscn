@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://s2yaqedcqp27"]
 
-[ext_resource type="Texture2D" uid="uid://b6uq75f3ayk48" path="res://sprites/Portraits/sasha_dialogo_4.png" id="1_sg4cn"]
+[ext_resource type="Texture2D" uid="uid://drdsvq0vqkrsr" path="res://sprites/Portraits/Media.jpg" id="1_3ql7v"]
 [ext_resource type="Texture2D" uid="uid://bv8m568d5c51l" path="res://sprites/Hud/caixaDialogoFolha.png" id="2_sg4cn"]
+[ext_resource type="Texture2D" uid="uid://cf2h8ug54b7er" path="res://sprites/Hud/quadradoBase.png" id="3_v1kml"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irik4"]
+atlas = ExtResource("3_v1kml")
+region = Rect2(1, 0, 30, 32)
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1917002634]
 
@@ -25,11 +30,11 @@ theme_override_constants/separation = -150
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/MarginContainer/HBoxContainer" unique_id=2071253754]
 z_index = 2
-custom_minimum_size = Vector2(200, 300)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 6
-texture = ExtResource("1_sg4cn")
+size_flags_vertical = 2
+texture = ExtResource("1_3ql7v")
 expand_mode = 1
 
 [node name="Panel" type="NinePatchRect" parent="GridContainer/MarginContainer/HBoxContainer" unique_id=1042197794]
@@ -62,3 +67,25 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "teste
 "
+
+[node name="TextureRect2" type="TextureRect" parent="GridContainer/MarginContainer/HBoxContainer/Panel" unique_id=769552063]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_left = 512.5
+offset_top = -17.0
+offset_right = 655.5
+offset_bottom = 26.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_irik4")
+
+[node name="Label" type="Label" parent="GridContainer/MarginContainer/HBoxContainer/Panel/TextureRect2" unique_id=1655449654]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "??????"
+horizontal_alignment = 1
+vertical_alignment = 1

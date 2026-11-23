@@ -14,20 +14,15 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[node name="Control" type="Control" unique_id=1796593688]
-z_index = 15
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sn3p"]
+corner_radius_top_right = 30
+
+[node name="Control" type="CanvasLayer" unique_id=1472751907]
 script = ExtResource("1_v3ayk")
 armas = Array[ExtResource("2_ism1s")]([ExtResource("3_6irj2"), ExtResource("4_0sn3p"), ExtResource("5_snjkb"), ExtResource("6_6irj2")])
 
 [node name="Panel" type="Panel" parent="." unique_id=630554438]
 custom_minimum_size = Vector2(800, 600)
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -41,48 +36,59 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6irj2")
 
-[node name="GridContainer" type="GridContainer" parent="Panel" unique_id=787028472]
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=197230059]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -20.0
+offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="FecharBtn" type="Button" parent="Panel/GridContainer" unique_id=1811616734]
+[node name="GridContainer" type="GridContainer" parent="Panel/MarginContainer" unique_id=787028472]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="FecharBtn" type="Button" parent="Panel/MarginContainer/GridContainer" unique_id=1811616734]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0sn3p")
 text = "X"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/GridContainer" unique_id=229386053]
-custom_minimum_size = Vector2(800, 400)
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/GridContainer" unique_id=229386053]
+custom_minimum_size = Vector2(600, 400)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="EsquerdaBtn" type="Button" parent="Panel/GridContainer/HBoxContainer" unique_id=596749506]
+[node name="EsquerdaBtn" type="Button" parent="Panel/MarginContainer/GridContainer/HBoxContainer" unique_id=596749506]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_vertical = 4
 text = "<"
 
-[node name="ArmaBtn" type="TextureButton" parent="Panel/GridContainer/HBoxContainer" unique_id=2054704416]
+[node name="ArmaBtn" type="TextureButton" parent="Panel/MarginContainer/GridContainer/HBoxContainer" unique_id=2054704416]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
 stretch_mode = 6
 
-[node name="DireitaBtn" type="Button" parent="Panel/GridContainer/HBoxContainer" unique_id=873492298]
+[node name="DireitaBtn" type="Button" parent="Panel/MarginContainer/GridContainer/HBoxContainer" unique_id=873492298]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_vertical = 4
 text = ">"
 
-[connection signal="pressed" from="Panel/GridContainer/FecharBtn" to="." method="_on_fechar_btn_pressed"]
-[connection signal="pressed" from="Panel/GridContainer/HBoxContainer/EsquerdaBtn" to="." method="_on_esquerda_btn_pressed"]
-[connection signal="pressed" from="Panel/GridContainer/HBoxContainer/ArmaBtn" to="." method="_on_arma_btn_pressed"]
-[connection signal="pressed" from="Panel/GridContainer/HBoxContainer/DireitaBtn" to="." method="_on_direita_btn_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/GridContainer/FecharBtn" to="." method="_on_fechar_btn_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/GridContainer/HBoxContainer/EsquerdaBtn" to="." method="_on_esquerda_btn_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/GridContainer/HBoxContainer/ArmaBtn" to="." method="_on_arma_btn_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/GridContainer/HBoxContainer/DireitaBtn" to="." method="_on_direita_btn_pressed"]

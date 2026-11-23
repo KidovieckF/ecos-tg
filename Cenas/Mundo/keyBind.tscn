@@ -1,25 +1,195 @@
 [gd_scene format=3 uid="uid://yfar67i3vjmy"]
 
 [ext_resource type="Script" uid="uid://c0huugx5fhip7" path="res://Scripts/Mundo/keyBind.gd" id="1_dn3do"]
+[ext_resource type="Texture2D" uid="uid://c5pgy4lulcov8" path="res://sprites/Menu_Principal/tela.jpeg" id="2_w2oox"]
+[ext_resource type="Texture2D" uid="uid://bq5cfeqjetr5c" path="res://sprites/Hud/HUD-Sheet.png" id="3_o0qwb"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smt6e"]
-bg_color = Color(0.20116621, 0.6701982, 0.73026145, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-corner_detail = 20
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2gho"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(1797, 108, 160, 48)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3aijj"]
-bg_color = Color(0.8117647, 0.5176471, 0.34901962, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3b2fv"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(1546, 165, 162, 50)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2oox"]
-bg_color = Color(0.5568628, 0.3254902, 0.19215687, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jx4lm"]
+texture = SubResource("AtlasTexture_3b2fv")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0qwb"]
-bg_color = Color(0.5568628, 0.3254902, 0.19215687, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_d15jt"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(291, 107, 169, 35)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dn3do"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bhcsh"]
+texture = SubResource("AtlasTexture_d15jt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_smt6e"]
+texture = SubResource("AtlasTexture_d15jt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pxqat"]
+texture = SubResource("AtlasTexture_3b2fv")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xsarr"]
+texture = SubResource("AtlasTexture_d15jt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ip36i"]
+texture = SubResource("AtlasTexture_d15jt")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v58s"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(1546, 165, 162, 50)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k7tl0"]
+texture = SubResource("AtlasTexture_7v58s")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsgpw"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(291, 107, 169, 35)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_42n2h"]
+texture = SubResource("AtlasTexture_tsgpw")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6d0m"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(291, 107, 169, 35)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gfr3j"]
+texture = SubResource("AtlasTexture_c6d0m")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osmlg"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(1546, 165, 162, 50)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_trrhm"]
+texture = SubResource("AtlasTexture_osmlg")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfjx5"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(291, 107, 169, 35)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_06mc2"]
+texture = SubResource("AtlasTexture_rfjx5")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg3kr"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(291, 107, 169, 35)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bc1pi"]
+texture = SubResource("AtlasTexture_fg3kr")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvoua"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(1546, 165, 162, 50)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pddn5"]
+texture = SubResource("AtlasTexture_rvoua")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk0ln"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(291, 107, 169, 35)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n8at5"]
+texture = SubResource("AtlasTexture_vk0ln")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lb4wn"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(291, 107, 169, 35)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_02qd8"]
+texture = SubResource("AtlasTexture_lb4wn")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bo81l"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(1546, 165, 162, 50)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r2ttk"]
+texture = SubResource("AtlasTexture_bo81l")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_320re"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(291, 107, 169, 35)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_778qb"]
+texture = SubResource("AtlasTexture_320re")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4gwp"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(291, 107, 169, 35)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8gpcs"]
+texture = SubResource("AtlasTexture_y4gwp")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghr11"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(1090, 84, 61, 56)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_be1e0"]
+texture = SubResource("AtlasTexture_ghr11")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oq3iy"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(1090, 84, 61, 56)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pv1ml"]
+texture = SubResource("AtlasTexture_oq3iy")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrbk2"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(1090, 84, 61, 56)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rqahr"]
+texture = SubResource("AtlasTexture_lrbk2")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_th2vo"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(1090, 84, 61, 56)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a7xhl"]
+texture = SubResource("AtlasTexture_th2vo")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hwso"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(1090, 84, 61, 56)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b1pir"]
+texture = SubResource("AtlasTexture_5hwso")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpcwt"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(1090, 84, 61, 56)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cn2qg"]
+texture = SubResource("AtlasTexture_cpcwt")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0p07p"]
+atlas = ExtResource("3_o0qwb")
+region = Rect2(1090, 84, 61, 56)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4jvhe"]
+texture = SubResource("AtlasTexture_0p07p")
 
 [node name="Control" type="Control" unique_id=1113207031]
 layout_mode = 3
@@ -38,144 +208,168 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="GridContainer" unique_id=603442786]
-custom_minimum_size = Vector2(500, 600)
+[node name="TextureRect" type="TextureRect" parent="GridContainer" unique_id=1122939858]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-theme_override_styles/panel = SubResource("StyleBoxFlat_smt6e")
+texture = ExtResource("2_w2oox")
 
-[node name="MarginContainer" type="MarginContainer" parent="GridContainer/Panel" unique_id=1642721529]
+[node name="ColorRect" type="ColorRect" parent="GridContainer/TextureRect" unique_id=436750617]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
+color = Color(0, 0, 0, 0.49803922)
+
+[node name="Panel" type="TextureRect" parent="GridContainer/TextureRect" unique_id=1960042875]
+custom_minimum_size = Vector2(500, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -300.0
+offset_right = 250.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = SubResource("AtlasTexture_w2gho")
+
+[node name="MarginContainer" type="MarginContainer" parent="GridContainer/TextureRect/Panel" unique_id=1642721529]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 50
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="GridContainer/Panel/MarginContainer" unique_id=824883022]
+[node name="VBoxContainer2" type="VBoxContainer" parent="GridContainer/TextureRect/Panel/MarginContainer" unique_id=824883022]
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="Label" type="Label" parent="GridContainer/Panel/MarginContainer/VBoxContainer2" unique_id=509254955]
+[node name="Label" type="Label" parent="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2" unique_id=509254955]
 layout_mode = 2
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 32
 text = "Controles"
 vertical_alignment = 1
 
-[node name="VScrollBar" type="ScrollContainer" parent="GridContainer/Panel/MarginContainer/VBoxContainer2" unique_id=278088723]
+[node name="VScrollBar" type="ScrollContainer" parent="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2" unique_id=278088723]
 custom_minimum_size = Vector2(300, 420)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar" unique_id=1976207566]
+[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar" unique_id=1976207566]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer" unique_id=1402282985]
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer" unique_id=1402282985]
 layout_mode = 2
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="keyBindBtn" type="Button" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer" unique_id=1594713028]
+[node name="keyBindBtn" type="Button" parent="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer" unique_id=1594713028]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 60)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_3aijj")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_w2oox")
-theme_override_styles/hover = SubResource("StyleBoxFlat_o0qwb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jx4lm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bhcsh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smt6e")
 
-[node name="Label" type="Label" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer" unique_id=307547581]
+[node name="Label" type="Label" parent="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer" unique_id=307547581]
 layout_mode = 2
 theme_override_constants/outline_size = 6
 text = "Movimento"
 
-[node name="keyBindBtn2" type="Button" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer" unique_id=889978183]
+[node name="keyBindBtn2" type="Button" parent="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer" unique_id=889978183]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_3aijj")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_w2oox")
-theme_override_styles/hover = SubResource("StyleBoxFlat_o0qwb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_pxqat")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xsarr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ip36i")
 
-[node name="keyBindBtn3" type="Button" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer" unique_id=1773480103]
+[node name="keyBindBtn3" type="Button" parent="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer" unique_id=1773480103]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 60)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_3aijj")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_w2oox")
-theme_override_styles/hover = SubResource("StyleBoxFlat_o0qwb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_k7tl0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_42n2h")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gfr3j")
 
-[node name="keyBindBtn4" type="Button" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer" unique_id=105213373]
+[node name="keyBindBtn4" type="Button" parent="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer" unique_id=105213373]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 60)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_3aijj")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_w2oox")
-theme_override_styles/hover = SubResource("StyleBoxFlat_o0qwb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_trrhm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_06mc2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bc1pi")
 
-[node name="keyBindBtn5" type="Button" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer" unique_id=1942307066]
+[node name="keyBindBtn5" type="Button" parent="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer" unique_id=1942307066]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 60)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_3aijj")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_w2oox")
-theme_override_styles/hover = SubResource("StyleBoxFlat_o0qwb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_pddn5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_n8at5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_02qd8")
 
-[node name="voltarBtn" type="Button" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer" unique_id=42936752]
+[node name="voltarBtn" type="Button" parent="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer" unique_id=42936752]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 60)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_3aijj")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_w2oox")
-theme_override_styles/hover = SubResource("StyleBoxFlat_o0qwb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_r2ttk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_778qb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8gpcs")
 text = "Voltar"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer" unique_id=1262401384]
+[node name="VBoxContainer2" type="VBoxContainer" parent="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer" unique_id=1262401384]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer2" unique_id=1854501412]
+[node name="Label" type="Label" parent="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer2" unique_id=1854501412]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_dn3do")
+theme_override_styles/normal = SubResource("StyleBoxTexture_be1e0")
 
-[node name="Label2" type="Label" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer2" unique_id=1059931797]
+[node name="Label2" type="Label" parent="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer2" unique_id=1059931797]
 custom_minimum_size = Vector2(0, 23)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_dn3do")
+theme_override_styles/normal = SubResource("StyleBoxTexture_pv1ml")
 
-[node name="Label3" type="Label" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer2" unique_id=947512694]
+[node name="Label3" type="Label" parent="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer2" unique_id=947512694]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_dn3do")
+theme_override_styles/normal = SubResource("StyleBoxTexture_rqahr")
 
-[node name="Label4" type="Label" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer2" unique_id=456328905]
+[node name="Label4" type="Label" parent="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer2" unique_id=456328905]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_dn3do")
+theme_override_styles/normal = SubResource("StyleBoxTexture_a7xhl")
 
-[node name="Label5" type="Label" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer2" unique_id=561624603]
+[node name="Label5" type="Label" parent="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer2" unique_id=561624603]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_dn3do")
+theme_override_styles/normal = SubResource("StyleBoxTexture_b1pir")
 
-[node name="Label6" type="Label" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer2" unique_id=546764120]
+[node name="Label6" type="Label" parent="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer2" unique_id=546764120]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_dn3do")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cn2qg")
 
-[node name="Label7" type="Label" parent="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer2" unique_id=1436160354]
+[node name="Label7" type="Label" parent="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer2" unique_id=1436160354]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_dn3do")
+theme_override_styles/normal = SubResource("StyleBoxTexture_4jvhe")
 
-[connection signal="pressed" from="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer/keyBindBtn" to="." method="_on_key_bind_btn_pressed"]
-[connection signal="pressed" from="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer/keyBindBtn2" to="." method="_on_key_bind_btn_2_pressed"]
-[connection signal="pressed" from="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer/keyBindBtn3" to="." method="_on_key_bind_btn_3_pressed"]
-[connection signal="pressed" from="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer/keyBindBtn4" to="." method="_on_key_bind_btn_4_pressed"]
-[connection signal="pressed" from="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer/keyBindBtn5" to="." method="_on_key_bind_btn_5_pressed"]
-[connection signal="pressed" from="GridContainer/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer/voltarBtn" to="." method="_on_voltar_btn_pressed"]
+[connection signal="pressed" from="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer/keyBindBtn" to="." method="_on_key_bind_btn_pressed"]
+[connection signal="pressed" from="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer/keyBindBtn2" to="." method="_on_key_bind_btn_2_pressed"]
+[connection signal="pressed" from="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer/keyBindBtn3" to="." method="_on_key_bind_btn_3_pressed"]
+[connection signal="pressed" from="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer/keyBindBtn4" to="." method="_on_key_bind_btn_4_pressed"]
+[connection signal="pressed" from="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer/keyBindBtn5" to="." method="_on_key_bind_btn_5_pressed"]
+[connection signal="pressed" from="GridContainer/TextureRect/Panel/MarginContainer/VBoxContainer2/VScrollBar/HBoxContainer/VBoxContainer/voltarBtn" to="." method="_on_voltar_btn_pressed"]

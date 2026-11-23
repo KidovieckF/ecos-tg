@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://dx6n6n2r0jjsp"]
+
+[ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_rop7f"]
+[ext_resource type="PackedScene" uid="uid://ekdv0214p4uc" path="res://Cenas/Huds/Hud_mascote_loja.tscn" id="1_wn4o5"]
+
+[resource]
+script = ExtResource("1_rop7f")
+nome_falante = "Miro"
+falas = "Que surpresa ela tem dinheiro."
+cena_para_abrir = ExtResource("1_wn4o5")
+metadata/_custom_type_script = "uid://b1j7iupjo2avo"

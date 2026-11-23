@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://dnplrl1iciwbl"]
+
+[ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://drciigkhagkgy" path="res://sprites/Portraits/helena_dialogo_3.png" id="2_foto"]
+
+[resource]
+script = ExtResource("1_script")
+nome_falante = "Helena"
+foto = ExtResource("2_foto")
+falas = "Seu espírito clama por mais treinamento, então? Estou a postos, quando desejar!"
+gatilho_acao = "liberar_treino "
+metadata/_custom_type_script = "uid://b1j7iupjo2avo"

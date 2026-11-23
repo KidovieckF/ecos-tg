@@ -18,9 +18,19 @@ func _physics_process(delta: float) -> void:
 		for inimigo in inimigos_dentro:
 			if is_instance_valid(inimigo):
 				var entidade = inimigo.owner if inimigo.owner != null else inimigo.get_parent()
-				if entidade and not entidade.is_in_group("Boss"):
+				if entidade and not eh_imune_a_gravidade(entidade):
 					var direcao = (centro_global - entidade.global_position).normalized()
 					entidade.global_position += direcao * 150 * delta
+
+func eh_imune_a_gravidade(entidade: Node) -> bool:
+	if entidade.is_in_group("Boss") or entidade.is_in_group("Miniboss"):
+		return true
+	var nome = entidade.name.to_lower()
+	if "boss" in nome or "miniboss" in nome or "golem" in nome:
+		return true
+	if entidade.has_method("revelar_barra"):
+		return true
+	return false
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.has_method("take_damage"):

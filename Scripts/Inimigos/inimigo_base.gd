@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 			data.acao(self, delta)
 			
 func _aplicar_anomalo() -> void:
-	var chance = clamp((RunData.dificuldade - 1) * 1, 1, 1)
+	var chance = clamp((RunData.dificuldade - 1) * 0.05, 0.0, 0.4)
 	
 	if randf() < chance:
 		e_anomalo = true
@@ -77,6 +77,7 @@ func morrer():
 			upgrade.ao_inimigo_morrer(self, player)
 				
 	set_physics_process(false)
+	SaveManager.registrar_abate()
 	collision_layer = 0
 	collision_mask = 0
 	$AreaDano.collision_layer = 0

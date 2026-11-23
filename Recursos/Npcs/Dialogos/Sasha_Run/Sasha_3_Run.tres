@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://d4dp1vt8vctwb"]
+
+[ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_0u2ib"]
+[ext_resource type="PackedScene" uid="uid://kmtyawswx1qp" path="res://Cenas/Huds/hud_loja.tscn" id="1_qjny0"]
+
+[resource]
+script = ExtResource("1_0u2ib")
+nome_falante = "Sasha"
+falas = "Ta cheia da bufunfa ai, hein? Tá afim de gastar?"
+cena_para_abrir = ExtResource("1_qjny0")
+metadata/_custom_type_script = "uid://b1j7iupjo2avo"

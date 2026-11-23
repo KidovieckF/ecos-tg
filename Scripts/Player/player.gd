@@ -17,6 +17,7 @@ var last_direction = Vector2(1,0)
 var morto = false
 var barra_exp
 var xp_atual = 0
+var fila_de_niveis: Array[int] = []
 var atacando = false
 var dashando = false
 var direcao_dash = Vector2.ZERO
@@ -212,23 +213,85 @@ func atirar():
 	nova_magia.start(global_position, direcao_calculada, arma.dano, arma.speed)
 	$AttackTimer.start()
 
-func ganhar_xp(exp):
-	xp_atual += exp 
-	print("EXP: ", xp_atual)
-	if xp_atual >= barra_exp:
+func ganhar_xp(quantidade_xp: float) -> void:
+	processar_xp_jogador(quantidade_xp)
+	
+	var arma_ativa = RunData.armas[0]
+	if arma_ativa:
+		processar_xp_arma(arma_ativa, quantidade_xp)
+
+func processar_xp_jogador(qtd: float) -> void:
+	xp_atual += qtd
+	
+	while xp_atual >= barra_exp:
 		xp_atual -= barra_exp
 		barra_exp = barra_exp * 1.25
-		print("upei de nivel")
-		nivel +=1
-		print("nivel: ",nivel)
-		var upg_scene = upgrade.instantiate()
-		if nivel % 5 == 0:
-			upg_scene.eh_upgrade_de_arma = true
-		else:
-			upg_scene.eh_upgrade_de_arma = false
-			
-		add_child(upg_scene)
-	hud.atualizar_xp(xp_atual, barra_exp, nivel)
+		nivel += 1
+		
+		var vida_bonus = 10.0
+		RunData.vida_max += vida_bonus
+		curar(vida_bonus)
+		print("🎉 ALICE SUBIU PARA O NÍVEL ", nivel, "! Vida Máxima: ", RunData.vida_max)
+		
+	if hud and hud.has_method("atualizar_xp"):
+		hud.atualizar_xp(xp_atual, barra_exp, nivel)
+
+func processar_xp_arma(arma: ArmaRecurso, qtd: float) -> void:
+	arma.xp_atual += qtd
+	
+	while arma.xp_atual >= arma.barra_exp:
+		arma.xp_atual -= arma.barra_exp
+		arma.barra_exp = arma.barra_exp * 1.30
+		arma.nivel += 1
+		
+		fila_upgrades_armas.append(arma)
+		print("⚡ MAESTRIA: ", arma.nome, " subiu para o Nível ", arma.nivel, "!")
+	processar_proximo_upgrade_arma()
+
+# processar o upgrade da arma que matou
+
+var fila_upgrades_armas: Array[ArmaRecurso] = []
+
+func processar_proximo_upgrade_arma() -> void:
+	if fila_upgrades_armas.is_empty():
+		return
+	if get_node_or_null("TelaUpgradeAtiva"):
+		return
+		
+	var arma_que_upou = fila_upgrades_armas.pop_front()
+	
+	var upg_scene = upgrade.instantiate()
+	upg_scene.name = "TelaUpgradeAtiva"
+	
+	# Passamos para a tela de upgrade exatamente a arma que upou!
+	upg_scene.arma_alvo = arma_que_upou
+	
+	upg_scene.tree_exited.connect(func():
+		if not fila_upgrades_armas.is_empty():
+			call_deferred("processar_proximo_upgrade_arma")
+	)
+	
+	add_child(upg_scene)
+
+func processar_proximo_upgrade() -> void:
+	if fila_de_niveis.is_empty():
+		return
+	if get_node_or_null("TelaUpgradeAtiva"):
+		return
+		
+	var nivel_do_upgrade = fila_de_niveis.pop_front()
+	
+	var upg_scene = upgrade.instantiate()
+	upg_scene.name = "TelaUpgradeAtiva"
+	
+	upg_scene.eh_upgrade_de_arma = (nivel_do_upgrade % 5 == 0)
+	
+	upg_scene.tree_exited.connect(func():
+		if not fila_de_niveis.is_empty():
+			call_deferred("processar_proximo_upgrade")
+	)
+	
+	add_child(upg_scene)
 	
 
 func take_damage(quantidade, cor = Color.WHITE):
@@ -244,6 +307,7 @@ func take_damage(quantidade, cor = Color.WHITE):
 		hud.atualizar_vida(RunData.vida_atual, RunData.vida_max)
 		pode_tomar_dano = false
 	if RunData.vida_atual <= 0 and morto == false:
+		SaveManager.registrar_derrota()
 		morto = true
 		RunData.resetar_run()
 		var game_over = game_over_scene.instantiate()

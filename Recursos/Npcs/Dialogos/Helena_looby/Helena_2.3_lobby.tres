@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://cmoh5pw7t0w5n"]
+
+[ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_r1aq0"]
+
+[resource]
+script = ExtResource("1_r1aq0")
+nome_falante = "Helna"
+falas = "Ah, mas eu sou tão confiável, bom vou estar aqui caso mude de ideia."
+gatilho_acao = "recusou_proposta"
+metadata/_custom_type_script = "uid://b1j7iupjo2avo"

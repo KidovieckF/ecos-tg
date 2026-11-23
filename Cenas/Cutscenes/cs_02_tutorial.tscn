@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://s2yaqedcqp27" path="res://Cenas/Cutscenes/Caixa_de_dialogo.tscn" id="7_xfd0s"]
 [ext_resource type="PackedScene" uid="uid://dfv6bqug74hbb" path="res://Cenas/Mundo/Portal_lobby.tscn" id="10_emmnh"]
 [ext_resource type="PackedScene" uid="uid://cogp8m7swob7s" path="res://Cenas/Cutscenes/Trigger_geral.tscn" id="11_ksgjj"]
+[ext_resource type="Texture2D" uid="uid://bsw08vlxsmni4" path="res://sprites/characters/Miro.png" id="12_ksgjj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ksgjj"]
 texture = ExtResource("1_e6amx")
@@ -184,12 +185,16 @@ tile_map_data = PackedByteArray("AABHABwAAAABAAUAAABHAB0AAAABAAUAAABHAB4AAAABAAU
 tile_set = SubResource("TileSet_l04ie")
 
 [node name="CanvasLayer" parent="." unique_id=1917002634 instance=ExtResource("7_xfd0s")]
-visible = false
 
 [node name="Control" parent="." unique_id=433151292 instance=ExtResource("10_emmnh")]
 position = Vector2(1147, 336)
 
 [node name="Area2D" parent="." unique_id=1489984145 instance=ExtResource("11_ksgjj")]
 position = Vector2(-15, 312)
+
+[node name="Miro" type="Sprite2D" parent="." unique_id=139935502]
+position = Vector2(1422.0001, 332)
+scale = Vector2(1.375, 1.5333333)
+texture = ExtResource("12_ksgjj")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_trigger_geral_body_entered"]

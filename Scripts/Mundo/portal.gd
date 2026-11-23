@@ -2,6 +2,7 @@ extends Area2D
 
 
 func _on_body_entered(body: Node2D) -> void:
+	RunData.treino_liberado = false
 	if body.is_in_group("Players"):
 		# Desabilita o controle do jogador para a cutscene
 		body.set_physics_process(false)

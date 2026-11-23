@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://bfghxk8wnefo3"]
+
+[ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_yuktk"]
+
+[resource]
+script = ExtResource("1_yuktk")
+nome_falante = "Helena"
+falas = "Se que sabe, sem graça..."
+gatilho_acao = "recusou_proposta"
+metadata/_custom_type_script = "uid://b1j7iupjo2avo"

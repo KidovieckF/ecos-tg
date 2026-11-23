@@ -5,18 +5,16 @@
 [ext_resource type="Resource" uid="uid://xerumnbc3lwc" path="res://Recursos/Npcs/Dialogos/Dialogo1.tres" id="3_6s67h"]
 [ext_resource type="Resource" uid="uid://dcmd1h5obd6fo" path="res://Recursos/Npcs/Dialogos/Dialogo1.2.tres" id="4_6s67h"]
 [ext_resource type="Resource" uid="uid://bgbermybki7fo" path="res://Recursos/Npcs/Dialogos/Dialogo1.3.tres" id="5_tcd3m"]
-[ext_resource type="Texture2D" uid="uid://bjcx8w6fgakt6" path="res://sprites/characters/Nalini.png" id="6_tcd3m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jfeb3"]
 radius = 78.160095
 
-[node name="Nalini" type="Area2D" unique_id=270457254]
+[node name="NPC" type="Area2D" unique_id=270457254]
 script = ExtResource("1_jfeb3")
 dialogo = Array[ExtResource("2_pga6u")]([ExtResource("3_6s67h"), ExtResource("4_6s67h"), ExtResource("5_tcd3m")])
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=758417978]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1157716206]
 scale = Vector2(1.548047, 1.4752452)
-texture = ExtResource("6_tcd3m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1264090415]
 shape = SubResource("CircleShape2D_jfeb3")

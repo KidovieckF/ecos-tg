@@ -8,7 +8,9 @@ var projetil = preload("res://Cenas/Inimigos/Bosses/Bola.tscn")
 var olhar_direita: bool = false
 
 func _ready() -> void:
-	# Detecta se nasceu no lado esquerdo da sala (< 576 é a metade da largura da tela)
+	super()
+	add_to_group("Boss")
+	
 	if position.x < 576:
 		olhar_direita = true
 		$Corpo_golem.scale.x = -1

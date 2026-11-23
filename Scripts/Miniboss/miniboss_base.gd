@@ -18,6 +18,8 @@ var cutscene_inicial = false
 
 
 func _ready() -> void:
+	add_to_group("Boss")
+	add_to_group("Miniboss")
 	set_physics_process(false) 
 	
 	player = get_tree().get_first_node_in_group("Players")
@@ -49,6 +51,9 @@ func _physics_process(delta: float) -> void:
 	for body in corpos_encostados:
 		if body.is_in_group("Players"):
 			body.take_damage(data.dano_melee)
+
+func receber_dano(quantidade: float) -> void:
+	dano_pendente += quantidade
 
 func dropar_artefato():
 

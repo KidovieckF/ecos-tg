@@ -3,85 +3,171 @@
 [ext_resource type="Script" uid="uid://bhsn814hr7rhe" path="res://Scripts/Huds/hud_artefato.gd" id="1_gxihy"]
 [ext_resource type="Resource" uid="uid://jkk1dg3tgva4" path="res://Recursos/Artefatos/Teste_dano.tres" id="2_nx0b7"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nx0b7"]
-bg_color = Color(0.38348114, 0.63745594, 0.7634912, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_overlay"]
+bg_color = Color(0.04, 0.05, 0.08, 0.75)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.117647, 0.129412, 0.176471, 0.97)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.78, 0.63, 0.34, 0.9)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.6)
+shadow_size = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icon_frame"]
+bg_color = Color(0.08, 0.09, 0.12, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.42, 0.46, 0.6, 0.6)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_aceitar"]
+bg_color = Color(0.18, 0.28, 0.2, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.4, 0.8, 0.5, 0.9)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_recusar"]
+bg_color = Color(0.24, 0.16, 0.18, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.75, 0.35, 0.4, 0.9)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=517762579]
 process_mode = 3
+layer = 10
 script = ExtResource("1_gxihy")
 artefato = ExtResource("2_nx0b7")
 
-[node name="Panel" type="Panel" parent="." unique_id=898417184]
-custom_minimum_size = Vector2(200, 200)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_nx0b7")
-
-[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=116391653]
-layout_mode = 1
+[node name="Overlay" type="Panel" parent="." unique_id=5001]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_overlay")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=127947161]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=5002]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="CenterContainer" unique_id=898417184]
+custom_minimum_size = Vector2(340, 360)
 layout_mode = 2
-theme_override_constants/separation = 30
+pivot_offset = Vector2(170, 180)
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Panel" unique_id=116391653]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer" unique_id=127947161]
+layout_mode = 2
+theme_override_constants/separation = 12
 alignment = 1
 
-[node name="Nome" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1658918750]
-unique_name_in_owner = true
+[node name="Badge" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=5003]
 layout_mode = 2
-size_flags_horizontal = 4
-text = "Nome do item"
+theme_override_colors/font_color = Color(0.95, 0.85, 0.55, 1)
+theme_override_font_sizes/font_size = 12
+text = "[ ARTEFATO ENCONTRADO ]"
+horizontal_alignment = 1
 
-[node name="Textura" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer" unique_id=2050442605]
+[node name="Nome" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=1658918750]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(32, 32)
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Nome do Artefato"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Frame" type="PanelContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=5004]
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_icon_frame")
+
+[node name="Textura" type="TextureRect" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/Frame" unique_id=2050442605]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Descricao" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=822383530]
-unique_name_in_owner = true
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=5005]
 layout_mode = 2
-size_flags_horizontal = 4
-text = "Descricao"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=286528342]
+[node name="Descricao" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=822383530]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(290, 60)
 layout_mode = 2
-size_flags_vertical = 10
-theme_override_constants/separation = 20
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.85, 0.88, 0.94, 1)
+theme_override_font_sizes/font_size = 13
+text = "Descrição do efeito do artefato"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=286528342]
+layout_mode = 2
+theme_override_constants/separation = 16
 alignment = 1
 
-[node name="AceitarBtn" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1763407324]
-custom_minimum_size = Vector2(50, 30)
+[node name="AceitarBtn" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1763407324]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 36)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 1, 0.9, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_aceitar")
 text = "Aceitar"
 
-[node name="RecusarBtn" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=361537677]
-custom_minimum_size = Vector2(50, 30)
+[node name="RecusarBtn" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=361537677]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 36)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.85, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_recusar")
 text = "Recusar"
 
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/AceitarBtn" to="." method="_on_aceitar_btn_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/RecusarBtn" to="." method="_on_recusar_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/AceitarBtn" to="." method="_on_aceitar_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/RecusarBtn" to="." method="_on_recusar_btn_pressed"]

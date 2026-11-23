@@ -16,10 +16,14 @@ func take_damage(quantidade, cor = Color.WHITE, critico = false, ativa_artefatos
 	if owner.morto:
 		return
 		
-	if owner.is_in_group("Boss") or owner.has_method("receber_dano"):
+	SaveManager.registrar_dano(quantidade)
+	
+	if owner.has_method("receber_dano"):
 		owner.receber_dano(quantidade)
-	elif owner.is_in_group("Inimigos"):
+	elif "dano_pendente" in owner:
 		owner.dano_pendente += quantidade
+	elif owner.has_method("take_damage"):
+		owner.take_damage(quantidade, cor)
 		
 	var novo_dano = ind_dano.instantiate() 
 

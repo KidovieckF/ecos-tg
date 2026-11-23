@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Ini_SlimeNeveData" format=3 uid="uid://dow77vlhk3uuc"]
+
+[ext_resource type="Script" uid="uid://dthkl0icu5258" path="res://Recursos/Inimigos/Inimigos Comuns/inimigo_slime_neve.gd" id="1_ipnrb"]
+[ext_resource type="PackedScene" uid="uid://ca217n6wvguvt" path="res://Cenas/Inimigos/Inimigos_Herdados/Slime_Neve.tscn" id="1_m03lv"]
+
+[resource]
+script = ExtResource("1_ipnrb")
+Nome = "Slime Neve"
+vida = 20
+dano = 30.0
+speed = 200.0
+peso_spawn = 50
+dificuldade_minima = 2
+exp = 30.0
+cena_inimigo = ExtResource("1_m03lv")
+metadata/_custom_type_script = "uid://dthkl0icu5258"

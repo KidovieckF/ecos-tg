@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cj5v31657t0uy"]
+
+[ext_resource type="Script" uid="uid://c3kvyfkufdbtm" path="res://Scripts/Huds/tela_configuracoes.gd" id="1_oisxb"]
+
+[node name="TelaConfiguracoes" type="CanvasLayer" unique_id=1351869260]
+script = ExtResource("1_oisxb")

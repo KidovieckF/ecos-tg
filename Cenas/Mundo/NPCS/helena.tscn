@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://nd1o6cb60ycf"]
+
+[ext_resource type="PackedScene" uid="uid://dxd5x5mpfk775" path="res://Cenas/Mundo/NPCS/npc.tscn" id="1_rwte7"]
+[ext_resource type="Script" uid="uid://xjqciwue21wr" path="res://Scripts/Mundo/NPCS/helena_npc.gd" id="2_gm0op"]
+[ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="3_0khgp"]
+[ext_resource type="Texture2D" uid="uid://c0j0i14wt3gmo" path="res://sprites/characters/Helena.png" id="4_gm0op"]
+[ext_resource type="Resource" path="res://Recursos/Npcs/Dialogos/Helena_looby/Helena_Treino_1.tres" id="4_mdywx"]
+[ext_resource type="Resource" path="res://Recursos/Npcs/Dialogos/Helena_looby/Helena_Arma_3.tres" id="5_1ycmb"]
+[ext_resource type="Resource" path="res://Recursos/Npcs/Dialogos/Helena_looby/Helena_Treino_2.tres" id="6_1iyt6"]
+[ext_resource type="Resource" path="res://Recursos/Npcs/Dialogos/Helena_looby/Helena_Arma_1.tres" id="7_ey6cn"]
+[ext_resource type="Resource" path="res://Recursos/Npcs/Dialogos/Helena_looby/Helena_Arma_2.tres" id="8_5fahy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0khgp"]
+atlas = ExtResource("4_gm0op")
+region = Rect2(0, 0, 20, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xsjwl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0khgp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Helena" unique_id=270457254 instance=ExtResource("1_rwte7")]
+script = ExtResource("2_gm0op")
+falas_menu = Array[ExtResource("3_0khgp")]([])
+falas_treino = Array[ExtResource("3_0khgp")]([ExtResource("4_mdywx"), ExtResource("5_1ycmb"), ExtResource("6_1iyt6")])
+falas_mudar_arma = Array[ExtResource("3_0khgp")]([ExtResource("7_ey6cn"), ExtResource("8_5fahy"), ExtResource("5_1ycmb")])
+estado_oferta_artefatos = Array[ExtResource("3_0khgp")]([])
+estado_concluido = Array[ExtResource("3_0khgp")]([])
+
+[node name="Sprite2D" parent="." index="0" unique_id=1157716206]
+sprite_frames = SubResource("SpriteFrames_xsjwl")

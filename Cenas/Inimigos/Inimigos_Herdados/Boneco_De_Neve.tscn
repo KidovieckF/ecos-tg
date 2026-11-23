@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dm5m6odrnhfs2"]
+
+[ext_resource type="PackedScene" uid="uid://cblhmuvwm5g5m" path="res://Cenas/Inimigos/inimigo_base.tscn" id="1_oyahj"]
+[ext_resource type="Texture2D" uid="uid://b8rluuthf2omc" path="res://sprites/inimigos/Boneco de Neve/Boneco_de_neve.png" id="2_hmqnf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dx8x"]
+atlas = ExtResource("2_hmqnf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65k3r"]
+atlas = ExtResource("2_hmqnf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxs4p"]
+atlas = ExtResource("2_hmqnf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p8g2y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dx8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65k3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxs4p")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lr3to"]
+radius = 8.062258
+
+[node name="InimigoBase" unique_id=1673984598 instance=ExtResource("1_oyahj")]
+
+[node name="AreaDano" parent="." index="0" unique_id=636268532]
+scale = Vector2(1.37, 1.37)
+
+[node name="Sprite2D" parent="." index="1" unique_id=208783479]
+position = Vector2(-3, -9)
+sprite_frames = SubResource("SpriteFrames_p8g2y")
+animation = &"Idle"
+frame_progress = 0.06340929
+
+[node name="Hurtbox" parent="." index="3" unique_id=1731929558]
+scale = Vector2(1.41, 1.41)
+
+[node name="CollisionShape2D" parent="." index="4" unique_id=354137520]
+position = Vector2(0, 1.0000005)
+scale = Vector2(1.965, 1.965)
+shape = SubResource("CircleShape2D_lr3to")

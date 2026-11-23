@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://c1ds1tr1bwnq4"]
+
+[ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_bwl7q"]
+[ext_resource type="Resource" uid="uid://dcjno6vh3gyta" path="res://Recursos/Npcs/Dialogos/Sasha_lobby/Sasha_1.1_lobby.tres" id="2_qy2sx"]
+
+[resource]
+script = ExtResource("1_bwl7q")
+nome_falante = "Sasha"
+falas = "Qualquer produto SashaFax tem garantia somente até a explosão!"
+proximo_1 = Array[ExtResource("1_bwl7q")]([ExtResource("2_qy2sx")])
+metadata/_custom_type_script = "uid://b1j7iupjo2avo"

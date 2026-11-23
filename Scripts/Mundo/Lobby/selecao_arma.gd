@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @export var armas : Array[ArmaRecurso]
 var index = 0

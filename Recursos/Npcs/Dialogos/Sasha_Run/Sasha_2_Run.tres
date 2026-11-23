@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://b6bsgjimokbkf"]
+
+[ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_ngst6"]
+[ext_resource type="Resource" uid="uid://c4pq4oc74oue5" path="res://Recursos/Npcs/Dialogos/Sasha_Run/Sasha_2.1_Run.tres" id="2_uvkia"]
+
+[resource]
+script = ExtResource("1_ngst6")
+nome_falante = "Sasha"
+falas = "Ei! Psiu! Vem cá, achei uns trambolhos no caminho pro cê dar uma olhada."
+respostas = Array[String](["Porque você está sussurando?"])
+proximo_1 = Array[ExtResource("1_ngst6")]([ExtResource("2_uvkia")])
+metadata/_custom_type_script = "uid://b1j7iupjo2avo"

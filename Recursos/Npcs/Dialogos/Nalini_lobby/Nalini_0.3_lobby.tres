@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://busjfv8kv70l7"]
+
+[ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_srbf8"]
+[ext_resource type="Resource" uid="uid://c8jmmtmd5oald" path="res://Recursos/Npcs/Dialogos/Nalini_lobby/Nalini_0.4_lobby.tres" id="2_8a5vt"]
+[ext_resource type="Resource" uid="uid://cdsdc3h085ufi" path="res://Recursos/Npcs/Dialogos/Nalini_lobby/Nalini_0.2.2_lobby.tres" id="3_mu7bv"]
+[ext_resource type="Resource" uid="uid://dy6kabym5raw" path="res://Recursos/Npcs/Dialogos/Nalini_lobby/Nalini_0.2.1_lobby.tres" id="4_ls1gi"]
+
+[resource]
+script = ExtResource("1_srbf8")
+nome_falante = "Nalini"
+falas = "Mais alguma coisa?"
+respostas = Array[String](["Não to tranquila.", "Sobre o Hiki", "Sobre as poções."])
+proximo_1 = Array[ExtResource("1_srbf8")]([ExtResource("2_8a5vt")])
+proximo_2 = Array[ExtResource("1_srbf8")]([ExtResource("3_mu7bv")])
+proximo_3 = Array[ExtResource("1_srbf8")]([ExtResource("4_ls1gi")])
+metadata/_custom_type_script = "uid://b1j7iupjo2avo"

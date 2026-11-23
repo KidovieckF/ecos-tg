@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://ip5jwc7tof2j"]
+
+[ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_qt5kk"]
+
+[resource]
+script = ExtResource("1_qt5kk")
+falas = "Foi ótimo fazer négocios com você!"
+metadata/_custom_type_script = "uid://b1j7iupjo2avo"

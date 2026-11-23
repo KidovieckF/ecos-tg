@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://cb6ietd6ysqir"]
+
+[ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_px14q"]
+[ext_resource type="Resource" uid="uid://njgh65dysgfr" path="res://Recursos/Npcs/Dialogos/Helena_looby/Helena_2.1_lobby.tres" id="2_1p2kw"]
+[ext_resource type="Resource" uid="uid://c4c5a4our7t3h" path="res://Recursos/Npcs/Dialogos/Helena_looby/Helena_2.2_lobby.tres" id="3_4frg7"]
+[ext_resource type="Resource" uid="uid://cmoh5pw7t0w5n" path="res://Recursos/Npcs/Dialogos/Helena_looby/Helena_2.3_lobby.tres" id="4_3eh0a"]
+
+[resource]
+script = ExtResource("1_px14q")
+nome_falante = "Helena"
+falas = "Wow voce achou tantos! 
+Seguinte, me dê 5 que vou te dar algo especial em troca."
+respostas = Array[String](["Algo especial?", "Claro Toma aqui.", "Não, obrigada."])
+proximo_1 = Array[ExtResource("1_px14q")]([ExtResource("2_1p2kw")])
+proximo_2 = Array[ExtResource("1_px14q")]([ExtResource("3_4frg7")])
+proximo_3 = Array[ExtResource("1_px14q")]([ExtResource("4_3eh0a")])
+metadata/_custom_type_script = "uid://b1j7iupjo2avo"

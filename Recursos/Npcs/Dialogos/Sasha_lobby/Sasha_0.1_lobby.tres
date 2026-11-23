@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://b1cgciq3607sj"]
+
+[ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_3mfw6"]
+[ext_resource type="Resource" uid="uid://dmhuyq7c3p8ih" path="res://Recursos/Npcs/Dialogos/Sasha_lobby/Sasha_0.2_lobby.tres" id="2_r2j6d"]
+
+[resource]
+script = ExtResource("1_3mfw6")
+nome_falante = "Sasha"
+falas = "Ó, enquanto cê tava toda ocupada lá em cima, eu dei uma melhorada no lugarzin e na loja.
+Agora ela ta oficialmente adaptada para magia!"
+proximo_1 = Array[ExtResource("1_3mfw6")]([ExtResource("2_r2j6d")])
+metadata/_custom_type_script = "uid://b1j7iupjo2avo"

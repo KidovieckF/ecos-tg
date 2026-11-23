@@ -16,3 +16,4 @@ personagem = ExtResource("2_bfxb6")
 [node name="MapGenerator" type="Node" parent="." unique_id=1303301862 node_paths=PackedStringArray("player")]
 script = ExtResource("3_bfxb6")
 player = NodePath("../Player")
+total_salas_alvo = 4

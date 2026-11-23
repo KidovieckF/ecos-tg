@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://dijbcidjelw4c"]
+
+[ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_620ht"]
+
+[resource]
+script = ExtResource("1_620ht")
+nome_falante = "Sasha"
+falas = "Surpresa, mas nem tanto né?! Trouxe umas coisinhas pro cê!"
+metadata/_custom_type_script = "uid://b1j7iupjo2avo"

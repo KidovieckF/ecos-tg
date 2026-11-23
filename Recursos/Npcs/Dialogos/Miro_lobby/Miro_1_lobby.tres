@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://crdws6i2twcvv"]
+
+[ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bsw08vlxsmni4" path="res://sprites/characters/Miro.png" id="2_foto"]
+[ext_resource type="Resource" uid="uid://trrte5ks66lx" path="res://Recursos/Npcs/Dialogos/Miro_lobby/Miro_1.1_lobby.tres" id="3_vila"]
+[ext_resource type="Resource" uid="uid://0dgi8ivlcqgt" path="res://Recursos/Npcs/Dialogos/Miro_lobby/Miro_1.2_lobby.tres" id="4_moradores"]
+[ext_resource type="Resource" uid="uid://bli7o60fcehyp" path="res://Recursos/Npcs/Dialogos/Miro_lobby/Miro_1.3_lobby.tres" id="5_hiki"]
+[ext_resource type="Resource" uid="uid://d2jnmy2ymksy1" path="res://Recursos/Npcs/Dialogos/Miro_lobby/Miro_1.4_lobby.tres" id="6_sair"]
+[ext_resource type="Resource" uid="uid://bln8erm2ghbqf" path="res://Recursos/Npcs/Dialogos/Miro_lobby/Miro_1.5_lobby.tres" id="7_cokf2"]
+
+[resource]
+script = ExtResource("1_script")
+nome_falante = "Miro"
+foto = ExtResource("2_foto")
+falas = "Imaginei, oque você quer saber?"
+respostas = Array[String](["Sobre a vila", "Sobre os moradores", "Sobre o Hiki", "Aonde vou daqui?", "Nada não."])
+proximo_1 = Array[ExtResource("1_script")]([ExtResource("3_vila")])
+proximo_2 = Array[ExtResource("1_script")]([ExtResource("4_moradores")])
+proximo_3 = Array[ExtResource("1_script")]([ExtResource("5_hiki")])
+proximo_4 = Array[ExtResource("1_script")]([ExtResource("6_sair")])
+proximo_5 = Array[ExtResource("1_script")]([ExtResource("7_cokf2")])
+metadata/_custom_type_script = "uid://b1j7iupjo2avo"

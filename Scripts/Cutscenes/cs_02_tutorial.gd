@@ -3,74 +3,119 @@ extends Node2D
 @onready var player = $Player
 @onready var inimigo = $InimigoBase
 @onready var hud = $HUD
+@onready var miro = $Miro
 
-# Referência para a cena instanciada "Caixa_de_dialogo"
 @onready var canvas_dialogo = $CanvasLayer
-# O caminho exato para chegar no Label de fora da Cena embalada
 @onready var meu_label = $CanvasLayer/GridContainer/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Label if canvas_dialogo else null
+@onready var label_nome = $CanvasLayer/GridContainer/MarginContainer/HBoxContainer/Panel/TextureRect2/Label if canvas_dialogo else null
+@onready var portrait_dialogo = $CanvasLayer/GridContainer/MarginContainer/HBoxContainer/TextureRect if canvas_dialogo else null
 
-enum Fase { ENTRANDO, INIMIGO_CHEGANDO, TUTORIAL, COMBATE }
+enum Fase { ENTRANDO, INIMIGO_CHEGANDO, TUTORIAL_PRE_COMBATE, COMBATE, POS_COMBATE, CONCLUIDO }
 var fase_atual = Fase.ENTRANDO
 var linha_atual = 0
 var tween_texto : Tween
 
+var timer_taunt: float = 0.0
+
 var dialogos_tutorial = [
-	"INIMIGO: Ora, ora... Uma forasteira no meu território.",
-	"INIMIGO: Preste bem atenção se quiser sobreviver!",
-	"INIMIGO: Use as setas (W, A, S, D) para se mover.",
-	"INIMIGO: Mire com o Mouse e atire com o Botão Esquerdo.",
-	"INIMIGO: Lá em cima na esquerda está sua Vida e sua Barra de XP.",
-	"INIMIGO: Chega de conversa. Mostre o que sabe fazer! Prepare-se!"
+	"Ei, cuidado aí na frente! Essa coisa escapou e tá indo babando pra cima de você!",
+	"Não fica aí parada com cara de paisagem! Me ajuda aqui antes que esse bicho quebre tudo!",
+	"Usa [W, A, S, D] pra se mexer rápido. A não ser que você queira levar uma pancada de graça.",
+	"Aponta o mouse e clica no Botão Esquerdo pra jogar essas tuas magias bem na fuça dele!",
+	"Fica de olho na sua Vida e na barra de XP ali em cima. Não vai me morrer de bobeira, hein!",
+	"Chega de papo, ele tá vindo! Mostra pra que veio!"
 ]
 
-func _ready():
-	# 1. Desliga tudo para a cutscene
+var dialogos_pos_combate = [
+	"Olha só... até que você não é um desastre completo. Mandou bem de verdade!",
+	"Nem me apresent- Ah é você Alice. Sou eu a Miro! Quanto Tempo.",
+	"Você ainda tem jeito pra coisa, garota. Entra naquele portal ali na frente que dá direto na vila. Não enrola, te vejo lá!"
+]
+
+var taunts_combate = [
+	"Não fica parada, tá esperando um convite?!",
+	"Mire direito, tá atirando no vento!",
+	"Desvia disso! Acorda!",
+	"Boa! Agora não deixa ele respirar!",
+	"Até que você tem mira, continua!",
+	"Sai da reta dele, não é de ferro não!"
+]
+
+func _ready() -> void:
 	if hud: hud.visible = false
 	if player: player.set_physics_process(false)
 	
-	
-	# Trava a câmera no centro da sala do tutorial e desliga ela de seguir o player no escuro
 	if player:
 		for child in player.get_children():
 			if child is Camera2D:
 				child.top_level = true
 				child.set_physics_process(false)
-				child.global_position = Vector2(569.5, 320.5) # Exato meio da tela baseado no seu room_size
+				child.global_position = Vector2(569.5, 320.5)
 	
 	if inimigo: 
 		inimigo.set_physics_process(false)
-		inimigo.global_position = Vector2(1200, 350) # Esconde ele na direita da tela
+		inimigo.global_position = Vector2(1200, 350)
+		
+	if miro:
+		miro.global_position = Vector2(1420, 332)
 	
-	# 2. Faz o Player entrar na tela
 	if player:
-		# Posição inicial (escondida na esquerda)
 		player.global_position = Vector2(-100, 350) 
 		var sprite_player = player.get_node("Sprite2D")
 		sprite_player.play("AndandoLado")
-		sprite_player.flip_h = false # Olha pra direita
+		sprite_player.flip_h = false
 		
-		# Caminha até o meio da tela
 		var tween = create_tween()
 		var pos_centro = Vector2(500, 350)
 		tween.tween_property(player, "global_position", pos_centro, 2.0)
 		
 		tween.tween_callback(func():
-			sprite_player.play("IdleLado") # Para e fica Idle pra direita
-			# Pequeno atraso pra respirar e o inimigo entra
+			sprite_player.play("IdleLado")
 			var timer = get_tree().create_timer(0.5)
-			timer.timeout.connect(chamar_inimigo)
+			timer.timeout.connect(chamar_inimigo_e_miro)
 		)
 
-func chamar_inimigo():
+func _process(delta: float) -> void:
+	if fase_atual == Fase.COMBATE and inimigo and is_instance_valid(inimigo):
+		timer_taunt += delta
+		if timer_taunt >= 4.5:
+			timer_taunt = 0.0
+			_soltar_taunt()
+
+func _soltar_taunt() -> void:
+	if taunts_combate.is_empty() or not canvas_dialogo or not meu_label:
+		return
+		
+	var fala = taunts_combate.pick_random()
+	
+	if label_nome:
+		label_nome.text = "Miro"
+		
+	meu_label.text = fala
+	meu_label.visible_characters = -1
+	canvas_dialogo.visible = true
+	
+	var t = create_tween()
+	t.tween_interval(2.2)
+	t.tween_callback(func():
+		if fase_atual == Fase.COMBATE and canvas_dialogo:
+			canvas_dialogo.visible = false
+	)
+
+func chamar_inimigo_e_miro() -> void:
 	fase_atual = Fase.INIMIGO_CHEGANDO
 	if not inimigo: return
 	
-	var tween = create_tween()
-	var pos_inimigo_alvo = Vector2(800, 350) # Fica a uma distância do player
-	tween.tween_property(inimigo, "global_position", pos_inimigo_alvo, 2.0)
+	var tween_inimigo = create_tween()
+	var pos_inimigo_alvo = Vector2(800, 350)
+	tween_inimigo.tween_property(inimigo, "global_position", pos_inimigo_alvo, 1.8)
 	
-	tween.tween_callback(func():
-		# 3. Pulinho de susto do Player
+	if miro:
+		var tween_miro = create_tween()
+		var pos_miro_alvo = Vector2(980, 332)
+		tween_miro.tween_property(miro, "global_position", pos_miro_alvo, 2.2)
+	
+	tween_inimigo.tween_callback(func():
 		var tween_pulo = create_tween()
 		var p_pos = player.global_position
 		tween_pulo.tween_property(player, "global_position:y", p_pos.y - 40, 0.15)
@@ -81,21 +126,24 @@ func chamar_inimigo():
 		)
 	)
 
-func iniciar_tutorial():
-	fase_atual = Fase.TUTORIAL
+func iniciar_tutorial() -> void:
+	fase_atual = Fase.TUTORIAL_PRE_COMBATE
 	if hud: hud.visible = true
 	
+	if label_nome:
+		label_nome.text = "?????"
+		
 	if canvas_dialogo:
 		canvas_dialogo.visible = true
 	
 	if not meu_label:
-		print("ERRO: O %Label não foi encontrado na Cena! O diálogo não vai aparecer.")
+		print("ERRO: O Label de diálogo não foi encontrado!")
 		return
 		
 	linha_atual = 0
 	exibir_texto(dialogos_tutorial[linha_atual])
 
-func exibir_texto(texto: String):
+func exibir_texto(texto: String) -> void:
 	meu_label.text = texto
 	meu_label.visible_characters = 0
 	
@@ -104,23 +152,38 @@ func exibir_texto(texto: String):
 		
 	tween_texto = create_tween()
 	var total = texto.length()
-	tween_texto.tween_property(meu_label, "visible_characters", total, total * 0.05)
+	tween_texto.tween_property(meu_label, "visible_characters", total, total * 0.035)
 
-func _input(event):
-	if fase_atual != Fase.TUTORIAL or not meu_label: return
+func _input(event: InputEvent) -> void:
+	if not (fase_atual == Fase.TUTORIAL_PRE_COMBATE or fase_atual == Fase.POS_COMBATE):
+		return
+	if not meu_label:
+		return
 	
 	if event.is_action_pressed("ui_accept") or event.is_action_pressed("Atirar"):
 		if meu_label.visible_characters < meu_label.text.length():
-			if tween_texto and tween_texto.is_valid(): tween_texto.kill()
+			if tween_texto and tween_texto.is_valid():
+				tween_texto.kill()
 			meu_label.visible_characters = meu_label.text.length()
 		else:
+			# Avança a conversa
 			linha_atual += 1
-			if linha_atual < dialogos_tutorial.size():
-				exibir_texto(dialogos_tutorial[linha_atual])
-			else:
-				iniciar_combate()
+			
+			if fase_atual == Fase.TUTORIAL_PRE_COMBATE:
+				if linha_atual < dialogos_tutorial.size():
+					exibir_texto(dialogos_tutorial[linha_atual])
+				else:
+					iniciar_combate()
+					
+			elif fase_atual == Fase.POS_COMBATE:
+				if linha_atual < dialogos_pos_combate.size():
+					if linha_atual == 1 and label_nome:
+						label_nome.text = "Miro"
+					exibir_texto(dialogos_pos_combate[linha_atual])
+				else:
+					concluir_cutscene()
 
-func iniciar_combate():
+func iniciar_combate() -> void:
 	player.trocar_camera()
 	fase_atual = Fase.COMBATE
 	if meu_label:
@@ -129,7 +192,6 @@ func iniciar_combate():
 	if canvas_dialogo:
 		canvas_dialogo.visible = false
 	
-	# 4. Solta a coleira, o combate começa!
 	if player: 
 		player.set_physics_process(true)
 		for child in player.get_children():
@@ -137,37 +199,68 @@ func iniciar_combate():
 				child.top_level = false
 				child.set_physics_process(true)
 	
-	if inimigo: inimigo.set_physics_process(true)
+	if inimigo and is_instance_valid(inimigo):
+		inimigo.set_physics_process(true)
+		inimigo.morreu.connect(_on_inimigo_derrotado)
+		
 	print("COMBATE INICIADO!")
+
+func _on_inimigo_derrotado() -> void:
+	await get_tree().create_timer(0.6).timeout
 	
+	fase_atual = Fase.POS_COMBATE
+	
+	if player:
+		player.set_physics_process(false)
+		var sprite_player = player.get_node_or_null("Sprite2D")
+		if sprite_player:
+			sprite_player.play("IdleLado")
+	
+	if miro:
+		var tween_miro = create_tween()
+		var pos_aproximar = Vector2(700, 332)
+		tween_miro.tween_property(miro, "global_position", pos_aproximar, 1.0)
+		await tween_miro.finished
+	
+	if label_nome:
+		label_nome.text = "?????"
+		
+	if canvas_dialogo:
+		canvas_dialogo.visible = true
+		
+	linha_atual = 0
+	exibir_texto(dialogos_pos_combate[linha_atual])
+
+func concluir_cutscene() -> void:
+	fase_atual = Fase.CONCLUIDO
+	
+	if canvas_dialogo:
+		canvas_dialogo.visible = false
+		
+	if player:
+		player.set_physics_process(true)
+		
+	print("TUTORIAL CONCLUÍDO! Portal liberado para o Lobby.")
 
 func _on_trigger_geral_body_entered(body: Node2D) -> void:
-	# Só ativa se o combate já começou (o player tá solto) e se quem bateu foi o Player
 	if fase_atual == Fase.COMBATE and body.name == "Player":
-		
-		# 1. Trava o jogador
 		body.set_physics_process(false)
 		
-		# 2. Vira o sprite pra direita e troca pra animação de andar
 		var sprite_player = body.get_node("Sprite2D")
 		sprite_player.flip_h = false
 		sprite_player.play("AndandoLado")
 		
-		# 3. Empurra ele uns 50 pixels de volta para a direita
 		var tween = create_tween()
 		var recuo_pos = body.global_position.x + 50
 		tween.tween_property(body, "global_position:x", recuo_pos, 0.5)
 		
-		# 4. Mostra o texto quando terminar o empurrão
 		tween.tween_callback(func():
-			sprite_player.play("IdleLado") # Para de andar
-			
+			sprite_player.play("IdleLado")
 			if canvas_dialogo:
 				canvas_dialogo.visible = true
-			
-			fase_atual = Fase.TUTORIAL # Reusa a fase TUTORIAL para aproveitar o esquema de apertar espaço pra passar
-			
-			# Modifica nossa lista de diálogos para ter só essa fala de aviso
+			if label_nome:
+				label_nome.text = "Alice"
+				
 			dialogos_tutorial = ["ALICE: Acho melhor eu não voltar por aí..."]
 			linha_atual = 0
 			exibir_texto(dialogos_tutorial[linha_atual])

@@ -228,7 +228,7 @@ Atualmente cada moeda pega no chão dá 2 de dinheiro. A maioria dos artefatos c
 | 🟣 **Épico** | $100 a $120 | Investimento alto da run |
 | 🟡 **Lendário** | $160 a $200 | Requer juntar dinheiro sem gastar |
 
----
+---xl
 
 ## 6. Checklist de Execução Passo a Passo
 
