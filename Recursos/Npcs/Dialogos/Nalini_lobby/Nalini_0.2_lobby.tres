@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://dyid0oc3opicm"]
 
 [ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_0fmgh"]
+[ext_resource type="Texture2D" uid="uid://2qe651wiphxj" path="res://sprites/Portraits/nalini_dialogo_1.png" id="1_pq4nf"]
 [ext_resource type="Resource" uid="uid://dy6kabym5raw" path="res://Recursos/Npcs/Dialogos/Nalini_lobby/Nalini_0.2.1_lobby.tres" id="2_cpdka"]
 [ext_resource type="Resource" uid="uid://cdsdc3h085ufi" path="res://Recursos/Npcs/Dialogos/Nalini_lobby/Nalini_0.2.2_lobby.tres" id="3_pq4nf"]
 [ext_resource type="Resource" uid="uid://6ta0op7h1ce7" path="res://Recursos/Npcs/Dialogos/Nalini_lobby/Nalini_0.2.3_lobby.tres" id="4_mjg58"]
@@ -8,6 +9,7 @@
 [resource]
 script = ExtResource("1_0fmgh")
 nome_falante = "Nalini"
+foto = ExtResource("1_pq4nf")
 falas = "Mas deixando esses bafafa de lado, se quiser papear to sempre aqui."
 respostas = Array[String](["Como funciona as poções mesmo?", "Alguma noticia sobre o Hiki?", "Talvez depois."])
 proximo_1 = Array[ExtResource("1_0fmgh")]([ExtResource("2_cpdka")])

@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://bln8erm2ghbqf"]
 
+[ext_resource type="Texture2D" uid="uid://drdsvq0vqkrsr" path="res://sprites/Portraits/Media.jpg" id="1_r2nm3"]
 [ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://bsw08vlxsmni4" path="res://sprites/characters/Miro.png" id="2_foto"]
 
 [resource]
 script = ExtResource("1_script")
 nome_falante = "Miro"
-foto = ExtResource("2_foto")
-falas = "Magina, fia! Qualquer coisa que precisar é só dar um grito. Bye bye!"
+foto = ExtResource("1_r2nm3")
+falas = "Ótimo, porque meu tempo não é de graça. Se cuida por aí e não morre à toa."
 metadata/_custom_type_script = "uid://b1j7iupjo2avo"

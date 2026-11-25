@@ -13,7 +13,6 @@ corner_radius_top_left = 18
 corner_radius_top_right = 18
 corner_radius_bottom_right = 18
 corner_radius_bottom_left = 18
-shadow_color = Color(0, 0, 0, 0.6)
 shadow_size = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfqxs"]
@@ -126,3 +125,4 @@ unique_name_in_owner = true
 process_mode = 3
 layout_mode = 2
 size_flags_vertical = 0
+columns = 5

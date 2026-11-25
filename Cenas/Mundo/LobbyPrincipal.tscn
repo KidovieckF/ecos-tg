@@ -42,11 +42,13 @@
 [ext_resource type="PackedScene" uid="uid://nd1o6cb60ycf" path="res://Cenas/Mundo/NPCS/helena.tscn" id="41_7fsfh"]
 [ext_resource type="Resource" uid="uid://cll22o5rb4kg7" path="res://Recursos/Npcs/Dialogos/Helena_looby/Helena_Menu_1.tres" id="41_cs4qu"]
 [ext_resource type="Resource" uid="uid://drk5iednwj83m" path="res://Recursos/Npcs/Dialogos/Helena_looby/Helena_Menu_2L.tres" id="42_c6clq"]
-[ext_resource type="Resource" path="res://Recursos/Npcs/Dialogos/Helena_looby/Helena_Menu_3L.tres" id="43_hmt5o"]
+[ext_resource type="Resource" uid="uid://cm3o5m0yislwy" path="res://Recursos/Npcs/Dialogos/Helena_looby/Helena_Menu_3L.tres" id="43_hmt5o"]
+[ext_resource type="Texture2D" uid="uid://2qe651wiphxj" path="res://sprites/Portraits/nalini_dialogo_1.png" id="47_hmt5o"]
 [ext_resource type="PackedScene" uid="uid://vvmuxt4upa5r" path="res://Cenas/Inimigos/dummy.tscn" id="48_7fsfh"]
 [ext_resource type="PackedScene" uid="uid://b2dne8sthc487" path="res://Cenas/Mundo/NPCS/Nalini_npc.tscn" id="48_cs4qu"]
 [ext_resource type="Resource" uid="uid://bhmnu0x83vxis" path="res://Recursos/Npcs/Dialogos/Nalini_lobby/Nalini_0_lobby.tres" id="49_ulydp"]
 [ext_resource type="Resource" uid="uid://c2lyn8qhuf8r8" path="res://Recursos/Npcs/Dialogos/Nalini_lobby/Nalini_1L_lobby.tres" id="50_hmt5o"]
+[ext_resource type="Texture2D" uid="uid://uws34xe6nph7" path="res://sprites/Portraits/sasha_dialogo_2.png" id="51_ulydp"]
 [ext_resource type="PackedScene" uid="uid://di1nurcqjsg24" path="res://Cenas/Mundo/NPCS/Sasha_npc.tscn" id="51_xn160"]
 [ext_resource type="Resource" uid="uid://buq4oy5qomwet" path="res://Recursos/Npcs/Dialogos/Sasha_lobby/Sasha_0_lobby.tres" id="52_ti1q8"]
 [ext_resource type="Resource" uid="uid://c1ds1tr1bwnq4" path="res://Recursos/Npcs/Dialogos/Sasha_lobby/Sasha_1L_lobby.tres" id="53_40gm6"]
@@ -505,7 +507,6 @@ tile_set = SubResource("TileSet_lpdy4")
 [node name="Miro2" parent="." unique_id=459639068 instance=ExtResource("15_bfg8p")]
 position = Vector2(592, 1053)
 dialogo = Array[ExtResource("38_qd40y")]([ExtResource("39_qd40y")])
-textura = ExtResource("38_vcbgm")
 
 [node name="Miro" type="Sprite2D" parent="." unique_id=113406001]
 position = Vector2(1126.75, 1869.9417)
@@ -521,11 +522,13 @@ menus_loop = Array[ExtResource("38_qd40y")]([ExtResource("42_c6clq"), ExtResourc
 position = Vector2(1340, 796)
 dialogo_primeira_vez = Array[ExtResource("38_qd40y")]([ExtResource("49_ulydp")])
 dialogo_loop = Array[ExtResource("38_qd40y")]([ExtResource("50_hmt5o")])
+textura = ExtResource("47_hmt5o")
 
 [node name="Sasha" parent="." unique_id=1656647844 instance=ExtResource("51_xn160")]
 position = Vector2(756, 1350)
 dialogo_primeira_vez = Array[ExtResource("38_qd40y")]([ExtResource("52_ti1q8")])
 dialogo_loop = Array[ExtResource("38_qd40y")]([ExtResource("53_40gm6")])
+textura = ExtResource("51_ulydp")
 
 [node name="Dummy1" parent="." unique_id=1118123320 instance=ExtResource("48_7fsfh")]
 position = Vector2(2052, 1557)

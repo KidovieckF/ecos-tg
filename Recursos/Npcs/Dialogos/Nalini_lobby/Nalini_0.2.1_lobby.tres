@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://dy6kabym5raw"]
 
+[ext_resource type="Texture2D" uid="uid://2qe651wiphxj" path="res://sprites/Portraits/nalini_dialogo_1.png" id="1_6hhfr"]
 [ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_n3b68"]
 [ext_resource type="Resource" uid="uid://0xemuhxkhror" path="res://Recursos/Npcs/Dialogos/Nalini_lobby/Nalini_0.2.1.1_lobby.tres" id="2_uovla"]
 
 [resource]
 script = ExtResource("1_n3b68")
 nome_falante = "Nalini"
+foto = ExtResource("1_6hhfr")
 falas = "Ta meio ruim da cabeça miga? "
 proximo_1 = Array[ExtResource("1_n3b68")]([ExtResource("2_uovla")])
 metadata/_custom_type_script = "uid://b1j7iupjo2avo"

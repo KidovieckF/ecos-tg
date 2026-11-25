@@ -207,6 +207,8 @@ func calcular_artefatos():
 	
 	var dano = 0
 	var vida = personagem_base.vida
+	var bonus_vida_niveis = (nivel - 1) * 10.0
+	vida += bonus_vida_niveis
 	var speed = personagem_base.speed
 	var chance_crit_add = 0
 	var mult = 1
@@ -295,7 +297,6 @@ func calcular_artefatos():
 				mult_de_atk_speed += dados["valor_buff"]
 	
 func aplicar_efeitos_parado(player, delta):
-	# ITEM 10: Plantinha Fofinha
 	if cura_parado_total > 0:
 		tempo_cura_acumulado += delta
 		if tempo_cura_acumulado >= 1.0:
@@ -324,7 +325,6 @@ func adicionar_artefato(artefato : Artefato_data):
 			qtd += 1
 			
 	if artefato.limite > 0 and qtd >= artefato.limite:
-		#Procura o artefato pelo caminho do arquivo
 		artefatos_disponiveis = artefatos_disponiveis.filter(func(a): return a.resource_path != artefato.resource_path) 
 	
 	inventario_atualizado.emit()
@@ -343,7 +343,6 @@ func aplicar_pocao(pocao: PocaoData) -> void:
 	if pocao == null:
 		return
 		
-	# Caso 1: Cura instantânea (não dura salas)
 	if pocao.tipo_buff == "cura_instantanea":
 		vida_atual = min(vida_atual + pocao.valor_buff, vida_max)
 		var hud = get_tree().get_first_node_in_group("HUD")
@@ -352,7 +351,6 @@ func aplicar_pocao(pocao: PocaoData) -> void:
 		print("🧪 Curou instantaneamente: ", pocao.valor_buff)
 		return
 		
-	# Caso 2: Buff temporário por salas
 	pocoes_ativas[pocao.tipo_buff] = {
 		"nome": pocao.nome,
 		"tipo_buff": pocao.tipo_buff,
@@ -374,7 +372,7 @@ func aplicar_pocao(pocao: PocaoData) -> void:
 		
 	pocoes_atualizadas.emit()
 	print("🧪 Poção ativada: ", pocao.nome, " por ", pocao.salas_duracao, " salas!")
-# Chamado toda vez que o jogador limpa com sucesso uma sala de combate
+
 func consumir_carga_pocoes() -> void:
 	if pocoes_ativas.is_empty():
 		return

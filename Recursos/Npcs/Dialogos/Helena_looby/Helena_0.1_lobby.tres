@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://d4l3f6ji7k07x"]
 
 [ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_0aaai"]
+[ext_resource type="Texture2D" uid="uid://cx27htqwwcinq" path="res://sprites/Portraits/helena_dialogo_1.png" id="1_f2ff0"]
 [ext_resource type="Resource" uid="uid://bkckxwj2p8hoq" path="res://Recursos/Npcs/Dialogos/Helena_looby/Helena_0.2_lobby.tres" id="2_1di3x"]
 
 [resource]
 script = ExtResource("1_0aaai")
 nome_falante = "Helena"
+foto = ExtResource("1_f2ff0")
 falas = "Amo todo tipo de artefatos, desde armaduras encantadas
 até simples aneís enfeitiçados."
 proximo_1 = Array[ExtResource("1_0aaai")]([ExtResource("2_1di3x")])

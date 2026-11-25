@@ -31,18 +31,6 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
-bg_color = Color(0.25, 0.27, 0.36, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.9, 0.75, 0.4, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
 bg_color = Color(0.14, 0.15, 0.2, 1)
 border_width_left = 1
@@ -50,6 +38,18 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.7, 0.55, 0.25, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.25, 0.27, 0.36, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.9, 0.75, 0.4, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -69,6 +69,9 @@ corner_radius_bottom_left = 16
 shadow_color = Color(0, 0, 0, 0.5)
 shadow_size = 12
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1jjnq"]
+thickness = 13
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stat_badge"]
 bg_color = Color(0.15, 0.17, 0.23, 0.75)
 border_width_left = 1
@@ -80,6 +83,15 @@ corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itkwu"]
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_554xo"]
+thickness = 8
 
 [node name="HudPause" type="CanvasLayer" unique_id=1889491015]
 process_mode = 3
@@ -147,8 +159,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.95, 0.85, 0.55, 1)
 theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
-theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 text = "Continuar"
 
 [node name="Configuracoes" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=1781733904]
@@ -159,8 +171,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.95, 0.85, 0.55, 1)
 theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
-theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 text = "Configurações"
 
 [node name="Menu" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=853328473]
@@ -171,8 +183,8 @@ theme_override_colors/font_color = Color(0.9, 0.5, 0.5, 1)
 theme_override_colors/font_hover_color = Color(1, 0.65, 0.65, 1)
 theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
-theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 text = "Ir ao Menu Principal"
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=176374422]
@@ -217,6 +229,7 @@ horizontal_alignment = 1
 
 [node name="HSep1" type="HSeparator" parent="MarginContainer/Panel/SideMargin/VBoxContainer" unique_id=1005]
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_1jjnq")
 
 [node name="StatsGrid" type="VBoxContainer" parent="MarginContainer/Panel/SideMargin/VBoxContainer" unique_id=1006]
 layout_mode = 2
@@ -311,6 +324,52 @@ size_flags_horizontal = 3
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1881986570]
+custom_minimum_size = Vector2(230, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+
+[node name="Panel" type="PanelContainer" parent="MarginContainer2" unique_id=211929920]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_itkwu")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/Panel" unique_id=310855294]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/Panel/MarginContainer" unique_id=1210252784]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer2/Panel/MarginContainer/VBoxContainer" unique_id=1807156685]
+layout_mode = 2
+text = "Progresso"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer2/Panel/MarginContainer/VBoxContainer" unique_id=1899277052]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_554xo")
+
+[node name="NivelPlayer" type="Label" parent="MarginContainer2/Panel/MarginContainer/VBoxContainer" unique_id=430433482]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Alice Nv:"
+
+[node name="NivelArma1" type="Label" parent="MarginContainer2/Panel/MarginContainer/VBoxContainer" unique_id=1433138622]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Arma X:"
+
+[node name="NivelArma2" type="Label" parent="MarginContainer2/Panel/MarginContainer/VBoxContainer" unique_id=1395311874]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Armay"
 
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Voltar" to="." method="_on_voltar_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Configuracoes" to="." method="_on_configuracoes_pressed"]

@@ -16,7 +16,7 @@ var tween_barra: Tween
 
 @onready var timer_ataque = $TimerAtaque
 @onready var barra_vida = $CanvasBoss/ProgressBar
-@onready var anim = $AnimationPlayer
+@onready var anim = get_node_or_null("AnimationPlayer")
 
 func _ready() -> void:
 	add_to_group("Boss")
@@ -27,7 +27,7 @@ func _ready() -> void:
 	barra_vida.value = vida_atual
 	
 	timer_ataque.wait_time = tempo_entre_ataques
-	anim.play("Idle")
+	if anim: anim.play("Idle")
 
 func _on_timer_ataque_timeout() -> void:
 	if morto or ataques.size() == 0: return
@@ -40,7 +40,7 @@ func _on_timer_ataque_timeout() -> void:
 
 func finalizar_ataque() -> void:
 	if not morto:
-		anim.play("Idle")
+		if anim: anim.play("Idle")
 		timer_ataque.start()
 
 func revelar_barra():

@@ -6,6 +6,7 @@ var inimigo = preload("res://Cenas/Inimigos/inimigo_base.tscn")
 var salas_andar1 = [ preload("res://Cenas/Mundo/Salas/sala_base.tscn")] #preload("res://Cenas/Mundo/Salas/sala_2.tscn", preload("res://Cenas/Mundo/Salas/sala_1.tscn")  ]
 var salas_andar2 = [ preload("res://Cenas/Mundo/Salas/sala_base2.tscn")]
 var sala_boss =  preload("res://Cenas/Mundo/Salas/sala_boss.tscn")
+var sala_boss_neve = preload("res://Cenas/Mundo/Salas/Sala_boss_neve.tscn")
 var sala_miniboss = preload("res://Cenas/Mundo/Salas/sala_baseMinboss.tscn")
 var porta = preload("res://Cenas/Mundo/Salas/Porta.tscn")
 var loja = preload("res://Cenas/Mundo/Salas/sala_loja.tscn")
@@ -243,9 +244,8 @@ func posicionar_boss_na_maior_distancia() -> void:
 				melhor_pos = v
 				
 	if melhor_pos != Vector2i.ZERO:
-		criar_sala_no_mapa(sala_boss, melhor_pos)
-		print(">>> SALA DO BOSS GERADA NA MAIOR DISTÂNCIA: ", melhor_pos, " (Distância: ", maior_distancia, ")")
-
+		var cena_boss_atual = sala_boss_neve if RunData.andar == 2 else sala_boss
+		criar_sala_no_mapa(cena_boss_atual, melhor_pos)
 	
 func criar_porta():
 	for i in salas_criadas:

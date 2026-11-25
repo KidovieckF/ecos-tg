@@ -64,6 +64,16 @@ static func registrar_derrota() -> void:
 	adicionar_ao_historico("Derrota")
 	deletar_run_salva()
 
+static func eh_primeira_vez_tutorial() -> bool:
+	carregar_estatisticas()
+	return not stats_globais.get("tutorial_concluido", false) and stats_globais.get("runs_iniciadas", 0) == 0
+
+static func marcar_tutorial_concluido() -> void:
+	carregar_estatisticas()
+	stats_globais["tutorial_concluido"] = true
+	salvar_estatisticas()
+	print(">>> TUTORIAL: Marcado como concluído com sucesso.")
+
 static func eh_primeira_vez_lobby() -> bool:
 	carregar_estatisticas()
 	return stats_globais.get("primeira_vez_lobby", true)

@@ -33,6 +33,9 @@ func _ready() -> void:
 	else:
 		if %IniciarBtn: %IniciarBtn.text = "Começar"
 		if %NovaRunBtn: %NovaRunBtn.visible = false
+		
+	if %TutorialCheckBox:
+		%TutorialCheckBox.button_pressed = SaveManager.eh_primeira_vez_tutorial()
 
 
 func _process(delta: float) -> void:
@@ -107,6 +110,10 @@ func _on_iniciar_btn_pressed() -> void:
 		RunData.resetar_run()
 		SaveManager.registrar_inicio_run()
 		
+	if %TutorialCheckBox and %TutorialCheckBox.button_pressed:
+			destino = "res://Cenas/Cutscenes/cs_01_chegada_floresta.tscn"
+		
+	
 	_executar_transicao_para_cena(destino)
 
 func _on_nova_run_btn_pressed() -> void:
@@ -117,12 +124,16 @@ func _on_nova_run_btn_pressed() -> void:
 	AudioManager.tocar_sfx(AudioManager.SFX_BOTAO, -2.0, false)
 	_desativar_botoes()
 	
-	# Limpa o save antigo do disco e reseta os dados
 	SaveManager.deletar_run_salva()
 	RunData.resetar_run()
 	SaveManager.registrar_inicio_run()
 	
-	_executar_transicao_para_cena("res://Cenas/Mundo/LobbyPrincipal.tscn")
+	var destino = "res://Cenas/Mundo/LobbyPrincipal.tscn"
+	
+	if %TutorialCheckBox and %TutorialCheckBox.button_pressed:
+		destino = "res://Cenas/Cutscenes/cs_01_chegada_floresta.tscn"
+	
+	_executar_transicao_para_cena(destino)
 	
 func _desativar_botoes() -> void:
 	if %IniciarBtn: %IniciarBtn.disabled = true
@@ -130,6 +141,7 @@ func _desativar_botoes() -> void:
 	if %ConfigsBtn: %ConfigsBtn.disabled = true
 	if %HistoricoBtn: %HistoricoBtn.disabled = true
 	if %SairBtn: %SairBtn.disabled = true
+	if %TutorialCheckBox: %TutorialCheckBox.disabled = true
 	
 func _executar_transicao_para_cena(cena_alvo: String) -> void:
 	if fade_overlay:
@@ -158,3 +170,8 @@ func _on_configs_btn_pressed() -> void:
 func _on_sair_btn_pressed() -> void:
 	AudioManager.tocar_sfx(AudioManager.SFX_BOTAO, -2.0, false)
 	get_tree().quit()
+
+
+func _on_historico_btn_pressed() -> void:
+	AudioManager.tocar_sfx(AudioManager.SFX_BOTAO, -2.0, false)
+	get_tree().change_scene_to_file("res://Cenas/Huds/Hud_historico.tscn")

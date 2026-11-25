@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://dbsthggi5pqtj"]
 
+[ext_resource type="Texture2D" uid="uid://cx27htqwwcinq" path="res://sprites/Portraits/helena_dialogo_1.png" id="1_7ofnr"]
 [ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_orsgr"]
 [ext_resource type="Resource" uid="uid://htgr354rag0p" path="res://Recursos/Npcs/Dialogos/Helena_looby/Helena_4.1_lobby.tres" id="2_7ofnr"]
 [ext_resource type="Resource" uid="uid://urdopb1o47n0" path="res://Recursos/Npcs/Dialogos/Helena_looby/Helena_4.2_lobby.tres" id="3_cptxg"]
@@ -8,6 +9,7 @@
 [resource]
 script = ExtResource("1_orsgr")
 nome_falante = "Helena"
+foto = ExtResource("1_7ofnr")
 falas = "Eai como se ta? O pendante ja te ajudou?"
 respostas = Array[String](["Ainda não.", "Sim.", "Ajudar?"])
 proximo_1 = Array[ExtResource("1_orsgr")]([ExtResource("2_7ofnr")])

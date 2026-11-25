@@ -1,9 +1,13 @@
 [gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://d1k7x0l2aeny5"]
 
+[ext_resource type="Texture2D" uid="uid://c2vxsffcvt7n2" path="res://sprites/Portraits/sasha_dialogo_1.png" id="1_662nj"]
 [ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_hwhym"]
+[ext_resource type="PackedScene" uid="uid://kmtyawswx1qp" path="res://Cenas/Huds/hud_loja.tscn" id="1_o3ygv"]
 
 [resource]
 script = ExtResource("1_hwhym")
 nome_falante = "Sasha"
+foto = ExtResource("1_662nj")
 falas = "Deixando de papo furado, tenho umas coisinhas aqui pra cê dar um bizu."
+cena_para_abrir = ExtResource("1_o3ygv")
 metadata/_custom_type_script = "uid://b1j7iupjo2avo"

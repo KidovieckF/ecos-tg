@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Ini_MagoGeloData" format=3 uid="uid://dlmqmbe11aibi"]
+
+[ext_resource type="PackedScene" uid="uid://bh2nlxcxuoxj2" path="res://Cenas/Inimigos/Inimigos_Herdados/Mago_gelo.tscn" id="1_2hv0v"]
+[ext_resource type="Script" uid="uid://b7ac44q2462s0" path="res://Recursos/Inimigos/Inimigos Comuns/inimigo_mago_gelo.gd" id="1_5w46o"]
+[ext_resource type="PackedScene" uid="uid://sweesrg1gqcm" path="res://Cenas/Inimigos/Efeitos/Buraco_Nitrogenio.tscn" id="1_om3bm"]
+
+[resource]
+script = ExtResource("1_5w46o")
+Nome = "Mago de Gelo"
+vida = 30
+dano = 30.0
+speed = 200.0
+projetil = ExtResource("1_om3bm")
+tem_acao = true
+peso_spawn = 20
+exp = 20.0
+cena_inimigo = ExtResource("1_2hv0v")
+metadata/_custom_type_script = "uid://b7ac44q2462s0"

@@ -228,10 +228,9 @@ func processar_xp_jogador(qtd: float) -> void:
 		barra_exp = barra_exp * 1.25
 		nivel += 1
 		
-		var vida_bonus = 10.0
-		RunData.vida_max += vida_bonus
-		curar(vida_bonus)
-		print("🎉 ALICE SUBIU PARA O NÍVEL ", nivel, "! Vida Máxima: ", RunData.vida_max)
+		RunData.nivel = nivel
+		RunData.calcular_artefatos()
+		curar(10.0)
 		
 	if hud and hud.has_method("atualizar_xp"):
 		hud.atualizar_xp(xp_atual, barra_exp, nivel)
@@ -262,9 +261,9 @@ func processar_proximo_upgrade_arma() -> void:
 	
 	var upg_scene = upgrade.instantiate()
 	upg_scene.name = "TelaUpgradeAtiva"
-	
-	# Passamos para a tela de upgrade exatamente a arma que upou!
 	upg_scene.arma_alvo = arma_que_upou
+	
+	upg_scene.eh_upgrade_de_arma = (arma_que_upou.nivel % 3 == 0)
 	
 	upg_scene.tree_exited.connect(func():
 		if not fila_upgrades_armas.is_empty():

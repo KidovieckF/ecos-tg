@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://buq4oy5qomwet"]
 
 [ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_7o2ry"]
+[ext_resource type="Texture2D" uid="uid://uws34xe6nph7" path="res://sprites/Portraits/sasha_dialogo_2.png" id="1_r61q6"]
 [ext_resource type="Resource" uid="uid://b1cgciq3607sj" path="res://Recursos/Npcs/Dialogos/Sasha_lobby/Sasha_0.1_lobby.tres" id="2_q1ixt"]
 
 [resource]
 script = ExtResource("1_7o2ry")
 nome_falante = "Sasha"
+foto = ExtResource("1_r61q6")
 falas = "Ué, de onde cê veio menina? Pensei que cê não saia da torre
 por nada. Que saudade! Vem cá!"
 proximo_1 = Array[ExtResource("1_7o2ry")]([ExtResource("2_q1ixt")])

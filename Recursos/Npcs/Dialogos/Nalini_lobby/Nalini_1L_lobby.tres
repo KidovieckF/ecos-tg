@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://c2lyn8qhuf8r8"]
 
+[ext_resource type="Texture2D" uid="uid://2qe651wiphxj" path="res://sprites/Portraits/nalini_dialogo_1.png" id="1_fs47j"]
 [ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_qjxyy"]
 [ext_resource type="Resource" uid="uid://7bsms13jsuu5" path="res://Recursos/Npcs/Dialogos/Nalini_lobby/Nalini_1.1_lobby.tres" id="2_phliy"]
 [ext_resource type="Resource" uid="uid://b1x6fu441mtjl" path="res://Recursos/Npcs/Dialogos/Nalini_lobby/Nalini_1.2_lobby.tres" id="3_fs47j"]
@@ -7,6 +8,7 @@
 [resource]
 script = ExtResource("1_qjxyy")
 nome_falante = "Nalini"
+foto = ExtResource("1_fs47j")
 falas = "Olha so quem voltou! Veio dar uma olhada nas poções? Ou veio ver feitiços?"
 respostas = Array[String](["\"Dar uma olhada na loja\"", "So dando uma olhadinha"])
 proximo_1 = Array[ExtResource("1_qjxyy")]([ExtResource("2_phliy")])

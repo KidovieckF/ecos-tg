@@ -257,33 +257,41 @@ region = Rect2(128, 128, 64, 64)
 atlas = ExtResource("4_33rt2")
 region = Rect2(192, 128, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_grkkv"]
-atlas = ExtResource("2_y1da0")
+[sub_resource type="AtlasTexture" id="AtlasTexture_on8o7"]
+atlas = ExtResource("3_2cf4o")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vo1am"]
-atlas = ExtResource("2_y1da0")
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1da0"]
+atlas = ExtResource("3_2cf4o")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gnifa"]
-atlas = ExtResource("2_y1da0")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cf4o"]
+atlas = ExtResource("3_2cf4o")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ybsjo"]
-atlas = ExtResource("2_y1da0")
+[sub_resource type="AtlasTexture" id="AtlasTexture_33rt2"]
+atlas = ExtResource("3_2cf4o")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_07iuf"]
-atlas = ExtResource("2_y1da0")
+[sub_resource type="AtlasTexture" id="AtlasTexture_grkkv"]
+atlas = ExtResource("3_2cf4o")
 region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nvpxn"]
-atlas = ExtResource("2_y1da0")
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo1am"]
+atlas = ExtResource("3_2cf4o")
 region = Rect2(320, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q16ya"]
-atlas = ExtResource("2_y1da0")
-region = Rect2(384, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnifa"]
+atlas = ExtResource("3_2cf4o")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybsjo"]
+atlas = ExtResource("3_2cf4o")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07iuf"]
+atlas = ExtResource("3_2cf4o")
+region = Rect2(576, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_132dk"]
 animations = [{
@@ -523,6 +531,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_on8o7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1da0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cf4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33rt2")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_grkkv")
 }, {
 "duration": 1.0,
@@ -536,14 +556,8 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_07iuf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nvpxn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q16ya")
 }],
-"loop": true,
+"loop": false,
 "name": &"Morrendo",
 "speed": 5.0
 }]

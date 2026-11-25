@@ -234,6 +234,8 @@ func _on_inimigo_derrotado() -> void:
 func concluir_cutscene() -> void:
 	fase_atual = Fase.CONCLUIDO
 	
+	SaveManager.marcar_tutorial_concluido()
+	
 	if canvas_dialogo:
 		canvas_dialogo.visible = false
 		

@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://vvkqins3bjoy"]
 
 [ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_do0ax"]
+[ext_resource type="Texture2D" uid="uid://cx27htqwwcinq" path="res://sprites/Portraits/helena_dialogo_1.png" id="1_elqpq"]
 
 [resource]
 script = ExtResource("1_do0ax")
 nome_falante = "Helena"
+foto = ExtResource("1_elqpq")
 falas = "E pedi a Nalini para me emprestar seus tomos de magias, fale novamento comigo caso queira escolher entre eles."
 metadata/_custom_type_script = "uid://b1j7iupjo2avo"

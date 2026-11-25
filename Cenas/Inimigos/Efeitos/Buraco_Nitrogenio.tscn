@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://sweesrg1gqcm"]
+
+[ext_resource type="Script" uid="uid://bqvom0uas8hd7" path="res://Scripts/Inimigos/Mago_gelo/buraco_nitrogenio.gd" id="1_7hi2x"]
+[ext_resource type="Texture2D" uid="uid://c1qiy6rae06wt" path="res://sprites/inimigos/Mago de gelo/mostro_lago-Sheet.png" id="2_hxnj8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7hi2x"]
+radius = 7.1000004
+height = 34.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buvp2"]
+atlas = ExtResource("2_hxnj8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikhcp"]
+atlas = ExtResource("2_hxnj8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ov14l"]
+atlas = ExtResource("2_hxnj8")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guxhn"]
+atlas = ExtResource("2_hxnj8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbum0"]
+atlas = ExtResource("2_hxnj8")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwomu"]
+atlas = ExtResource("2_hxnj8")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vraiq"]
+atlas = ExtResource("2_hxnj8")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oovg8"]
+atlas = ExtResource("2_hxnj8")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fvvu"]
+atlas = ExtResource("2_hxnj8")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68ryl"]
+atlas = ExtResource("2_hxnj8")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m41jn"]
+atlas = ExtResource("2_hxnj8")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q1jah"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buvp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikhcp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ov14l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_guxhn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbum0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwomu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vraiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oovg8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fvvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68ryl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m41jn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D" unique_id=2117895213]
+script = ExtResource("1_7hi2x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1240549985]
+position = Vector2(0, 15.9)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_7hi2x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=240797194]
+sprite_frames = SubResource("SpriteFrames_q1jah")
+frame_progress = 0.94830436
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

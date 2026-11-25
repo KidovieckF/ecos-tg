@@ -32,6 +32,26 @@ func configurar(p_artefato: Artefato_data) -> void:
 		$Icone.scale = Vector2(escala_final, escala_final)
 		
 	var cor = CORES_RARIDADE.get(artefato.raridade, Color.WHITE)
+	
+	if $Sombra.texture == null:
+		var grad = Gradient.new()
+		grad.set_color(0, Color(1, 1, 1, 0.9))
+		grad.set_color(1, Color(1, 1, 1, 0.0))
+		
+		var tex_grad = GradientTexture2D.new()
+		tex_grad.gradient = grad
+		tex_grad.fill = GradientTexture2D.FILL_RADIAL
+		tex_grad.fill_from = Vector2(0.5, 0.5)
+		tex_grad.fill_to = Vector2(0.5, 0.0)
+		tex_grad.width = 64
+		tex_grad.height = 64
+		$Sombra.texture = tex_grad
+		
+		var mat = CanvasItemMaterial.new()
+		mat.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
+		$Sombra.material = mat
+		$Sombra.scale = Vector2(1.5, 1.5)
+	
 	$Sombra.modulate = cor
 
 func _on_body_entered(body: Node2D) -> void:

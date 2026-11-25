@@ -9,7 +9,11 @@ signal dar_falas
 @export var textura : Texture2D
 
 func _ready() -> void:
-	pass
+	if textura and has_node("Sprite2D"):
+		var frames = SpriteFrames.new()
+		frames.add_frame("default", textura)
+		$Sprite2D.sprite_frames = frames
+		$Sprite2D.play("default")
 	
 func _physics_process(delta: float) -> void:
 	if get_tree().get_first_node_in_group("Cbox"):

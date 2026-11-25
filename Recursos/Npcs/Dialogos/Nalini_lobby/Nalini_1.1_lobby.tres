@@ -2,11 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://koy2ijyoc4ro" path="res://Cenas/Huds/hud_loja_pocao.tscn" id="1_70m1w"]
 [ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_m5st2"]
+[ext_resource type="Texture2D" uid="uid://2qe651wiphxj" path="res://sprites/Portraits/nalini_dialogo_1.png" id="2_i8hyc"]
 [ext_resource type="Resource" uid="uid://c8jmmtmd5oald" path="res://Recursos/Npcs/Dialogos/Nalini_lobby/Nalini_0.4_lobby.tres" id="3_i8hyc"]
 
 [resource]
 script = ExtResource("1_m5st2")
 nome_falante = "Nalini"
+foto = ExtResource("2_i8hyc")
 falas = "Aqui está oque tenho no momento."
 proximo_1 = Array[ExtResource("1_m5st2")]([ExtResource("3_i8hyc")])
 cena_para_abrir = ExtResource("1_70m1w")

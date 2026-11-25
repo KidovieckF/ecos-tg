@@ -1,15 +1,16 @@
 [gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://c6ujqu7qt8ysg"]
 
 [ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_3yx8p"]
+[ext_resource type="Texture2D" uid="uid://drdsvq0vqkrsr" path="res://sprites/Portraits/Media.jpg" id="1_cljry"]
 [ext_resource type="Resource" uid="uid://cfgnyb104qaii" path="res://Recursos/Npcs/Dialogos/Miro_lobby/Miro_1.7.1_lobby.tres" id="2_enq7d"]
 [ext_resource type="Resource" uid="uid://dx6n6n2r0jjsp" path="res://Recursos/Npcs/Dialogos/Miro_lobby/Miro_1.7.2_lobby.tres" id="2_vk2wn"]
 
 [resource]
 script = ExtResource("1_3yx8p")
 nome_falante = "Miro"
-falas = "Por enquanto tenho so o Greg, ele custa 70 moedas, 
-se não tem nem isso, eu tenho mais oq fazer."
-respostas = Array[String](["Quero dar uma olhada.", "Sou pobre :("])
+foto = ExtResource("1_cljry")
+falas = "Por enquanto só tenho o Greg disponível. Custa 70 moedas. Se não tiver essa grana, nem me faça perder tempo."
+respostas = Array[String](["Quero dar uma olhada.", "Tô sem grana..."])
 proximo_1 = Array[ExtResource("1_3yx8p")]([ExtResource("2_vk2wn")])
 proximo_2 = Array[ExtResource("1_3yx8p")]([ExtResource("2_enq7d")])
 metadata/_custom_type_script = "uid://b1j7iupjo2avo"

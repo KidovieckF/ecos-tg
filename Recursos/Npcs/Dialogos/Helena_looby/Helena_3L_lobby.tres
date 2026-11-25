@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://dltvdcjs7okm2"]
 
+[ext_resource type="Texture2D" uid="uid://cx27htqwwcinq" path="res://sprites/Portraits/helena_dialogo_1.png" id="1_olcw8"]
 [ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_whj25"]
 [ext_resource type="Resource" uid="uid://c4c5a4our7t3h" path="res://Recursos/Npcs/Dialogos/Helena_looby/Helena_2.2_lobby.tres" id="2_olcw8"]
 [ext_resource type="Resource" uid="uid://bfghxk8wnefo3" path="res://Recursos/Npcs/Dialogos/Helena_looby/Helena_3.1_lobby.tres" id="3_5r76e"]
@@ -7,6 +8,7 @@
 [resource]
 script = ExtResource("1_whj25")
 nome_falante = "Helena"
+foto = ExtResource("1_olcw8")
 falas = "Olha ela, tá de volta!
 Mudou de ideia sobre minha proposta?"
 respostas = Array[String](["Sim, toma aqui.", "Vou pensar melhor."])

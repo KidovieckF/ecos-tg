@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dhnf3rpqd6fpi"]
+
+[ext_resource type="Script" uid="uid://bjla30hcwjncw" path="res://Scripts/Inimigos/Proj_boss/Bola_neve.gd" id="1_fy3hk"]
+[ext_resource type="Texture2D" uid="uid://bgv4x2ljelw6t" path="res://sprites/inimigos/Projeteis/Bola_neve.png" id="2_b4t0k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f1yge"]
+radius = 32.06244
+
+[node name="Area2D" type="Area2D" unique_id=2095152987]
+script = ExtResource("1_fy3hk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=777266658]
+shape = SubResource("CircleShape2D_f1yge")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2146549573]
+texture = ExtResource("2_b4t0k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

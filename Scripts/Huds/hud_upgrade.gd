@@ -187,11 +187,10 @@ func _ready() -> void:
 	var gerais_filtrados = _filtrar_pool(gerais_arma, ativos)
 	
 	if eh_upgrade_de_arma:
-		upgrades_da_loja = especificos_filtrados.duplicate()
-		if upgrades_da_loja.size() < 3:
-			for g in gerais_filtrados:
-				if not upgrades_da_loja.has(g):
-					upgrades_da_loja.append(g)
+		if not especificos_filtrados.is_empty():
+			upgrades_da_loja = especificos_filtrados.duplicate()
+		else:
+			upgrades_da_loja = gerais_filtrados.duplicate()
 	else:
 		upgrades_da_loja = gerais_filtrados.duplicate()
 	
@@ -310,13 +309,11 @@ func _configurar_slot(indice: int, botao: TextureButton, lbl_nome: Label, lbl_de
 	var sorte = upgrades_da_loja[num_sorteado]
 	upgrades_da_loja.remove_at(num_sorteado)
 	
-	# Salva a referência de qual upgrade foi para cada slot
 	match indice:
 		1: sorte1 = sorte
 		2: sorte2 = sorte
 		3: sorte3 = sorte
 		
-	# Textura com fallback para a textura da arma caso o upgrade não tenha uma própria
 	if sorte.textura != null:
 		botao.texture_normal = sorte.textura
 	elif arma.textura != null:
@@ -330,7 +327,6 @@ func _configurar_slot(indice: int, botao: TextureButton, lbl_nome: Label, lbl_de
 	var nivel_atual = _contar_nivel_atual(sorte, arma.upgrades_ativos)
 	var proximo_nivel = nivel_atual + 1
 	
-	# Formatação elegante do nível
 	var str_nivel = "Nv. %d" % proximo_nivel
 	if limite_max > 0:
 		str_nivel = "Nv. %d/%d" % [proximo_nivel, limite_max]

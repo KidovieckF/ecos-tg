@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://cfgnyb104qaii"]
 
 [ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_ckup4"]
+[ext_resource type="Texture2D" uid="uid://drdsvq0vqkrsr" path="res://sprites/Portraits/Media.jpg" id="1_w64jh"]
 
 [resource]
 script = ExtResource("1_ckup4")
 nome_falante = "Miro"
-falas = "..."
+foto = ExtResource("1_w64jh")
+falas = "Imaginava. Volta quando os seus bolsos não estiverem cheios de vento."
 metadata/_custom_type_script = "uid://b1j7iupjo2avo"

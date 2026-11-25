@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://busjfv8kv70l7"]
 
+[ext_resource type="Texture2D" uid="uid://2qe651wiphxj" path="res://sprites/Portraits/nalini_dialogo_1.png" id="1_mu7bv"]
 [ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_srbf8"]
 [ext_resource type="Resource" uid="uid://c8jmmtmd5oald" path="res://Recursos/Npcs/Dialogos/Nalini_lobby/Nalini_0.4_lobby.tres" id="2_8a5vt"]
 [ext_resource type="Resource" uid="uid://cdsdc3h085ufi" path="res://Recursos/Npcs/Dialogos/Nalini_lobby/Nalini_0.2.2_lobby.tres" id="3_mu7bv"]
@@ -8,6 +9,7 @@
 [resource]
 script = ExtResource("1_srbf8")
 nome_falante = "Nalini"
+foto = ExtResource("1_mu7bv")
 falas = "Mais alguma coisa?"
 respostas = Array[String](["Não to tranquila.", "Sobre o Hiki", "Sobre as poções."])
 proximo_1 = Array[ExtResource("1_srbf8")]([ExtResource("2_8a5vt")])

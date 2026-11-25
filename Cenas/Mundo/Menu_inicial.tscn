@@ -27,6 +27,10 @@ texture = SubResource("AtlasTexture_r0fdn")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nxti6"]
 texture = SubResource("AtlasTexture_r0fdn")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r0fdn"]
+texture = ExtResource("3_wvejf")
+region_rect = Rect2(1546, 107, 162, 50)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8l4ds"]
 texture = SubResource("AtlasTexture_ktt3g")
 texture_margin_left = 20.0
@@ -229,6 +233,16 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_u1pnh")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_na1qu")
 theme_override_styles/hover = SubResource("StyleBoxTexture_nxti6")
 text = "Começar"
+
+[node name="TutorialCheckBox" type="CheckBox" parent="GridContainer/Tela/MarginContainer/GridContainer/MarginContainer/VBoxContainer" unique_id=341131532]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_r0fdn")
+text = "Tutorial"
+alignment = 1
 
 [node name="NovaRunBtn" type="Button" parent="GridContainer/Tela/MarginContainer/GridContainer/MarginContainer/VBoxContainer" unique_id=1931552109]
 unique_name_in_owner = true

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Ini_PinguimData" format=3 uid="uid://ctqf3kmb06i1l"]
+
+[ext_resource type="PackedScene" uid="uid://c4mn0xu8isxn1" path="res://Cenas/Inimigos/Inimigos_Herdados/Pinguim.tscn" id="1_2n2ge"]
+[ext_resource type="Script" uid="uid://dmblxpy0y1i4" path="res://Recursos/Inimigos/Inimigos Comuns/inimigo_pinguim.gd" id="1_um0bn"]
+
+[resource]
+script = ExtResource("1_um0bn")
+Nome = "Pinguim"
+vida = 40
+dano = 60.0
+speed = 120.0
+peso_spawn = 3
+exp = 60.0
+cena_inimigo = ExtResource("1_2n2ge")
+metadata/_custom_type_script = "uid://dmblxpy0y1i4"

@@ -72,13 +72,37 @@ func criar_card_run(pai: Node, dados: Dictionary) -> void:
 
 	var grid_inventario = novo_card.find_child("InventarioGrid", true, false)
 	if grid_inventario:
+		var contagem_paths = {}
 		for art_path in dados.get("artefatos", []):
+			contagem_paths[art_path] = contagem_paths.get(art_path, 0) + 1
+			
+		for art_path in contagem_paths.keys():
 			if ResourceLoader.exists(art_path):
 				var art = load(art_path)
 				if art:
+					var qtd = contagem_paths[art_path]
 					var slot = slot_artefato_scene.instantiate()
 					slot.texture = art.icone
-					slot.tooltip_text = art.nome + "\n" + art.descricao
+					
+					if qtd > 1:
+						slot.tooltip_text = "%s (x%d)\n%s" % [art.nome, qtd, art.descricao]
+						
+						var badge = Label.new()
+						badge.text = str(qtd)
+						badge.set_anchors_preset(Control.PRESET_TOP_RIGHT)
+						badge.offset_left = -20
+						badge.offset_top = -2
+						badge.offset_right = -2
+						badge.offset_bottom = 16
+						badge.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+						badge.add_theme_font_size_override("font_size", 12)
+						badge.add_theme_color_override("font_color", Color(1.0, 0.9, 0.2)) # Amarelo ouro
+						badge.add_theme_color_override("font_outline_color", Color.BLACK)
+						badge.add_theme_constant_override("outline_size", 4)
+						slot.add_child(badge)
+					else:
+						slot.tooltip_text = art.nome + "\n" + art.descricao
+						
 					grid_inventario.add_child(slot)
 
 

@@ -4,9 +4,7 @@ var tween_vida
 var slot_artefato = preload("res://Cenas/Huds/slot_artefato.tscn")
 
 func _ready() -> void:
-	RunData.inventario_atualizado.connect(atualizar_inventario)
 	atualizar_vida(RunData.vida_atual, RunData.vida_max)
-	atualizar_inventario()
 
 	
 	
@@ -40,14 +38,6 @@ func abrir_vida_boss(vidaMax):
 func atualizar_dinheiro():
 	%Dinheiro.text = "$: " + str(RecursosGlobais.moeda)
 
-func atualizar_inventario():
-	for child in %InventarioGrid.get_children():
-		child.queue_free()
-	for artefato in RunData.artefatos_coletados:
-		var slot_inventario = slot_artefato.instantiate()
-		slot_inventario.texture = artefato.icone
-		slot_inventario.tooltip_text = artefato.nome + "\n" + artefato.descricao
-		%InventarioGrid.add_child(slot_inventario)
 
 		
 		

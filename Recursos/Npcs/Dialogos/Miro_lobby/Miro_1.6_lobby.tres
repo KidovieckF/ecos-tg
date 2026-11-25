@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://cej44qmh5lx6t"]
 
 [ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_ccyoi"]
+[ext_resource type="Texture2D" uid="uid://drdsvq0vqkrsr" path="res://sprites/Portraits/Media.jpg" id="1_wc677"]
 [ext_resource type="Resource" uid="uid://trrte5ks66lx" path="res://Recursos/Npcs/Dialogos/Miro_lobby/Miro_1.1_lobby.tres" id="2_5pl03"]
 [ext_resource type="Resource" uid="uid://0dgi8ivlcqgt" path="res://Recursos/Npcs/Dialogos/Miro_lobby/Miro_1.2_lobby.tres" id="3_wc677"]
 [ext_resource type="Resource" uid="uid://bli7o60fcehyp" path="res://Recursos/Npcs/Dialogos/Miro_lobby/Miro_1.3_lobby.tres" id="4_lk8ge"]
@@ -10,7 +11,8 @@
 [resource]
 script = ExtResource("1_ccyoi")
 nome_falante = "Miro"
-falas = "Quer saber de mais alguma coisa?"
+foto = ExtResource("1_wc677")
+falas = "Ainda tá aqui? Mais alguma pergunta ou já posso voltar a trabalhar?"
 respostas = Array[String](["Sobre a vila", "Sobre os moradores", "Sobre o Hiki", "Aonde vou daqui?", "Quero nada."])
 proximo_1 = Array[ExtResource("1_ccyoi")]([ExtResource("2_5pl03")])
 proximo_2 = Array[ExtResource("1_ccyoi")]([ExtResource("3_wc677")])

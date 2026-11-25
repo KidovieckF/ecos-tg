@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://cdsdc3h085ufi"]
 
 [ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_m0qbh"]
+[ext_resource type="Texture2D" uid="uid://2qe651wiphxj" path="res://sprites/Portraits/nalini_dialogo_1.png" id="1_s32yt"]
 
 [resource]
 script = ExtResource("1_m0qbh")
 nome_falante = "Nalini"
+foto = ExtResource("1_s32yt")
 falas = "Ah, o Hiki? Pelo que eu vi ele ta meio encrencado.
 Um objeto com forma suspeitosamente de Hiki  apareceu voando pra torre esses dias."
 voltar_para = "uid://busjfv8kv70l7"
