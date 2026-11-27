@@ -781,6 +781,10 @@ _data = {
 &"RESET": SubResource("Animation_phadj")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3mf2w"]
+radius = 111.0
+height = 284.0
+
 [node name="Boss_golem" unique_id=1918095306 instance=ExtResource("1_gjyh8")]
 z_index = 2
 script = ExtResource("2_twfkx")
@@ -850,5 +854,9 @@ libraries/ = SubResource("AnimationLibrary_bsejv")
 [node name="Hurtbox" parent="." index="4" unique_id=1731929558]
 position = Vector2(0, 43.975)
 scale = Vector2(10.395, 10.395)
+
+[node name="CollisionShape2D" parent="AreaDano" parent_id_path=PackedInt32Array(1650888665) index="0" unique_id=1000179712]
+position = Vector2(-1, 34)
+shape = SubResource("CapsuleShape2D_3mf2w")
 
 [connection signal="timeout" from="TimerAtaque" to="." method="_on_timer_ataque_timeout"]

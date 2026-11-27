@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cekl13lqixqdy" path="res://Scripts/Inimigos/boss_base.gd" id="1_sgb02"]
 [ext_resource type="PackedScene" uid="uid://bgfuxu745s3b5" path="res://Cenas/Inimigos/Hurtbox.tscn" id="2_drhxw"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_drhxw"]
+
 [node name="Boss_base" type="CharacterBody2D" unique_id=1918095306]
 script = ExtResource("1_sgb02")
 
@@ -27,3 +29,10 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="AreaDano" type="Area2D" parent="." unique_id=1650888665]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDano" unique_id=1000179712]
+shape = SubResource("CapsuleShape2D_drhxw")
+
+[connection signal="body_entered" from="AreaDano" to="." method="_on_area_dano_body_entered"]

@@ -7,7 +7,9 @@
 [resource]
 script = ExtResource("1_yhprj")
 nome = "Greg"
+descricao = "Lança Bomvas"
 dano = 10.0
+preco = 0
 projetil = ExtResource("1_8jk6u")
 textura = ExtResource("3_racwb")
 metadata/_custom_type_script = "uid://djna43p0huls8"

@@ -13,7 +13,7 @@
 script = ExtResource("2_7lefu")
 nome_falante = "Helena"
 foto = ExtResource("1_sndwx")
-falas = "Olá, Alicia. Do que necessita?"
+falas = "Olá, Alice. Do que necessita?"
 respostas = Array[String](["Quero Treinar!", "Quero dar uma Olhada nas Magias."])
 proximo_1 = Array[ExtResource("2_7lefu")]([ExtResource("3_pdh4i"), ExtResource("4_lkw0v"), ExtResource("5_ofu3v")])
 proximo_2 = Array[ExtResource("2_7lefu")]([ExtResource("6_xgemm"), ExtResource("7_ftf7c"), ExtResource("8_2iknk")])

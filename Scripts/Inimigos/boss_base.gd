@@ -7,7 +7,8 @@ var cena_drop_artefato = preload("res://Cenas/Artefatos/Artefato_drop.tscn")
 @export var nome_boss : String = "Chefe Gigante"
 @export var vida_base : float = 5000.0
 @export var ataques : Array[String] = []
-@export var tempo_entre_ataques : float = 3.0 
+@export var tempo_entre_ataques : float = 3.0
+@export var dano_corpo : float = 15.0
 
 var vida_max : float
 var vida_atual : float
@@ -28,6 +29,15 @@ func _ready() -> void:
 	
 	timer_ataque.wait_time = tempo_entre_ataques
 	if anim: anim.play("Idle")
+
+func _physics_process(delta: float) -> void:
+	if morto:
+		return
+		
+	if has_node("BodyDmg"):
+		for body in $BodyDmg.get_overlapping_bodies():
+			if body.is_in_group("Players") and body.has_method("take_damage"):
+				body.take_damage(dano_corpo * RunData.mult_dificuldade, Color.WHITE)	
 
 func _on_timer_ataque_timeout() -> void:
 	if morto or ataques.size() == 0: return
@@ -80,3 +90,10 @@ func receber_dano(quantidade):
 		morto = true
 		morreu.emit()
 		dropar_recompensa()
+		var tween = create_tween()
+		tween.tween_property(self, "modulate:a", 0.0, 1.2)
+		tween.tween_callback(queue_free)
+
+
+func _on_area_dano_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

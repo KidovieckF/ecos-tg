@@ -9,6 +9,16 @@ var ui_cena = preload("res://Cenas/Mundo/NPCS/Cb_UI.tscn")
 
 var fala_primeira_vez = preload("res://Recursos/Npcs/Dialogos/Sasha_Run/Sasha_0_Run.tres")
 
+var dados_estoque = {
+	"gerado": false,
+	"artefato1": null,
+	"artefato1_comprado": false,
+	"artefato2": null,
+	"artefato2_comprado": false,
+	"arma": null,
+	"arma_comprada": false
+}
+
 var falas_loop = [
 	preload("res://Recursos/Npcs/Dialogos/Sasha_Run/Sasha_1_Run.tres"),
 	preload("res://Recursos/Npcs/Dialogos/Sasha_Run/Sasha_2_Run.tres"),

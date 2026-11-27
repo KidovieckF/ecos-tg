@@ -259,12 +259,17 @@ height = 252.0
 radius = 87.0
 height = 270.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tijqi"]
+radius = 10.250438
+height = 28.654633
+
 [node name="Boss_base" unique_id=1918095306 instance=ExtResource("1_85vmp")]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("2_tijqi")
 
 [node name="Hurtbox" parent="." index="1" unique_id=1731929558]
+visible = false
 scale = Vector2(8.975, 8.975)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3" unique_id=1569461704]
@@ -279,9 +284,16 @@ position = Vector2(-3, 22)
 shape = SubResource("CapsuleShape2D_pvl4y")
 
 [node name="AreaEncontro" type="Area2D" parent="." index="5" unique_id=1773493914]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaEncontro" index="0" unique_id=889657022]
 position = Vector2(-5, -1)
 shape = SubResource("CapsuleShape2D_12o74")
+
+[node name="AreaDano" parent="." index="6" unique_id=1650888665]
+scale = Vector2(8.585, 8.585)
+
+[node name="CollisionShape2D" parent="AreaDano" index="0" unique_id=1000179712]
+shape = SubResource("CapsuleShape2D_tijqi")
 
 [connection signal="timeout" from="TimerAtaque" to="." method="_on_timer_ataque_timeout"]

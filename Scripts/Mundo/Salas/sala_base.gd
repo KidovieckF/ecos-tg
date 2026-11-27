@@ -134,15 +134,18 @@ func escolher_tipo_da_onda() -> inimigo_data:
 	)
 	if tipos_validos.is_empty():
 		tipos_validos = tipos_inimigos
-
 	if tipos_validos.is_empty():
 		return null
-
-	if tipos_restantes_na_sala.is_empty():
-		tipos_restantes_na_sala = tipos_validos.duplicate()
-		tipos_restantes_na_sala.sort_custom(func(a, b): return a.peso_spawn > b.peso_spawn)
-
-	return tipos_restantes_na_sala.pop_front()
+	var peso_total: float = 0.0
+	for t in tipos_validos:
+		peso_total += float(t.peso_spawn if "peso_spawn" in t else 10)
+	var sorteio = randf_range(0.0, peso_total)
+	var acumulado: float = 0.0
+	for t in tipos_validos:
+		acumulado += float(t.peso_spawn if "peso_spawn" in t else 10)
+		if sorteio <= acumulado:
+			return t
+	return tipos_validos.pick_random()
 
 func calcular_quantidade_inimigos(tipo: inimigo_data) -> int:
 	var peso = tipo.peso_spawn if "peso_spawn" in tipo else 30

@@ -185,6 +185,7 @@ tile_map_data = PackedByteArray("AABHABwAAAABAAUAAABHAB0AAAABAAUAAABHAB4AAAABAAU
 tile_set = SubResource("TileSet_l04ie")
 
 [node name="CanvasLayer" parent="." unique_id=1917002634 instance=ExtResource("7_xfd0s")]
+visible = false
 
 [node name="Control" parent="." unique_id=433151292 instance=ExtResource("10_emmnh")]
 position = Vector2(1147, 336)

@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://dlmqmbe11aibi" path="res://Recursos/Inimigos/Inimigos Comuns/tres's/Mago_gelo.tres" id="6_p5wql"]
 [ext_resource type="Texture2D" uid="uid://bti5gwt2t5wr5" path="res://sprites/objects/objects.png" id="6_xfvaw"]
 [ext_resource type="Texture2D" uid="uid://bjeekix7tv3t5" path="res://sprites/tilesets/grass.png" id="7_8mytj"]
-[ext_resource type="Resource" uid="uid://ctqf3kmb06i1l" path="res://Recursos/Inimigos/Inimigos Comuns/tres's/Piguim.tres" id="7_ursr1"]
+[ext_resource type="Resource" uid="uid://ctqf3kmb06i1l" path="res://Recursos/Inimigos/Inimigos Comuns/tres's/Pinguim.tres" id="7_ursr1"]
 [ext_resource type="Texture2D" uid="uid://xjhnbcblp4dr" path="res://sprites/tilesets/plains.png" id="8_ji8be"]
 [ext_resource type="PackedScene" uid="uid://cnn1smldv0v1d" path="res://Cenas/Mundo/Caca_niquel.tscn" id="9_k56vy"]
 [ext_resource type="Texture2D" uid="uid://cmabmtk4vp6hn" path="res://sprites/Snowy Asset Pack/spritesheet.png" id="9_ly7jh"]

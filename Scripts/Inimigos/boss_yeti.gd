@@ -1,5 +1,7 @@
 extends "res://Scripts/Inimigos/boss_base.gd"
 
+var IndicadorImpacto = preload("res://Scripts/Inimigos/Efeitos/indicador_impacto.gd")
+
 var cena_bola_neve = preload("res://Cenas/Inimigos/Bosses/Bola_neve.tscn")
 @onready var player = get_tree().get_first_node_in_group("Players")
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -73,6 +75,7 @@ func ataque_lancamento() -> void:
 	_voltar_idle()
 
 # 2. PULO + CHUVA DE BOLAS MENORES AO CAIR NO CHÃO
+# 2. PULO COM AVISO NO CHÃO + CHUVA DE BOLAS DE NEVE
 func ataque_pulo() -> void:
 	if not player:
 		_voltar_idle()
@@ -82,25 +85,45 @@ func ataque_pulo() -> void:
 	sprite.play("Pulo")
 	
 	var destino = player.global_position
-	var duracao_pulo = 0.75
+	var duracao_pulo = 0.85
+	var raio_impacto = 95.0
 	
-	# Move até o alvo enquanto faz um arco vertical só no sprite
+	IndicadorImpacto.criar(get_parent(), destino, raio_impacto, duracao_pulo)
+	
+	z_index = 30
+	$CollisionShape2D.set_deferred("disabled", true)
+	if has_node("Hurtbox"):
+		$Hurtbox.set_deferred("monitoring", false)
+		$Hurtbox.set_deferred("monitorable", false)
+	if has_node("BodyDmg"):
+		$BodyDmg.set_deferred("monitoring", false)
+		
 	var tween_pos = create_tween()
 	tween_pos.tween_property(self, "global_position", destino, duracao_pulo).set_trans(Tween.TRANS_SINE)
 	
 	var tween_altura = create_tween()
-	tween_altura.tween_property(sprite, "position:y", -70.0, duracao_pulo * 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tween_altura.tween_property(sprite, "position:y", -140.0, duracao_pulo * 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	tween_altura.tween_property(sprite, "position:y", 0.0, duracao_pulo * 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	
 	await tween_pos.finished
 	if morto: return
 	
-	# Impacto no chão!
-	if player.has_node("CameraJogo"):
-		player.get_node("CameraJogo").tremor(240)
+	z_index = 0
+	$CollisionShape2D.set_deferred("disabled", false)
+	if has_node("Hurtbox"):
+		$Hurtbox.set_deferred("monitoring", true)
+		$Hurtbox.set_deferred("monitorable", true)
+	if has_node("BodyDmg"):
+		$BodyDmg.set_deferred("monitoring", true)
 		
-	# Faz cair de 8 a 10 bolas menores espalhadas pela área
-	for i in range(9):
+	if player.has_node("CameraJogo"):
+		player.get_node("CameraJogo").tremor(280)
+		
+	if player and global_position.distance_to(player.global_position) < raio_impacto:
+		if player.has_method("take_damage"):
+			player.take_damage(25.0 * RunData.mult_dificuldade, Color.CYAN)
+		
+	for i in range(8):
 		var bola_menor = cena_bola_neve.instantiate()
 		get_parent().add_child(bola_menor)
 		var offset = Vector2.from_angle(randf() * TAU) * randf_range(70.0, 320.0)
@@ -109,14 +132,12 @@ func ataque_pulo() -> void:
 	await get_tree().create_timer(0.8).timeout
 	_voltar_idle()
 
-# 3. CORRIDA PARA DAR ENCONTRÃO NO PLAYER
 func ataque_corrida() -> void:
 	if not player:
 		_voltar_idle()
 		return
 		
 	_olhar_para_player()
-	# Pausa rápida de aviso antes de disparar
 	await get_tree().create_timer(0.4).timeout
 	if morto: return
 	

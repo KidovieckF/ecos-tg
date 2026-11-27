@@ -83,21 +83,25 @@ func morrer():
 	$AreaDano.collision_layer = 0
 	$AreaDano.collision_mask = 0
 	
-	# Cria a animação da morte
+	
 	var death = AnimatedSprite2D.new()
 	death.sprite_frames = $Sprite2D.sprite_frames
 	death.scale = $Sprite2D.scale
 	death.flip_h = $Sprite2D.flip_h
-	death.global_position = global_position
 	get_parent().add_child(death)
+	death.global_position = global_position
 	
-	death.play("Morrendo")
-	
-	death.animation_finished.connect(func():
+	if death.sprite_frames and death.sprite_frames.has_animation("Morrendo"):
+		death.play("Morrendo")
+		death.animation_finished.connect(func():
+			var tween = death.create_tween()
+			tween.tween_property(death, "modulate:a", 0.0, 0.4)
+			tween.tween_callback(death.queue_free) 
+		)
+	else:
 		var tween = death.create_tween()
-		tween.tween_property(death, "modulate:a", 0.0, 0.4)
-		tween.tween_callback(death.queue_free) 
-	)
+		tween.tween_property(death, "modulate:a", 0.0, 0.5)
+		tween.tween_callback(death.queue_free)
 	
 	spawn_item()
 	queue_free()

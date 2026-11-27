@@ -13,6 +13,7 @@ script = ExtResource("1_fy3hk")
 shape = SubResource("CircleShape2D_f1yge")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2146549573]
+modulate = Color(1.1551381e-06, 0.7364402, 0.880868, 1)
 texture = ExtResource("2_b4t0k")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,5 +1,8 @@
 extends Area2D
 
+
+var IndicadorImpacto = preload("res://Scripts/Inimigos/Efeitos/indicador_impacto.gd")
+
 enum Modo { TIRO, QUEDA }
 var modo_atual: Modo = Modo.TIRO
 
@@ -30,23 +33,31 @@ func iniciar_queda(pos_alvo: Vector2, p_dano: float = 10.0, escala: float = 0.45
 	modo_atual = Modo.QUEDA
 	scale = Vector2(escala, escala)
 	dano = p_dano
-	monitoring = false
+	
+	var tempo_queda = randf_range(0.5, 0.75)
+	var raio_impacto = 32.0
+	
+	IndicadorImpacto.criar(get_parent(), pos_alvo, raio_impacto, tempo_queda)
+	
 	
 	global_position = pos_alvo + Vector2(0, -450)
-	var tempo_queda = randf_range(0.45, 0.7)
+	z_index = 25
 	
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", pos_alvo, tempo_queda).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	tween.tween_callback(func():
 		if not is_instance_valid(self): return
-		monitoring = true
+		z_index = 0
 		
-		for corpo in get_overlapping_bodies():
-			if corpo.is_in_group("Players") and corpo.has_method("take_damage"):
-				corpo.take_damage(dano, Color.CYAN)
-				
+		var player = get_tree().get_first_node_in_group("Players")
+		if player and is_instance_valid(player):
+			var dist = global_position.distance_to(player.global_position)
+			if dist < raio_impacto:
+				if player.has_method("take_damage"):
+					player.take_damage(dano, Color.CYAN)
+		
 		var t_out = create_tween()
-		t_out.tween_property(self, "modulate:a", 0.0, 0.2)
+		t_out.tween_property(self, "modulate:a", 0.0, 0.15)
 		t_out.tween_callback(queue_free)
 	)
 

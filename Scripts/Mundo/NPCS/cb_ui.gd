@@ -171,8 +171,4 @@ func fechar_dialogo() -> void:
 	if player:
 		player.set_physics_process(true)
 		
-	if recurso_atual and recurso_atual.get("cena_para_abrir") and recurso_atual.cena_para_abrir != null:
-		var instancia = recurso_atual.cena_para_abrir.instantiate()
-		get_tree().current_scene.add_child(instancia)
-		
 	queue_free()

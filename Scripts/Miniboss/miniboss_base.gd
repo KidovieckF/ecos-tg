@@ -22,6 +22,9 @@ func _ready() -> void:
 	add_to_group("Miniboss")
 	set_physics_process(false) 
 	
+	if data and data.textura:
+		$Sprite2D.texture = data.textura
+	
 	player = get_tree().get_first_node_in_group("Players")
 	if player:
 		await data.cutscene_inicial(self)

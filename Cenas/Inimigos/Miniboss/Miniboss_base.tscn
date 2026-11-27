@@ -43,7 +43,7 @@ one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=484788681]
 position = Vector2(-3.8146973e-06, -3.8146973e-06)
-scale = Vector2(0.4765625, 0.4765625)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_tfqr0")
 
 [node name="BodyDmg" type="Area2D" parent="." unique_id=828494753]

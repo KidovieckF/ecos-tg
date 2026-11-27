@@ -16,7 +16,7 @@ class_name ArmaRecurso
 
 var nivel : int = 1
 var xp_atual : float = 0.0
-var barra_exp : float = 30.0
+var barra_exp : float = 100
 
 
 var barra_ultimate_atual : float

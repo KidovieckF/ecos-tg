@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="FalaRecurso" format=3 uid="uid://dijbcidjelw4c"]
 
 [ext_resource type="Script" uid="uid://b1j7iupjo2avo" path="res://Recursos/Npcs/FalaRecurso.gd" id="1_620ht"]
+[ext_resource type="PackedScene" uid="uid://kmtyawswx1qp" path="res://Cenas/Huds/hud_loja.tscn" id="1_dekkq"]
 [ext_resource type="Texture2D" uid="uid://b6uq75f3ayk48" path="res://sprites/Portraits/sasha_dialogo_4.png" id="1_kyy67"]
 
 [resource]
@@ -8,4 +9,5 @@ script = ExtResource("1_620ht")
 nome_falante = "Sasha"
 foto = ExtResource("1_kyy67")
 falas = "Surpresa, mas nem tanto né?! Trouxe umas coisinhas pro cê!"
+cena_para_abrir = ExtResource("1_dekkq")
 metadata/_custom_type_script = "uid://b1j7iupjo2avo"

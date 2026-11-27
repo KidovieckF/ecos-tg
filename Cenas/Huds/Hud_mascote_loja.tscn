@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://ekdv0214p4uc"]
 
+[ext_resource type="Script" uid="uid://c027x3lg5r7m" path="res://Scripts/Huds/hud_mascote_loja.gd" id="1_o3inj"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_am5sj"]
 bg_color = Color(0.7117595, 0.58000916, 0.31663132, 1)
 corner_radius_top_left = 50
@@ -8,6 +10,7 @@ corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=913309003]
+script = ExtResource("1_o3inj")
 
 [node name="Panel" type="Panel" parent="." unique_id=570494921]
 custom_minimum_size = Vector2(600, 300)
@@ -31,7 +34,68 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1210946862]
+layout_mode = 2
+
+[node name="Top Bar" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1444264971]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Titulo" type="Label" parent="Panel/MarginContainer/VBoxContainer/Top Bar" unique_id=1273381792]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Loja da Miro"
+horizontal_alignment = 1
+
+[node name="MoedasLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/Top Bar" unique_id=49520868]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "R$: 80"
+
+[node name="BtnFechar" type="Button" parent="Panel/MarginContainer/VBoxContainer/Top Bar" unique_id=330590500]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer" unique_id=179241145]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=450934396]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1463535172]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer" unique_id=497991059]
+layout_mode = 2
+
+[node name="Textura1" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer" unique_id=1091661988]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Nome1" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer" unique_id=958219200]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Descricao1" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer" unique_id=471229102]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Preco" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer" unique_id=1822167447]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BtnComprar1" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer" unique_id=1525192779]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Top Bar/BtnFechar" to="." method="_on_btn_fechar_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/BtnComprar1" to="." method="_on_btn_comprar_1_pressed"]

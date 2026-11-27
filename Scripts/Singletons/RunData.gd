@@ -12,6 +12,19 @@ var seed_atual: int = 0
 var seed_customizada: int = 0
 var dados_restauracao_mapa: Dictionary = {}
 
+var mascote_ativo: MascoteRucurso = null
+var cena_mascote = preload("res://Cenas/Player/Mascotes/mascote.tscn")
+
+#loja
+var estoque_loja_andar = {
+	"gerado": false,
+	"artefato1": null,
+	"artefato1_comprado": false,
+	"artefato2": null,
+	"artefato2_comprado": false,
+	"arma": null,
+	"arma_comprada": false,
+}
 
 const PESOS_INIMIGO_COMUM = {
 	"Comum": 70,
@@ -295,7 +308,26 @@ func calcular_artefatos():
 				vida_max += dados["valor_buff"]
 			"atk_speed":
 				mult_de_atk_speed += dados["valor_buff"]
-	
+				
+				
+func spawnar_mascote(player: Node2D) -> void:
+	if mascote_ativo == null or not is_instance_valid(player):
+		return
+		
+	var mascote_existente = player.get_parent().get_node_or_null("MascotePlayer")
+	if mascote_existente:
+		mascote_existente.global_position = player.global_position + Vector2(-35, 0)
+		return
+		
+	var pet = cena_mascote.instantiate()
+	pet.name = "MascotePlayer"
+	pet.mascote = mascote_ativo
+	pet.global_position = player.global_position + Vector2(-35, 0)
+	pet.z_index = 5
+	player.get_parent().add_child.call_deferred(pet)
+	print("🐾 Mascote ", mascote_ativo.nome, " spawnado com sucesso!")
+
+
 func aplicar_efeitos_parado(player, delta):
 	if cura_parado_total > 0:
 		tempo_cura_acumulado += delta
@@ -455,6 +487,7 @@ func resetar_run() -> void:
 	pity_drop_artefato = 0
 	pocoes_ativas.clear()
 	treino_liberado = false
+	estoque_loja_andar["gerado"] = false
 
 func guardar_player(player) -> void:
 	xp_atual = player.xp_atual
@@ -469,6 +502,7 @@ func carregar_player(player) -> void:
 
 func avancar_andar():
 	andar += 1
+	estoque_loja_andar["gerado"] = false
 
 # DROPS DE ARTEFATOS:
 func checar_drop_inimigo_comum() -> Artefato_data:

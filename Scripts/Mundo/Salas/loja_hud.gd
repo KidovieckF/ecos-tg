@@ -15,56 +15,85 @@ func _ready() -> void:
 	get_tree().paused = true
 	atualizar_display_dinheiro()
 
-	# 1. Carregar Artefato 1
-	sorte1 = RunData.sortear_artefato_por_pesos(RunData.PESOS_LOJA)
-	if sorte1 != null:
+	# Se ainda não sorteou itens para este andar, sorteia e salva
+	if not RunData.estoque_loja_andar["gerado"]:
+		sorte1 = RunData.sortear_artefato_por_pesos(RunData.PESOS_LOJA)
+		
+		var tentativas = 0
+		sorte2 = RunData.sortear_artefato_por_pesos(RunData.PESOS_LOJA)
+		while sorte2 == sorte1 and RunData.artefatos_disponiveis.size() > 1 and tentativas < 10:
+			sorte2 = RunData.sortear_artefato_por_pesos(RunData.PESOS_LOJA)
+			tentativas += 1
+			
+		var mostrar_arma = randi_range(0, 1)
+		if mostrar_arma == 1 and armas.size() > 0:
+			sorteArma = armas.pick_random()
+		else:
+			sorteArma = null
+			
+		RunData.estoque_loja_andar["artefato1"] = sorte1
+		RunData.estoque_loja_andar["artefato1_comprado"] = false
+		RunData.estoque_loja_andar["artefato2"] = sorte2
+		RunData.estoque_loja_andar["artefato2_comprado"] = false
+		RunData.estoque_loja_andar["arma"] = sorteArma
+		RunData.estoque_loja_andar["arma_comprada"] = false
+		RunData.estoque_loja_andar["gerado"] = true
+
+	# Carrega os itens salvos no estoque
+	sorte1 = RunData.estoque_loja_andar["artefato1"]
+	sorte2 = RunData.estoque_loja_andar["artefato2"]
+	sorteArma = RunData.estoque_loja_andar["arma"]
+
+	# Exibe Artefato 1
+	if sorte1 != null and %ArtefatoCard1:
+		%ArtefatoCard1.visible = true
 		%ArtNome1.text = sorte1.nome
 		%ArtefatoBtn.texture_normal = sorte1.icone
-		%ArtPreco1.text = "$" + str(sorte1.preco)
 		%ArtefatoBtn.tooltip_text = "%s\n%s" % [sorte1.nome, sorte1.descricao]
-		if %ArtefatoCard1:
-			%ArtefatoCard1.visible = true
-	else:
-		if %ArtefatoCard1:
-			%ArtefatoCard1.visible = false
+		if RunData.estoque_loja_andar["artefato1_comprado"]:
+			_desativar_card_comprado(%ArtefatoBtn, %ArtPreco1, %ComprarBtnArt1, %ArtefatoCard1)
+		else:
+			%ArtPreco1.text = "$" + str(sorte1.preco)
 
-	# 2. Carregar Artefato 2
-	var tentativas = 0
-	sorte2 = RunData.sortear_artefato_por_pesos(RunData.PESOS_LOJA)
-	while sorte2 == sorte1 and RunData.artefatos_disponiveis.size() > 1 and tentativas < 10:
-		sorte2 = RunData.sortear_artefato_por_pesos(RunData.PESOS_LOJA)
-		tentativas += 1
-		
-	if sorte2 != null and sorte2 != sorte1:
+	# Exibe Artefato 2
+	if sorte2 != null and %ArtefatoCard2:
+		%ArtefatoCard2.visible = true
 		%ArtNome2.text = sorte2.nome
 		%ArtefatoBtn2.texture_normal = sorte2.icone
-		%ArtPreco3.text = "$" + str(sorte2.preco)
 		%ArtefatoBtn2.tooltip_text = "%s\n%s" % [sorte2.nome, sorte2.descricao]
-		if %ArtefatoCard2:
-			%ArtefatoCard2.visible = true
-	else:
-		if %ArtefatoCard2:
-			%ArtefatoCard2.visible = false
+		if RunData.estoque_loja_andar["artefato2_comprado"]:
+			_desativar_card_comprado(%ArtefatoBtn2, %ArtPreco3, %ComprarBtnArt2, %ArtefatoCard2)
+		else:
+			%ArtPreco3.text = "$" + str(sorte2.preco)
 
-	# 3. Carregar Arma
-	var mostrar_arma = randi_range(0, 1)
-	if mostrar_arma == 1 and armas.size() > 0:
-		sortear_arma()
-		sorteArma = armas[sorteadoArma]
-		%PrecoArma.text = "$" + str(sorteArma.preco)
-		%DescricaoArma.text = str(sorteArma.nome)
+	# Exibe Arma
+	if sorteArma != null and %ArmaContainer:
+		%ArmaContainer.visible = true
+		%DescricaoArma.text = sorteArma.nome
 		%ArmaBtn.texture_normal = sorteArma.textura
 		%ArmaBtn.tooltip_text = sorteArma.nome
-		if %ArmaContainer:
-			%ArmaContainer.visible = true
-	else:
-		if %ArmaContainer:
-			%ArmaContainer.visible = false
+		if RunData.estoque_loja_andar["arma_comprada"]:
+			_desativar_card_comprado(%ArmaBtn, %PrecoArma, %ComprarBtn, %ArmaContainer)
+		else:
+			%PrecoArma.text = "$" + str(sorteArma.preco)
+	elif %ArmaContainer:
+		%ArmaContainer.visible = false
 
 	_configurar_hover_card(%ArmaContainer)
 	_configurar_hover_card(%ArtefatoCard1)
 	_configurar_hover_card(%ArtefatoCard2)
 	_animar_entrada_cards()
+
+func _desativar_card_comprado(btn: TextureButton, lbl_preco: Label, btn_compra: Button, card: Control):
+	if btn: btn.disabled = true
+	if lbl_preco:
+		lbl_preco.text = "Adquirido"
+		lbl_preco.modulate = Color(0.4, 1.0, 0.5)
+	if btn_compra:
+		btn_compra.text = "Comprado"
+		btn_compra.disabled = true
+	if card:
+		card.modulate = Color(0.7, 0.7, 0.75, 0.85)
 
 
 func _configurar_hover_card(card: Control) -> void:
@@ -180,6 +209,7 @@ func _on_arma_btn_pressed() -> void:
 		if %ArmaContainer:
 			%ArmaContainer.modulate = Color(0.7, 0.7, 0.75, 0.85)
 		sorteArma = null
+		RunData.estoque_loja_andar["arma_comprada"] = true 
 	else:
 		piscar_vermelho(%ArmaContainer)
 
@@ -202,6 +232,7 @@ func _on_artefato_btn_pressed() -> void:
 		if %ArtefatoCard1:
 			%ArtefatoCard1.modulate = Color(0.7, 0.7, 0.75, 0.85)
 		sorte1 = null
+		RunData.estoque_loja_andar["artefato1_comprado"] = true 
 	else:
 		piscar_vermelho(%ArtefatoCard1)
 
@@ -224,5 +255,6 @@ func _on_artefato_btn_2_pressed() -> void:
 		if %ArtefatoCard2:
 			%ArtefatoCard2.modulate = Color(0.7, 0.7, 0.75, 0.85)
 		sorte2 = null
+		RunData.estoque_loja_andar["artefato2_comprado"] = true 
 	else:
 		piscar_vermelho(%ArtefatoCard2)

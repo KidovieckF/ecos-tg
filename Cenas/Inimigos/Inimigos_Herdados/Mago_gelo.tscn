@@ -365,6 +365,8 @@ animations = [{
 [node name="InimigoBase" unique_id=1673984598 instance=ExtResource("1_vbvam")]
 
 [node name="Sprite2D" parent="." index="1" unique_id=208783479]
+position = Vector2(-9, -5)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_gq4bu")
 frame = 3
 frame_progress = 1.0

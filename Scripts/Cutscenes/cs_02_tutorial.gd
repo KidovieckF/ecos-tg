@@ -18,18 +18,26 @@ var tween_texto : Tween
 var timer_taunt: float = 0.0
 
 var dialogos_tutorial = [
-	"Ei, cuidado aí na frente! Essa coisa escapou e tá indo babando pra cima de você!",
-	"Não fica aí parada com cara de paisagem! Me ajuda aqui antes que esse bicho quebre tudo!",
-	"Usa [W, A, S, D] pra se mexer rápido. A não ser que você queira levar uma pancada de graça.",
-	"Aponta o mouse e clica no Botão Esquerdo pra jogar essas tuas magias bem na fuça dele!",
-	"Fica de olho na sua Vida e na barra de XP ali em cima. Não vai me morrer de bobeira, hein!",
+	"Ei, cuidado aí na frente! Essa coisa escapou e tá indo 
+	babando pra cima de você!",
+	"Não fica aí parada com cara de paisagem!
+	 Me ajuda aqui antes que esse bicho quebre tudo!",
+	"Usa [W, A, S, D] pra se mexer rápido.
+	 A não ser que você queira levar uma pancada de graça.",
+	"Aponta o mouse e clica no Botão Esquerdo
+	pra jogar essas tuas magias bem na fuça dele!",
+	"Fica de olho na sua Vida e na barra de XP ali em cima.
+	 Não vai me morrer de bobeira, hein!",
 	"Chega de papo, ele tá vindo! Mostra pra que veio!"
 ]
 
 var dialogos_pos_combate = [
-	"Olha só... até que você não é um desastre completo. Mandou bem de verdade!",
-	"Nem me apresent- Ah é você Alice. Sou eu a Miro! Quanto Tempo.",
-	"Você ainda tem jeito pra coisa, garota. Entra naquele portal ali na frente que dá direto na vila. Não enrola, te vejo lá!"
+	"Olha só... até que você não é um desastre completo.
+	Mandou bem de verdade!",
+	"Nem me apresent- Ah é você Alice.
+	Sou eu a Miro! Quanto Tempo.",
+	"Você ainda tem jeito pra coisa, garota.
+	Entra naquele portal ali na frente que dá direto na vila. Não enrola, te vejo lá!"
 ]
 
 var taunts_combate = [

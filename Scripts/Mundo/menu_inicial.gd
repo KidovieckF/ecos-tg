@@ -111,7 +111,7 @@ func _on_iniciar_btn_pressed() -> void:
 		SaveManager.registrar_inicio_run()
 		
 	if %TutorialCheckBox and %TutorialCheckBox.button_pressed:
-			destino = "res://Cenas/Cutscenes/cs_01_chegada_floresta.tscn"
+			destino = "res://Cenas/Cutscenes/cs_02_tutorial.tscn"
 		
 	
 	_executar_transicao_para_cena(destino)
@@ -131,7 +131,7 @@ func _on_nova_run_btn_pressed() -> void:
 	var destino = "res://Cenas/Mundo/LobbyPrincipal.tscn"
 	
 	if %TutorialCheckBox and %TutorialCheckBox.button_pressed:
-		destino = "res://Cenas/Cutscenes/cs_01_chegada_floresta.tscn"
+		destino = "res://Cenas/Cutscenes/cs_02_tutorial.tscn"
 	
 	_executar_transicao_para_cena(destino)
 	

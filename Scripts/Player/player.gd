@@ -33,7 +33,9 @@ var pause_scene = preload("res://Cenas/Huds/hud_pause.tscn")
 var magia1 = preload("res://Cenas/Player/Magias/Magia1.tscn")
 
 func _ready() -> void:
-		
+	
+	RunData.spawnar_mascote(self)
+	
 	if RecursosGlobais.arma_escolhida:
 		arma = RecursosGlobais.arma_escolhida
 	if RunData.arma_escolhida == null:
